@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Container_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[woocommerce-content-divider]',
 					'type'     => 'control',
 					'section'  => 'section-container-layout',
 					'control'  => 'ast-divider',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Container_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[woocommerce-content-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[woocommerce-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'woocommerce-content-layout' ),

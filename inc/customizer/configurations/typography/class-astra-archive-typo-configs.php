@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 				 * Option: Blog Typography
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-typography-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-typography-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-blog',
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 				 * Option: Blog / Archive Typography
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
+					'name'      => KANGA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
 					'default'   => kanga_get_option( 'blog-content-archive-summary-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 				),
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+					'name'      => KANGA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
 					'default'   => kanga_get_option( 'blog-content-blog-post-title-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'        => 'font-size-page-title',
-					'parent'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
+					'parent'      => KANGA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
 					'section'     => 'section-blog',
 					'type'        => 'sub-control',
 					'control'     => 'ast-responsive',
@@ -97,7 +97,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'        => 'font-size-archive-summary-title',
-					'parent'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
+					'parent'      => KANGA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
 					'section'     => 'section-blog',
 					'type'        => 'sub-control',
 					'control'     => 'ast-responsive',
@@ -118,7 +118,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Kanga Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 
 				$_configs = array(
 
@@ -126,7 +126,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 					 * Option: Divider
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-typography-more-feature-divider]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-blog-typography-more-feature-divider]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-blog',
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 					 * Option: Learn More about Contant Typography
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-typography-more-feature-description]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-blog-typography-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-blog',

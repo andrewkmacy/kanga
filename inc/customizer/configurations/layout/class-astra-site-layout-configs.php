@@ -33,14 +33,14 @@ if ( ! class_exists( 'Kanga_Site_Layout_Configs' ) ) {
 			$_configs = array(
 
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[site-content-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[site-content-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'default'     => 1200,
 					'section'     => 'section-container-layout',
 					'priority'    => 10,
 					'title'       => __( 'Width', 'kanga' ),
-					'required'    => array( ASTRA_THEME_SETTINGS . '[site-layout]', '==', 'ast-full-width-layout' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[site-layout]', '==', 'ast-full-width-layout' ),
 					'suffix'      => '',
 					'input_attrs' => array(
 						'min'  => 768,

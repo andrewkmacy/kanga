@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 1 (H1) Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h1]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-h1]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 1 (H1) Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h1]',
+					'name'        => KANGA_THEME_SETTINGS . '[font-size-h1]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-content-typo',
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 2 (H2) Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h2]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-h2]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 2 (H2) Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h2]',
+					'name'        => KANGA_THEME_SETTINGS . '[font-size-h2]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-content-typo',
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 3 (H3) Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h3]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-h3]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 3 (H3) Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h3]',
+					'name'        => KANGA_THEME_SETTINGS . '[font-size-h3]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-content-typo',
@@ -138,7 +138,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 4 (H4) Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h4]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-h4]',
 					'type'     => 'control',
 					'title'    => __( 'Heading 4', 'kanga' ),
 					'section'  => 'section-content-typo',
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 4 (H4) Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h4]',
+					'name'        => KANGA_THEME_SETTINGS . '[font-size-h4]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-content-typo',
@@ -172,7 +172,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 5 (H5) Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h5]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-h5]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-content-typo',
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 5 (H5) Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h5]',
+					'name'        => KANGA_THEME_SETTINGS . '[font-size-h5]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-content-typo',
@@ -206,7 +206,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 6 (H6) Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-h6]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-h6]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'title'    => __( 'Heading 6', 'kanga' ),
@@ -219,7 +219,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 				 * Option: Heading 6 (H6) Font Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[font-size-h6]',
+					'name'        => KANGA_THEME_SETTINGS . '[font-size-h6]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive',
 					'section'     => 'section-content-typo',
@@ -240,14 +240,14 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Kanga Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 
 				$_configs = array(
 					/**
 					 * Option: Divider
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-content-typography-more-feature-divider]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-content-typography-more-feature-divider]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-content-typo',
@@ -259,7 +259,7 @@ if ( ! class_exists( 'Kanga_Content_Typo_Configs' ) ) {
 					 * Option: Learn More about Contant Typography
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-content-typography-more-feature-description]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-content-typography-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-content-typo',

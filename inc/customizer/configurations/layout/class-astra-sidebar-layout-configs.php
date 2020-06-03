@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				 * Option: Default Sidebar Position
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[site-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-sidebars',
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[single-page-sidebar-layout-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-sidebars',
@@ -66,7 +66,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				 * Option: Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[single-page-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-sidebars',
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				 * Option: Blog Post
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-post-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[single-post-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'single-post-sidebar-layout' ),
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				 * Option: Blog Post Archive
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[archive-post-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'archive-post-sidebar-layout' ),
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-sidebar-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-sidebar-width]',
 					'type'     => 'control',
 					'section'  => 'section-sidebars',
 					'control'  => 'ast-divider',
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				 * Option: Primary Content Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[site-sidebar-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[site-sidebar-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'default'     => 30,
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Kanga_Sidebar_Layout_Configs' ) ) {
 				),
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-sidebar-width-description]',
+					'name'     => KANGA_THEME_SETTINGS . '[site-sidebar-width-description]',
 					'type'     => 'control',
 					'control'  => 'ast-description',
 					'section'  => 'section-sidebars',

@@ -13,8 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'ASTRA_THEME_BREADCRUMBS_DIR', ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/' );
-define( 'ASTRA_THEME_BREADCRUMBS_URI', ASTRA_THEME_URI . 'inc/addons/breadcrumbs/' );
+define( 'KANGA_THEME_BREADCRUMBS_DIR', KANGA_THEME_DIR . 'inc/addons/breadcrumbs/' );
+define( 'KANGA_THEME_BREADCRUMBS_URI', KANGA_THEME_URI . 'inc/addons/breadcrumbs/' );
 
 if ( ! class_exists( 'Kanga_Breadcrumbs' ) ) {
 
@@ -47,15 +47,15 @@ if ( ! class_exists( 'Kanga_Breadcrumbs' ) ) {
 		 */
 		public function __construct() {
 
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumbs-loader.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumbs-markup.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumb-trail.php';
+			require_once KANGA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumbs-loader.php';
+			require_once KANGA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumbs-markup.php';
+			require_once KANGA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumb-trail.php';
 			// Third Party plugins in the breadcrumb options.
 			add_filter( 'kanga_breadcrumb_source_list', array( $this, 'kanga_breadcrumb_source_list_items' ) );
 
 			// Include front end files.
 			if ( ! is_admin() ) {
-				require_once ASTRA_THEME_BREADCRUMBS_DIR . 'dynamic-css/dynamic.css.php';
+				require_once KANGA_THEME_BREADCRUMBS_DIR . 'dynamic-css/dynamic.css.php';
 			}
 		}
 

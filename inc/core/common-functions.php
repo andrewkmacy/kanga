@@ -490,12 +490,12 @@ if ( ! function_exists( 'kanga_update_option' ) ) {
 		do_action( "kanga_before_update_option_{$option}", $value, $option );
 
 		// Get all customizer options.
-		$theme_options = get_option( ASTRA_THEME_SETTINGS );
+		$theme_options = get_option( KANGA_THEME_SETTINGS );
 
 		// Update value in options array.
 		$theme_options[ $option ] = $value;
 
-		update_option( ASTRA_THEME_SETTINGS, $theme_options );
+		update_option( KANGA_THEME_SETTINGS, $theme_options );
 
 		do_action( "kanga_after_update_option_{$option}", $value, $option );
 	}
@@ -514,12 +514,12 @@ if ( ! function_exists( 'kanga_delete_option' ) ) {
 		do_action( "kanga_before_delete_option_{$option}", $option );
 
 		// Get all customizer options.
-		$theme_options = get_option( ASTRA_THEME_SETTINGS );
+		$theme_options = get_option( KANGA_THEME_SETTINGS );
 
 		// Update value in options array.
 		unset( $theme_options[ $option ] );
 
-		update_option( ASTRA_THEME_SETTINGS, $theme_options );
+		update_option( KANGA_THEME_SETTINGS, $theme_options );
 
 		do_action( "kanga_after_delete_option_{$option}", $option );
 	}

@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$control_dir = ASTRA_THEME_DIR . 'inc/customizer/custom-controls';
+$control_dir = KANGA_THEME_DIR . 'inc/customizer/custom-controls';
 
 require $control_dir . '/class-kanga-customizer-control-base.php';
 require $control_dir . '/sortable/class-kanga-control-sortable.php';

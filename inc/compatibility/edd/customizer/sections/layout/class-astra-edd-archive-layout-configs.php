@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Shop Columns
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-grids]',
+					'name'        => KANGA_THEME_SETTINGS . '[edd-archive-grids]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'section-edd-archive',
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: EDD Archive Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-archive-product-structure]',
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'section'  => 'section-edd-archive',
@@ -79,12 +79,12 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Add to Cart button text
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-archive-add-to-cart-button-text]',
 					'type'     => 'control',
 					'control'  => 'text',
 					'section'  => 'section-edd-archive',
 					'default'  => kanga_get_option( 'edd-archive-add-to-cart-button-text' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
 					'priority' => 31,
 					'title'    => __( 'Cart Button Text', 'kanga' ),
 				),
@@ -93,12 +93,12 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Variable product button
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-archive-variable-button]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-edd-archive',
 					'default'  => kanga_get_option( 'edd-archive-variable-button' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[edd-archive-product-structure]', 'contains', 'add_cart' ),
 					'priority' => 31,
 					'title'    => __( 'Variable Product Button', 'kanga' ),
 					'choices'  => array(
@@ -111,12 +111,12 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Variable product button text
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-variable-button-text]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-archive-variable-button-text]',
 					'type'     => 'control',
 					'control'  => 'text',
 					'section'  => 'section-edd-archive',
 					'default'  => kanga_get_option( 'edd-archive-variable-button-text' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[edd-archive-variable-button]', '==', 'button' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[edd-archive-variable-button]', '==', 'button' ),
 					'priority' => 31,
 					'title'    => __( 'Variable Product Button Text', 'kanga' ),
 				),
@@ -125,7 +125,7 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Easy Digital Downloads Shop Archive Content Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-width-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-archive-width-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-edd-archive',
@@ -137,7 +137,7 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Archive Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-archive-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-archive-width]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-edd-archive',
@@ -154,13 +154,13 @@ if ( ! class_exists( 'Kanga_Edd_Archive_Layout_Configs' ) ) {
 				 * Option: Enter Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[edd-archive-max-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[edd-archive-max-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'section-edd-archive',
 					'default'     => 1200,
 					'priority'    => 225,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[edd-archive-width]', '===', 'custom' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[edd-archive-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'kanga' ),
 					'transport'   => 'postMessage',
 					'suffix'      => '',

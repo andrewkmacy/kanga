@@ -520,8 +520,8 @@ module.exports = function (grunt) {
                 overwrite: true,
                 replacements: [
                     {
-                        from: /ASTRA_THEME_VERSION', '.*?'/g,
-                        to: 'ASTRA_THEME_VERSION\', \'<%= pkg.version %>\''
+                        from: /KANGA_THEME_VERSION', '.*?'/g,
+                        to: 'KANGA_THEME_VERSION\', \'<%= pkg.version %>\''
                     }
                 ]
             },

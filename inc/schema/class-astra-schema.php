@@ -42,14 +42,14 @@ class Kanga_Schema {
 	 * @since 2.1.3
 	 */
 	private function include_schemas() {
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-creativework-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-wpheader-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-wpfooter-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-wpsidebar-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-person-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-organization-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-site-navigation-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-breadcrumb-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-creativework-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-wpheader-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-wpfooter-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-wpsidebar-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-person-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-organization-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-site-navigation-schema.php';
+		require_once KANGA_THEME_DIR . 'inc/schema/class-kanga-breadcrumb-schema.php';
 	}
 
 	/**

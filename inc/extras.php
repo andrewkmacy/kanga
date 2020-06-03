@@ -101,7 +101,7 @@ if ( ! function_exists( 'kanga_body_classes' ) ) {
 		$classes[]   = esc_attr( $page_layout );
 
 		// Current Kanga verion.
-		$classes[] = esc_attr( 'kanga-' . ASTRA_THEME_VERSION );
+		$classes[] = esc_attr( 'kanga-' . KANGA_THEME_VERSION );
 
 		$menu_item    = kanga_get_option( 'header-main-rt-section' );
 		$outside_menu = kanga_get_option( 'header-display-outside-menu' );
@@ -429,7 +429,7 @@ if ( ! function_exists( 'kanga_get_custom_html' ) ) {
 		if ( ! empty( $custom_html_content ) ) {
 			$custom_html = '<div class="ast-custom-html">' . do_shortcode( $custom_html_content ) . '</div>';
 		} elseif ( current_user_can( 'edit_theme_options' ) ) {
-			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . ASTRA_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'kanga' ) . '</a>';
+			$custom_html = '<a href="' . esc_url( admin_url( 'customize.php?autofocus[control]=' . KANGA_THEME_SETTINGS . '[' . $option_name . ']' ) ) . '">' . __( 'Add Custom HTML', 'kanga' ) . '</a>';
 		}
 
 		return $custom_html;
@@ -1904,10 +1904,10 @@ function kanga_filesystem() {
  */
 function remove_controls( $wp_customize ) {
 
-	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.4.0', '<=' ) ) {
+	if ( defined( 'KANGA_EXT_VER' ) && version_compare( KANGA_EXT_VER, '2.4.0', '<=' ) ) {
 		$layout = array(
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj]',
+				'name'      => KANGA_THEME_SETTINGS . '[site-layout-outside-bg-obj]',
 				'type'      => 'control',
 				'transport' => 'postMessage',
 				'control'   => 'ast-hidden',
@@ -1934,7 +1934,7 @@ add_filter( 'kanga_customizer_configurations', 'remove_controls', 99 );
  */
 function kanga_add_theme_specific_stats( $default_stats ) {
 	$default_stats['kanga_settings'] = array(
-		'version'             => ASTRA_THEME_VERSION,
+		'version'             => KANGA_THEME_VERSION,
 		'breadcrumb-position' => kanga_get_option( 'breadcrumb-position', false ),
 		'mobile-menu-style'   => kanga_get_option( 'mobile-menu-style', false ),
 	);

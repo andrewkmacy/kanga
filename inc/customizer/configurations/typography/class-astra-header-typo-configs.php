@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kanga_Header_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-site-title',
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
+					'parent'      => KANGA_THEME_SETTINGS . '[site-title-typography]',
 					'section'     => 'title_tagline',
 					'control'     => 'ast-responsive',
 					'default'     => kanga_get_option( 'font-size-site-title' ),
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Kanga_Header_Typo_Configs' ) ) {
 				array(
 					'name'        => 'font-size-site-tagline',
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
+					'parent'      => KANGA_THEME_SETTINGS . '[site-tagline-typography]',
 					'section'     => 'title_tagline',
 					'control'     => 'ast-responsive',
 					'default'     => kanga_get_option( 'font-size-site-tagline' ),

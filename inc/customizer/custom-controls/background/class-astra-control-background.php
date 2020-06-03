@@ -62,8 +62,8 @@ if ( ! class_exists( 'Kanga_Control_Background' ) && class_exists( 'WP_Customize
 		 * @access public
 		 */
 		public function enqueue() {
-			$js_uri = ASTRA_THEME_URI . 'inc/customizer/custom-controls/background/';
-			wp_enqueue_script( 'kanga-background', $js_uri . 'background.js', array(), ASTRA_THEME_VERSION, true );
+			$js_uri = KANGA_THEME_URI . 'inc/customizer/custom-controls/background/';
+			wp_enqueue_script( 'kanga-background', $js_uri . 'background.js', array(), KANGA_THEME_VERSION, true );
 			wp_localize_script(
 				'kanga-background',
 				'kangaCustomizerControlBackground',

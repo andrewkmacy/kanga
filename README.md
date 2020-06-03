@@ -46,7 +46,7 @@ Kanga has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 
 	- Colors & background: Choose your default background color, body color, theme color and link color.
 	- Typography: Choose your default body font & set default font size to H1 to H6 tags, Site title, tagline & blog post title on archive page and single page.
 
-### ASTRA Child Theme ###
+### KANGA Child Theme ###
 
 There are multiple ways you can use a child theme with the Kanga Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
 

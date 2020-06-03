@@ -35,21 +35,21 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 				 * Option: Footer Widget Color & Background Section heading
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-widget-color-background-heading-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[footer-widget-color-background-heading-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-footer-adv',
 					'title'    => __( 'Colors & Background', 'kanga' ),
 					'priority' => 46,
 					'settings' => array(),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 				),
 
 				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-widget-background-group]',
 					'default'   => kanga_get_option( 'footer-widget-background-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -57,14 +57,14 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 46,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 				),
 
 				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-widget-content-group]',
 					'default'   => kanga_get_option( 'footer-widget-content-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -72,7 +72,7 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 					'section'   => 'section-footer-adv',
 					'transport' => 'postMessage',
 					'priority'  => 46,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 				),
 
 				/**
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => 'footer-adv-wgt-title-color',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[footer-widget-content-group]',
 					'section' => 'section-footer-adv',
 					'tab'     => __( 'Normal', 'kanga' ),
 					'control' => 'ast-color',
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => 'footer-adv-text-color',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[footer-widget-content-group]',
 					'section' => 'section-footer-adv',
 					'tab'     => __( 'Normal', 'kanga' ),
 					'control' => 'ast-color',
@@ -109,7 +109,7 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => 'footer-adv-link-color',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[footer-widget-content-group]',
 					'section' => 'section-footer-adv',
 					'tab'     => __( 'Normal', 'kanga' ),
 					'control' => 'ast-color',
@@ -123,7 +123,7 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => 'footer-adv-link-h-color',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-content-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[footer-widget-content-group]',
 					'section' => 'section-footer-adv',
 					'tab'     => __( 'Hover', 'kanga' ),
 					'control' => 'ast-color',
@@ -137,7 +137,7 @@ if ( ! class_exists( 'Kanga_Adv_Footer_Colors_Configs' ) ) {
 				array(
 					'name'    => 'footer-adv-bg-obj',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[footer-widget-background-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[footer-widget-background-group]',
 					'section' => 'section-footer-adv',
 					'control' => 'ast-background',
 					'default' => kanga_get_option( 'footer-adv-bg-obj' ),

@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Lifter_General_Configs' ) ) {
 				 * Option: Course Columns
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[llms-course-grid]',
+					'name'        => KANGA_THEME_SETTINGS . '[llms-course-grid]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'section-lifterlms',
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Kanga_Lifter_General_Configs' ) ) {
 				 * Option: Membership Columns
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[llms-membership-grid]',
+					'name'        => KANGA_THEME_SETTINGS . '[llms-membership-grid]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'section-lifterlms',

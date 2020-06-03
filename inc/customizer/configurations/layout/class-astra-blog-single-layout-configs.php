@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Single Post Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-single-width]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-blog-single',
@@ -57,13 +57,13 @@ if ( ! class_exists( 'Kanga_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Enter Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[blog-single-max-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[blog-single-max-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'section-blog-single',
 					'transport'   => 'postMessage',
 					'default'     => 1200,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[blog-single-width]', '===', 'custom' ),
 					'priority'    => 5,
 					'title'       => __( 'Custom Width', 'kanga' ),
 					'suffix'      => '',
@@ -78,7 +78,7 @@ if ( ! class_exists( 'Kanga_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-single-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[ast-styling-section-blog-single-width]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog-single',
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Kanga_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Display Post Structure
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-single-post-structure]',
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'section'  => 'section-blog-single',
@@ -107,11 +107,11 @@ if ( ! class_exists( 'Kanga_Blog_Single_Layout_Configs' ) ) {
 				 * Option: Single Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-single-meta]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-single-meta]',
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'default'  => kanga_get_option( 'blog-single-meta' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[blog-single-post-structure]', 'contains', 'single-title-meta' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[blog-single-post-structure]', 'contains', 'single-title-meta' ),
 					'section'  => 'section-blog-single',
 					'priority' => 5,
 					'title'    => __( 'Meta', 'kanga' ),

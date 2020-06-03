@@ -454,7 +454,7 @@ if ( ! class_exists( 'Kanga_Theme_Options' ) ) {
 		 * @return array    Return array of theme options from database.
 		 */
 		public static function get_db_options() {
-			self::$db_options_no_defaults = get_option( ASTRA_THEME_SETTINGS );
+			self::$db_options_no_defaults = get_option( KANGA_THEME_SETTINGS );
 			return self::$db_options_no_defaults;
 		}
 	}

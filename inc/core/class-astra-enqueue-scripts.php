@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kanga_Enqueue_Scripts' ) ) {
 			global $pagenow;
 			$screen = get_current_screen();
 
-			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) ) {
+			if ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ( defined( 'KANGA_ADVANCED_HOOKS_POST_TYPE' ) && KANGA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) ) {
 				return;
 			}
 
@@ -176,19 +176,19 @@ if ( ! class_exists( 'Kanga_Enqueue_Scripts' ) ) {
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$js_uri  = ASTRA_THEME_URI . 'assets/js/' . $dir_name . '/';
-			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
+			$js_uri  = KANGA_THEME_URI . 'assets/js/' . $dir_name . '/';
+			$css_uri = KANGA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
 			/**
 			 * IE Only Js and CSS Files.
 			 */
 			// Flexibility.js for flexbox IE10 support.
-			wp_enqueue_script( 'kanga-flexibility', $js_uri . 'flexibility' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, false );
+			wp_enqueue_script( 'kanga-flexibility', $js_uri . 'flexibility' . $file_prefix . '.js', array(), KANGA_THEME_VERSION, false );
 			wp_add_inline_script( 'kanga-flexibility', 'flexibility(document.documentElement);' );
 			wp_script_add_data( 'kanga-flexibility', 'conditional', 'IE' );
 
 			// Polyfill for CustomEvent for IE.
-			wp_register_script( 'kanga-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, false );
+			wp_register_script( 'kanga-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), KANGA_THEME_VERSION, false );
 
 			// All assets.
 			$all_assets = self::theme_assets();
@@ -212,7 +212,7 @@ if ( ! class_exists( 'Kanga_Enqueue_Scripts' ) ) {
 					$css_file = $css_uri . $style . $file_prefix . '.css';
 
 					// Register.
-					wp_register_style( $key, $css_file, $dependency, ASTRA_THEME_VERSION, 'all' );
+					wp_register_style( $key, $css_file, $dependency, KANGA_THEME_VERSION, 'all' );
 
 					// Enqueue.
 					wp_enqueue_style( $key );
@@ -239,9 +239,9 @@ if ( ! class_exists( 'Kanga_Enqueue_Scripts' ) ) {
 
 			if ( ! empty( $menu_animation ) ) {
 				if ( class_exists( 'Kanga_Cache' ) ) {
-					Kanga_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
+					Kanga_Cache::add_css_file( KANGA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
 				} else {
-					wp_register_style( 'kanga-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+					wp_register_style( 'kanga-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, KANGA_THEME_VERSION, 'all' );
 					wp_enqueue_style( 'kanga-menu-animation' );
 				}
 			}
@@ -265,7 +265,7 @@ if ( ! class_exists( 'Kanga_Enqueue_Scripts' ) ) {
 				foreach ( $scripts as $key => $script ) {
 
 					// Register.
-					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, true );
+					wp_register_script( $key, $js_uri . $script . $file_prefix . '.js', array(), KANGA_THEME_VERSION, true );
 
 					// Enqueue.
 					wp_enqueue_script( $key );
@@ -313,11 +313,11 @@ if ( ! class_exists( 'Kanga_Enqueue_Scripts' ) ) {
 				$rtl = '-rtl';
 			}
 
-			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
-			$js_uri  = ASTRA_THEME_URI . 'inc/assets/js/block-editor-script.js';
+			$css_uri = KANGA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
+			$js_uri  = KANGA_THEME_URI . 'inc/assets/js/block-editor-script.js';
 
-			wp_enqueue_style( 'kanga-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
-			wp_enqueue_script( 'kanga-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'kanga-block-editor-styles', $css_uri, false, KANGA_THEME_VERSION, 'all' );
+			wp_enqueue_script( 'kanga-block-editor-script', $js_uri, false, KANGA_THEME_VERSION, 'all' );
 
 			// Render fonts in Gutenberg layout.
 			Kanga_Fonts::render_fonts();

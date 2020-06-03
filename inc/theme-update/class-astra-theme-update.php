@@ -82,7 +82,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 			}
 
 			// If equals then return.
-			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+			if ( version_compare( $saved_version, KANGA_THEME_VERSION, '=' ) ) {
 				return;
 			}
 
@@ -204,7 +204,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		 */
 		public static function kanga_pro_compatibility() {
 
-			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
+			if ( defined( 'KANGA_EXT_VER' ) && version_compare( KANGA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
 				remove_action( 'kanga_footer_content', 'kanga_advanced_footer_markup', 1 );
 			}
 		}
@@ -300,13 +300,13 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		public static function v_1_0_5() {
 
 			$kanga_old_options = get_option( 'ast-settings', array() );
-			$kanga_new_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_new_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			// Merge old customizer options in new option.
 			$kanga_options = wp_parse_args( $kanga_new_options, $kanga_old_options );
 
 			// Update option.
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 
 			// Delete old option.
 			delete_option( 'ast-settings' );
@@ -346,7 +346,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			if ( 0 < count( $kanga_options ) ) {
 				foreach ( $options as $key ) {
@@ -362,7 +362,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -379,7 +379,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				'archive-post-content-layout' => 'content-boxed-container',
 			);
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
 				if ( ! isset( $kanga_options[ $key ] ) ) {
@@ -387,7 +387,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -407,7 +407,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				'archive-post-sidebar-layout' => 'right-sidebar',
 			);
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
 				if ( ! isset( $kanga_options[ $key ] ) ) {
@@ -415,7 +415,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 
 			update_option( '_kanga_pb_compatibility_offset', 1 );
 			update_option( '_kanga_pb_compatibility_time', gmdate( 'Y-m-d H:i:s' ) );
@@ -465,7 +465,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		 */
 		public static function v_1_1_0_beta_3() {
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			if ( isset( $kanga_options['shop-grid'] ) ) {
 
@@ -478,7 +478,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				unset( $kanga_options['shop-grid'] );
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -492,7 +492,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		 */
 		public static function v_1_1_0_beta_4() {
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			$options = array(
 				'woocommerce-content-layout' => 'default',
@@ -506,7 +506,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				'shop-no-of-products'        => '9',
 			);
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
 				if ( ! isset( $kanga_options[ $key ] ) ) {
@@ -514,7 +514,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -526,7 +526,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		 */
 		public static function v_1_2_2() {
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			if ( isset( $kanga_options['ast-header-logo-width'] ) && ! is_array( $kanga_options['ast-header-logo-width'] ) ) {
 				$kanga_options['ast-header-responsive-logo-width'] = array(
@@ -544,7 +544,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				$kanga_options['shop-archive-max-width'] = $kanga_options['blog-max-width'];
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -556,13 +556,13 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		 */
 		public static function v_1_2_4() {
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			if ( isset( $kanga_options['link-color'] ) ) {
 				$kanga_options['theme-color'] = $kanga_options['link-color'];
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -574,7 +574,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		 */
 		public static function v_1_2_7() {
 
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 			$google_fonts  = Kanga_Font_Families::get_google_fonts();
 
 			foreach ( $kanga_options as $key => $value ) {
@@ -587,7 +587,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -598,7 +598,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 		 * @since 1.3.0
 		 */
 		public static function v_1_3_0() {
-			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
 			$kanga_options['header-bg-obj'] = array(
 				'background-color' => isset( $kanga_options['header-bg-color'] ) ? $kanga_options['header-bg-color'] : '',
@@ -663,7 +663,7 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 					break;
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
+			update_option( KANGA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**

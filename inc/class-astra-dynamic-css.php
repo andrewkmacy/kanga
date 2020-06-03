@@ -1648,9 +1648,9 @@ if ( ! class_exists( 'Kanga_Dynamic_CSS' ) ) {
 			if ( apply_filters( 'kanga_enable_default_fonts', true ) ) {
 				$kanga_fonts          = '@font-face {';
 					$kanga_fonts     .= 'font-family: "Kanga";';
-					$kanga_fonts     .= 'src: url(' . ASTRA_THEME_URI . 'assets/fonts/kanga.woff) format("woff"),';
-						$kanga_fonts .= 'url(' . ASTRA_THEME_URI . 'assets/fonts/kanga.ttf) format("truetype"),';
-						$kanga_fonts .= 'url(' . ASTRA_THEME_URI . 'assets/fonts/kanga.svg#kanga) format("svg");';
+					$kanga_fonts     .= 'src: url(' . KANGA_THEME_URI . 'assets/fonts/kanga.woff) format("woff"),';
+						$kanga_fonts .= 'url(' . KANGA_THEME_URI . 'assets/fonts/kanga.ttf) format("truetype"),';
+						$kanga_fonts .= 'url(' . KANGA_THEME_URI . 'assets/fonts/kanga.svg#kanga) format("svg");';
 					$kanga_fonts     .= 'font-weight: normal;';
 					$kanga_fonts     .= 'font-style: normal;';
 					$kanga_fonts     .= 'font-display: ' . kanga_get_fonts_display_property() . ';';
@@ -2038,7 +2038,7 @@ if ( ! class_exists( 'Kanga_Dynamic_CSS' ) ) {
 		 * @return boolean true if button style CSS should be loaded, False if not.
 		 */
 		public static function page_builder_button_style_css() {
-			$kanga_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+			$kanga_settings                                  = get_option( KANGA_THEME_SETTINGS );
 			$kanga_settings['pb-button-color-compatibility'] = ( isset( $kanga_settings['pb-button-color-compatibility'] ) && false === $kanga_settings['pb-button-color-compatibility'] ) ? false : true;
 			return apply_filters( 'kanga_page_builder_button_style_css', $kanga_settings['pb-button-color-compatibility'] );
 		}
@@ -2098,7 +2098,7 @@ if ( ! class_exists( 'Kanga_Dynamic_CSS' ) ) {
 		 * @return boolean true if elementor default color and typo setting should work with theme, False if not.
 		 */
 		public static function is_elementor_default_color_font_comp() {
-			$kanga_settings                                        = get_option( ASTRA_THEME_SETTINGS );
+			$kanga_settings                                        = get_option( KANGA_THEME_SETTINGS );
 			$kanga_settings['ele-default-color-typo-setting-comp'] = ( isset( $kanga_settings['ele-default-color-typo-setting-comp'] ) && false === $kanga_settings['ele-default-color-typo-setting-comp'] ) ? false : true;
 			return apply_filters( 'kanga_elementor_default_color_font_comp', $kanga_settings['ele-default-color-typo-setting-comp'] );
 		}
@@ -2110,7 +2110,7 @@ if ( ! class_exists( 'Kanga_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function gtn_image_group_css_comp() {
-			$kanga_settings                                = get_option( ASTRA_THEME_SETTINGS );
+			$kanga_settings                                = get_option( KANGA_THEME_SETTINGS );
 			$kanga_settings['gtn-full-wide-image-grp-css'] = isset( $kanga_settings['gtn-full-wide-image-grp-css'] ) ? false : true;
 			return apply_filters( 'gtn_image_group_css_comp', $kanga_settings['gtn-full-wide-image-grp-css'] );
 		}

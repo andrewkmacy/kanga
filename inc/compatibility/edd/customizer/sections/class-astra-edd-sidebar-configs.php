@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Edd_Sidebar_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-product-sidebar-layout-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-product-sidebar-layout-divider]',
 					'section'  => 'section-sidebars',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kanga_Edd_Sidebar_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-sidebars',
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Kanga_Edd_Sidebar_Configs' ) ) {
 				 * Option: Single Product
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[edd-single-product-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[edd-single-product-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'edd-single-product-sidebar-layout' ),

@@ -109,7 +109,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 				// Let extensions hook into saving.
 				do_action( 'kanga_admin_settings_scripts' );
 
-				if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.5.0', '<' ) ) {
+				if ( defined( 'KANGA_EXT_VER' ) && version_compare( KANGA_EXT_VER, '2.5.0', '<' ) ) {
 					self::save_settings();
 				}
 			}
@@ -181,7 +181,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 				set_transient( 'kanga-theme-first-rating', true, MONTH_IN_SECONDS );
 				update_option( 'kanga-theme-old-setup', true );
 			} elseif ( false === get_transient( 'kanga-theme-first-rating' ) && current_user_can( 'install_plugins' ) ) {
-				$image_path = ASTRA_THEME_URI . 'inc/assets/images/kanga-logo.svg';
+				$image_path = KANGA_THEME_URI . 'inc/assets/images/kanga-logo.svg';
 				Kanga_Notices::add_notice(
 					array(
 						'id'                         => 'kanga-theme-rating',
@@ -226,10 +226,10 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 			}
 
 			// Force Kanga welcome notice on theme activation.
-			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
+			if ( current_user_can( 'install_plugins' ) && ! defined( 'KANGA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
 
 				wp_enqueue_script( 'kanga-admin-settings' );
-				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/kanga-logo.svg';
+				$image_path           = KANGA_THEME_URI . 'inc/assets/images/kanga-logo.svg';
 				$ast_sites_notice_btn = self::kanga_sites_notice_button();
 
 				if ( file_exists( WP_PLUGIN_DIR . '/kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-pro-sites/kanga-pro-sites.php' ) ) {
@@ -290,28 +290,28 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 		 */
 		public static function minimum_addon_version_notice() {
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 				return;
 			}
 
-			if ( version_compare( ASTRA_EXT_VER, ASTRA_EXT_MIN_VER ) < 0 ) {
+			if ( version_compare( KANGA_EXT_VER, KANGA_EXT_MIN_VER ) < 0 ) {
 
 				$message = sprintf(
 					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
 					__( 'Please update the %1$1s to version %2$2s or higher. Ignore if already updated.', 'kanga' ),
 					kanga_get_addon_name(),
-					ASTRA_EXT_MIN_VER
+					KANGA_EXT_MIN_VER
 				);
 
 				$min_version = get_user_meta( get_current_user_id(), 'ast-minimum-addon-version-notice-min-ver', true );
 
 				if ( ! $min_version ) {
-					update_user_meta( get_current_user_id(), 'ast-minimum-addon-version-notice-min-ver', ASTRA_EXT_MIN_VER );
+					update_user_meta( get_current_user_id(), 'ast-minimum-addon-version-notice-min-ver', KANGA_EXT_MIN_VER );
 				}
 
-				if ( version_compare( $min_version, ASTRA_EXT_MIN_VER, '!=' ) ) {
+				if ( version_compare( $min_version, KANGA_EXT_MIN_VER, '!=' ) ) {
 					delete_user_meta( get_current_user_id(), 'ast-minimum-addon-version-notice' );
-					update_user_meta( get_current_user_id(), 'ast-minimum-addon-version-notice-min-ver', ASTRA_EXT_MIN_VER );
+					update_user_meta( get_current_user_id(), 'ast-minimum-addon-version-notice-min-ver', KANGA_EXT_MIN_VER );
 				}
 
 				$notice_args = array(
@@ -337,9 +337,9 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 		 */
 		public static function notice_assets() {
 			if ( is_rtl() ) {
-				wp_enqueue_style( 'kanga-notices-rtl', ASTRA_THEME_URI . 'inc/assets/css/kanga-notices-rtl.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-notices-rtl', KANGA_THEME_URI . 'inc/assets/css/kanga-notices-rtl.css', array(), KANGA_THEME_VERSION );
 			} else {
-				wp_enqueue_style( 'kanga-notices', ASTRA_THEME_URI . 'inc/assets/css/kanga-notices.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-notices', KANGA_THEME_URI . 'inc/assets/css/kanga-notices.css', array(), KANGA_THEME_VERSION );
 			}
 		}
 
@@ -389,11 +389,11 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 		 */
 		public static function get_starter_templates_slug() {
 
-			if ( defined( 'ASTRA_PRO_SITES_VER' ) && version_compare( ASTRA_PRO_SITES_VER, '2.0.0', '>=' ) ) {
+			if ( defined( 'KANGA_PRO_SITES_VER' ) && version_compare( KANGA_PRO_SITES_VER, '2.0.0', '>=' ) ) {
 				self::$starter_templates_slug = 'starter-templates';
 			}
 
-			if ( defined( 'ASTRA_SITES_VER' ) && version_compare( ASTRA_SITES_VER, '2.0.0', '>=' ) ) {
+			if ( defined( 'KANGA_SITES_VER' ) && version_compare( KANGA_SITES_VER, '2.0.0', '>=' ) ) {
 				self::$starter_templates_slug = 'starter-templates';
 			}
 		}
@@ -445,7 +445,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 				$js_handle[] = 'customize-base';
 			}
 
-			wp_register_script( 'kanga-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
+			wp_register_script( 'kanga-color-alpha', KANGA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, KANGA_THEME_VERSION, true );
 
 			if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
 				$post_types = get_post_types( array( 'public' => true ) );
@@ -485,7 +485,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 					return;
 				}
 
-				wp_register_script( 'kanga-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/kanga-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
+				wp_register_script( 'kanga-admin-settings', KANGA_THEME_URI . 'inc/assets/js/kanga-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), KANGA_THEME_VERSION, false );
 
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
@@ -513,16 +513,16 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 
 			// Styles.
 			if ( is_rtl() ) {
-				wp_enqueue_style( 'kanga-admin-settings-rtl', ASTRA_THEME_URI . 'inc/assets/css/kanga-admin-menu-settings-rtl.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-admin-settings-rtl', KANGA_THEME_URI . 'inc/assets/css/kanga-admin-menu-settings-rtl.css', array(), KANGA_THEME_VERSION );
 			} else {
-				wp_enqueue_style( 'kanga-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/kanga-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-admin-settings', KANGA_THEME_URI . 'inc/assets/css/kanga-admin-menu-settings.css', array(), KANGA_THEME_VERSION );
 			}
 
 			if ( ! current_user_can( 'manage_options' ) ) {
 				return;
 			}
 
-			wp_register_script( 'kanga-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/kanga-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
+			wp_register_script( 'kanga-admin-settings', KANGA_THEME_URI . 'inc/assets/js/kanga-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), KANGA_THEME_VERSION, false );
 
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
@@ -617,8 +617,8 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 							<div class="ast-theme-title">
 								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $ast_icon ) { ?>
-									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/kanga.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
-									<span class="kanga-theme-version"><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
+									<img src="<?php echo esc_url( KANGA_THEME_URI . 'inc/assets/images/kanga.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<span class="kanga-theme-version"><?php echo esc_html( KANGA_THEME_VERSION ); ?></span>
 								<?php } ?>
 								<?php do_action( 'kanga_welcome_page_header_title' ); ?>
 								</a>
@@ -640,7 +640,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 		 * @since 1.0
 		 */
 		public static function general_page() {
-			require_once ASTRA_THEME_DIR . 'inc/core/view-general.php';
+			require_once KANGA_THEME_DIR . 'inc/core/view-general.php';
 		}
 
 		/**
@@ -660,7 +660,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 					<span class="dashicons dashicons-admin-customizer"></span>
 					<span><?php echo esc_html( apply_filters( 'kanga_sites_menu_page_title', __( 'Import Starter Template', 'kanga' ) ) ); ?></span>
 				</h2>
-				<img class="ast-starter-sites-img" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/kanga-starter-sites.jpg' ); ?>">
+				<img class="ast-starter-sites-img" src="<?php echo esc_url( KANGA_THEME_URI . 'assets/images/kanga-starter-sites.jpg' ); ?>">
 				<div class="inside">
 					<p>
 						<?php
@@ -1022,7 +1022,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 					),
 					'advanced-hooks'        => array(
 						'title'           => __( 'Custom Layouts', 'kanga' ),
-						// 'icon'            => ASTRA_THEME_URI . 'assets/img/kanga-advanced-hooks.png',
+						// 'icon'            => KANGA_THEME_URI . 'assets/img/kanga-advanced-hooks.png',
 						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'kanga' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
@@ -1547,7 +1547,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 
 			$kanga_global_options = get_option( 'kanga-settings' );
 
-			if ( isset( $kanga_global_options['kanga-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
+			if ( isset( $kanga_global_options['kanga-addon-auto-version'] ) && defined( 'KANGA_EXT_VER' ) ) {
 
 				if ( version_compare( $kanga_global_options['kanga-addon-auto-version'], '1.2.1' ) < 0 ) {
 
@@ -1597,7 +1597,7 @@ if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 				'kanga_header_top_links',
 				array(
 					'kanga-theme-info' => array(
-						'title' => '<img src=" ' . ASTRA_THEME_URI . 'inc/assets/images/lightning-speed.svg" class="kanga-lightning-icon" alt="Kanga Lightning Speed">' . __( ' Lightning Fast & Fully Customizable WordPress theme!', 'kanga' ),
+						'title' => '<img src=" ' . KANGA_THEME_URI . 'inc/assets/images/lightning-speed.svg" class="kanga-lightning-icon" alt="Kanga Lightning Speed">' . __( ' Lightning Fast & Fully Customizable WordPress theme!', 'kanga' ),
 					),
 				)
 			);

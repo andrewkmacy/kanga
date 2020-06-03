@@ -46,7 +46,7 @@ if ( ! class_exists( 'Kanga_Edd' ) ) :
 		 */
 		public function __construct() {
 
-			require_once ASTRA_THEME_DIR . 'inc/compatibility/edd/edd-common-functions.php';
+			require_once KANGA_THEME_DIR . 'inc/compatibility/edd/edd-common-functions.php';
 
 			add_filter( 'kanga_theme_defaults', array( $this, 'theme_defaults' ) );
 			// Register Store Sidebars.
@@ -906,15 +906,15 @@ if ( ! class_exists( 'Kanga_Edd' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/class-kanga-customizer-register-edd-section.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/edd/customizer/class-kanga-customizer-register-edd-section.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-kanga-edd-container-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-kanga-edd-sidebar-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-kanga-edd-archive-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-kanga-edd-single-product-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-kanga-edd-container-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-kanga-edd-sidebar-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-kanga-edd-archive-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-kanga-edd-single-product-layout-configs.php';
 
 		}
 

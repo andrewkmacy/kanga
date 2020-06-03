@@ -177,14 +177,14 @@ if ( ! class_exists( 'Kanga_LifterLMS' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/class-kanga-liferlms-section-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/class-kanga-liferlms-section-configs.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-kanga-lifter-container-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-kanga-lifter-sidebar-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-kanga-lifter-general-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-kanga-lifter-container-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/class-kanga-lifter-sidebar-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/lifterlms/customizer/sections/layout/class-kanga-lifter-general-configs.php';
 		}
 
 		/**

@@ -131,7 +131,7 @@ class Kanga_Heading_Colors_Loader {
 		/**
 		 * Register Panel & Sections
 		 */
-		require_once ASTRA_THEME_HEADING_COLORS_DIR . 'customizer/class-kanga-heading-colors-configs.php';
+		require_once KANGA_THEME_HEADING_COLORS_DIR . 'customizer/class-kanga-heading-colors-configs.php';
 	}
 
 	/**
@@ -146,7 +146,7 @@ class Kanga_Heading_Colors_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-		wp_enqueue_script( 'kanga-heading-colors-customizer-preview-js', ASTRA_THEME_HEADING_COLORS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kanga-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_script( 'kanga-heading-colors-customizer-preview-js', KANGA_THEME_HEADING_COLORS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kanga-customizer-preview-js' ), KANGA_THEME_VERSION, true );
 	}
 }
 

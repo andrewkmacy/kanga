@@ -9,8 +9,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-define( 'ASTRA_THEME_TRANSPARENT_HEADER_DIR', ASTRA_THEME_DIR . 'inc/addons/transparent-header/' );
-define( 'ASTRA_THEME_TRANSPARENT_HEADER_URI', ASTRA_THEME_URI . 'inc/addons/transparent-header/' );
+define( 'KANGA_THEME_TRANSPARENT_HEADER_DIR', KANGA_THEME_DIR . 'inc/addons/transparent-header/' );
+define( 'KANGA_THEME_TRANSPARENT_HEADER_URI', KANGA_THEME_URI . 'inc/addons/transparent-header/' );
 
 if ( ! class_exists( 'Kanga_Ext_Transparent_Header' ) ) {
 
@@ -43,13 +43,13 @@ if ( ! class_exists( 'Kanga_Ext_Transparent_Header' ) ) {
 		 */
 		public function __construct() {
 
-			require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-kanga-ext-transparent-header-loader.php';
-			require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-kanga-ext-transparent-header-markup.php';
+			require_once KANGA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-kanga-ext-transparent-header-loader.php';
+			require_once KANGA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-kanga-ext-transparent-header-markup.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
-				require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/dynamic-css/dynamic.css.php';
-				require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/dynamic-css/header-sections-dynamic.css.php';
+				require_once KANGA_THEME_TRANSPARENT_HEADER_DIR . 'classes/dynamic-css/dynamic.css.php';
+				require_once KANGA_THEME_TRANSPARENT_HEADER_DIR . 'classes/dynamic-css/header-sections-dynamic.css.php';
 			}
 		}
 	}

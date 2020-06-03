@@ -39,7 +39,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Cart_Layout_Configs' ) ) {
 				 * Enable Cross-sells - in the code it is refrenced as upsells rather than cross-sells.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[enable-cart-upsells]',
+					'name'     => KANGA_THEME_SETTINGS . '[enable-cart-upsells]',
 					'section'  => 'section-woo-shop-cart',
 					'type'     => 'control',
 					'control'  => 'checkbox',

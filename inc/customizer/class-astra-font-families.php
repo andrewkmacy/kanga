@@ -129,9 +129,9 @@ if ( ! class_exists( 'Kanga_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_file = apply_filters( 'kanga_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				$google_fonts_file = apply_filters( 'kanga_google_fonts_json_file', KANGA_THEME_DIR . 'assets/fonts/google-fonts.json' );
 
-				if ( ! file_exists( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
+				if ( ! file_exists( KANGA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
 					return array();
 				}
 

@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Blog_Layout_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[ast-styling-section-blog-width]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kanga_Blog_Layout_Configs' ) ) {
 				 * Option: Blog Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-width]',
 					'default'  => kanga_get_option( 'blog-width' ),
 					'type'     => 'control',
 					'control'  => 'select',
@@ -65,14 +65,14 @@ if ( ! class_exists( 'Kanga_Blog_Layout_Configs' ) ) {
 				 * Option: Enter Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[blog-max-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[blog-max-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'section-blog',
 					'transport'   => 'postMessage',
 					'default'     => 1200,
 					'priority'    => 50,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[blog-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'kanga' ),
 					'suffix'      => '',
 					'input_attrs' => array(
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Kanga_Blog_Layout_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-styling-section-blog-width-end]',
+					'name'     => KANGA_THEME_SETTINGS . '[ast-styling-section-blog-width-end]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-blog',
@@ -98,7 +98,7 @@ if ( ! class_exists( 'Kanga_Blog_Layout_Configs' ) ) {
 				 * Option: Blog Post Content
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-content]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-post-content]',
 					'section'  => 'section-blog',
 					'title'    => __( 'Post Content', 'kanga' ),
 					'default'  => kanga_get_option( 'blog-post-content' ),
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Kanga_Blog_Layout_Configs' ) ) {
 				 * Option: Display Post Structure
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-post-structure]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-post-structure]',
 					'default'  => kanga_get_option( 'blog-post-structure' ),
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
@@ -132,13 +132,13 @@ if ( ! class_exists( 'Kanga_Blog_Layout_Configs' ) ) {
 				 * Option: Display Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[blog-meta]',
+					'name'     => KANGA_THEME_SETTINGS . '[blog-meta]',
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'section'  => 'section-blog',
 					'default'  => kanga_get_option( 'blog-meta' ),
 					'priority' => 50,
-					'required' => array( ASTRA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[blog-post-structure]', 'contains', 'title-meta' ),
 					'title'    => __( 'Meta', 'kanga' ),
 					'choices'  => array(
 						'comments' => __( 'Comments', 'kanga' ),

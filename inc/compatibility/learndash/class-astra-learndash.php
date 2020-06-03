@@ -260,16 +260,16 @@ if ( ! class_exists( 'Kanga_LearnDash' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/class-kanga-customizer-register-learndash-section.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/learndash/customizer/class-kanga-customizer-register-learndash-section.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-kanga-learndash-container-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-kanga-learndash-sidebar-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-kanga-learndash-container-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/class-kanga-learndash-sidebar-configs.php';
 
 			if ( 'ld30' !== $active_ld_theme ) {
-				require ASTRA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/class-kanga-learndash-general-configs.php';
+				require KANGA_THEME_DIR . 'inc/compatibility/learndash/customizer/sections/layout/class-kanga-learndash-general-configs.php';
 			}
 		}
 

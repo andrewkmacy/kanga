@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kanga_Lifter_Container_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-content-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[lifterlms-content-divider]',
 					'section'  => 'section-container-layout',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
@@ -50,7 +50,7 @@ if ( ! class_exists( 'Kanga_Lifter_Container_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[lifterlms-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-container-layout',

@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Learndash_General_Configs' ) ) {
 				 * Option: Display Serial Number
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-lesson-serial-number]',
+					'name'     => KANGA_THEME_SETTINGS . '[learndash-lesson-serial-number]',
 					'section'  => 'section-learndash',
 					'type'     => 'control',
 					'control'  => 'checkbox',
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Kanga_Learndash_General_Configs' ) ) {
 				 * Option: Differentiate Rows
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]',
+					'name'     => KANGA_THEME_SETTINGS . '[learndash-differentiate-rows]',
 					'default'  => kanga_get_option( 'learndash-differentiate-rows' ),
 					'type'     => 'control',
 					'control'  => 'checkbox',

@@ -38,7 +38,7 @@ if ( ! class_exists( 'Kanga_Single_Typo_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-single-post-typo]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-single-post-typo]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-blog-single',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kanga_Single_Typo_Configs' ) ) {
 				),
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
+					'name'      => KANGA_THEME_SETTINGS . '[blog-single-title-typo]',
 					'type'      => 'control',
 					'priority'  => 13,
 					'control'   => 'ast-settings-group',
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Kanga_Single_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'        => 'font-size-entry-title',
-					'parent'      => ASTRA_THEME_SETTINGS . '[blog-single-title-typo]',
+					'parent'      => KANGA_THEME_SETTINGS . '[blog-single-title-typo]',
 					'section'     => 'section-blog-single',
 					'type'        => 'sub-control',
 					'control'     => 'ast-responsive',
@@ -83,7 +83,7 @@ if ( ! class_exists( 'Kanga_Single_Typo_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Kanga Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 
 				$_configs = array(
 
@@ -91,7 +91,7 @@ if ( ! class_exists( 'Kanga_Single_Typo_Configs' ) ) {
 					 * Option: Divider
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-divider]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-divider]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-blog-single',
@@ -103,7 +103,7 @@ if ( ! class_exists( 'Kanga_Single_Typo_Configs' ) ) {
 					 * Option: Learn More about Typography
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-sngle-blog-typography-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-blog-single',

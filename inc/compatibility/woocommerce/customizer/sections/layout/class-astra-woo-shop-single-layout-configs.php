@@ -37,7 +37,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Single_Layout_Configs' ) ) {
 				* Option: Disable Breadcrumb
 				*/
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]',
+					'name'     => KANGA_THEME_SETTINGS . '[single-product-breadcrumb-disable]',
 					'section'  => 'section-woo-shop-single',
 					'type'     => 'control',
 					'control'  => 'checkbox',
@@ -50,12 +50,12 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Single_Layout_Configs' ) ) {
 				 * Option: Disable Transparent Header on WooCommerce Product pages
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-woo-products]',
+					'name'     => KANGA_THEME_SETTINGS . '[transparent-header-disable-woo-products]',
 					'default'  => kanga_get_option( 'transparent-header-disable-woo-products' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
 					'title'    => __( 'Disable on WooCommerce Product Pages?', 'kanga' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
 					'priority' => 26,
 					'control'  => 'checkbox',
 				),

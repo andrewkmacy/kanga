@@ -46,7 +46,7 @@ if ( ! class_exists( 'Kanga_Woocommerce' ) ) :
 		 */
 		public function __construct() {
 
-			require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce-common-functions.php';
+			require_once KANGA_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce-common-functions.php';
 
 			add_filter( 'woocommerce_enqueue_styles', array( $this, 'woo_filter_style' ) );
 
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Kanga_Woocommerce' ) ) :
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
+			$css_uri = KANGA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/woocommerce/';
 			$key     = 'kanga-woocommerce';
 
 			// Register & Enqueue Styles.
@@ -175,21 +175,21 @@ if ( ! class_exists( 'Kanga_Woocommerce' ) ) :
 				'woocommerce-layout'      => array(
 					'src'     => $css_uri . 'woocommerce-layout' . $file_prefix . '.css',
 					'deps'    => '',
-					'version' => ASTRA_THEME_VERSION,
+					'version' => KANGA_THEME_VERSION,
 					'media'   => 'all',
 					'has_rtl' => true,
 				),
 				'woocommerce-smallscreen' => array(
 					'src'     => $css_uri . 'woocommerce-smallscreen' . $file_prefix . '.css',
 					'deps'    => 'woocommerce-layout',
-					'version' => ASTRA_THEME_VERSION,
+					'version' => KANGA_THEME_VERSION,
 					'media'   => 'only screen and (max-width: ' . apply_filters( 'woocommerce_style_smallscreen_breakpoint', kanga_get_tablet_breakpoint() . 'px' ) . ')',
 					'has_rtl' => true,
 				),
 				'woocommerce-general'     => array(
 					'src'     => $css_uri . 'woocommerce' . $file_prefix . '.css',
 					'deps'    => '',
-					'version' => ASTRA_THEME_VERSION,
+					'version' => KANGA_THEME_VERSION,
 					'media'   => 'all',
 					'has_rtl' => true,
 				),
@@ -695,7 +695,7 @@ if ( ! class_exists( 'Kanga_Woocommerce' ) ) :
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 
-			$css_uri = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
+			$css_uri = KANGA_THEME_URI . 'assets/css/' . $dir_name . '/';
 
 			$new_style = 'compatibility/woocommerce-new';
 			$new_key   = 'kanga-woocommerce-new';
@@ -1346,16 +1346,16 @@ if ( ! class_exists( 'Kanga_Woocommerce' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/class-kanga-customizer-register-woo-section.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/class-kanga-customizer-register-woo-section.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/class-kanga-woo-shop-container-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/class-kanga-woo-shop-sidebar-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kanga-woo-shop-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kanga-woo-shop-single-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kanga-woo-shop-cart-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/class-kanga-woo-shop-container-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/class-kanga-woo-shop-sidebar-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kanga-woo-shop-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kanga-woo-shop-single-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/compatibility/woocommerce/customizer/sections/layout/class-kanga-woo-shop-cart-layout-configs.php';
 
 		}
 

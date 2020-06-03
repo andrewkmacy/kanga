@@ -39,7 +39,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 				 */
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[site-content-layout-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-container-layout',
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 				 * Option: Single Page Content Layout
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[site-content-layout]',
 					'type'     => 'control',
 					'default'  => kanga_get_option( 'site-content-layout' ),
 					'control'  => 'select',
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 				),
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[single-page-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'single-page-content-layout' ),
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 				),
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[single-post-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'single-post-content-layout' ),
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 				 * Option: Archive Post Content Layout
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[archive-post-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'archive-post-content-layout' ),
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 				 * Option: Body Background
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj-responsive]',
+					'name'      => KANGA_THEME_SETTINGS . '[site-layout-outside-bg-obj-responsive]',
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
 					'default'   => kanga_get_option( 'site-layout-outside-bg-obj-responsive' ),
@@ -139,7 +139,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Kanga Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 
 				$config = array(
 
@@ -148,7 +148,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 					 */
 
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-divider]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-container-more-feature-divider]',
 						'type'     => 'control',
 						'default'  => kanga_get_option( 'site-content-layout' ),
 						'control'  => 'ast-divider',
@@ -158,7 +158,7 @@ if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 					),
 
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-container-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-container-layout',

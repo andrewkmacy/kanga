@@ -67,9 +67,9 @@ if ( ! class_exists( 'Kanga_Theme_Background_Updater' ) ) {
 			}
 
 			// Core Helpers - Batch Processing.
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-async-request.php';
-			require_once ASTRA_THEME_DIR . 'inc/lib/batch-processing/class-wp-background-process.php';
-			require_once ASTRA_THEME_DIR . 'inc/theme-update/class-wp-background-process-kanga-theme.php';
+			require_once KANGA_THEME_DIR . 'inc/lib/batch-processing/class-wp-async-request.php';
+			require_once KANGA_THEME_DIR . 'inc/lib/batch-processing/class-wp-background-process.php';
+			require_once KANGA_THEME_DIR . 'inc/theme-update/class-wp-background-process-kanga-theme.php';
 
 			self::$background_updater = new WP_Background_Process_Kanga_Theme();
 
@@ -247,7 +247,7 @@ if ( ! class_exists( 'Kanga_Theme_Background_Updater' ) ) {
 			// Get auto saved version number.
 			$saved_version = kanga_get_option( 'theme-auto-version', false );
 
-			return version_compare( $saved_version, ASTRA_THEME_VERSION, '=' );
+			return version_compare( $saved_version, KANGA_THEME_VERSION, '=' );
 		}
 
 
@@ -302,14 +302,14 @@ if ( ! class_exists( 'Kanga_Theme_Background_Updater' ) ) {
 
 			if ( false === $saved_version ) {
 
-				$saved_version = ASTRA_THEME_VERSION;
+				$saved_version = KANGA_THEME_VERSION;
 
 				// Update auto saved version number.
-				kanga_update_option( 'theme-auto-version', ASTRA_THEME_VERSION );
+				kanga_update_option( 'theme-auto-version', KANGA_THEME_VERSION );
 			}
 
 			// If equals then return.
-			if ( version_compare( $saved_version, ASTRA_THEME_VERSION, '=' ) ) {
+			if ( version_compare( $saved_version, KANGA_THEME_VERSION, '=' ) ) {
 				do_action( 'kanga_theme_update_after' );
 				kanga_update_option( 'is_theme_queue_running', false );
 				return;
@@ -319,7 +319,7 @@ if ( ! class_exists( 'Kanga_Theme_Background_Updater' ) ) {
 			if ( empty( $saved_version ) ) {
 
 				// Get old version.
-				$theme_version = get_option( '_kanga_auto_version', ASTRA_THEME_VERSION );
+				$theme_version = get_option( '_kanga_auto_version', KANGA_THEME_VERSION );
 
 				// Remove option.
 				delete_option( '_kanga_auto_version' );
@@ -327,7 +327,7 @@ if ( ! class_exists( 'Kanga_Theme_Background_Updater' ) ) {
 			} else {
 
 				// Get latest version.
-				$theme_version = ASTRA_THEME_VERSION;
+				$theme_version = KANGA_THEME_VERSION;
 			}
 
 			// Update auto saved version number.

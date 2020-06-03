@@ -37,7 +37,7 @@ if ( ! class_exists( 'Kanga_Edd_Single_Product_Layout_Configs' ) ) {
 				 * Option: Cart upsells
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[disable-edd-single-product-nav]',
+					'name'     => KANGA_THEME_SETTINGS . '[disable-edd-single-product-nav]',
 					'section'  => 'section-edd-single',
 					'type'     => 'control',
 					'control'  => 'checkbox',

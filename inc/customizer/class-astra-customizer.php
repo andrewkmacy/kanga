@@ -251,7 +251,7 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 		 */
 		private function register_sub_control_setting( $control_config, $wp_customize ) {
 
-			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . kanga_get_prop( $control_config, 'name' ) . ']';
+			$sub_control_name = KANGA_THEME_SETTINGS . '[' . kanga_get_prop( $control_config, 'name' ) . ']';
 
 			if ( isset( $wp_customize->get_control( $sub_control_name )->id ) ) {
 				return;
@@ -394,30 +394,30 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 		 * @return void
 		 */
 		public function include_configurations() {
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/class-kanga-customizer-config-base.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/class-kanga-customizer-config-base.php';
 
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-register-sections-panels.php';
+			require KANGA_THEME_DIR . 'inc/customizer/class-kanga-customizer-register-sections-panels.php';
 
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-kanga-customizer-button-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-header-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-identity-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-blog-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-blog-single-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-sidebar-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-container-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-footer-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-body-colors-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-footer-colors-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-advanced-footer-colors-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-archive-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-body-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-content-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-header-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-single-typo-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/buttons/class-kanga-customizer-button-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-header-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-identity-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-blog-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-blog-single-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-sidebar-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-container-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-footer-layout-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-body-colors-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-footer-colors-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-advanced-footer-colors-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-archive-typo-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-body-typo-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-content-typo-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-header-typo-configs.php';
+			require KANGA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-single-typo-configs.php';
 
 		}
 
@@ -466,14 +466,14 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 			$wp_customize->register_section_type( 'Kanga_WP_Customize_Section' );
 			$wp_customize->register_section_type( 'Kanga_WP_Customize_Separator' );
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 				$wp_customize->register_section_type( 'Kanga_Pro_Customizer' );
 			}
 
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-panel.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-section.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-separator.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/customizer-controls.php';
+			require KANGA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-panel.php';
+			require KANGA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-section.php';
+			require KANGA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-separator.php';
+			require KANGA_THEME_DIR . 'inc/customizer/customizer-controls.php';
 
 			/**
 			 * Add Controls
@@ -667,9 +667,9 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 			/**
 			 * Helper files
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-partials.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-callback.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-sanitizes.php';
+			require KANGA_THEME_DIR . 'inc/customizer/class-kanga-customizer-partials.php';
+			require KANGA_THEME_DIR . 'inc/customizer/class-kanga-customizer-callback.php';
+			require KANGA_THEME_DIR . 'inc/customizer/class-kanga-customizer-sanitizes.php';
 		}
 
 		/**
@@ -683,7 +683,7 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 			/**
 			 * Override Defaults
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/override-defaults.php';
+			require KANGA_THEME_DIR . 'inc/customizer/override-defaults.php';
 
 		}
 
@@ -695,9 +695,9 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 		 */
 		public function kanga_pro_upgrade_configurations( $wp_customize ) {
 
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-				require ASTRA_THEME_DIR . 'inc/customizer/kanga-pro/class-kanga-pro-customizer.php';
-				require ASTRA_THEME_DIR . 'inc/customizer/kanga-pro/class-kanga-pro-upgrade-link-configs.php';
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
+				require KANGA_THEME_DIR . 'inc/customizer/kanga-pro/class-kanga-pro-customizer.php';
+				require KANGA_THEME_DIR . 'inc/customizer/kanga-pro/class-kanga-pro-upgrade-link-configs.php';
 			}
 		}
 
@@ -732,17 +732,17 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 			wp_enqueue_style( 'thickbox' );
 
 			// Customizer Core.
-			wp_enqueue_script( 'kanga-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'kanga-customizer-controls-toggle-js', KANGA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), KANGA_THEME_VERSION, true );
 
 			// Extended Customizer Assets - Panel extended.
-			wp_enqueue_style( 'kanga-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'kanga-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
+			wp_enqueue_style( 'kanga-extend-customizer-css', KANGA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, KANGA_THEME_VERSION );
+			wp_enqueue_script( 'kanga-extend-customizer-js', KANGA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), KANGA_THEME_VERSION, true );
 
-			wp_enqueue_script( 'kanga-customizer-dependency', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'kanga-customizer-controls-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'kanga-customizer-dependency', KANGA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'kanga-customizer-controls-js' ), KANGA_THEME_VERSION, true );
 
 			// Customizer Controls.
-			wp_enqueue_style( 'kanga-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'kanga-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'kanga-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_style( 'kanga-customizer-controls-css', KANGA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, KANGA_THEME_VERSION );
+			wp_enqueue_script( 'kanga-customizer-controls-js', KANGA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'kanga-customizer-controls-toggle-js' ), KANGA_THEME_VERSION, true );
 
 			$google_fonts = Kanga_Font_Families::get_google_fonts();
 			$string       = $this->generate_font_dropdown();
@@ -783,7 +783,7 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 							'group_modal_tmpl' => $tmpl,
 						),
 						'theme'      => array(
-							'option' => ASTRA_THEME_SETTINGS,
+							'option' => KANGA_THEME_SETTINGS,
 						),
 						'config'     => $this->get_dependency_arr(),
 					)
@@ -857,7 +857,7 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_enqueue_script( 'kanga-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
+			wp_enqueue_script( 'kanga-customizer-preview-js', KANGA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), KANGA_THEME_VERSION, null );
 
 			$localize_array = array(
 				'headerBreakpoint'                     => kanga_header_break_point(),

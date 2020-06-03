@@ -36,14 +36,14 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Notice for Colors - Transparent header enabled on page.
 				 */
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[header-transparent-header-logo-notice]',
+					'name'            => KANGA_THEME_SETTINGS . '[header-transparent-header-logo-notice]',
 					'type'            => 'control',
 					'control'         => 'ast-description',
 					'section'         => 'title_tagline',
 					'priority'        => 1,
 					'required'        => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+							array( KANGA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 						),
 					),
 					'active_callback' => array( $this, 'is_transparent_header_enabled' ),
@@ -54,17 +54,17 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				* Option: Transparent Header Section - Link.
 				*/
 				array(
-					'name'            => ASTRA_THEME_SETTINGS . '[header-transparent-header-logo-notice-link]',
+					'name'            => KANGA_THEME_SETTINGS . '[header-transparent-header-logo-notice-link]',
 					'default'         => kanga_get_option( 'header-transparent-header-logo-notice-link' ),
 					'type'            => 'control',
 					'control'         => 'ast-customizer-link',
 					'section'         => 'title_tagline',
 					'priority'        => 1,
 					'link_type'       => 'control',
-					'linked'          => ASTRA_THEME_SETTINGS . '[transparent-header-logo]',
+					'linked'          => KANGA_THEME_SETTINGS . '[transparent-header-logo]',
 					'required'        => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
+							array( KANGA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 						),
 					),
 					'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'kanga' ) . '</u>',
@@ -75,7 +75,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-section-site-identity-logo]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-section-site-identity-logo]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
@@ -88,7 +88,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Different retina logo
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[different-retina-logo]',
+					'name'     => KANGA_THEME_SETTINGS . '[different-retina-logo]',
 					'type'     => 'control',
 					'control'  => 'checkbox',
 					'section'  => 'title_tagline',
@@ -100,12 +100,12 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Retina logo selector
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[ast-header-retina-logo]',
+					'name'           => KANGA_THEME_SETTINGS . '[ast-header-retina-logo]',
 					'default'        => kanga_get_option( 'ast-header-retina-logo' ),
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => 'title_tagline',
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
+					'required'       => array( KANGA_THEME_SETTINGS . '[different-retina-logo]', '!=', 0 ),
 					'priority'       => 5,
 					'title'          => __( 'Retina Logo', 'kanga' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Inherit Desktop logo
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[different-mobile-logo]',
+					'name'     => KANGA_THEME_SETTINGS . '[different-mobile-logo]',
 					'type'     => 'control',
 					'control'  => 'checkbox',
 					'default'  => false,
@@ -128,11 +128,11 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Mobile header logo
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[mobile-header-logo]',
+					'name'           => KANGA_THEME_SETTINGS . '[mobile-header-logo]',
 					'default'        => kanga_get_option( 'mobile-header-logo' ),
 					'type'           => 'control',
 					'control'        => 'image',
-					'required'       => array( ASTRA_THEME_SETTINGS . '[different-mobile-logo]', '==', '1' ),
+					'required'       => array( KANGA_THEME_SETTINGS . '[different-mobile-logo]', '==', '1' ),
 					'section'        => 'title_tagline',
 					'priority'       => 5,
 					'title'          => __( 'Mobile Logo (optional)', 'kanga' ),
@@ -143,7 +143,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Logo Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[ast-header-responsive-logo-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[ast-header-responsive-logo-width]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'title_tagline',
@@ -166,7 +166,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-logo-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[ast-site-logo-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'title'    => __( 'Site Icon', 'kanga' ),
@@ -179,7 +179,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Display Title
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title]',
+					'name'      => KANGA_THEME_SETTINGS . '[display-site-title]',
 					'type'      => 'control',
 					'control'   => 'checkbox',
 					'default'   => kanga_get_option( 'display-site-title' ),
@@ -198,7 +198,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Display Tagline
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+					'name'      => KANGA_THEME_SETTINGS . '[display-site-tagline]',
 					'type'      => 'control',
 					'control'   => 'checkbox',
 					'transport' => 'postMessage',
@@ -213,13 +213,13 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				),
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[logo-title-inline]',
+					'name'     => KANGA_THEME_SETTINGS . '[logo-title-inline]',
 					'default'  => kanga_get_option( 'logo-title-inline' ),
 					'type'     => 'control',
 					'required' => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[display-site-title]', '==', true ),
-							array( ASTRA_THEME_SETTINGS . '[display-site-tagline]', '==', true ),
+							array( KANGA_THEME_SETTINGS . '[display-site-title]', '==', true ),
+							array( KANGA_THEME_SETTINGS . '[display-site-tagline]', '==', true ),
 						),
 						'operator'   => 'OR',
 					),
@@ -233,7 +233,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Divider
 				*/
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-icon-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[ast-site-icon-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'title'    => __( 'Site Title', 'kanga' ),
@@ -242,7 +242,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 					'settings' => array(),
 				),
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
+					'name'      => KANGA_THEME_SETTINGS . '[site-title-typography]',
 					'default'   => kanga_get_option( 'site-title-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -251,7 +251,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 9,
 					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-title]',
+						KANGA_THEME_SETTINGS . '[display-site-title]',
 						'==',
 						true,
 					),
@@ -260,7 +260,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-site-title-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[ast-site-title-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'title_tagline',
@@ -269,7 +269,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 					'settings' => array(),
 				),
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
+					'name'      => KANGA_THEME_SETTINGS . '[site-tagline-typography]',
 					'default'   => kanga_get_option( 'site-tagline-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -278,7 +278,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 16,
 					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[display-site-tagline]',
+						KANGA_THEME_SETTINGS . '[display-site-tagline]',
 						'==',
 						true,
 					),

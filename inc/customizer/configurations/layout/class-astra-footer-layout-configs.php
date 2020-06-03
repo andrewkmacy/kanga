@@ -37,7 +37,7 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 */
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-sml-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[footer-sml-layout]',
 					'type'     => 'control',
 					'control'  => 'ast-radio-image',
 					'default'  => kanga_get_option( 'footer-sml-layout' ),
@@ -68,10 +68,10 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]',
+					'name'     => KANGA_THEME_SETTINGS . '[section-ast-small-footer-layout-info]',
 					'control'  => 'ast-divider',
 					'type'     => 'control',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'section'  => 'section-footer-small',
 					'priority' => 10,
 					'settings' => array(),
@@ -81,11 +81,11 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 *  Section: Section 1
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-sml-section-1]',
+					'name'     => KANGA_THEME_SETTINGS . '[footer-sml-section-1]',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'footer-sml-section-1' ),
 					'type'     => 'control',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'section'  => 'section-footer-small',
 					'priority' => 15,
 					'title'    => __( 'Section 1', 'kanga' ),
@@ -104,7 +104,7 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Section 1 Custom Text
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-sml-section-1-credit]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-sml-section-1-credit]',
 					'default'   => kanga_get_option( 'footer-sml-section-1-credit' ),
 					'type'      => 'control',
 					'control'   => 'textarea',
@@ -112,7 +112,7 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'required'  => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[footer-sml-section-1]', '==', array( 'custom' ) ),
+							array( KANGA_THEME_SETTINGS . '[footer-sml-section-1]', '==', array( 'custom' ) ),
 						),
 					),
 					'priority'  => 20,
@@ -134,11 +134,11 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Section 2
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-sml-section-2]',
+					'name'     => KANGA_THEME_SETTINGS . '[footer-sml-section-2]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'footer-sml-section-2' ),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'section'  => 'section-footer-small',
 					'priority' => 25,
 					'title'    => __( 'Section 2', 'kanga' ),
@@ -158,14 +158,14 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Section 2 Custom Text
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-sml-section-2-credit]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-sml-section-2-credit]',
 					'type'      => 'control',
 					'control'   => 'textarea',
 					'transport' => 'postMessage',
 					'default'   => kanga_get_option( 'footer-sml-section-2-credit' ),
 					'section'   => 'section-footer-small',
 					'priority'  => 30,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-section-2]', '==', 'custom' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[footer-sml-section-2]', '==', 'custom' ),
 					'title'     => __( 'Section 2 Custom Text', 'kanga' ),
 					'partial'   => array(
 						'selector'            => '.ast-small-footer-section-2',
@@ -182,11 +182,11 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[section-ast-small-footer-typography]',
+					'name'     => KANGA_THEME_SETTINGS . '[section-ast-small-footer-typography]',
 					'control'  => 'ast-divider',
 					'type'     => 'control',
 					'section'  => 'section-footer-small',
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'priority' => 35,
 					'settings' => array(),
 				),
@@ -195,13 +195,13 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Footer Top Border
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-sml-divider]',
+					'name'        => KANGA_THEME_SETTINGS . '[footer-sml-divider]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'default'     => kanga_get_option( 'footer-sml-divider' ),
 					'section'     => 'section-footer-small',
 					'priority'    => 40,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 					'title'       => __( 'Border Size', 'kanga' ),
 					'transport'   => 'postMessage',
 					'input_attrs' => array(
@@ -216,12 +216,12 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 */
 
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-sml-divider-color]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-sml-divider-color]',
 					'section'   => 'section-footer-small',
 					'default'   => '#7a7a7a',
 					'type'      => 'control',
 					'control'   => 'ast-color',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[footer-sml-divider]', '>=', 1 ),
 					'priority'  => 45,
 					'title'     => __( 'Border Color', 'kanga' ),
 					'transport' => 'postMessage',
@@ -231,21 +231,21 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Footer Bar Color & Background Section heading
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-bar-color-background-heading-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[footer-bar-color-background-heading-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-footer-small',
 					'title'    => __( 'Colors & Background', 'kanga' ),
 					'priority' => 46,
 					'settings' => array(),
-					'required' => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
 				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-background-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-bar-background-group]',
 					'default'   => kanga_get_option( 'footer-bar-background-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -253,14 +253,14 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
 				/**
 				 * Option: Footer Bar Content Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-bar-content-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-bar-content-group]',
 					'default'   => kanga_get_option( 'footer-bar-content-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -268,7 +268,7 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 					'section'   => 'section-footer-small',
 					'transport' => 'postMessage',
 					'priority'  => 47,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 				),
 
 				/**
@@ -276,16 +276,16 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 */
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[footer-layout-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[footer-layout-width]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'default'  => kanga_get_option( 'footer-layout-width' ),
 					'section'  => 'section-footer-small',
 					'required' => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[site-layout]', '!=', 'ast-box-layout' ),
-							array( ASTRA_THEME_SETTINGS . '[site-layout]', '!=', 'ast-fluid-width-layout' ),
-							array( ASTRA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
+							array( KANGA_THEME_SETTINGS . '[site-layout]', '!=', 'ast-box-layout' ),
+							array( KANGA_THEME_SETTINGS . '[site-layout]', '!=', 'ast-fluid-width-layout' ),
+							array( KANGA_THEME_SETTINGS . '[footer-sml-layout]', '!=', 'disabled' ),
 						),
 					),
 					'priority' => 35,
@@ -300,7 +300,7 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Footer Widgets Layout Layout
 				 */
 				array(
-					'name'    => ASTRA_THEME_SETTINGS . '[footer-adv]',
+					'name'    => KANGA_THEME_SETTINGS . '[footer-adv]',
 					'type'    => 'control',
 					'control' => 'ast-radio-image',
 					'default' => kanga_get_option( 'footer-adv' ),
@@ -326,14 +326,14 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Footer Top Border
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[footer-adv-border-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[footer-adv-border-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
 					'section'     => 'section-footer-adv',
 					'default'     => kanga_get_option( 'footer-adv-border-width' ),
 					'priority'    => 40,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 					'title'       => __( 'Top Border Size', 'kanga' ),
 					'input_attrs' => array(
 						'min'  => 0,
@@ -346,14 +346,14 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 				 * Option: Footer Top Border Color
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[footer-adv-border-color]',
+					'name'      => KANGA_THEME_SETTINGS . '[footer-adv-border-color]',
 					'section'   => 'section-footer-adv',
 					'title'     => __( 'Top Border Color', 'kanga' ),
 					'type'      => 'control',
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
 					'default'   => kanga_get_option( 'footer-adv-border-color' ),
-					'required'  => array( ASTRA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[footer-adv]', '!=', 'disabled' ),
 					'priority'  => 45,
 				),
 			);
@@ -361,14 +361,14 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Kanga Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 
 				$config = array(
 					/**
 					 * Option: Divider
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-divider]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-footer-widget-more-feature-divider]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-footer-adv',
@@ -380,7 +380,7 @@ if ( ! class_exists( 'Kanga_Footer_Layout_Configs' ) ) {
 					 * Option: Learn More about Footer Widget
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-footer-widget-more-feature-description]',
+						'name'     => KANGA_THEME_SETTINGS . '[ast-footer-widget-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-footer-adv',

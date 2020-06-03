@@ -154,9 +154,9 @@ if ( ! class_exists( 'Kanga_Breadcrumbs_Loader' ) ) {
 			/**
 			 * Register Panel & Sections
 			 */
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-configs.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-color-configs.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-typo-configs.php';
+			require_once KANGA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-configs.php';
+			require_once KANGA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-color-configs.php';
+			require_once KANGA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-typo-configs.php';
 
 		}
 
@@ -170,7 +170,7 @@ if ( ! class_exists( 'Kanga_Breadcrumbs_Loader' ) ) {
 			/* Directory and Extension */
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			wp_enqueue_script( 'kanga-breadcrumbs-customizer-preview-js', ASTRA_THEME_BREADCRUMBS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kanga-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'kanga-breadcrumbs-customizer-preview-js', KANGA_THEME_BREADCRUMBS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kanga-customizer-preview-js' ), KANGA_THEME_VERSION, true );
 		}
 	}
 }

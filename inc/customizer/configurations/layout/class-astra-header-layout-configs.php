@@ -43,7 +43,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Header Layout
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-layouts]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-layouts]',
 					'default'  => kanga_get_option( 'header-layouts' ),
 					'section'  => 'section-header',
 					'priority' => 4,
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Header Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-layout-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-main-layout-width]',
 					'default'  => kanga_get_option( 'header-main-layout-width' ),
 					'type'     => 'control',
 					'control'  => 'select',
@@ -86,7 +86,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Bottom Border Size
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-main-sep]',
+					'name'        => KANGA_THEME_SETTINGS . '[header-main-sep]',
 					'transport'   => 'postMessage',
 					'default'     => kanga_get_option( 'header-main-sep' ),
 					'type'        => 'control',
@@ -105,11 +105,11 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Bottom Border Color
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-main-sep-color]',
+					'name'      => KANGA_THEME_SETTINGS . '[header-main-sep-color]',
 					'transport' => 'postMessage',
 					'default'   => '',
 					'type'      => 'control',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-sep]', '>=', 1 ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[header-main-sep]', '>=', 1 ),
 					'control'   => 'ast-color',
 					'section'   => 'section-header',
 					'priority'  => 4,
@@ -127,7 +127,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				),
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+					'name'     => KANGA_THEME_SETTINGS . '[disable-primary-nav]',
 					'default'  => kanga_get_option( 'disable-primary-nav' ),
 					'type'     => 'control',
 					'control'  => 'checkbox',
@@ -141,7 +141,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				),
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-main-rt-section]',
 					'default'  => kanga_get_option( 'header-main-rt-section' ),
 					'type'     => 'control',
 					'control'  => 'select',
@@ -169,7 +169,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				* Option: Button Text
 				*/
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-text]',
+					'name'      => KANGA_THEME_SETTINGS . '[header-main-rt-section-button-text]',
 					'transport' => 'postMessage',
 					'default'   => kanga_get_option( 'header-main-rt-section-button-text' ),
 					'type'      => 'control',
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 						'container_inclusive' => false,
 						'render_callback'     => array( 'Kanga_Customizer_Partials', 'render_header_main_rt_section_button_text' ),
 					),
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority'  => 10,
 					'title'     => __( 'Button Text', 'kanga' ),
 				),
@@ -189,12 +189,12 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				* Option: Button Link
 				*/
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-link-option]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-main-rt-section-button-link-option]',
 					'default'  => kanga_get_option( 'header-main-rt-section-button-link-option' ),
 					'type'     => 'control',
 					'control'  => 'ast-link',
 					'section'  => 'section-primary-menu',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority' => 10,
 					'title'    => __( 'Button Link', 'kanga' ),
 				),
@@ -203,12 +203,12 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				* Option: Button Style
 				*/
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]',
 					'default'  => kanga_get_option( 'header-main-rt-section-button-style' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-primary-menu',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
 					'priority' => 10,
 					'choices'  => array(
 						'theme-button'  => __( 'Theme Button', 'kanga' ),
@@ -221,14 +221,14 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				* Option: Theme Button Style edit link
 				*/
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-button-style-link]',
+					'name'      => KANGA_THEME_SETTINGS . '[header-button-style-link]',
 					'default'   => kanga_get_option( 'header-button-style-link' ),
 					'type'      => 'control',
 					'control'   => 'ast-customizer-link',
 					'section'   => 'section-primary-menu',
 					'required'  => array(
-						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
-						array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
+						array( KANGA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'button' ),
+						array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'theme-button' ),
 					),
 					'priority'  => 10,
 					'link_type' => 'section',
@@ -240,13 +240,13 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Right Section Text / HTML
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-main-rt-section-html]',
+					'name'      => KANGA_THEME_SETTINGS . '[header-main-rt-section-html]',
 					'transport' => 'postMessage',
 					'default'   => kanga_get_option( 'header-main-rt-section-html' ),
 					'type'      => 'control',
 					'control'   => 'textarea',
 					'section'   => 'section-primary-menu',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'text-html' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[header-main-rt-section]', '===', 'text-html' ),
 					'priority'  => 10,
 					'partial'   => array(
 						'selector'            => '.main-header-bar .ast-masthead-custom-menu-items .ast-custom-html',
@@ -270,13 +270,13 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Submenu Container Animation
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-submenu-container-animation]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-main-submenu-container-animation]',
 					'default'  => kanga_get_option( 'header-main-submenu-container-animation' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-primary-menu',
 					'required' => array(
-						ASTRA_THEME_SETTINGS . '[disable-primary-nav]',
+						KANGA_THEME_SETTINGS . '[disable-primary-nav]',
 						'!=',
 						true,
 					),
@@ -295,7 +295,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 					'type'           => 'control',
 					'control'        => 'ast-border',
 					'transport'      => 'postMessage',
-					'name'           => ASTRA_THEME_SETTINGS . '[primary-submenu-border]',
+					'name'           => KANGA_THEME_SETTINGS . '[primary-submenu-border]',
 					'section'        => 'section-primary-menu',
 					'linked_choices' => true,
 					'priority'       => 30,
@@ -314,7 +314,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-b-color]',
+					'name'      => KANGA_THEME_SETTINGS . '[primary-submenu-b-color]',
 					'default'   => '',
 					'title'     => __( 'Border Color', 'kanga' ),
 					'section'   => 'section-primary-menu',
@@ -325,7 +325,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'checkbox',
 					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+					'name'      => KANGA_THEME_SETTINGS . '[primary-submenu-item-border]',
 					'section'   => 'section-primary-menu',
 					'priority'  => 30,
 					'default'   => kanga_get_option( 'primary-submenu-item-border' ),
@@ -337,12 +337,12 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
+					'name'      => KANGA_THEME_SETTINGS . '[primary-submenu-item-b-color]',
 					'default'   => '',
 					'title'     => __( 'Divider Color', 'kanga' ),
 					'section'   => 'section-primary-menu',
 					'required'  => array(
-						ASTRA_THEME_SETTINGS . '[primary-submenu-item-border]',
+						KANGA_THEME_SETTINGS . '[primary-submenu-item-border]',
 						'==',
 						true,
 					),
@@ -353,7 +353,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Mobile Menu Label Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-label-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-main-menu-label-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-header',
@@ -366,7 +366,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Mobile Menu Alignment
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-main-menu-align]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-main-menu-align]',
 					'default'  => kanga_get_option( 'header-main-menu-align' ),
 					'type'     => 'control',
 					'control'  => 'ast-radio-image',
@@ -389,11 +389,11 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Hide Last item in Menu on mobile device
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
+					'name'     => KANGA_THEME_SETTINGS . '[hide-custom-menu-mobile]',
 					'default'  => kanga_get_option( 'hide-custom-menu-mobile' ),
 					'type'     => 'control',
 					'control'  => 'checkbox',
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', 'none' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[header-main-rt-section]', '!=', 'none' ),
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Hide Last Item in Menu on Mobile', 'kanga' ),
 					'priority' => 7,
@@ -403,10 +403,10 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Display outside menu
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[header-display-outside-menu]',
+					'name'     => KANGA_THEME_SETTINGS . '[header-display-outside-menu]',
 					'type'     => 'control',
 					'control'  => 'checkbox',
-					'required' => array( ASTRA_THEME_SETTINGS . '[hide-custom-menu-mobile]', '!=', '1' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[hide-custom-menu-mobile]', '!=', '1' ),
 					'default'  => kanga_get_option( 'header-display-outside-menu' ),
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Take Last Item Outside Menu', 'kanga' ),
@@ -427,7 +427,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Mobile Header Breakpoint
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[mobile-header-breakpoint]',
+					'name'              => KANGA_THEME_SETTINGS . '[mobile-header-breakpoint]',
 					'default'           => '',
 					'type'              => 'control',
 					'control'           => 'ast-slider',
@@ -447,7 +447,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Toggle on click of button or link.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]',
+					'name'     => KANGA_THEME_SETTINGS . '[mobile-header-toggle-target]',
 					'default'  => kanga_get_option( 'mobile-header-toggle-target' ),
 					'type'     => 'control',
 					'control'  => 'select',
@@ -465,13 +465,13 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Notice to add # link to parent menu when Link option selected in Dropdown Target.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target-link-notice]',
+					'name'     => KANGA_THEME_SETTINGS . '[mobile-header-toggle-target-link-notice]',
 					'type'     => 'control',
 					'control'  => 'ast-description',
 					'section'  => 'section-header',
 					'priority' => 41,
 					'title'    => '',
-					'required' => array( ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]', '==', 'link' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[mobile-header-toggle-target]', '==', 'link' ),
 					'help'     => __( 'The parent menu should have a # link for the submenu to open on a link.', 'kanga' ),
 					'settings' => array(),
 				),
@@ -480,14 +480,14 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Mobile Menu Label
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[header-main-menu-label]',
+					'name'      => KANGA_THEME_SETTINGS . '[header-main-menu-label]',
 					'transport' => 'postMessage',
 					'default'   => kanga_get_option( 'header-main-menu-label' ),
 					'section'   => 'section-primary-menu',
 					'required'  => array(
 						'conditions' => array(
-							array( ASTRA_THEME_SETTINGS . '[header-main-rt-section]', '!=', array( 'none' ) ),
-							array( ASTRA_THEME_SETTINGS . '[disable-primary-nav]', '!=', array( '1' ) ),
+							array( KANGA_THEME_SETTINGS . '[header-main-rt-section]', '!=', array( 'none' ) ),
+							array( KANGA_THEME_SETTINGS . '[disable-primary-nav]', '!=', array( '1' ) ),
 						),
 						'operator'   => 'OR',
 					),
@@ -505,14 +505,14 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Toggle Button Style
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
+					'name'     => KANGA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]',
 					'default'  => kanga_get_option( 'mobile-header-toggle-btn-style' ),
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Toggle Button Style', 'kanga' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'priority' => 42,
-					'required' => array( ASTRA_THEME_SETTINGS . '[mobile-menu-style]', '!=', 'no-toggle' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[mobile-menu-style]', '!=', 'no-toggle' ),
 					'choices'  => array(
 						'fill'    => __( 'Fill', 'kanga' ),
 						'outline' => __( 'Outline', 'kanga' ),
@@ -524,11 +524,11 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Toggle Button Color
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]',
+					'name'      => KANGA_THEME_SETTINGS . '[mobile-header-toggle-btn-style-color]',
 					'default'   => kanga_get_option( 'mobile-header-toggle-btn-style-color' ),
 					'type'      => 'control',
 					'control'   => 'ast-color',
-					'required'  => array( ASTRA_THEME_SETTINGS . '[mobile-menu-style]', '!=', 'no-toggle' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[mobile-menu-style]', '!=', 'no-toggle' ),
 					'title'     => __( 'Toggle Button Color', 'kanga' ),
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
@@ -539,13 +539,13 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Border Radius
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-border-radius]',
+					'name'        => KANGA_THEME_SETTINGS . '[mobile-header-toggle-btn-border-radius]',
 					'default'     => kanga_get_option( 'mobile-header-toggle-btn-border-radius' ),
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'section-primary-menu',
 					'title'       => __( 'Border Radius', 'kanga' ),
-					'required'    => array( ASTRA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]', '!=', 'minimal' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[mobile-header-toggle-btn-style]', '!=', 'minimal' ),
 					'priority'    => 42,
 					'suffix'      => '',
 					'transport'   => 'postMessage',
@@ -559,7 +559,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 				 * Option: Toggle on click of button or link.
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-toggle-target]',
+					'name'     => KANGA_THEME_SETTINGS . '[mobile-header-toggle-target]',
 					'default'  => kanga_get_option( 'mobile-header-toggle-target' ),
 					'type'     => 'control',
 					'control'  => 'select',
@@ -577,7 +577,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Kanga Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( ! defined( 'KANGA_EXT_VER' ) ) {
 
 				$config = array(
 
@@ -585,7 +585,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 					 * Option: Divider
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-more-feature-divider]',
+						'name'     => KANGA_THEME_SETTINGS . '[mobile-header-more-feature-divider]',
 						'type'     => 'control',
 						'control'  => 'ast-divider',
 						'section'  => 'section-header',
@@ -597,7 +597,7 @@ if ( ! class_exists( 'Kanga_Header_Layout_Configs' ) ) {
 					 * Option: Learn More about Mobile Header
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[mobile-header-more-feature-description]',
+						'name'     => KANGA_THEME_SETTINGS . '[mobile-header-more-feature-description]',
 						'type'     => 'control',
 						'control'  => 'ast-description',
 						'section'  => 'section-header',

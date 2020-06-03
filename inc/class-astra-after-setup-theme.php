@@ -81,7 +81,7 @@ if ( ! class_exists( 'Kanga_After_Setup_Theme' ) ) {
 			 * If you're building a theme based on Next, use a find and replace
 			 * to change 'kanga' to the name of your theme in all the template files.
 			 */
-			load_theme_textdomain( 'kanga', ASTRA_THEME_DIR . '/languages' );
+			load_theme_textdomain( 'kanga', KANGA_THEME_DIR . '/languages' );
 
 			/**
 			 * Theme Support

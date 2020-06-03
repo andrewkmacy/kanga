@@ -39,7 +39,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 			$_configs = array(
 
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-color-styling-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[button-color-styling-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-buttons',
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				 * Group: Theme Button Colors Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[theme-button-color-group]',
 					'default'   => kanga_get_option( 'theme-button-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				 * Group: Theme Button Border Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[theme-button-border-group]',
 					'default'   => kanga_get_option( 'theme-button-border-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -82,7 +82,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'    => 'button-color',
 					'default' => '',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section' => 'section-buttons',
 					'tab'     => __( 'Normal', 'kanga' ),
 					'control' => 'ast-color',
@@ -96,7 +96,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'    => 'button-h-color',
 					'default' => '',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section' => 'section-buttons',
 					'tab'     => __( 'Hover', 'kanga' ),
 					'control' => 'ast-color',
@@ -110,7 +110,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'    => 'button-bg-color',
 					'default' => '',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section' => 'section-buttons',
 					'tab'     => __( 'Normal', 'kanga' ),
 					'control' => 'ast-color',
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'    => 'button-bg-h-color',
 					'default' => '',
 					'type'    => 'sub-control',
-					'parent'  => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'parent'  => KANGA_THEME_SETTINGS . '[theme-button-color-group]',
 					'section' => 'section-buttons',
 					'tab'     => __( 'Hover', 'kanga' ),
 					'control' => 'ast-color',
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				 */
 				array(
 					'type'           => 'sub-control',
-					'parent'         => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'parent'         => KANGA_THEME_SETTINGS . '[theme-button-border-group]',
 					'section'        => 'section-buttons',
 					'control'        => 'ast-border',
 					'name'           => 'theme-button-border-group-border-size',
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'theme-button-border-group-border-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[theme-button-border-group]',
 					'section'   => 'section-buttons',
 					'control'   => 'ast-color',
 					'priority'  => 12,
@@ -176,7 +176,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'theme-button-border-group-border-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[theme-button-border-group]',
 					'section'   => 'section-buttons',
 					'control'   => 'ast-color',
 					'priority'  => 14,
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'        => 'button-radius',
 					'default'     => kanga_get_option( 'button-radius' ),
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[theme-button-border-group]',
+					'parent'      => KANGA_THEME_SETTINGS . '[theme-button-border-group]',
 					'section'     => 'section-buttons',
 					'control'     => 'ast-slider',
 					'title'       => __( 'Border Radius', 'kanga' ),
@@ -205,7 +205,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				 * Option: Button Padding Section
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-padding-styling-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[button-padding-styling-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-buttons',
@@ -218,7 +218,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				 * Option: Theme Button Padding
 				 */
 				array(
-					'name'           => ASTRA_THEME_SETTINGS . '[theme-button-padding]',
+					'name'           => KANGA_THEME_SETTINGS . '[theme-button-padding]',
 					'default'        => kanga_get_option( 'theme-button-padding' ),
 					'type'           => 'control',
 					'control'        => 'ast-responsive-spacing',
@@ -240,20 +240,20 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				 * Option: Primary Header Button Colors Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[primary-header-button-color-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[primary-header-button-color-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-primary-menu',
 					'title'    => __( 'Header Button', 'kanga' ),
 					'settings' => array(),
 					'priority' => 17,
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 				),
 				/**
 				 * Group: Primary Header Button Colors Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-header-button-color-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[primary-header-button-color-group]',
 					'default'   => kanga_get_option( 'primary-header-button-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -261,13 +261,13 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
 					'priority'  => 18,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 				),
 				/**
 				 * Group: Primary Header Button Border Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[primary-header-button-border-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[primary-header-button-border-group]',
 					'default'   => kanga_get_option( 'primary-header-button-border-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -275,7 +275,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-primary-menu',
 					'transport' => 'postMessage',
 					'priority'  => 19,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 				),
 
 				/**
@@ -286,7 +286,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'transport' => 'postMessage',
 					'default'   => kanga_get_option( 'header-main-rt-section-button-text-color' ),
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[primary-header-button-color-group]',
 					'section'   => 'section-primary-menu',
 					'tab'       => __( 'Normal', 'kanga' ),
 					'control'   => 'ast-color',
@@ -302,7 +302,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-section-button-text-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[primary-header-button-color-group]',
 					'section'   => 'section-primary-menu',
 					'tab'       => __( 'Hover', 'kanga' ),
 					'control'   => 'ast-color',
@@ -318,7 +318,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-section-button-back-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[primary-header-button-color-group]',
 					'section'   => 'section-primary-menu',
 					'tab'       => __( 'Normal', 'kanga' ),
 					'control'   => 'ast-color',
@@ -334,7 +334,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-section-button-back-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[primary-header-button-color-group]',
 					'section'   => 'section-primary-menu',
 					'tab'       => __( 'Hover', 'kanga' ),
 					'control'   => 'ast-color',
@@ -346,12 +346,12 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				array(
 					'type'           => 'control',
 					'control'        => 'ast-responsive-spacing',
-					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-padding]',
+					'name'           => KANGA_THEME_SETTINGS . '[header-main-rt-section-button-padding]',
 					'section'        => 'section-primary-menu',
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
 					'priority'       => 20,
-					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required'       => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'default'        => kanga_get_option( 'header-main-rt-section-button-padding' ),
 					'title'          => __( 'Padding', 'kanga' ),
 					'choices'        => array(
@@ -367,7 +367,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				*/
 				array(
 					'type'           => 'sub-control',
-					'parent'         => ASTRA_THEME_SETTINGS . '[primary-header-button-border-group]',
+					'parent'         => KANGA_THEME_SETTINGS . '[primary-header-button-border-group]',
 					'section'        => 'section-primary-menu',
 					'control'        => 'ast-border',
 					'name'           => 'header-main-rt-section-button-border-size',
@@ -392,7 +392,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-section-button-border-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-border-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[primary-header-button-border-group]',
 					'section'   => 'section-primary-menu',
 					'control'   => 'ast-color',
 					'priority'  => 12,
@@ -407,7 +407,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-section-button-border-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[primary-header-button-border-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[primary-header-button-border-group]',
 					'section'   => 'section-primary-menu',
 					'control'   => 'ast-color',
 					'priority'  => 14,
@@ -421,7 +421,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'        => 'header-main-rt-section-button-border-radius',
 					'default'     => kanga_get_option( 'header-main-rt-section-button-border-radius' ),
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[primary-header-button-border-group]',
+					'parent'      => KANGA_THEME_SETTINGS . '[primary-header-button-border-group]',
 					'section'     => 'section-primary-menu',
 					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',
@@ -438,20 +438,20 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				 * Option: Transparent Header Button Colors Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-button-color-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[transparent-header-button-color-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-transparent-header',
 					'title'    => __( 'Header Button', 'kanga' ),
 					'settings' => array(),
 					'priority' => 40,
-					'required' => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required' => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 				),
 				/**
 				 * Group: Transparent Header Button Colors Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-button-color-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[transparent-header-button-color-group]',
 					'default'   => kanga_get_option( 'transparent-header-button-color-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -459,13 +459,13 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 40,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 				),
 				/**
 				 * Group: Transparent Header Button Border Group
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
+					'name'      => KANGA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 					'default'   => kanga_get_option( 'transparent-header-button-border-group' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -473,7 +473,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 40,
-					'required'  => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required'  => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 				),
 
 				/**
@@ -484,7 +484,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'transport' => 'postMessage',
 					'default'   => kanga_get_option( 'header-main-rt-trans-section-button-text-color' ),
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[transparent-header-button-color-group]',
 					'section'   => 'section-transparent-header',
 					'tab'       => __( 'Normal', 'kanga' ),
 					'control'   => 'ast-color',
@@ -500,7 +500,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-trans-section-button-text-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[transparent-header-button-color-group]',
 					'section'   => 'section-transparent-header',
 					'tab'       => __( 'Hover', 'kanga' ),
 					'control'   => 'ast-color',
@@ -516,7 +516,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-trans-section-button-back-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[transparent-header-button-color-group]',
 					'section'   => 'section-transparent-header',
 					'tab'       => __( 'Normal', 'kanga' ),
 					'control'   => 'ast-color',
@@ -532,7 +532,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-trans-section-button-back-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-button-color-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[transparent-header-button-color-group]',
 					'section'   => 'section-transparent-header',
 					'tab'       => __( 'Hover', 'kanga' ),
 					'control'   => 'ast-color',
@@ -544,12 +544,12 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				array(
 					'type'           => 'control',
 					'control'        => 'ast-responsive-spacing',
-					'name'           => ASTRA_THEME_SETTINGS . '[header-main-rt-trans-section-button-padding]',
+					'name'           => KANGA_THEME_SETTINGS . '[header-main-rt-trans-section-button-padding]',
 					'section'        => 'section-transparent-header',
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
 					'priority'       => 40,
-					'required'       => array( ASTRA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
+					'required'       => array( KANGA_THEME_SETTINGS . '[header-main-rt-section-button-style]', '===', 'custom-button' ),
 					'default'        => kanga_get_option( 'header-main-rt-trans-section-button-padding' ),
 					'title'          => __( 'Padding', 'kanga' ),
 					'choices'        => array(
@@ -565,7 +565,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 				*/
 				array(
 					'type'           => 'sub-control',
-					'parent'         => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
+					'parent'         => KANGA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 					'section'        => 'section-transparent-header',
 					'control'        => 'ast-border',
 					'name'           => 'header-main-rt-trans-section-button-border-size',
@@ -589,7 +589,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'      => 'header-main-rt-trans-section-button-border-color',
 					'default'   => kanga_get_option( 'header-main-rt-trans-section-button-border-color' ),
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
@@ -605,7 +605,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'default'   => kanga_get_option( 'header-main-rt-trans-section-button-border-h-color' ),
 					'transport' => 'postMessage',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
+					'parent'    => KANGA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 					'control'   => 'ast-color',
 					'priority'  => 14,
 					'title'     => __( 'Hover Color', 'kanga' ),
@@ -618,7 +618,7 @@ if ( ! class_exists( 'Kanga_Customizer_Button_Configs' ) ) {
 					'name'        => 'header-main-rt-trans-section-button-border-radius',
 					'default'     => kanga_get_option( 'header-main-rt-trans-section-button-border-radius' ),
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[transparent-header-button-border-group]',
+					'parent'      => KANGA_THEME_SETTINGS . '[transparent-header-button-border-group]',
 					'section'     => 'section-transparent-header',
 					'control'     => 'ast-slider',
 					'transport'   => 'postMessage',

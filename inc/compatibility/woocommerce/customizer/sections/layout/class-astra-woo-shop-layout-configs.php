@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Shop Columns
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[shop-grids]',
+					'name'        => KANGA_THEME_SETTINGS . '[shop-grids]',
 					'type'        => 'control',
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'woocommerce_product_catalog',
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Products Per Page
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[shop-no-of-products]',
+					'name'        => KANGA_THEME_SETTINGS . '[shop-no-of-products]',
 					'type'        => 'control',
 					'section'     => 'woocommerce_product_catalog',
 					'title'       => __( 'Products Per Page', 'kanga' ),
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Single Post Meta
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+					'name'     => KANGA_THEME_SETTINGS . '[shop-product-structure]',
 					'type'     => 'control',
 					'control'  => 'ast-sortable',
 					'section'  => 'woocommerce_product_catalog',
@@ -97,7 +97,7 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Shop Archive Content Width
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[shop-archive-width]',
+					'name'     => KANGA_THEME_SETTINGS . '[shop-archive-width]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'woocommerce_product_catalog',
@@ -114,13 +114,13 @@ if ( ! class_exists( 'Kanga_Woo_Shop_Layout_Configs' ) ) {
 				 * Option: Enter Width
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[shop-archive-max-width]',
+					'name'        => KANGA_THEME_SETTINGS . '[shop-archive-max-width]',
 					'type'        => 'control',
 					'control'     => 'ast-slider',
 					'section'     => 'woocommerce_product_catalog',
 					'default'     => 1200,
 					'priority'    => 10,
-					'required'    => array( ASTRA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
+					'required'    => array( KANGA_THEME_SETTINGS . '[shop-archive-width]', '===', 'custom' ),
 					'title'       => __( 'Custom Width', 'kanga' ),
 					'transport'   => 'postMessage',
 					'suffix'      => '',

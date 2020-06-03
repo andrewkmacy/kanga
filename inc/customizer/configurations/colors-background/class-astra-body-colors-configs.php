@@ -35,7 +35,7 @@ if ( ! class_exists( 'Kanga_Body_Colors_Configs' ) ) {
 				 * Option: Text Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[text-color]',
+					'name'     => KANGA_THEME_SETTINGS . '[text-color]',
 					'default'  => '#3a3a3a',
 					'type'     => 'control',
 					'control'  => 'ast-color',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kanga_Body_Colors_Configs' ) ) {
 				 * Option: Theme Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[theme-color]',
+					'name'     => KANGA_THEME_SETTINGS . '[theme-color]',
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'section'  => 'section-colors-body',
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Kanga_Body_Colors_Configs' ) ) {
 				 * Option: Link Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[link-color]',
+					'name'     => KANGA_THEME_SETTINGS . '[link-color]',
 					'section'  => 'section-colors-body',
 					'type'     => 'control',
 					'control'  => 'ast-color',
@@ -74,7 +74,7 @@ if ( ! class_exists( 'Kanga_Body_Colors_Configs' ) ) {
 				 * Option: Link Hover Color
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[link-h-color]',
+					'name'     => KANGA_THEME_SETTINGS . '[link-h-color]',
 					'section'  => 'section-colors-body',
 					'default'  => '#3a3a3a',
 					'type'     => 'control',
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Kanga_Body_Colors_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[divider-outside-bg-color]',
+					'name'     => KANGA_THEME_SETTINGS . '[divider-outside-bg-color]',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
 					'section'  => 'section-colors-body',

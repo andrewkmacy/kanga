@@ -59,9 +59,9 @@ if ( ! class_exists( 'Kanga_Gravity_Forms' ) ) :
 				$file_prefix .= '-rtl';
 			}
 
-			$css_file = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/gravity-forms' . $file_prefix . '.css';
+			$css_file = KANGA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/gravity-forms' . $file_prefix . '.css';
 
-			wp_enqueue_style( 'kanga-gravity-forms', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'kanga-gravity-forms', $css_file, array(), KANGA_THEME_VERSION, 'all' );
 		}
 
 	}

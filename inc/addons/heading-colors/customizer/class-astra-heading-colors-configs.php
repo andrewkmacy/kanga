@@ -39,7 +39,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'control'   => 'ast-color',
 					'transport' => 'postMessage',
 					'priority'  => 18,
-					'name'      => ASTRA_THEME_SETTINGS . '[heading-base-color]',
+					'name'      => KANGA_THEME_SETTINGS . '[heading-base-color]',
 					'title'     => __( 'Heading Color ( H1 - H6 )', 'kanga' ),
 					'section'   => 'section-colors-body',
 				),
@@ -52,7 +52,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H1> Font Family
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[font-family-h1]',
+					'name'      => KANGA_THEME_SETTINGS . '[font-family-h1]',
 					'type'      => 'control',
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
@@ -60,7 +60,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'title'     => __( 'Family', 'kanga' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 5,
-					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-h1]',
+					'connect'   => KANGA_THEME_SETTINGS . '[font-weight-h1]',
 					'transport' => 'postMessage',
 				),
 
@@ -68,7 +68,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H1> Font Weight
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[font-weight-h1]',
+					'name'              => KANGA_THEME_SETTINGS . '[font-weight-h1]',
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
@@ -77,7 +77,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'default'           => kanga_get_option( 'font-weight-h1' ),
 					'section'           => 'section-content-typo',
 					'priority'          => 7,
-					'connect'           => ASTRA_THEME_SETTINGS . '[font-family-h1]',
+					'connect'           => KANGA_THEME_SETTINGS . '[font-family-h1]',
 					'transport'         => 'postMessage',
 				),
 
@@ -85,7 +85,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H1> Text Transform
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[text-transform-h1]',
+					'name'      => KANGA_THEME_SETTINGS . '[text-transform-h1]',
 					'section'   => 'section-content-typo',
 					'default'   => kanga_get_option( 'text-transform-h1' ),
 					'title'     => __( 'Text Transform', 'kanga' ),
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H1> Line Height
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[line-height-h1]',
+					'name'              => KANGA_THEME_SETTINGS . '[line-height-h1]',
 					'section'           => 'section-content-typo',
 					'default'           => '',
 					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
@@ -128,7 +128,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H2> Font Family
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[font-family-h2]',
+					'name'      => KANGA_THEME_SETTINGS . '[font-family-h2]',
 					'type'      => 'control',
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'default'   => kanga_get_option( 'font-family-h2' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 10,
-					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-h2]',
+					'connect'   => KANGA_THEME_SETTINGS . '[font-weight-h2]',
 					'transport' => 'postMessage',
 				),
 
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H2> Font Weight
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[font-weight-h2]',
+					'name'              => KANGA_THEME_SETTINGS . '[font-weight-h2]',
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
@@ -153,7 +153,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'default'           => kanga_get_option( 'font-weight-h2' ),
 					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'priority'          => 12,
-					'connect'           => ASTRA_THEME_SETTINGS . '[font-family-h2]',
+					'connect'           => KANGA_THEME_SETTINGS . '[font-family-h2]',
 					'transport'         => 'postMessage',
 				),
 
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H2> Text Transform
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[text-transform-h2]',
+					'name'      => KANGA_THEME_SETTINGS . '[text-transform-h2]',
 					'section'   => 'section-content-typo',
 					'default'   => kanga_get_option( 'text-transform-h2' ),
 					'title'     => __( 'Text Transform', 'kanga' ),
@@ -184,7 +184,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 */
 
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[line-height-h2]',
+					'name'              => KANGA_THEME_SETTINGS . '[line-height-h2]',
 					'section'           => 'section-content-typo',
 					'type'              => 'control',
 					'control'           => 'ast-slider',
@@ -206,7 +206,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H3> Font Family
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[font-family-h3]',
+					'name'      => KANGA_THEME_SETTINGS . '[font-family-h3]',
 					'type'      => 'control',
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
@@ -214,7 +214,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'title'     => __( 'Family', 'kanga' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 15,
-					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-h3]',
+					'connect'   => KANGA_THEME_SETTINGS . '[font-weight-h3]',
 					'transport' => 'postMessage',
 				),
 
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H3> Font Weight
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[font-weight-h3]',
+					'name'              => KANGA_THEME_SETTINGS . '[font-weight-h3]',
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
@@ -231,7 +231,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'title'             => __( 'Weight', 'kanga' ),
 					'section'           => 'section-content-typo',
 					'priority'          => 17,
-					'connect'           => ASTRA_THEME_SETTINGS . '[font-family-h3]',
+					'connect'           => KANGA_THEME_SETTINGS . '[font-family-h3]',
 					'transport'         => 'postMessage',
 				),
 
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H3> Text Transform
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[text-transform-h3]',
+					'name'      => KANGA_THEME_SETTINGS . '[text-transform-h3]',
 					'type'      => 'control',
 					'section'   => 'section-content-typo',
 					'title'     => __( 'Text Transform', 'kanga' ),
@@ -261,7 +261,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Heading <H3> Line Height
 				 */
 				array(
-					'name'              => ASTRA_THEME_SETTINGS . '[line-height-h3]',
+					'name'              => KANGA_THEME_SETTINGS . '[line-height-h3]',
 					'type'              => 'control',
 					'control'           => 'ast-slider',
 					'section'           => 'section-content-typo',
@@ -283,7 +283,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Button Typography Section
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[button-typography-styling-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[button-typography-styling-divider]',
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-buttons',
@@ -296,7 +296,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				 * Option: Button Typography Heading
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'name'      => KANGA_THEME_SETTINGS . '[button-text-typography]',
 					'default'   => kanga_get_option( 'button-text-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
@@ -312,13 +312,13 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				array(
 					'name'      => 'font-family-button',
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'parent'    => KANGA_THEME_SETTINGS . '[button-text-typography]',
 					'section'   => 'section-buttons',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
 					'title'     => __( 'Family', 'kanga' ),
 					'default'   => kanga_get_option( 'font-family-button' ),
-					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-button]',
+					'connect'   => KANGA_THEME_SETTINGS . '[font-weight-button]',
 					'priority'  => 1,
 				),
 
@@ -330,7 +330,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'transport'   => 'postMessage',
 					'title'       => __( 'Size', 'kanga' ),
 					'type'        => 'sub-control',
-					'parent'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'parent'      => KANGA_THEME_SETTINGS . '[button-text-typography]',
 					'section'     => 'section-buttons',
 					'control'     => 'ast-responsive',
 					'default'     => kanga_get_option( 'font-size-button' ),
@@ -349,7 +349,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 				array(
 					'name'              => 'font-weight-button',
 					'type'              => 'sub-control',
-					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'parent'            => KANGA_THEME_SETTINGS . '[button-text-typography]',
 					'section'           => 'section-buttons',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
@@ -369,7 +369,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'default'   => kanga_get_option( 'text-transform-button' ),
 					'title'     => __( 'Text Transform', 'kanga' ),
 					'type'      => 'sub-control',
-					'parent'    => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'parent'    => KANGA_THEME_SETTINGS . '[button-text-typography]',
 					'section'   => 'section-buttons',
 					'control'   => 'ast-select',
 					'priority'  => 3,
@@ -391,7 +391,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'type'              => 'sub-control',
 					'default'           => kanga_get_option( 'theme-btn-line-height' ),
-					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'parent'            => KANGA_THEME_SETTINGS . '[button-text-typography]',
 					'section'           => 'section-buttons',
 					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Line Height', 'kanga' ),
@@ -413,7 +413,7 @@ if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 					'transport'         => 'postMessage',
 					'type'              => 'sub-control',
 					'default'           => '',
-					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'parent'            => KANGA_THEME_SETTINGS . '[button-text-typography]',
 					'section'           => 'section-buttons',
 					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'title'             => __( 'Letter Spacing', 'kanga' ),

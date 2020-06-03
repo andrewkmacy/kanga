@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Learndash_Sidebar_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[learndash-sidebar-layout-divider]',
 					'type'     => 'control',
 					'section'  => 'section-sidebars',
 					'control'  => 'ast-divider',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kanga_Learndash_Sidebar_Configs' ) ) {
 				 * Option: LearnDash
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[learndash-sidebar-layout]',
+					'name'        => KANGA_THEME_SETTINGS . '[learndash-sidebar-layout]',
 					'type'        => 'control',
 					'control'     => 'select',
 					'section'     => 'section-sidebars',

@@ -36,7 +36,7 @@ if ( ! class_exists( 'Kanga_Lifter_Sidebar_Configs' ) ) {
 				 * Option: Divider
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-divider]',
+					'name'     => KANGA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout-divider]',
 					'section'  => 'section-sidebars',
 					'type'     => 'control',
 					'control'  => 'ast-divider',
@@ -48,7 +48,7 @@ if ( ! class_exists( 'Kanga_Lifter_Sidebar_Configs' ) ) {
 				 * Option: Shop Page
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[lifterlms-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-sidebars',
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Kanga_Lifter_Sidebar_Configs' ) ) {
 				 * Option: LifterLMS Course/Lesson
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]',
+					'name'     => KANGA_THEME_SETTINGS . '[lifterlms-course-lesson-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-sidebars',
