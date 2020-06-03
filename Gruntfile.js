@@ -168,7 +168,7 @@ module.exports = function (grunt) {
                 processors: [
                     flexibility,
                     autoprefixer({
-                        browsers: [
+                        overrideBrowserslist: [
                             '> 1%',
                             'ie >= 11',
                             'last 1 Android versions',
