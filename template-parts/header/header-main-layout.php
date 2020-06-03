@@ -17,14 +17,20 @@
 ?>
 
 <div class="main-header-bar-wrap">
-	<div <?php echo kanga_attr( 'main-header-bar' ); ?>>
-		<?php kanga_main_header_bar_top(); ?>
-		<div class="ast-container">
+	<?php if( get_theme_mod( 'theme_header_bg' ) != '') { // if there is a background img
+		$theme_header_bg = get_theme_mod('theme_header_bg');}
+	?>
+		<header class="theme_header_bg" style="background-image:url('<?php echo $theme_header_bg ?>');"> 	
 
-			<div class="ast-flex main-header-container">
-				<?php kanga_masthead_content(); ?>
-			</div><!-- Main Header Container -->
-		</div><!-- ast-row -->
-		<?php kanga_main_header_bar_bottom(); ?>
-	</div> <!-- Main Header Bar -->
+		<div <?php echo kanga_attr( 'main-header-bar' ); ?>>
+			<?php kanga_main_header_bar_top(); ?>
+			<div class="ast-container">
+
+				<div class="ast-flex main-header-container">
+					<?php kanga_masthead_content(); ?>
+
+				</div><!-- Main Header Container -->
+			</div><!-- ast-row -->
+			<?php kanga_main_header_bar_bottom(); ?>
+		</div> <!-- Main Header Bar -->
 </div> <!-- Main Header Bar Wrap -->

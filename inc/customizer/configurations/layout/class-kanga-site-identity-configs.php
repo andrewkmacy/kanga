@@ -30,6 +30,18 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$wp_customize->add_setting( 'theme_header_bg' );
+				$wp_customize->add_control( 
+					new WP_Customize_Image_Control(
+						$wp_customize,'theme_header_bg',array(
+							'label' => 'Header Background Image',
+							'section' => 'title_tagline',
+							'settings' => 'theme_header_bg',
+							'priority' => 2
+						)
+					)
+				);
+
 			$_configs = array(
 
 				/**
@@ -316,6 +328,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 			}
 			return $notice;
 		}
+		
 	}
 }
 
