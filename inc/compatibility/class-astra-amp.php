@@ -2,11 +2,11 @@
 /**
  * AMP Compatibility.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2018, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2018, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,14 +14,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra BB Ultimate Addon Compatibility
+ * Kanga BB Ultimate Addon Compatibility
  */
-if ( ! class_exists( 'Astra_AMP' ) ) :
+if ( ! class_exists( 'Kanga_AMP' ) ) :
 
 	/**
-	 * Class Astra_AMP
+	 * Class Kanga_AMP
 	 */
-	class Astra_AMP {
+	class Kanga_AMP {
 
 		/**
 		 * Member Variable
@@ -44,32 +44,32 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_action( 'wp', array( $this, 'astra_amp_init' ) );
+			add_action( 'wp', array( $this, 'kanga_amp_init' ) );
 		}
 
 		/**
-		 * Init Astra Amp Compatibility.
+		 * Init Kanga Amp Compatibility.
 		 * This adds required actions and filters only if AMP endpoinnt is detected.
 		 *
 		 * @since 1.7.0
 		 * @return void
 		 */
-		public function astra_amp_init() {
+		public function kanga_amp_init() {
 
 			// bail if AMP endpoint is not detected.
-			if ( ! astra_is_amp_endpoint() ) {
+			if ( ! kanga_is_amp_endpoint() ) {
 				return;
 			}
 
-			add_filter( 'astra_nav_toggle_data_attrs', array( $this, 'add_nav_toggle_attrs' ) );
-			add_filter( 'astra_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
-			add_filter( 'astra_search_field_toggle_data_attrs', array( $this, 'add_search_field_toggle_attrs' ) );
+			add_filter( 'kanga_nav_toggle_data_attrs', array( $this, 'add_nav_toggle_attrs' ) );
+			add_filter( 'kanga_search_slide_toggle_data_attrs', array( $this, 'add_search_slide_toggle_attrs' ) );
+			add_filter( 'kanga_search_field_toggle_data_attrs', array( $this, 'add_search_field_toggle_attrs' ) );
 			add_action( 'wp_footer', array( $this, 'render_amp_states' ) );
-			add_filter( 'astra_attr_ast-main-header-bar-alignment', array( $this, 'nav_menu_wrapper' ) );
-			add_filter( 'astra_attr_ast-menu-toggle', array( $this, 'menu_toggle_button' ), 20, 3 );
-			add_filter( 'astra_theme_dynamic_css', array( $this, 'dynamic_css' ) );
-			add_filter( 'astra_toggle_button_markup', array( $this, 'toggle_button_markup' ), 20, 2 );
-			add_filter( 'astra_schema_body', array( $this, 'body_id' ) );
+			add_filter( 'kanga_attr_ast-main-header-bar-alignment', array( $this, 'nav_menu_wrapper' ) );
+			add_filter( 'kanga_attr_ast-menu-toggle', array( $this, 'menu_toggle_button' ), 20, 3 );
+			add_filter( 'kanga_theme_dynamic_css', array( $this, 'dynamic_css' ) );
+			add_filter( 'kanga_toggle_button_markup', array( $this, 'toggle_button_markup' ), 20, 2 );
+			add_filter( 'kanga_schema_body', array( $this, 'body_id' ) );
 		}
 
 		/**
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return String
 		 */
 		public function body_id( $schema ) {
-			return $schema . 'id="astra-body"';
+			return $schema . 'id="kanga-body"';
 		}
 
 		/**
@@ -206,7 +206,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
 					'font-weight'     => 'bold',
 					'content'         => '"\e900"',
-					'font-family'     => 'Astra',
+					'font-family'     => 'Kanga',
 					'text-decoration' => 'inherit',
 					'display'         => 'inline-block',
 				),
@@ -216,10 +216,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 
 			);
 
-			$parse_css = $compiled_css . astra_parse_css( $css, '', astra_header_break_point() );
+			$parse_css = $compiled_css . kanga_parse_css( $css, '', kanga_header_break_point() );
 
 			// Move all header-break-point css from class based css to media query based CSS.
-			$astra_break_point_navigation = array(
+			$kanga_break_point_navigation = array(
 				'.ast-amp .ast-mobile-menu-buttons'        => array(
 					'text-align'              => 'right',
 					'-js-display'             => 'flex',
@@ -281,7 +281,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				),
 				'.ast-amp .main-navigation ul.children li a:before, .ast-amp .main-navigation ul.sub-menu li a:before' => array(
 					'content'         => '"\e900"',
-					'font-family'     => '"Astra"',
+					'font-family'     => '"Kanga"',
 					'font-size'       => '0.65em',
 					'text-decoration' => 'inherit',
 					'display'         => 'inline-block',
@@ -451,7 +451,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-header-bar .main-header-bar-navigation .page_item_has_children > .ast-menu-toggle::before, .ast-amp .main-header-bar .main-header-bar-navigation .menu-item-has-children > .ast-menu-toggle::before' => array(
 					'font-weight'     => 'bold',
 					'content'         => '"\e900"',
-					'font-family'     => '"Astra"',
+					'font-family'     => '"Kanga"',
 					'text-decoration' => 'inherit',
 					'display'         => 'inline-block',
 				),
@@ -505,13 +505,13 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				'.ast-amp .main-header-menu ul ul'         => array(
 					'top' => '0',
 				),
-				'.ast-amp .ast-has-mobile-header-logo .custom-logo-link, .ast-amp .ast-has-mobile-header-logo .astra-logo-svg' => array(
+				'.ast-amp .ast-has-mobile-header-logo .custom-logo-link, .ast-amp .ast-has-mobile-header-logo .kanga-logo-svg' => array(
 					'display' => 'none',
 				),
 				'.ast-amp .ast-has-mobile-header-logo .custom-mobile-logo-link' => array(
 					'display' => 'inline-block',
 				),
-				'.ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo-link, .ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .astra-logo-svg' => array(
+				'.ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .custom-logo-link, .ast-theme.ast-mobile-inherit-site-logo .ast-has-mobile-header-logo .kanga-logo-svg' => array(
 					'display' => 'block',
 				),
 				'.ast-theme.ast-header-custom-item-outside .ast-mobile-menu-buttons' => array(
@@ -898,19 +898,19 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 					'border-width' => '1px',
 				),
 			);
-			$parse_css                   .= astra_parse_css( $astra_break_point_navigation, '', astra_header_break_point() );
+			$parse_css                   .= kanga_parse_css( $kanga_break_point_navigation, '', kanga_header_break_point() );
 
 			// Tablet CSS.
-			$astra_medium_break_point_navigation = array(
+			$kanga_medium_break_point_navigation = array(
 				'.ast-amp .footer-sml-layout-2 .ast-small-footer-section-2' => array(
 					'margin-top' => '1em',
 				),
 			);
 
-			$parse_css .= astra_parse_css( $astra_medium_break_point_navigation, astra_get_tablet_breakpoint() );
+			$parse_css .= kanga_parse_css( $kanga_medium_break_point_navigation, kanga_get_tablet_breakpoint() );
 
 			// Mobile CSS.
-			$astra_small_break_point_navigation = array(
+			$kanga_small_break_point_navigation = array(
 				'.ast-theme.ast-woocommerce-cart-menu .header-main-layout-1.ast-mobile-header-stack.ast-no-menu-items .ast-site-header-cart, .ast-theme.ast-woocommerce-cart-menu .header-main-layout-3.ast-mobile-header-stack.ast-no-menu-items .ast-site-header-cart' => array(
 					'padding-right' => '0',
 					'padding-left'  => '0',
@@ -986,7 +986,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 				),
 			);
 
-			$parse_css .= astra_parse_css( $astra_small_break_point_navigation, astra_get_mobile_breakpoint() );
+			$parse_css .= kanga_parse_css( $kanga_small_break_point_navigation, kanga_get_mobile_breakpoint() );
 
 			return $parse_css;
 		}
@@ -1000,9 +1000,9 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return Array updated HTML attributes.
 		 */
 		public function nav_menu_wrapper( $attr ) {
-			$attr['[class]']         = '( astraAmpMenuExpanded ? \'ast-main-header-bar-alignment toggle-on\' : \'ast-main-header-bar-alignment\' )';
+			$attr['[class]']         = '( kangaAmpMenuExpanded ? \'ast-main-header-bar-alignment toggle-on\' : \'ast-main-header-bar-alignment\' )';
 			$attr['aria-expanded']   = 'false';
-			$attr['[aria-expanded]'] = '(astraAmpMenuExpanded ? \'true\' : \'false\')';
+			$attr['[aria-expanded]'] = '(kangaAmpMenuExpanded ? \'true\' : \'false\')';
 
 			return $attr;
 		}
@@ -1017,7 +1017,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return String HTML MArkup for the menu including the AML State.
 		 */
 		public function toggle_button_markup( $item_output, $item ) {
-			$item_output .= '<amp-state id="astraNavMenuItemExpanded' . esc_attr( $item->ID ) . '"><script type="application/json">false</script></amp-state>';
+			$item_output .= '<amp-state id="kangaNavMenuItemExpanded' . esc_attr( $item->ID ) . '"><script type="application/json">false</script></amp-state>';
 
 			return $item_output;
 		}
@@ -1033,8 +1033,8 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return Array updated HTML attributes.
 		 */
 		public function menu_toggle_button( $attr, $context, $args ) {
-			$attr['[class]'] = '( astraNavMenuItemExpanded' . $args->ID . ' ? \' ast-menu-toggle dropdown-open\' : \'ast-menu-toggle\')';
-			$attr['on']      = 'tap:AMP.setState( { astraNavMenuItemExpanded' . $args->ID . ': ! astraNavMenuItemExpanded' . $args->ID . ' } )';
+			$attr['[class]'] = '( kangaNavMenuItemExpanded' . $args->ID . ' ? \' ast-menu-toggle dropdown-open\' : \'ast-menu-toggle\')';
+			$attr['on']      = 'tap:AMP.setState( { kangaNavMenuItemExpanded' . $args->ID . ': ! kangaNavMenuItemExpanded' . $args->ID . ' } )';
 
 			return $attr;
 		}
@@ -1043,7 +1043,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * Add amp states to the dom.
 		 */
 		public function render_amp_states() {
-			echo '<amp-state id="astraAmpMenuExpanded">';
+			echo '<amp-state id="kangaAmpMenuExpanded">';
 			echo '<script type="application/json">false</script>';
 			echo '</amp-state>';
 		}
@@ -1056,9 +1056,9 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_search_slide_toggle_attrs( $input ) {
-			$input .= ' on="tap:AMP.setState( { astraAmpSlideSearchMenuExpanded: ! astraAmpSlideSearchMenuExpanded } )" ';
-			$input .= ' [class]="( astraAmpSlideSearchMenuExpanded ? \'ast-search-menu-icon slide-search ast-dropdown-active\' : \'ast-search-menu-icon slide-search\' )" ';
-			$input .= ' aria-expanded="false" [aria-expanded]="astraAmpSlideSearchMenuExpanded ? \'true\' : \'false\'" ';
+			$input .= ' on="tap:AMP.setState( { kangaAmpSlideSearchMenuExpanded: ! kangaAmpSlideSearchMenuExpanded } )" ';
+			$input .= ' [class]="( kangaAmpSlideSearchMenuExpanded ? \'ast-search-menu-icon slide-search ast-dropdown-active\' : \'ast-search-menu-icon slide-search\' )" ';
+			$input .= ' aria-expanded="false" [aria-expanded]="kangaAmpSlideSearchMenuExpanded ? \'true\' : \'false\'" ';
 
 			return $input;
 		}
@@ -1071,7 +1071,7 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_search_field_toggle_attrs( $input ) {
-			$input .= ' on="tap:AMP.setState( { astraAmpSlideSearchMenuExpanded: astraAmpSlideSearchMenuExpanded } )" ';
+			$input .= ' on="tap:AMP.setState( { kangaAmpSlideSearchMenuExpanded: kangaAmpSlideSearchMenuExpanded } )" ';
 
 			return $input;
 		}
@@ -1084,10 +1084,10 @@ if ( ! class_exists( 'Astra_AMP' ) ) :
 		 * @return string
 		 */
 		public function add_nav_toggle_attrs( $input ) {
-			$input .= ' on="tap:AMP.setState( { astraAmpMenuExpanded: ! astraAmpMenuExpanded } ),astra-body.toggleClass(class=ast-main-header-nav-open)" ';
-			$input .= ' [class]="\'menu-toggle main-header-menu-toggle  ast-mobile-menu-buttons-minimal\' + ( astraAmpMenuExpanded ? \' toggled\' : \'\' )" ';
+			$input .= ' on="tap:AMP.setState( { kangaAmpMenuExpanded: ! kangaAmpMenuExpanded } ),kanga-body.toggleClass(class=ast-main-header-nav-open)" ';
+			$input .= ' [class]="\'menu-toggle main-header-menu-toggle  ast-mobile-menu-buttons-minimal\' + ( kangaAmpMenuExpanded ? \' toggled\' : \'\' )" ';
 			$input .= ' aria-expanded="false" ';
-			$input .= ' [aria-expanded]="astraAmpMenuExpanded ? \'true\' : \'false\'" ';
+			$input .= ' [aria-expanded]="kangaAmpMenuExpanded ? \'true\' : \'false\'" ';
 
 			return $input;
 		}
@@ -1098,4 +1098,4 @@ endif;
 /**
 * Kicking this off by calling 'get_instance()' method
 */
-Astra_AMP::get_instance();
+Kanga_AMP::get_instance();

@@ -4,23 +4,23 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Admin_Helper' ) ) :
+if ( ! class_exists( 'Kanga_Admin_Helper' ) ) :
 
 	/**
 	 * Admin Helper
 	 */
-	final class Astra_Admin_Helper {
+	final class Kanga_Admin_Helper {
 
 		/**
 		 * Returns an option from the database for

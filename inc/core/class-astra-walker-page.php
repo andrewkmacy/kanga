@@ -2,11 +2,11 @@
 /**
  * Navigation Menu customizations.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.5.4
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.5.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,16 +16,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Custom wp_nav_menu walker.
  *
- * @package Astra WordPress theme
+ * @package Kanga WordPress theme
  */
-if ( ! class_exists( 'Astra_Walker_Page' ) ) {
+if ( ! class_exists( 'Kanga_Walker_Page' ) ) {
 
 	/**
-	 * Astra custom navigation walker.
+	 * Kanga custom navigation walker.
 	 *
 	 * @since 1.5.4
 	 */
-	class Astra_Walker_Page extends Walker_Page {
+	class Kanga_Walker_Page extends Walker_Page {
 
 		/**
 		 * Outputs the beginning of the current level in the tree before elements are output.
@@ -49,7 +49,7 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 			}
 			$indent  = str_repeat( $t, $depth );
 			$output .= "{$n}{$indent}<ul class='children sub-menu'>{$n}";
-			$output  = apply_filters( 'astra_caret_wrap_filter', $output, $args['sort_column'] );
+			$output  = apply_filters( 'kanga_caret_wrap_filter', $output, $args['sort_column'] );
 
 		}
 
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Walker_Page' ) ) {
 		 */
 		public function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
 			parent::start_el( $output, $page, $depth, $args, $current_page );
-			$output = apply_filters( 'astra_walker_nav_menu_start_el', $output, $page, $depth, $args );
+			$output = apply_filters( 'kanga_walker_nav_menu_start_el', $output, $page, $depth, $args );
 
 		}
 	}

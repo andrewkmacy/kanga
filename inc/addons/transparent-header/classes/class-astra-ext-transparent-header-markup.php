@@ -2,21 +2,21 @@
 /**
  * Sticky Header Markup
  *
- * @package Astra Addon
+ * @package Kanga Addon
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
+if ( ! class_exists( 'Kanga_ExtTransparenty_Header_Markup' ) ) {
 
 	/**
 	 * Sticky Header Markup Initial Setup
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Transparent_Header_Markup {
+	class Kanga_Ext_Transparent_Header_Markup {
 
 		/**
 		 * Member Variable
@@ -43,15 +43,15 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			add_action( 'body_class', array( $this, 'add_body_class' ) );
 
 			/* Fixed header markup */
-			add_action( 'astra_header', array( $this, 'transparent_header_logo' ), 1 );
+			add_action( 'kanga_header', array( $this, 'transparent_header_logo' ), 1 );
 
 			/**
 			 * Metabox setup
 			 */
-			add_filter( 'astra_meta_box_options', array( $this, 'add_options' ) );
-			add_action( 'astra_meta_box_markup_after', array( $this, 'add_options_markup' ) );
+			add_filter( 'kanga_meta_box_options', array( $this, 'add_options' ) );
+			add_action( 'kanga_meta_box_markup_after', array( $this, 'add_options_markup' ) );
 
-			add_action( 'astra_customizer_save', array( $this, 'customizer_save' ) );
+			add_action( 'kanga_customizer_save', array( $this, 'customizer_save' ) );
 		}
 
 		/**
@@ -62,9 +62,9 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		public function add_body_class( $classes ) {
 
-			$inherit_desk_logo              = astra_get_option( 'different-transparent-logo', false );
-			$transparent_header_logo        = astra_get_option( 'transparent-header-logo', true );
-			$transparent_header_logo_retina = astra_get_option( 'transparent-header-retina-logo', true );
+			$inherit_desk_logo              = kanga_get_option( 'different-transparent-logo', false );
+			$transparent_header_logo        = kanga_get_option( 'transparent-header-logo', true );
+			$transparent_header_logo_retina = kanga_get_option( 'transparent-header-retina-logo', true );
 
 			if ( '1' == $inherit_desk_logo && ( '' !== $transparent_header_logo || '' !== $transparent_header_logo_retina ) ) {
 				$classes[] = 'ast-replace-site-logo-transparent';
@@ -86,41 +86,41 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		}
 
 		/**
-		 * Astra check if transparent header is enabled.
+		 * Kanga check if transparent header is enabled.
 		 *
 		 * @return boolean true/false.
 		 */
 		public static function is_transparent_header() {
 
 			// Transparent Header.
-			$enable_trans_header = astra_get_option( 'transparent-header-enable' );
-			$trans_meta_option   = astra_get_option_meta( 'theme-transparent-header-meta', 'default' );
+			$enable_trans_header = kanga_get_option( 'transparent-header-enable' );
+			$trans_meta_option   = kanga_get_option_meta( 'theme-transparent-header-meta', 'default' );
 
 			if ( $enable_trans_header ) {
 
-				if ( ( is_archive() || is_search() || is_404() ) && '1' == astra_get_option( 'transparent-header-disable-archive' ) ) {
+				if ( ( is_archive() || is_search() || is_404() ) && '1' == kanga_get_option( 'transparent-header-disable-archive' ) ) {
 					$enable_trans_header = false;
 				}
 
-				if ( is_home() && '1' == astra_get_option( 'transparent-header-disable-index' ) && ( 'posts' !== get_option( 'show_on_front' ) ) ) {
+				if ( is_home() && '1' == kanga_get_option( 'transparent-header-disable-index' ) && ( 'posts' !== get_option( 'show_on_front' ) ) ) {
 					$enable_trans_header = false;
 				}
 
-				if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) && '1' == astra_get_option( 'transparent-header-disable-latest-posts-index' ) ) {
+				if ( is_front_page() && 'posts' == get_option( 'show_on_front' ) && '1' == kanga_get_option( 'transparent-header-disable-latest-posts-index' ) ) {
 					$enable_trans_header = false;
 				}
 
-				if ( is_page() && '1' == astra_get_option( 'transparent-header-disable-page' ) ) {
+				if ( is_page() && '1' == kanga_get_option( 'transparent-header-disable-page' ) ) {
 					$enable_trans_header = false;
 				}
 
-				if ( is_single() && '1' == astra_get_option( 'transparent-header-disable-posts' ) ) {
+				if ( is_single() && '1' == kanga_get_option( 'transparent-header-disable-posts' ) ) {
 					$enable_trans_header = false;
 				}
 			}
 
-			if ( class_exists( 'Astra_Woocommerce' ) ) {
-				if ( is_product() && '1' == astra_get_option( 'transparent-header-disable-woo-products' ) ) {
+			if ( class_exists( 'Kanga_Woocommerce' ) ) {
+				if ( is_product() && '1' == kanga_get_option( 'transparent-header-disable-woo-products' ) ) {
 					$enable_trans_header = false;
 				}
 			}
@@ -132,7 +132,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				$enable_trans_header = false;
 			}
 
-			return apply_filters( 'astra_is_transparent_header', $enable_trans_header );
+			return apply_filters( 'kanga_is_transparent_header', $enable_trans_header );
 		}
 
 		/**
@@ -142,12 +142,12 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		public function transparent_header_logo() {
 
-			$inherit_desk_logo       = astra_get_option( 'different-transparent-logo', false );
-			$transparent_header_logo = astra_get_option( 'transparent-header-logo' );
+			$inherit_desk_logo       = kanga_get_option( 'different-transparent-logo', false );
+			$transparent_header_logo = kanga_get_option( 'transparent-header-logo' );
 
 			if ( self::is_transparent_header() && '1' == $inherit_desk_logo && '' !== $transparent_header_logo ) {
 				// Logo For None Effect.
-				add_filter( 'astra_has_custom_logo', '__return_true' );
+				add_filter( 'kanga_has_custom_logo', '__return_true' );
 				add_filter( 'get_custom_logo', array( $this, 'transparent_custom_logo' ), 10, 2 );
 			}
 		}
@@ -163,8 +163,8 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		public function transparent_custom_logo( $html, $blog_id ) {
 
-			$trans_logo                 = astra_get_option( 'transparent-header-logo' );
-			$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
+			$trans_logo                 = kanga_get_option( 'transparent-header-logo' );
+			$transparent_header_devices = kanga_get_option( 'transparent-header-on-devices' );
 
 			if ( '' !== $trans_logo ) {
 
@@ -243,7 +243,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		public function replace_trans_header_attr( $attr, $attachment, $size ) {
 
-			$trans_logo     = astra_get_option( 'transparent-header-logo' );
+			$trans_logo     = kanga_get_option( 'transparent-header-logo' );
 			$custom_logo_id = attachment_url_to_postid( $trans_logo );
 
 			if ( $custom_logo_id == $attachment->ID ) {
@@ -260,22 +260,22 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 				$file_extension = $file_type['ext'];
 
 				if ( 'svg' == $file_extension ) {
-					$attr['class'] = 'astra-logo-svg';
+					$attr['class'] = 'kanga-logo-svg';
 				}
 
-				$diff_retina_logo = astra_get_option( 'different-transparent-retina-logo' );
+				$diff_retina_logo = kanga_get_option( 'different-transparent-retina-logo' );
 
 				if ( '1' == $diff_retina_logo ) {
 
-					$retina_logo = astra_get_option( 'transparent-header-retina-logo' );
+					$retina_logo = kanga_get_option( 'transparent-header-retina-logo' );
 
 					$attr['srcset'] = '';
 
-					if ( apply_filters( 'astra_transparent_header_retina', true ) && '' !== $retina_logo ) {
+					if ( apply_filters( 'kanga_transparent_header_retina', true ) && '' !== $retina_logo ) {
 						$cutom_logo     = wp_get_attachment_image_src( $custom_logo_id, 'full' );
 						$cutom_logo_url = $cutom_logo[0];
 
-						if ( astra_check_is_ie() ) {
+						if ( kanga_check_is_ie() ) {
 							// Replace header logo url to retina logo url.
 							$attr['src'] = $retina_logo;
 						}
@@ -318,18 +318,18 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 			 * Get options
 			 */
 			$trans_header_meta = ( isset( $meta['theme-transparent-header-meta']['default'] ) ) ? $meta['theme-transparent-header-meta']['default'] : 'default';
-			$show_meta_field   = ! astra_check_is_bb_themer_layout();
+			$show_meta_field   = ! kanga_check_is_bb_themer_layout();
 			?>
 
 			<?php if ( $show_meta_field ) { ?>
 				<div class="transparent-header-wrapper">
 					<p class="post-attributes-label-wrapper">
-						<strong> <?php esc_html_e( 'Transparent Header', 'astra' ); ?> </strong><br/>
+						<strong> <?php esc_html_e( 'Transparent Header', 'kanga' ); ?> </strong><br/>
 					</p>
 					<select name="theme-transparent-header-meta" id="theme-transparent-header-meta">
-						<option value="default" <?php selected( $trans_header_meta, 'default' ); ?>> <?php esc_html_e( 'Customizer Setting', 'astra' ); ?> </option>
-						<option value="enabled" <?php selected( $trans_header_meta, 'enabled' ); ?>> <?php esc_html_e( 'Enabled', 'astra' ); ?> </option>
-						<option value="disabled" <?php selected( $trans_header_meta, 'disabled' ); ?>> <?php esc_html_e( 'Disabled', 'astra' ); ?> </option>
+						<option value="default" <?php selected( $trans_header_meta, 'default' ); ?>> <?php esc_html_e( 'Customizer Setting', 'kanga' ); ?> </option>
+						<option value="enabled" <?php selected( $trans_header_meta, 'enabled' ); ?>> <?php esc_html_e( 'Enabled', 'kanga' ); ?> </option>
+						<option value="disabled" <?php selected( $trans_header_meta, 'disabled' ); ?>> <?php esc_html_e( 'Disabled', 'kanga' ); ?> </option>
 					</select>
 				</div>
 			<?php } ?>
@@ -343,12 +343,12 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		public function customizer_save() {
 
 			/* Generate Transparent Header Logo */
-			$trans_logo = astra_get_option( 'transparent-header-logo' );
+			$trans_logo = kanga_get_option( 'transparent-header-logo' );
 
 			if ( '' !== $trans_logo ) {
 				add_filter( 'intermediate_image_sizes_advanced', array( $this, 'transparent_logo_image_sizes' ), 10, 2 );
 				$trans_logo_id = attachment_url_to_postid( $trans_logo );
-				Astra_Customizer::generate_logo_by_width( $trans_logo_id );
+				Kanga_Customizer::generate_logo_by_width( $trans_logo_id );
 				remove_filter( 'intermediate_image_sizes_advanced', array( $this, 'transparent_logo_image_sizes' ), 10 );
 			}
 		}
@@ -364,7 +364,7 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 		 */
 		public function transparent_logo_image_sizes( $sizes, $metadata ) {
 
-			$logo_width = astra_get_option( 'transparent-header-logo-width' );
+			$logo_width = kanga_get_option( 'transparent-header-logo-width' );
 
 			if ( is_array( $sizes ) && '' != $logo_width['desktop'] ) {
 				$max_value                          = max( $logo_width );
@@ -383,4 +383,4 @@ if ( ! class_exists( 'Astra_ExtTransparenty_Header_Markup' ) ) {
 /**
 *  Kicking this off by calling 'get_instance()' method
 */
-Astra_Ext_Transparent_Header_Markup::get_instance();
+Kanga_Ext_Transparent_Header_Markup::get_instance();

@@ -1,12 +1,12 @@
 <?php
 /**
- * Heading Colors Loader for Astra theme.
+ * Heading Colors Loader for Kanga theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 2.2.0
+ * @since       Kanga 2.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 2.2.0
  */
-class Astra_Heading_Colors_Loader {
+class Kanga_Heading_Colors_Loader {
 
 	/**
 	 * Constructor
@@ -27,11 +27,11 @@ class Astra_Heading_Colors_Loader {
 	 */
 	public function __construct() {
 
-		add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
+		add_filter( 'kanga_theme_defaults', array( $this, 'theme_defaults' ) );
 		add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 		// Load Google fonts.
-		add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+		add_action( 'kanga_get_fonts', array( $this, 'add_fonts' ), 1 );
 	}
 
 	/**
@@ -41,27 +41,27 @@ class Astra_Heading_Colors_Loader {
 	 */
 	public function add_fonts() {
 
-		$font_family_h1 = astra_get_option( 'font-family-h1' );
-		$font_weight_h1 = astra_get_option( 'font-weight-h1' );
-		Astra_Fonts::add_font( $font_family_h1, $font_weight_h1 );
+		$font_family_h1 = kanga_get_option( 'font-family-h1' );
+		$font_weight_h1 = kanga_get_option( 'font-weight-h1' );
+		Kanga_Fonts::add_font( $font_family_h1, $font_weight_h1 );
 
-		$font_family_h2 = astra_get_option( 'font-family-h2' );
-		$font_weight_h2 = astra_get_option( 'font-weight-h2' );
-		Astra_Fonts::add_font( $font_family_h2, $font_weight_h2 );
+		$font_family_h2 = kanga_get_option( 'font-family-h2' );
+		$font_weight_h2 = kanga_get_option( 'font-weight-h2' );
+		Kanga_Fonts::add_font( $font_family_h2, $font_weight_h2 );
 
-		$font_family_h3 = astra_get_option( 'font-family-h3' );
-		$font_weight_h3 = astra_get_option( 'font-weight-h3' );
-		Astra_Fonts::add_font( $font_family_h3, $font_weight_h3 );
+		$font_family_h3 = kanga_get_option( 'font-family-h3' );
+		$font_weight_h3 = kanga_get_option( 'font-weight-h3' );
+		Kanga_Fonts::add_font( $font_family_h3, $font_weight_h3 );
 
-		$theme_btn_font_family = astra_get_option( 'font-family-button' );
-		$theme_btn_font_weight = astra_get_option( 'font-weight-button' );
-		Astra_Fonts::add_font( $theme_btn_font_family, $theme_btn_font_weight );
+		$theme_btn_font_family = kanga_get_option( 'font-family-button' );
+		$theme_btn_font_weight = kanga_get_option( 'font-weight-button' );
+		Kanga_Fonts::add_font( $theme_btn_font_family, $theme_btn_font_weight );
 	}
 
 	/**
 	 * Set Options Default Values
 	 *
-	 * @param  array $defaults  Astra options default value array.
+	 * @param  array $defaults  Kanga options default value array.
 	 * @return array
 	 *
 	 * @since 2.2.0
@@ -131,7 +131,7 @@ class Astra_Heading_Colors_Loader {
 		/**
 		 * Register Panel & Sections
 		 */
-		require_once ASTRA_THEME_HEADING_COLORS_DIR . 'customizer/class-astra-heading-colors-configs.php';
+		require_once ASTRA_THEME_HEADING_COLORS_DIR . 'customizer/class-kanga-heading-colors-configs.php';
 	}
 
 	/**
@@ -146,11 +146,11 @@ class Astra_Heading_Colors_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-		wp_enqueue_script( 'astra-heading-colors-customizer-preview-js', ASTRA_THEME_HEADING_COLORS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_script( 'kanga-heading-colors-customizer-preview-js', ASTRA_THEME_HEADING_COLORS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kanga-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 	}
 }
 
 /**
 *  Kicking this off by creating the object of the class.
 */
-new Astra_Heading_Colors_Loader();
+new Kanga_Heading_Colors_Loader();

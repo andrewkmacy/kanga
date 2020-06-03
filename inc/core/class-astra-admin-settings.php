@@ -4,23 +4,23 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
+if ( ! class_exists( 'Kanga_Admin_Settings' ) ) {
 
 	/**
-	 * Astra Admin Settings
+	 * Kanga Admin Settings
 	 */
-	class Astra_Admin_Settings {
+	class Kanga_Admin_Settings {
 
 		/**
 		 * Menu page title
@@ -28,7 +28,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $menu_page_title
 		 */
-		public static $menu_page_title = 'Astra Theme';
+		public static $menu_page_title = 'Kanga Theme';
 
 		/**
 		 * Page title
@@ -36,7 +36,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $page_title
 		 */
-		public static $page_title = 'Astra';
+		public static $page_title = 'Kanga';
 
 		/**
 		 * Plugin slug
@@ -44,7 +44,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.0
 		 * @var array $plugin_slug
 		 */
-		public static $plugin_slug = 'astra';
+		public static $plugin_slug = 'kanga';
 
 		/**
 		 * Default Menu position
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 2.3.2
 		 * @var array $starter_templates_slug
 		 */
-		public static $starter_templates_slug = 'astra-sites';
+		public static $starter_templates_slug = 'kanga-sites';
 
 		/**
 		 * Constructor
@@ -96,8 +96,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * Admin settings init
 		 */
 		public static function init_admin_settings() {
-			self::$menu_page_title = apply_filters( 'astra_menu_page_title', __( 'Astra Options', 'astra' ) );
-			self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
+			self::$menu_page_title = apply_filters( 'kanga_menu_page_title', __( 'Kanga Options', 'kanga' ) );
+			self::$page_title      = apply_filters( 'kanga_page_title', __( 'Kanga', 'kanga' ) );
 			self::$plugin_slug     = self::get_theme_page_slug();
 
 			add_action( 'admin_enqueue_scripts', __CLASS__ . '::register_scripts' );
@@ -107,7 +107,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				add_action( 'admin_enqueue_scripts', __CLASS__ . '::styles_scripts' );
 
 				// Let extensions hook into saving.
-				do_action( 'astra_admin_settings_scripts' );
+				do_action( 'kanga_admin_settings_scripts' );
 
 				if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '2.5.0', '<' ) ) {
 					self::save_settings();
@@ -118,24 +118,24 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'admin_menu', __CLASS__ . '::add_admin_menu', 99 );
 
-			add_action( 'astra_menu_general_action', __CLASS__ . '::general_page' );
+			add_action( 'kanga_menu_general_action', __CLASS__ . '::general_page' );
 
-			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
+			add_action( 'kanga_header_right_section', __CLASS__ . '::top_header_right_section' );
 
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_knowledge_base_scetion', 11 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_community_scetion', 12 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_five_star_scetion', 13 );
+			add_action( 'kanga_welcome_page_right_sidebar_content', __CLASS__ . '::kanga_welcome_page_starter_sites_section', 10 );
+			add_action( 'kanga_welcome_page_right_sidebar_content', __CLASS__ . '::kanga_welcome_page_knowledge_base_scetion', 11 );
+			add_action( 'kanga_welcome_page_right_sidebar_content', __CLASS__ . '::kanga_welcome_page_community_scetion', 12 );
+			add_action( 'kanga_welcome_page_right_sidebar_content', __CLASS__ . '::kanga_welcome_page_five_star_scetion', 13 );
 
-			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
-			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
+			add_action( 'kanga_welcome_page_content', __CLASS__ . '::kanga_welcome_page_content' );
+			add_action( 'kanga_welcome_page_content', __class__ . '::kanga_available_plugins', 30 );
 
 			// AJAX.
-			add_action( 'wp_ajax_astra-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
-			add_action( 'wp_ajax_astra-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
+			add_action( 'wp_ajax_kanga-sites-plugin-activate', __CLASS__ . '::required_plugin_activate' );
+			add_action( 'wp_ajax_kanga-sites-plugin-deactivate', __CLASS__ . '::required_plugin_deactivate' );
 
 			add_action( 'admin_notices', __CLASS__ . '::register_notices' );
-			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
+			add_action( 'kanga_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_notices', __CLASS__ . '::minimum_addon_version_notice' );
 		}
@@ -151,7 +151,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 
 			// Let extensions hook into saving.
-			do_action( 'astra_admin_settings_save' );
+			do_action( 'kanga_admin_settings_save' );
 		}
 
 		/**
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @return string Theme Options Page Slug.
 		 */
 		public static function get_theme_page_slug() {
-			return apply_filters( 'astra_theme_page_slug', self::$plugin_slug );
+			return apply_filters( 'kanga_theme_page_slug', self::$plugin_slug );
 		}
 
 		/**
@@ -171,120 +171,120 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function register_notices() {
 
-			if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-				if ( ! empty( Astra_Ext_White_Label_Markup::$branding['astra']['name'] ) ) {
+			if ( class_exists( 'Kanga_Ext_White_Label_Markup' ) ) {
+				if ( ! empty( Kanga_Ext_White_Label_Markup::$branding['kanga']['name'] ) ) {
 					return;
 				}
 			}
 
-			if ( false === get_option( 'astra-theme-old-setup' ) ) {
-				set_transient( 'astra-theme-first-rating', true, MONTH_IN_SECONDS );
-				update_option( 'astra-theme-old-setup', true );
-			} elseif ( false === get_transient( 'astra-theme-first-rating' ) && current_user_can( 'install_plugins' ) ) {
-				$image_path = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
-				Astra_Notices::add_notice(
+			if ( false === get_option( 'kanga-theme-old-setup' ) ) {
+				set_transient( 'kanga-theme-first-rating', true, MONTH_IN_SECONDS );
+				update_option( 'kanga-theme-old-setup', true );
+			} elseif ( false === get_transient( 'kanga-theme-first-rating' ) && current_user_can( 'install_plugins' ) ) {
+				$image_path = ASTRA_THEME_URI . 'inc/assets/images/kanga-logo.svg';
+				Kanga_Notices::add_notice(
 					array(
-						'id'                         => 'astra-theme-rating',
+						'id'                         => 'kanga-theme-rating',
 						'type'                       => '',
 						'message'                    => sprintf(
 							'<div class="notice-image">
-								<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+								<img src="%1$s" class="custom-logo" alt="Kanga" itemprop="logo"></div> 
 								<div class="notice-content">
 									<div class="notice-heading">
 										%2$s
 									</div>
 									%3$s<br />
-									<div class="astra-review-notice-container">
-										<a href="%4$s" class="astra-notice-close astra-review-notice button-primary" target="_blank">
+									<div class="kanga-review-notice-container">
+										<a href="%4$s" class="kanga-notice-close kanga-review-notice button-primary" target="_blank">
 										%5$s
 										</a>
 									<span class="dashicons dashicons-calendar"></span>
-										<a href="#" data-repeat-notice-after="%6$s" class="astra-notice-close astra-review-notice">
+										<a href="#" data-repeat-notice-after="%6$s" class="kanga-notice-close kanga-review-notice">
 										%7$s
 										</a>
 									<span class="dashicons dashicons-smiley"></span>
-										<a href="#" class="astra-notice-close astra-review-notice">
+										<a href="#" class="kanga-notice-close kanga-review-notice">
 										%8$s
 										</a>
 									</div>
 								</div>',
 							$image_path,
-							__( 'Hello! Seems like you have used Astra theme to build this website &mdash; Thanks a ton!', 'astra' ),
-							__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Astra theme.', 'astra' ),
-							'https://wordpress.org/support/theme/astra/reviews/?filter=5#new-post',
-							__( 'Ok, you deserve it', 'astra' ),
+							__( 'Hello! Seems like you have used Kanga theme to build this website &mdash; Thanks a ton!', 'kanga' ),
+							__( 'Could you please do us a BIG favor and give it a 5-star rating on WordPress? This would boost our motivation and help other users make a comfortable decision while choosing the Kanga theme.', 'kanga' ),
+							'https://wordpress.org/support/theme/kanga/reviews/?filter=5#new-post',
+							__( 'Ok, you deserve it', 'kanga' ),
 							MONTH_IN_SECONDS,
-							__( 'Nope, maybe later', 'astra' ),
-							__( 'I already did', 'astra' )
+							__( 'Nope, maybe later', 'kanga' ),
+							__( 'I already did', 'kanga' )
 						),
 						'repeat-notice-after'        => MONTH_IN_SECONDS,
 						'priority'                   => 10,
 						'display-with-other-notices' => false,
-						'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
+						'show_if'                    => class_exists( 'Kanga_Ext_White_Label_Markup' ) ? Kanga_Ext_White_Label_Markup::show_branding() : true,
 					)
 				);
 			}
 
-			// Force Astra welcome notice on theme activation.
+			// Force Kanga welcome notice on theme activation.
 			if ( current_user_can( 'install_plugins' ) && ! defined( 'ASTRA_SITES_NAME' ) && '1' == get_option( 'fresh_site' ) ) {
 
-				wp_enqueue_script( 'astra-admin-settings' );
-				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg';
-				$ast_sites_notice_btn = self::astra_sites_notice_button();
+				wp_enqueue_script( 'kanga-admin-settings' );
+				$image_path           = ASTRA_THEME_URI . 'inc/assets/images/kanga-logo.svg';
+				$ast_sites_notice_btn = self::kanga_sites_notice_button();
 
-				if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'astra' );
+				if ( file_exists( WP_PLUGIN_DIR . '/kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-pro-sites/kanga-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'kanga' );
 					$ast_sites_notice_btn['class']      .= ' button button-primary button-hero';
-				} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'astra' );
+				} elseif ( ! file_exists( WP_PLUGIN_DIR . '/kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-pro-sites/kanga-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['button_text'] = __( 'Get Started', 'kanga' );
 					$ast_sites_notice_btn['class']      .= ' button button-primary button-hero';
-					// Astra Premium Sites - Active.
-				} elseif ( is_plugin_active( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-					$ast_sites_notice_btn['class'] = ' button button-primary button-hero astra-notice-close';
+					// Kanga Premium Sites - Active.
+				} elseif ( is_plugin_active( 'kanga-pro-sites/kanga-pro-sites.php' ) ) {
+					$ast_sites_notice_btn['class'] = ' button button-primary button-hero kanga-notice-close';
 				} else {
-					$ast_sites_notice_btn['class'] = ' button button-primary button-hero astra-notice-close';
+					$ast_sites_notice_btn['class'] = ' button button-primary button-hero kanga-notice-close';
 				}
 
-				$astra_sites_notice_args = array(
-					'id'                         => 'astra-sites-on-active',
+				$kanga_sites_notice_args = array(
+					'id'                         => 'kanga-sites-on-active',
 					'type'                       => 'info',
 					'message'                    => sprintf(
 						'<div class="notice-image">
-							<img src="%1$s" class="custom-logo" alt="Astra" itemprop="logo"></div> 
+							<img src="%1$s" class="custom-logo" alt="Kanga" itemprop="logo"></div> 
 							<div class="notice-content">
 								<h2 class="notice-heading">
 									%2$s
 								</h2>
 								<p>%3$s</p>
-								<div class="astra-review-notice-container">
+								<div class="kanga-review-notice-container">
 									<a class="%4$s" %5$s %6$s %7$s %8$s %9$s %10$s> %11$s </a>
 								</div>
 							</div>',
 						$image_path,
-						__( 'Thank you for installing Astra!', 'astra' ),
-						__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/ready-websites/?utm_source=install-notice">starter templates</a>? Install the Starter Templates plugin to get started.', 'astra' ),
+						__( 'Thank you for installing Kanga!', 'kanga' ),
+						__( 'Did you know Kanga comes with dozens of ready-to-use <a href="https://wpkanga.com/ready-websites/?utm_source=install-notice">starter templates</a>? Install the Starter Templates plugin to get started.', 'kanga' ),
 						esc_attr( $ast_sites_notice_btn['class'] ),
-						'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
-						'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
-						'data-init="' . astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
-						'data-settings-link-text="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
-						'data-settings-link="' . astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
-						'data-activating-text="' . astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
+						'href="' . kanga_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
+						'data-slug="' . kanga_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',
+						'data-init="' . kanga_get_prop( $ast_sites_notice_btn, 'data_init', '' ) . '"',
+						'data-settings-link-text="' . kanga_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) . '"',
+						'data-settings-link="' . kanga_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) . '"',
+						'data-activating-text="' . kanga_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) . '"',
 						esc_html( $ast_sites_notice_btn['button_text'] )
 					),
 					'priority'                   => 5,
 					'display-with-other-notices' => false,
-					'show_if'                    => class_exists( 'Astra_Ext_White_Label_Markup' ) ? Astra_Ext_White_Label_Markup::show_branding() : true,
+					'show_if'                    => class_exists( 'Kanga_Ext_White_Label_Markup' ) ? Kanga_Ext_White_Label_Markup::show_branding() : true,
 				);
 
-				Astra_Notices::add_notice(
-					$astra_sites_notice_args
+				Kanga_Notices::add_notice(
+					$kanga_sites_notice_args
 				);
 			}
 		}
 
 		/**
-		 * Display notice for minimun version for Astra addon.
+		 * Display notice for minimun version for Kanga addon.
 		 *
 		 * @since 2.0.0
 		 */
@@ -298,8 +298,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 				$message = sprintf(
 					/* translators: %1$1s: Theme Name, %2$2s: Minimum Required version of the addon */
-					__( 'Please update the %1$1s to version %2$2s or higher. Ignore if already updated.', 'astra' ),
-					astra_get_addon_name(),
+					__( 'Please update the %1$1s to version %2$2s or higher. Ignore if already updated.', 'kanga' ),
+					kanga_get_addon_name(),
 					ASTRA_EXT_MIN_VER
 				);
 
@@ -324,12 +324,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'display-with-other-notices' => true,
 				);
 
-				Astra_Notices::add_notice( $notice_args );
+				Kanga_Notices::add_notice( $notice_args );
 			}
 		}
 
 		/**
-		 * Enqueue Astra Notices CSS.
+		 * Enqueue Kanga Notices CSS.
 		 *
 		 * @since 2.0.0
 		 *
@@ -337,46 +337,46 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function notice_assets() {
 			if ( is_rtl() ) {
-				wp_enqueue_style( 'astra-notices-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-notices-rtl.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-notices-rtl', ASTRA_THEME_URI . 'inc/assets/css/kanga-notices-rtl.css', array(), ASTRA_THEME_VERSION );
 			} else {
-				wp_enqueue_style( 'astra-notices', ASTRA_THEME_URI . 'inc/assets/css/astra-notices.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-notices', ASTRA_THEME_URI . 'inc/assets/css/kanga-notices.css', array(), ASTRA_THEME_VERSION );
 			}
 		}
 
 		/**
-		 * Render button for Astra Site notices
+		 * Render button for Kanga Site notices
 		 *
 		 * @since 1.6.5
 		 * @return array $ast_sites_notice_btn Rendered button
 		 */
-		public static function astra_sites_notice_button() {
+		public static function kanga_sites_notice_button() {
 			$ast_sites_notice_btn = array();
-			// Astra Sites - Installed but Inactive.
-			// Astra Premium Sites - Inactive.
-			if ( file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-				$ast_sites_notice_btn['class']                   = 'astra-activate-recommended-plugin';
-				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'astra' );
-				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
-				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
+			// Kanga Sites - Installed but Inactive.
+			// Kanga Premium Sites - Inactive.
+			if ( file_exists( WP_PLUGIN_DIR . '/kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-pro-sites/kanga-pro-sites.php' ) ) {
+				$ast_sites_notice_btn['class']                   = 'kanga-activate-recommended-plugin';
+				$ast_sites_notice_btn['button_text']             = __( 'Activate Importer Plugin', 'kanga' );
+				$ast_sites_notice_btn['data_slug']               = 'kanga-sites';
+				$ast_sites_notice_btn['data_init']               = '/kanga-sites/kanga-sites.php';
 				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . self::$starter_templates_slug );
-				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library &#187;', 'astra' );
-				$ast_sites_notice_btn['activating_text']         = __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;';
+				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library &#187;', 'kanga' );
+				$ast_sites_notice_btn['activating_text']         = __( 'Activating Importer Plugin ', 'kanga' ) . '&hellip;';
 
-				// Astra Sites - Not Installed.
-				// Astra Premium Sites - Inactive.
-			} elseif ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-				$ast_sites_notice_btn['class']                   = 'astra-install-recommended-plugin';
-				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'astra' );
-				$ast_sites_notice_btn['data_slug']               = 'astra-sites';
-				$ast_sites_notice_btn['data_init']               = '/astra-sites/astra-sites.php';
+				// Kanga Sites - Not Installed.
+				// Kanga Premium Sites - Inactive.
+			} elseif ( ! file_exists( WP_PLUGIN_DIR . '/kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-pro-sites/kanga-pro-sites.php' ) ) {
+				$ast_sites_notice_btn['class']                   = 'kanga-install-recommended-plugin';
+				$ast_sites_notice_btn['button_text']             = __( 'Install Importer Plugin', 'kanga' );
+				$ast_sites_notice_btn['data_slug']               = 'kanga-sites';
+				$ast_sites_notice_btn['data_init']               = '/kanga-sites/kanga-sites.php';
 				$ast_sites_notice_btn['data_settings_link']      = admin_url( 'themes.php?page=' . self::$starter_templates_slug );
-				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library &#187;', 'astra' );
-				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal astra-starter-sites-detail-link';
-				$ast_sites_notice_btn['detail_link']             = network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=astra-sites&TB_iframe=true&width=772&height=400' );
-				$ast_sites_notice_btn['detail_link_text']        = __( 'Details &#187;', 'astra' );
+				$ast_sites_notice_btn['data_settings_link_text'] = __( 'See Library &#187;', 'kanga' );
+				$ast_sites_notice_btn['detail_link_class']       = 'plugin-detail thickbox open-plugin-details-modal kanga-starter-sites-detail-link';
+				$ast_sites_notice_btn['detail_link']             = network_admin_url( 'plugin-install.php?tab=plugin-information&plugin=kanga-sites&TB_iframe=true&width=772&height=400' );
+				$ast_sites_notice_btn['detail_link_text']        = __( 'Details &#187;', 'kanga' );
 			} else {
 				$ast_sites_notice_btn['class']       = 'active';
-				$ast_sites_notice_btn['button_text'] = __( 'See Library &#187;', 'astra' );
+				$ast_sites_notice_btn['button_text'] = __( 'See Library &#187;', 'kanga' );
 				$ast_sites_notice_btn['link']        = admin_url( 'themes.php?page=' . self::$starter_templates_slug );
 			}
 			return $ast_sites_notice_btn;
@@ -404,7 +404,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 * @since 1.2.1
 		 */
 		public static function customizer_scripts() {
-			$color_palettes = wp_json_encode( astra_color_palette() );
+			$color_palettes = wp_json_encode( kanga_color_palette() );
 			wp_add_inline_script( 'wp-color-picker', 'jQuery.wp.wpColorPicker.prototype.options.palettes = ' . $color_palettes . ';' );
 		}
 
@@ -438,14 +438,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			 *
 			 * @param array array of the javascript handles.
 			 */
-			$js_handle = apply_filters( 'astra_admin_script_handles', array( 'jquery', 'wp-color-picker' ) );
+			$js_handle = apply_filters( 'kanga_admin_script_handles', array( 'jquery', 'wp-color-picker' ) );
 
 			// Add customize-base handle only for the Customizer Preview Screen.
 			if ( true === is_customize_preview() ) {
 				$js_handle[] = 'customize-base';
 			}
 
-			wp_register_script( 'astra-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
+			wp_register_script( 'kanga-color-alpha', ASTRA_THEME_URI . 'assets/js/' . $dir . '/wp-color-picker-alpha' . $js_prefix, $js_handle, ASTRA_THEME_VERSION, true );
 
 			if ( in_array( $hook, array( 'post.php', 'post-new.php' ) ) ) {
 				$post_types = get_post_types( array( 'public' => true ) );
@@ -453,25 +453,25 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				$post_type  = $screen->id;
 
 				if ( in_array( $post_type, (array) $post_types ) ) {
-					echo '<style class="astra-meta-box-style">
-						.block-editor-page #side-sortables #astra_settings_meta_box select { min-width: 84%; padding: 3px 24px 3px 8px; height: 20px; }
-						.block-editor-page #normal-sortables #astra_settings_meta_box select { min-width: 200px; }
-						.block-editor-page .edit-post-meta-boxes-area #poststuff #astra_settings_meta_box h2.hndle { border-bottom: 0; }
-						.block-editor-page #astra_settings_meta_box .components-base-control__field, .block-editor-page #astra_settings_meta_box .block-editor-page .transparent-header-wrapper, .block-editor-page #astra_settings_meta_box .adv-header-wrapper, .block-editor-page #astra_settings_meta_box .stick-header-wrapper, .block-editor-page #astra_settings_meta_box .disable-section-meta div { margin-bottom: 8px; }
-						.block-editor-page #astra_settings_meta_box .disable-section-meta div label { vertical-align: inherit; }
-						.block-editor-page #astra_settings_meta_box .post-attributes-label-wrapper { margin-bottom: 4px; }
-						#side-sortables #astra_settings_meta_box select { min-width: 100%; }
-						#normal-sortables #astra_settings_meta_box select { min-width: 200px; }
+					echo '<style class="kanga-meta-box-style">
+						.block-editor-page #side-sortables #kanga_settings_meta_box select { min-width: 84%; padding: 3px 24px 3px 8px; height: 20px; }
+						.block-editor-page #normal-sortables #kanga_settings_meta_box select { min-width: 200px; }
+						.block-editor-page .edit-post-meta-boxes-area #poststuff #kanga_settings_meta_box h2.hndle { border-bottom: 0; }
+						.block-editor-page #kanga_settings_meta_box .components-base-control__field, .block-editor-page #kanga_settings_meta_box .block-editor-page .transparent-header-wrapper, .block-editor-page #kanga_settings_meta_box .adv-header-wrapper, .block-editor-page #kanga_settings_meta_box .stick-header-wrapper, .block-editor-page #kanga_settings_meta_box .disable-section-meta div { margin-bottom: 8px; }
+						.block-editor-page #kanga_settings_meta_box .disable-section-meta div label { vertical-align: inherit; }
+						.block-editor-page #kanga_settings_meta_box .post-attributes-label-wrapper { margin-bottom: 4px; }
+						#side-sortables #kanga_settings_meta_box select { min-width: 100%; }
+						#normal-sortables #kanga_settings_meta_box select { min-width: 200px; }
 					</style>';
 				}
 			}
 			/* Add CSS for the Submenu for BSF plugins added in Appearance Menu */
 
 			if ( ! is_customize_preview() ) {
-				echo '<style class="astra-menu-appearance-style">
-					#menu-appearance a[href^="edit.php?post_type=astra-"]:before,
-					#menu-appearance a[href^="themes.php?page=astra-"]:before,
-					#menu-appearance a[href^="edit.php?post_type=astra_"]:before,
+				echo '<style class="kanga-menu-appearance-style">
+					#menu-appearance a[href^="edit.php?post_type=kanga-"]:before,
+					#menu-appearance a[href^="themes.php?page=kanga-"]:before,
+					#menu-appearance a[href^="edit.php?post_type=kanga_"]:before,
 					#menu-appearance a[href^="edit-tags.php?taxonomy=bsf_custom_fonts"]:before,
 					#menu-appearance a[href^="themes.php?page=custom-typekit-fonts"]:before,
 					#menu-appearance a[href^="edit.php?post_type=bsf-sidebar"]:before {
@@ -485,22 +485,22 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					return;
 				}
 
-				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
+				wp_register_script( 'kanga-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/kanga-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
-					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-					'astraSitesLink'                     => admin_url( 'themes.php?page=' ),
-					'astraSitesLinkTitle'                => __( 'See Library &#187;', 'astra' ),
-					'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
-					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
-					'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
-					'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
-					'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
-					'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
+					'btnActivating'                      => __( 'Activating Importer Plugin ', 'kanga' ) . '&hellip;',
+					'kangaSitesLink'                     => admin_url( 'themes.php?page=' ),
+					'kangaSitesLinkTitle'                => __( 'See Library &#187;', 'kanga' ),
+					'recommendedPluiginActivatingText'   => __( 'Activating', 'kanga' ) . '&hellip;',
+					'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'kanga' ) . '&hellip;',
+					'recommendedPluiginActivateText'     => __( 'Activate', 'kanga' ),
+					'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'kanga' ),
+					'recommendedPluiginSettingsText'     => __( 'Settings', 'kanga' ),
+					'kangaPluginManagerNonce'            => wp_create_nonce( 'kanga-recommended-plugin-nonce' ),
 				);
 
-				wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
+				wp_localize_script( 'kanga-admin-settings', 'kanga', apply_filters( 'kanga_theme_js_localize', $localize ) );
 			}
 		}
 
@@ -513,36 +513,36 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Styles.
 			if ( is_rtl() ) {
-				wp_enqueue_style( 'astra-admin-settings-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings-rtl.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-admin-settings-rtl', ASTRA_THEME_URI . 'inc/assets/css/kanga-admin-menu-settings-rtl.css', array(), ASTRA_THEME_VERSION );
 			} else {
-				wp_enqueue_style( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'kanga-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/kanga-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
 			}
 
 			if ( ! current_user_can( 'manage_options' ) ) {
 				return;
 			}
 
-			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
+			wp_register_script( 'kanga-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/kanga-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
-				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
-				'astraSitesLink'                     => admin_url( 'themes.php?page=' ),
-				'astraSitesLinkTitle'                => __( 'See Library &#187;', 'astra' ),
-				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
-				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
-				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
-				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
-				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
-				'astraPluginManagerNonce'            => wp_create_nonce( 'astra-recommended-plugin-nonce' ),
+				'btnActivating'                      => __( 'Activating Importer Plugin ', 'kanga' ) . '&hellip;',
+				'kangaSitesLink'                     => admin_url( 'themes.php?page=' ),
+				'kangaSitesLinkTitle'                => __( 'See Library &#187;', 'kanga' ),
+				'recommendedPluiginActivatingText'   => __( 'Activating', 'kanga' ) . '&hellip;',
+				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'kanga' ) . '&hellip;',
+				'recommendedPluiginActivateText'     => __( 'Activate', 'kanga' ),
+				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'kanga' ),
+				'recommendedPluiginSettingsText'     => __( 'Settings', 'kanga' ),
+				'kangaPluginManagerNonce'            => wp_create_nonce( 'kanga-recommended-plugin-nonce' ),
 			);
-			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
+			wp_localize_script( 'kanga-admin-settings', 'kanga', apply_filters( 'kanga_theme_js_localize', $localize ) );
 
 			// Script.
-			wp_enqueue_script( 'astra-admin-settings' );
+			wp_enqueue_script( 'kanga-admin-settings' );
 
-			if ( ! file_exists( WP_PLUGIN_DIR . '/astra-sites/astra-sites.php' ) && is_plugin_inactive( 'astra-pro-sites/astra-pro-sites.php' ) ) {
-				// For starter site plugin popup detail "Details &#187;" on Astra Options page.
+			if ( ! file_exists( WP_PLUGIN_DIR . '/kanga-sites/kanga-sites.php' ) && is_plugin_inactive( 'kanga-pro-sites/kanga-pro-sites.php' ) ) {
+				// For starter site plugin popup detail "Details &#187;" on Kanga Options page.
 				wp_enqueue_script( 'plugin-install' );
 				wp_enqueue_script( 'thickbox' );
 				wp_enqueue_style( 'thickbox' );
@@ -587,7 +587,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$page_menu_slug = self::$plugin_slug;
 			$page_menu_func = __CLASS__ . '::menu_callback';
 
-			if ( apply_filters( 'astra_dashboard_admin_menu', true ) ) {
+			if ( apply_filters( 'kanga_dashboard_admin_menu', true ) ) {
 				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
 			} else {
 				do_action( 'asta_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
@@ -606,9 +606,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			$active_tab   = str_replace( '_', '-', $current_slug );
 			$current_slug = str_replace( '-', '_', $current_slug );
 
-			$ast_icon           = apply_filters( 'astra_page_top_icon', true );
-			$ast_visit_site_url = apply_filters( 'astra_site_url', 'https://wpastra.com' );
-			$ast_wrapper_class  = apply_filters( 'astra_welcome_wrapper_class', array( $current_slug ) );
+			$ast_icon           = apply_filters( 'kanga_page_top_icon', true );
+			$ast_visit_site_url = apply_filters( 'kanga_site_url', 'https://wpkanga.com' );
+			$ast_wrapper_class  = apply_filters( 'kanga_welcome_wrapper_class', array( $current_slug ) );
 
 			?>
 			<div class="ast-menu-page-wrapper wrap ast-clear <?php echo esc_attr( implode( ' ', $ast_wrapper_class ) ); ?>">
@@ -617,19 +617,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							<div class="ast-theme-title">
 								<a href="<?php echo esc_url( $ast_visit_site_url ); ?>" target="_blank" rel="noopener" >
 								<?php if ( $ast_icon ) { ?>
-									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/astra.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
-									<span class="astra-theme-version"><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
+									<img src="<?php echo esc_url( ASTRA_THEME_URI . 'inc/assets/images/kanga.svg' ); ?>" class="ast-theme-icon" alt="<?php echo esc_attr( self::$page_title ); ?> " >
+									<span class="kanga-theme-version"><?php echo esc_html( ASTRA_THEME_VERSION ); ?></span>
 								<?php } ?>
-								<?php do_action( 'astra_welcome_page_header_title' ); ?>
+								<?php do_action( 'kanga_welcome_page_header_title' ); ?>
 								</a>
 							</div>
 
-							<?php do_action( 'astra_header_right_section' ); ?>
+							<?php do_action( 'kanga_header_right_section' ); ?>
 
 						</div>
 					</div>
 
-				<?php do_action( 'astra_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
+				<?php do_action( 'kanga_menu_' . esc_attr( $current_slug ) . '_action' ); ?>
 			</div>
 			<?php
 		}
@@ -648,9 +648,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		public static function astra_welcome_page_starter_sites_section() {
+		public static function kanga_welcome_page_starter_sites_section() {
 
-			if ( astra_is_white_labelled() ) {
+			if ( kanga_is_white_labelled() ) {
 				return;
 			}
 			?>
@@ -658,40 +658,40 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-admin-customizer"></span>
-					<span><?php echo esc_html( apply_filters( 'astra_sites_menu_page_title', __( 'Import Starter Template', 'astra' ) ) ); ?></span>
+					<span><?php echo esc_html( apply_filters( 'kanga_sites_menu_page_title', __( 'Import Starter Template', 'kanga' ) ) ); ?></span>
 				</h2>
-				<img class="ast-starter-sites-img" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/astra-starter-sites.jpg' ); ?>">
+				<img class="ast-starter-sites-img" src="<?php echo esc_url( ASTRA_THEME_URI . 'assets/images/kanga-starter-sites.jpg' ); ?>">
 				<div class="inside">
 					<p>
 						<?php
-							$astra_starter_sites_doc_link      = apply_filters( 'astra_starter_sites_documentation_link', astra_get_pro_url( 'https://wpastra.com/docs/installing-importing-astra-sites', 'astra-dashboard', 'how-astra-sites-works', 'welcome-page' ) );
-							$astra_starter_sites_doc_link_text = apply_filters( 'astra_starter_sites_doc_link_text', __( 'Starter Templates?', 'astra' ) );
+							$kanga_starter_sites_doc_link      = apply_filters( 'kanga_starter_sites_documentation_link', kanga_get_pro_url( 'https://wpkanga.com/docs/installing-importing-kanga-sites', 'kanga-dashboard', 'how-kanga-sites-works', 'welcome-page' ) );
+							$kanga_starter_sites_doc_link_text = apply_filters( 'kanga_starter_sites_doc_link_text', __( 'Starter Templates?', 'kanga' ) );
 							printf(
 								/* translators: %1$s: Starter site link. */
-								esc_html__( 'Did you know %1$s offers a free library of %2$s ', 'astra' ),
+								esc_html__( 'Did you know %1$s offers a free library of %2$s ', 'kanga' ),
 								self::$page_title,
-								! empty( $astra_starter_sites_doc_link ) ? '<a href=' . esc_url( $astra_starter_sites_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_starter_sites_doc_link_text ) . '</a>' :
-								esc_html( $astra_starter_sites_doc_link_text )
+								! empty( $kanga_starter_sites_doc_link ) ? '<a href=' . esc_url( $kanga_starter_sites_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $kanga_starter_sites_doc_link_text ) . '</a>' :
+								esc_html( $kanga_starter_sites_doc_link_text )
 							);
 						?>
 					</p>
 					<p>
 						<?php
-							esc_html_e( 'Import your favorite site in one click and start your project with style!', 'astra' );
+							esc_html_e( 'Import your favorite site in one click and start your project with style!', 'kanga' );
 						?>
 					</p>
 						<?php
-						$ast_sites_notice_btn = self::astra_sites_notice_button();
+						$ast_sites_notice_btn = self::kanga_sites_notice_button();
 
 						printf(
 							'<a class="%1$s" %2$s %3$s %4$s %5$s %6$s %7$s> %8$s </a>',
 							esc_attr( $ast_sites_notice_btn['class'] ),
-							'href="' . esc_url( astra_get_prop( $ast_sites_notice_btn, 'link', '' ) ) . '"',
-							'data-slug="' . esc_attr( astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) ) . '"',
-							'data-init="' . esc_attr( astra_get_prop( $ast_sites_notice_btn, 'data_init', '' ) ) . '"',
-							'data-settings-link-text="' . esc_attr( astra_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) ) . '"',
-							'data-settings-link="' . esc_attr( astra_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) ) . '"',
-							'data-activating-text="' . esc_attr( astra_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) ) . '"',
+							'href="' . esc_url( kanga_get_prop( $ast_sites_notice_btn, 'link', '' ) ) . '"',
+							'data-slug="' . esc_attr( kanga_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) ) . '"',
+							'data-init="' . esc_attr( kanga_get_prop( $ast_sites_notice_btn, 'data_init', '' ) ) . '"',
+							'data-settings-link-text="' . esc_attr( kanga_get_prop( $ast_sites_notice_btn, 'data_settings_link_text', '' ) ) . '"',
+							'data-settings-link="' . esc_attr( kanga_get_prop( $ast_sites_notice_btn, 'data_settings_link', '' ) ) . '"',
+							'data-activating-text="' . esc_attr( kanga_get_prop( $ast_sites_notice_btn, 'activating_text', '' ) ) . '"',
 							esc_html( $ast_sites_notice_btn['button_text'] )
 						);
 						printf(
@@ -714,9 +714,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		public static function astra_welcome_page_knowledge_base_scetion() {
+		public static function kanga_welcome_page_knowledge_base_scetion() {
 
-			if ( astra_is_white_labelled() ) {
+			if ( kanga_is_white_labelled() ) {
 				return;
 			}
 
@@ -725,21 +725,21 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-book"></span>
-					<span><?php esc_html_e( 'Knowledge Base', 'astra' ); ?></span>
+					<span><?php esc_html_e( 'Knowledge Base', 'kanga' ); ?></span>
 				</h2>
 				<div class="inside">
 					<p>
-						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'astra' ); ?>
+						<?php esc_html_e( 'Not sure how something works? Take a peek at the knowledge base and learn.', 'kanga' ); ?>
 					</p>
 					<?php
-					$astra_knowledge_base_doc_link      = apply_filters( 'astra_knowledge_base_documentation_link', astra_get_pro_url( 'https://wpastra.com/docs/', 'astra-dashboard', 'visit-documentation', 'welcome-page' ) );
-					$astra_knowledge_base_doc_link_text = apply_filters( 'astra_knowledge_base_documentation_link_text', __( 'Visit Knowledge Base &#187;', 'astra' ) );
+					$kanga_knowledge_base_doc_link      = apply_filters( 'kanga_knowledge_base_documentation_link', kanga_get_pro_url( 'https://wpkanga.com/docs/', 'kanga-dashboard', 'visit-documentation', 'welcome-page' ) );
+					$kanga_knowledge_base_doc_link_text = apply_filters( 'kanga_knowledge_base_documentation_link_text', __( 'Visit Knowledge Base &#187;', 'kanga' ) );
 
 					printf(
-						/* translators: %1$s: Astra Knowledge doc link. */
+						/* translators: %1$s: Kanga Knowledge doc link. */
 						'%1$s',
-						! empty( $astra_knowledge_base_doc_link ) ? '<a href=' . esc_url( $astra_knowledge_base_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_knowledge_base_doc_link_text ) . '</a>' :
-						esc_html( $astra_knowledge_base_doc_link_text )
+						! empty( $kanga_knowledge_base_doc_link ) ? '<a href=' . esc_url( $kanga_knowledge_base_doc_link ) . ' target="_blank" rel="noopener">' . esc_html( $kanga_knowledge_base_doc_link_text ) . '</a>' :
+						esc_html( $kanga_knowledge_base_doc_link_text )
 					);
 					?>
 				</div>
@@ -748,13 +748,13 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Include Welcome page right side Astra community content
+		 * Include Welcome page right side Kanga community content
 		 *
 		 * @since 1.2.4
 		 */
-		public static function astra_welcome_page_community_scetion() {
+		public static function kanga_welcome_page_community_scetion() {
 
-			if ( astra_is_white_labelled() ) {
+			if ( kanga_is_white_labelled() ) {
 				return;
 			}
 
@@ -766,8 +766,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<span>
 						<?php
 						printf(
-							/* translators: %1$s: Astra Theme name. */
-							esc_html__( '%1$s Community', 'astra' ),
+							/* translators: %1$s: Kanga Theme name. */
+							esc_html__( '%1$s Community', 'kanga' ),
 							esc_html( self::$page_title )
 						);
 						?>
@@ -776,21 +776,21 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<p>
 						<?php
 						printf(
-							/* translators: %1$s: Astra Theme name. */
-							esc_html__( 'Join the community of super helpful %1$s users. Say hello, ask questions, give feedback and help each other!', 'astra' ),
+							/* translators: %1$s: Kanga Theme name. */
+							esc_html__( 'Join the community of super helpful %1$s users. Say hello, ask questions, give feedback and help each other!', 'kanga' ),
 							esc_html( self::$page_title )
 						);
 						?>
 					</p>
 					<?php
-					$astra_community_group_link      = apply_filters( 'astra_community_group_link', 'https://www.facebook.com/groups/wpastra' );
-					$astra_community_group_link_text = apply_filters( 'astra_community_group_link_text', __( 'Join Our Facebook Group &#187;', 'astra' ) );
+					$kanga_community_group_link      = apply_filters( 'kanga_community_group_link', 'https://www.facebook.com/groups/wpkanga' );
+					$kanga_community_group_link_text = apply_filters( 'kanga_community_group_link_text', __( 'Join Our Facebook Group &#187;', 'kanga' ) );
 
 					printf(
-						/* translators: %1$s: Astra Knowledge doc link. */
+						/* translators: %1$s: Kanga Knowledge doc link. */
 						'%1$s',
-						! empty( $astra_community_group_link ) ? '<a href=' . esc_url( $astra_community_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_community_group_link_text ) . '</a>' :
-						esc_html( $astra_community_group_link_text )
+						! empty( $kanga_community_group_link ) ? '<a href=' . esc_url( $kanga_community_group_link ) . ' target="_blank" rel="noopener">' . esc_html( $kanga_community_group_link_text ) . '</a>' :
+						esc_html( $kanga_community_group_link_text )
 					);
 					?>
 				</div>
@@ -803,9 +803,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		public static function astra_welcome_page_five_star_scetion() {
+		public static function kanga_welcome_page_five_star_scetion() {
 
-			if ( astra_is_white_labelled() ) {
+			if ( kanga_is_white_labelled() ) {
 				return;
 			}
 
@@ -814,27 +814,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cusror">
 					<span class="dashicons dashicons-sos"></span>
-					<span><?php esc_html_e( 'Five Star Support', 'astra' ); ?></span>
+					<span><?php esc_html_e( 'Five Star Support', 'kanga' ); ?></span>
 				</h2>
 				<div class="inside">
 					<p>
 						<?php
 						printf(
-							/* translators: %1$s: Astra Theme name. */
-							esc_html__( 'Got a question? Get in touch with %1$s developers. We\'re happy to help!', 'astra' ),
+							/* translators: %1$s: Kanga Theme name. */
+							esc_html__( 'Got a question? Get in touch with %1$s developers. We\'re happy to help!', 'kanga' ),
 							esc_html( self::$page_title )
 						);
 						?>
 					</p>
 					<?php
-						$astra_support_link      = apply_filters( 'astra_support_link', astra_get_pro_url( 'https://wpastra.com/contact/', 'astra-dashboard', 'submit-a-ticket', 'welcome-page' ) );
-						$astra_support_link_text = apply_filters( 'astra_support_link_text', __( 'Submit a Ticket &#187;', 'astra' ) );
+						$kanga_support_link      = apply_filters( 'kanga_support_link', kanga_get_pro_url( 'https://wpkanga.com/contact/', 'kanga-dashboard', 'submit-a-ticket', 'welcome-page' ) );
+						$kanga_support_link_text = apply_filters( 'kanga_support_link_text', __( 'Submit a Ticket &#187;', 'kanga' ) );
 
 						printf(
-							/* translators: %1$s: Astra Knowledge doc link. */
+							/* translators: %1$s: Kanga Knowledge doc link. */
 							'%1$s',
-							! empty( $astra_support_link ) ? '<a href=' . esc_url( $astra_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $astra_support_link_text ) . '</a>' :
-							esc_html( $astra_support_link_text )
+							! empty( $kanga_support_link ) ? '<a href=' . esc_url( $kanga_support_link ) . ' target="_blank" rel="noopener">' . esc_html( $kanga_support_link_text ) . '</a>' :
+							esc_html( $kanga_support_link_text )
 						);
 					?>
 				</div>
@@ -847,51 +847,51 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		public static function astra_welcome_page_content() {
+		public static function kanga_welcome_page_content() {
 
-			$astra_addon_tagline = apply_filters( 'astra_addon_list_tagline', __( 'More Options Available with Astra Pro!', 'astra' ) );
+			$kanga_addon_tagline = apply_filters( 'kanga_addon_list_tagline', __( 'More Options Available with Kanga Pro!', 'kanga' ) );
 
 			// Quick settings.
 			$quick_settings = apply_filters(
-				'astra_quick_settings',
+				'kanga_quick_settings',
 				array(
 					'logo-favicon' => array(
-						'title'     => __( 'Upload Logo', 'astra' ),
+						'title'     => __( 'Upload Logo', 'kanga' ),
 						'dashicon'  => 'dashicons-format-image',
 						'quick_url' => admin_url( 'customize.php?autofocus[control]=custom_logo' ),
 					),
 					'colors'       => array(
-						'title'     => __( 'Set Colors', 'astra' ),
+						'title'     => __( 'Set Colors', 'kanga' ),
 						'dashicon'  => 'dashicons-admin-customizer',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-colors-background' ),
 					),
 					'typography'   => array(
-						'title'     => __( 'Customize Fonts', 'astra' ),
+						'title'     => __( 'Customize Fonts', 'kanga' ),
 						'dashicon'  => 'dashicons-editor-textcolor',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-typography' ),
 					),
 					'layout'       => array(
-						'title'     => __( 'Layout Options', 'astra' ),
+						'title'     => __( 'Layout Options', 'kanga' ),
 						'dashicon'  => 'dashicons-layout',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-container-layout' ),
 					),
 					'header'       => array(
-						'title'     => __( 'Header Options', 'astra' ),
+						'title'     => __( 'Header Options', 'kanga' ),
 						'dashicon'  => 'dashicons-align-center',
 						'quick_url' => admin_url( 'customize.php?autofocus[panel]=panel-header-group' ),
 					),
 					'blog-layout'  => array(
-						'title'     => __( 'Blog Layouts', 'astra' ),
+						'title'     => __( 'Blog Layouts', 'kanga' ),
 						'dashicon'  => 'dashicons-welcome-write-blog',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-blog-group' ),
 					),
 					'footer'       => array(
-						'title'     => __( 'Footer Settings', 'astra' ),
+						'title'     => __( 'Footer Settings', 'kanga' ),
 						'dashicon'  => 'dashicons-admin-generic',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-footer-group' ),
 					),
 					'sidebars'     => array(
-						'title'     => __( 'Sidebar Options', 'astra' ),
+						'title'     => __( 'Sidebar Options', 'kanga' ),
 						'dashicon'  => 'dashicons-align-left',
 						'quick_url' => admin_url( 'customize.php?autofocus[section]=section-sidebars' ),
 					),
@@ -899,244 +899,244 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 
 			$extensions = apply_filters(
-				'astra_addon_list',
+				'kanga_addon_list',
 				array(
 					'colors-and-background' => array(
-						'title'     => __( 'Colors & Background', 'astra' ),
+						'title'     => __( 'Colors & Background', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/colors-background-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/colors-background-module/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/colors-background-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/colors-background-module/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'typography'            => array(
-						'title'     => __( 'Typography', 'astra' ),
+						'title'     => __( 'Typography', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/typography-module/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/typography-module/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/typography-module/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'spacing'               => array(
-						'title'     => __( 'Spacing', 'astra' ),
+						'title'     => __( 'Spacing', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/spacing-addon-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/spacing-addon-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/spacing-addon-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/spacing-addon-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'blog-pro'              => array(
-						'title'     => __( 'Blog Pro', 'astra' ),
+						'title'     => __( 'Blog Pro', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/blog-pro-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/blog-pro-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/blog-pro-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'mobile-header'         => array(
-						'title'     => __( 'Mobile Header', 'astra' ),
+						'title'     => __( 'Mobile Header', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/mobile-header-with-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/mobile-header-with-kanga/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/mobile-header-with-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/mobile-header-with-kanga/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'header-sections'       => array(
-						'title'     => __( 'Header Sections', 'astra' ),
+						'title'     => __( 'Header Sections', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/header-sections-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/header-sections-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/header-sections-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'nav-menu'              => array(
-						'title'     => __( 'Nav Menu', 'astra' ),
+						'title'     => __( 'Nav Menu', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/nav-menu-addon/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/nav-menu-addon/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/how-to-white-label-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/how-to-white-label-kanga/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'sticky-header'         => array(
-						'title'     => __( 'Sticky Header', 'astra' ),
+						'title'     => __( 'Sticky Header', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/sticky-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/sticky-header-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/sticky-header-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/sticky-header-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'advanced-headers'      => array(
-						'title'           => __( 'Page Headers', 'astra' ),
-						'description'     => __( 'Make your header layouts look more appealing and sexy!', 'astra' ),
+						'title'           => __( 'Page Headers', 'kanga' ),
+						'description'     => __( 'Make your header layouts look more appealing and sexy!', 'kanga' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
-						'title_url'       => astra_get_pro_url( 'https://wpastra.com/docs/page-headers-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'       => kanga_get_pro_url( 'https://wpkanga.com/docs/page-headers-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'           => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/page-headers-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/page-headers-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'advanced-hooks'        => array(
-						'title'           => __( 'Custom Layouts', 'astra' ),
-						// 'icon'            => ASTRA_THEME_URI . 'assets/img/astra-advanced-hooks.png',
-						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'astra' ),
+						'title'           => __( 'Custom Layouts', 'kanga' ),
+						// 'icon'            => ASTRA_THEME_URI . 'assets/img/kanga-advanced-hooks.png',
+						'description'     => __( 'Add content conditionally in the various hook areas of the theme.', 'kanga' ),
 						'manage_settings' => true,
 						'class'           => 'ast-addon',
-						'title_url'       => astra_get_pro_url( 'https://wpastra.com/docs/custom-layouts-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'       => kanga_get_pro_url( 'https://wpkanga.com/docs/custom-layouts-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'           => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/custom-layouts-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/custom-layouts-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'site-layouts'          => array(
-						'title'     => __( 'Site Layouts', 'astra' ),
+						'title'     => __( 'Site Layouts', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/site-layout-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/site-layout-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'advanced-footer'       => array(
-						'title'     => __( 'Footer Widgets', 'astra' ),
+						'title'     => __( 'Footer Widgets', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/footer-widgets-kanga-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/footer-widgets-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/footer-widgets-kanga-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'scroll-to-top'         => array(
-						'title'     => __( 'Scroll To Top', 'astra' ),
+						'title'     => __( 'Scroll To Top', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/scroll-to-top-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/scroll-to-top-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/scroll-to-top-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'woocommerce'           => array(
-						'title'     => __( 'WooCommerce', 'astra' ),
+						'title'     => __( 'WooCommerce', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/woocommerce-module-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/woocommerce-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/woocommerce-module-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'edd'                   => array(
-						'title'     => __( 'Easy Digital Downloads', 'astra' ),
+						'title'     => __( 'Easy Digital Downloads', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/easy-digital-downloads-module-overview/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/easy-digital-downloads-module-overview/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'learndash'             => array(
-						'title'       => __( 'LearnDash', 'astra' ),
-						'description' => __( 'Supercharge your LearnDash website with amazing design features.', 'astra' ),
+						'title'       => __( 'LearnDash', 'kanga' ),
+						'description' => __( 'Supercharge your LearnDash website with amazing design features.', 'kanga' ),
 						'class'       => 'ast-addon',
-						'title_url'   => astra_get_pro_url( 'https://wpastra.com/docs/learndash-integration-in-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url'   => kanga_get_pro_url( 'https://wpkanga.com/docs/learndash-integration-in-kanga-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'       => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/learndash-integration-in-astra-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/learndash-integration-in-kanga-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'lifterlms'             => array(
-						'title'     => __( 'LifterLMS', 'astra' ),
+						'title'     => __( 'LifterLMS', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/lifterlms-module-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/lifterlms-module-pro/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/lifterlms-module-pro/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
 					),
 					'white-label'           => array(
-						'title'     => __( 'White Label', 'astra' ),
+						'title'     => __( 'White Label', 'kanga' ),
 						'class'     => 'ast-addon',
-						'title_url' => astra_get_pro_url( 'https://wpastra.com/docs/how-to-white-label-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
+						'title_url' => kanga_get_pro_url( 'https://wpkanga.com/docs/how-to-white-label-kanga/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
 						'links'     => array(
 							array(
 								'link_class'   => 'ast-learn-more',
-								'link_url'     => astra_get_pro_url( 'https://wpastra.com/docs/how-to-white-label-astra/', 'astra-dashboard', 'learn-more', 'welcome-page' ),
-								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'link_url'     => kanga_get_pro_url( 'https://wpkanga.com/docs/how-to-white-label-kanga/', 'kanga-dashboard', 'learn-more', 'welcome-page' ),
+								'link_text'    => __( 'Learn More &#187;', 'kanga' ),
 								'target_blank' => true,
 							),
 						),
@@ -1145,7 +1145,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 			?>
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'astra' ); ?></span></h2>
+				<h2 class="hndle ast-normal-cusror"><span><?php esc_html_e( 'Links to Customizer Settings:', 'kanga' ); ?></span></h2>
 					<div class="ast-quick-setting-section">
 						<?php
 						if ( ! empty( $quick_settings ) ) :
@@ -1163,12 +1163,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</div>
 			</div>
 
-			<!-- Notice for Older version of Astra Addon -->
+			<!-- Notice for Older version of Kanga Addon -->
 			<?php self::min_addon_version_message(); ?>
 
 			<div class="postbox">
-				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
-					<?php do_action( 'astra_addon_bulk_action' ); ?>
+				<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $kanga_addon_tagline ); ?></span>
+					<?php do_action( 'kanga_addon_bulk_action' ); ?>
 				</h2>
 					<div class="ast-addon-list-section">
 						<?php
@@ -1209,35 +1209,35 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 *
 		 * @since 1.2.4
 		 */
-		public static function astra_available_plugins() {
+		public static function kanga_available_plugins() {
 
-			if ( astra_is_white_labelled() ) {
+			if ( kanga_is_white_labelled() ) {
 				return;
 			}
 
-			$astra_addon_tagline = apply_filters(
-				'astra_available_plugins',
+			$kanga_addon_tagline = apply_filters(
+				'kanga_available_plugins',
 				sprintf(
-					/* translators: %1s Astra Theme */
-					__( 'Extend %1s with free plugins!', 'astra' ),
-					astra_get_theme_name()
+					/* translators: %1s Kanga Theme */
+					__( 'Extend %1s with free plugins!', 'kanga' ),
+					kanga_get_theme_name()
 				)
 			);
 
 			$recommended_plugins = apply_filters(
-				'astra_recommended_plugins',
+				'kanga_recommended_plugins',
 				array(
-					'astra-import-export'           =>
+					'kanga-import-export'           =>
 						array(
 							'plugin-name'        => 'Import / Export Customizer Settings',
-							'plugin-init'        => 'astra-import-export/astra-import-export.php',
+							'plugin-init'        => 'kanga-import-export/kanga-import-export.php',
 							'settings-link'      => '',
 							'settings-link-text' => 'Settings',
 						),
-					'reset-astra-customizer'        =>
+					'reset-kanga-customizer'        =>
 						array(
-							'plugin-name'        => 'Astra Customizer Reset',
-							'plugin-init'        => 'reset-astra-customizer/class-astra-theme-customizer-reset.php',
+							'plugin-name'        => 'Kanga Customizer Reset',
+							'plugin-init'        => 'reset-kanga-customizer/class-kanga-theme-customizer-reset.php',
 							'settings-link'      => admin_url( 'customize.php' ),
 							'settings-link-text' => 'Settings',
 						),
@@ -1250,18 +1250,18 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						'settings-link-text' => 'Settings',
 					),
 
-					'astra-bulk-edit'               =>
+					'kanga-bulk-edit'               =>
 					array(
-						'plugin-name'        => 'Astra Bulk Edit',
-						'plugin-init'        => 'astra-bulk-edit/astra-bulk-edit.php',
+						'plugin-name'        => 'Kanga Bulk Edit',
+						'plugin-init'        => 'kanga-bulk-edit/kanga-bulk-edit.php',
 						'settings-link'      => '',
 						'settings-link-text' => 'Settings',
 					),
 
-					'astra-widgets'                 =>
+					'kanga-widgets'                 =>
 					array(
-						'plugin-name'        => 'Astra Widgets',
-						'plugin-init'        => 'astra-widgets/astra-widgets.php',
+						'plugin-name'        => 'Kanga Widgets',
+						'plugin-init'        => 'kanga-widgets/kanga-widgets.php',
 						'settings-link'      => admin_url( 'widgets.php' ),
 						'settings-link-text' => 'Settings',
 					),
@@ -1309,11 +1309,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				)
 			);
 
-			if ( apply_filters( 'astra_show_free_extend_plugins', true ) ) {
+			if ( apply_filters( 'kanga_show_free_extend_plugins', true ) ) {
 				?>
 
 				<div class="postbox">
-					<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $astra_addon_tagline ); ?></span>
+					<h2 class="hndle ast-normal-cusror ast-addon-heading ast-flex"><span><?php echo esc_html( $kanga_addon_tagline ); ?></span>
 					</h2>
 						<div class="ast-addon-list-section">
 							<?php
@@ -1334,11 +1334,11 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 												$plugin_active_status = ' active';
 											}
 
-											echo '<li ' . astra_attr(
-												'astra-recommended-plugin-' . esc_attr( $slug ),
+											echo '<li ' . kanga_attr(
+												'kanga-recommended-plugin-' . esc_attr( $slug ),
 												array(
 													'id' => esc_attr( $slug ),
-													'class' => 'astra-recommended-plugin' . $plugin_active_status,
+													'class' => 'kanga-recommended-plugin' . $plugin_active_status,
 													'data-slug' => $slug,
 												)
 											) . '>';
@@ -1352,8 +1352,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 											if ( ! is_plugin_active( $plugin['plugin-init'] ) ) {
 
 												if ( file_exists( WP_CONTENT_DIR . '/plugins/' . $plugin['plugin-init'] ) ) {
-													echo '<a ' . astra_attr(
-														'astra-activate-recommended-plugin',
+													echo '<a ' . kanga_attr(
+														'kanga-activate-recommended-plugin',
 														array(
 															'data-slug' => $slug,
 															'href' => '#',
@@ -1363,14 +1363,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 														)
 													) . '>';
 
-													esc_html_e( 'Activate', 'astra' );
+													esc_html_e( 'Activate', 'kanga' );
 
 													echo '</a>';
 
 												} else {
 
-													echo '<a ' . astra_attr(
-														'astra-install-recommended-plugin',
+													echo '<a ' . kanga_attr(
+														'kanga-install-recommended-plugin',
 														array(
 															'data-slug' => $slug,
 															'href' => '#',
@@ -1380,14 +1380,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 														)
 													) . '>';
 
-													esc_html_e( 'Activate', 'astra' );
+													esc_html_e( 'Activate', 'kanga' );
 
 													echo '</a>';
 												}
 											} else {
 
-												echo '<a ' . astra_attr(
-													'astra-deactivate-recommended-plugin',
+												echo '<a ' . kanga_attr(
+													'kanga-deactivate-recommended-plugin',
 													array(
 														'data-slug' => $slug,
 														'href' => '#',
@@ -1397,14 +1397,14 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 													)
 												) . '>';
 
-												esc_html_e( 'Deactivate', 'astra' );
+												esc_html_e( 'Deactivate', 'kanga' );
 
 												echo '</a>';
 
 												if ( '' !== $plugin['settings-link'] ) {
 
-													echo '<a ' . astra_attr(
-														'astra-recommended-plugin-links',
+													echo '<a ' . kanga_attr(
+														'kanga-recommended-plugin-links',
 														array(
 															'data-slug' => $slug,
 															'href' => $plugin['settings-link'],
@@ -1454,15 +1454,15 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
 
-			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
+			if ( false === wp_verify_nonce( $nonce, 'kanga-recommended-plugin-nonce' ) ) {
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'kanga' ) );
 			}
 
 			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
 				wp_send_json_error(
 					array(
 						'success' => false,
-						'message' => __( 'No plugin specified', 'astra' ),
+						'message' => __( 'No plugin specified', 'kanga' ),
 					)
 				);
 			}
@@ -1471,7 +1471,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$activate = activate_plugin( $plugin_init, '', false, true );
 
-			if ( '/astra-sites/astra-sites.php' === $plugin_init ) {
+			if ( '/kanga-sites/kanga-sites.php' === $plugin_init ) {
 				self::get_starter_templates_slug();
 			}
 
@@ -1488,7 +1488,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			wp_send_json_success(
 				array(
 					'success'               => true,
-					'message'               => __( 'Plugin Successfully Activated', 'astra' ),
+					'message'               => __( 'Plugin Successfully Activated', 'kanga' ),
 					'starter_template_slug' => self::$starter_templates_slug,
 				)
 			);
@@ -1503,15 +1503,15 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			$nonce = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
 
-			if ( false === wp_verify_nonce( $nonce, 'astra-recommended-plugin-nonce' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
+			if ( false === wp_verify_nonce( $nonce, 'kanga-recommended-plugin-nonce' ) ) {
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'kanga' ) );
 			}
 
 			if ( ! current_user_can( 'install_plugins' ) || ! isset( $_POST['init'] ) || ! $_POST['init'] ) {
 				wp_send_json_error(
 					array(
 						'success' => false,
-						'message' => __( 'No plugin specified', 'astra' ),
+						'message' => __( 'No plugin specified', 'kanga' ),
 					)
 				);
 			}
@@ -1532,7 +1532,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			wp_send_json_success(
 				array(
 					'success' => true,
-					'message' => __( 'Plugin Successfully Deactivated', 'astra' ),
+					'message' => __( 'Plugin Successfully Deactivated', 'kanga' ),
 				)
 			);
 
@@ -1545,27 +1545,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function min_addon_version_message() {
 
-			$astra_global_options = get_option( 'astra-settings' );
+			$kanga_global_options = get_option( 'kanga-settings' );
 
-			if ( isset( $astra_global_options['astra-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
+			if ( isset( $kanga_global_options['kanga-addon-auto-version'] ) && defined( 'ASTRA_EXT_VER' ) ) {
 
-				if ( version_compare( $astra_global_options['astra-addon-auto-version'], '1.2.1' ) < 0 ) {
+				if ( version_compare( $kanga_global_options['kanga-addon-auto-version'], '1.2.1' ) < 0 ) {
 
 					// If addon is not updated & White Label for Addon is added then show the white labelewd pro name.
-					$astra_addon_name        = astra_get_addon_name();
-					$update_astra_addon_link = astra_get_pro_url( 'https://wpastra.com/?p=25258', 'astra-dashboard', 'update-to-astra-pro', 'welcome-page' );
-					if ( class_exists( 'Astra_Ext_White_Label_Markup' ) ) {
-						$plugin_data = Astra_Ext_White_Label_Markup::$branding;
-						if ( ! empty( $plugin_data['astra-pro']['name'] ) ) {
-							$update_astra_addon_link = '';
+					$kanga_addon_name        = kanga_get_addon_name();
+					$update_kanga_addon_link = kanga_get_pro_url( 'https://wpkanga.com/?p=25258', 'kanga-dashboard', 'update-to-kanga-pro', 'welcome-page' );
+					if ( class_exists( 'Kanga_Ext_White_Label_Markup' ) ) {
+						$plugin_data = Kanga_Ext_White_Label_Markup::$branding;
+						if ( ! empty( $plugin_data['kanga-pro']['name'] ) ) {
+							$update_kanga_addon_link = '';
 						}
 					}
 
 					$class   = 'ast-notice ast-notice-error';
 					$message = sprintf(
-						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Astra Addon */
-						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'astra' ),
-						( ! empty( $update_astra_addon_link ) ) ? '<a href=' . esc_url( $update_astra_addon_link ) . ' target="_blank" rel="noopener">' . $astra_addon_name . '</a>' : $astra_addon_name
+						/* translators: %1$1s: Addon Name, %2$2s: Minimum Required version of the Kanga Addon */
+						__( 'Update to the latest version of %1$2s to make changes in settings below.', 'kanga' ),
+						( ! empty( $update_kanga_addon_link ) ) ? '<a href=' . esc_url( $update_kanga_addon_link ) . ' target="_blank" rel="noopener">' . $kanga_addon_name . '</a>' : $kanga_addon_name
 					);
 
 					printf( '<div class="%1$s"><p>%2$s</p></div>', esc_attr( $class ), esc_html( $message ) );
@@ -1574,7 +1574,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-		 * Astra Header Right Section Links
+		 * Kanga Header Right Section Links
 		 *
 		 * @since 1.2.4
 		 */
@@ -1594,10 +1594,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			);
 
 			$top_links = apply_filters(
-				'astra_header_top_links',
+				'kanga_header_top_links',
 				array(
-					'astra-theme-info' => array(
-						'title' => '<img src=" ' . ASTRA_THEME_URI . 'inc/assets/images/lightning-speed.svg" class="astra-lightning-icon" alt="Astra Lightning Speed">' . __( ' Lightning Fast & Fully Customizable WordPress theme!', 'astra' ),
+					'kanga-theme-info' => array(
+						'title' => '<img src=" ' . ASTRA_THEME_URI . 'inc/assets/images/lightning-speed.svg" class="kanga-lightning-icon" alt="Kanga Lightning Speed">' . __( ' Lightning Fast & Fully Customizable WordPress theme!', 'kanga' ),
 					),
 				)
 			);
@@ -1625,5 +1625,5 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 	}
 
-	new Astra_Admin_Settings();
+	new Kanga_Admin_Settings();
 }

@@ -1,14 +1,14 @@
 
 window.addEventListener( 'load', function(e) {
-	astra_onload_function();
+	kanga_onload_function();
 });
   
-function astra_onload_function() { 
+function kanga_onload_function() { 
 	
 	/* Do things after DOM has fully loaded */ 
 	
-	var astra_meta_box = document.querySelector( '#astra_settings_meta_box' );
-	if( astra_meta_box != null ){
+	var kanga_meta_box = document.querySelector( '#kanga_settings_meta_box' );
+	if( kanga_meta_box != null ){
 		
 			document.querySelector('#site-content-layout').addEventListener('change',function( event ) {
 			

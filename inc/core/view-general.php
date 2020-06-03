@@ -2,11 +2,11 @@
 /**
  * View General
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -20,20 +20,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div id="post-body" class="columns-2">
 				<div id="post-body-content">
 					<!-- All WordPress Notices below header -->
-					<h1 class="screen-reader-text"> <?php esc_html_e( 'Astra', 'astra' ); ?> </h1>
-						<?php do_action( 'astra_welcome_page_content_before' ); ?>
+					<h1 class="screen-reader-text"> <?php esc_html_e( 'Kanga', 'kanga' ); ?> </h1>
+						<?php do_action( 'kanga_welcome_page_content_before' ); ?>
 
-						<?php do_action( 'astra_welcome_page_content' ); ?>
+						<?php do_action( 'kanga_welcome_page_content' ); ?>
 
-						<?php do_action( 'astra_welcome_page_content_after' ); ?>
+						<?php do_action( 'kanga_welcome_page_content_after' ); ?>
 				</div>
 				<div class="postbox-container ast-sidebar" id="postbox-container-1">
 					<div id="side-sortables">
-						<?php do_action( 'astra_welcome_page_right_sidebar_before' ); ?>
+						<?php do_action( 'kanga_welcome_page_right_sidebar_before' ); ?>
 
-						<?php do_action( 'astra_welcome_page_right_sidebar_content' ); ?>
+						<?php do_action( 'kanga_welcome_page_right_sidebar_content' ); ?>
 
-						<?php do_action( 'astra_welcome_page_right_sidebar_after' ); ?>
+						<?php do_action( 'kanga_welcome_page_right_sidebar_after' ); ?>
 					</div>
 				</div>
 			</div>

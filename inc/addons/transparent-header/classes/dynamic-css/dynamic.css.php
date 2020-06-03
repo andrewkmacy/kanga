@@ -2,25 +2,25 @@
 /**
  * Transparent Header - Dynamic CSS
  *
- * @package Astra Addon
+ * @package Kanga Addon
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_filter( 'astra_dynamic_theme_css', 'astra_ext_transparent_header_dynamic_css' );
+add_filter( 'kanga_dynamic_theme_css', 'kanga_ext_transparent_header_dynamic_css' );
 
 /**
  * Dynamic CSS
  *
- * @param  String $dynamic_css          Astra Dynamic CSS.
- * @param  String $dynamic_css_filtered Astra Dynamic CSS Filters.
+ * @param  String $dynamic_css          Kanga Dynamic CSS.
+ * @param  String $dynamic_css_filtered Kanga Dynamic CSS Filters.
  * @return String Dynamic CSS.
  */
-function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function kanga_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( true != Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) {
+	if ( true != Kanga_Ext_Transparent_Header_Markup::is_transparent_header() ) {
 		return $dynamic_css;
 	}
 
@@ -30,63 +30,63 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	 * If colors extension is_active then get color from it.
 	 * Else set theme default colors.
 	 */
-	$transparent_header_separator       = astra_get_option( 'transparent-header-main-sep' );
-	$transparent_header_separator_color = astra_get_option( 'transparent-header-main-sep-color' );
+	$transparent_header_separator       = kanga_get_option( 'transparent-header-main-sep' );
+	$transparent_header_separator_color = kanga_get_option( 'transparent-header-main-sep-color' );
 
-	$transparent_header_logo_width = astra_get_option( 'transparent-header-logo-width' );
+	$transparent_header_logo_width = kanga_get_option( 'transparent-header-logo-width' );
 
-	$transparent_header_inherit = astra_get_option( 'different-transparent-logo' );
-	$transparent_header_logo    = astra_get_option( 'transparent-header-logo' );
+	$transparent_header_inherit = kanga_get_option( 'different-transparent-logo' );
+	$transparent_header_logo    = kanga_get_option( 'transparent-header-logo' );
 
-	$transparent_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'desktop' );
-	$transparent_bg_color_tablet  = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'tablet', $transparent_bg_color_desktop );
-	$transparent_bg_color_mobile  = astra_get_prop( astra_get_option( 'transparent-header-bg-color-responsive' ), 'mobile', ( $transparent_bg_color_tablet ) ? $transparent_bg_color_tablet : $transparent_bg_color_desktop );
+	$transparent_bg_color_desktop = kanga_get_prop( kanga_get_option( 'transparent-header-bg-color-responsive' ), 'desktop' );
+	$transparent_bg_color_tablet  = kanga_get_prop( kanga_get_option( 'transparent-header-bg-color-responsive' ), 'tablet', $transparent_bg_color_desktop );
+	$transparent_bg_color_mobile  = kanga_get_prop( kanga_get_option( 'transparent-header-bg-color-responsive' ), 'mobile', ( $transparent_bg_color_tablet ) ? $transparent_bg_color_tablet : $transparent_bg_color_desktop );
 
-	$transparent_color_site_title_desktop = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'desktop' );
-	$transparent_color_site_title_tablet  = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'tablet' );
-	$transparent_color_site_title_mobile  = astra_get_prop( astra_get_option( 'transparent-header-color-site-title-responsive' ), 'mobile' );
+	$transparent_color_site_title_desktop = kanga_get_prop( kanga_get_option( 'transparent-header-color-site-title-responsive' ), 'desktop' );
+	$transparent_color_site_title_tablet  = kanga_get_prop( kanga_get_option( 'transparent-header-color-site-title-responsive' ), 'tablet' );
+	$transparent_color_site_title_mobile  = kanga_get_prop( kanga_get_option( 'transparent-header-color-site-title-responsive' ), 'mobile' );
 
-	$transparent_color_h_site_title_desktop = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'desktop' );
-	$transparent_color_h_site_title_tablet  = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'tablet' );
-	$transparent_color_h_site_title_mobile  = astra_get_prop( astra_get_option( 'transparent-header-color-h-site-title-responsive' ), 'mobile' );
+	$transparent_color_h_site_title_desktop = kanga_get_prop( kanga_get_option( 'transparent-header-color-h-site-title-responsive' ), 'desktop' );
+	$transparent_color_h_site_title_tablet  = kanga_get_prop( kanga_get_option( 'transparent-header-color-h-site-title-responsive' ), 'tablet' );
+	$transparent_color_h_site_title_mobile  = kanga_get_prop( kanga_get_option( 'transparent-header-color-h-site-title-responsive' ), 'mobile' );
 
-	$transparent_menu_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'desktop' );
-	$transparent_menu_color_desktop    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'desktop' );
-	$transparent_menu_h_color_desktop  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'desktop' );
+	$transparent_menu_bg_color_desktop = kanga_get_prop( kanga_get_option( 'transparent-menu-bg-color-responsive' ), 'desktop' );
+	$transparent_menu_color_desktop    = kanga_get_prop( kanga_get_option( 'transparent-menu-color-responsive' ), 'desktop' );
+	$transparent_menu_h_color_desktop  = kanga_get_prop( kanga_get_option( 'transparent-menu-h-color-responsive' ), 'desktop' );
 
-	$transparent_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'tablet' );
-	$transparent_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'tablet' );
-	$transparent_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'tablet' );
+	$transparent_menu_bg_color_tablet = kanga_get_prop( kanga_get_option( 'transparent-menu-bg-color-responsive' ), 'tablet' );
+	$transparent_menu_color_tablet    = kanga_get_prop( kanga_get_option( 'transparent-menu-color-responsive' ), 'tablet' );
+	$transparent_menu_h_color_tablet  = kanga_get_prop( kanga_get_option( 'transparent-menu-h-color-responsive' ), 'tablet' );
 
-	$transparent_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-menu-bg-color-responsive' ), 'mobile' );
-	$transparent_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-menu-color-responsive' ), 'mobile' );
-	$transparent_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-menu-h-color-responsive' ), 'mobile' );
+	$transparent_menu_bg_color_mobile = kanga_get_prop( kanga_get_option( 'transparent-menu-bg-color-responsive' ), 'mobile' );
+	$transparent_menu_color_mobile    = kanga_get_prop( kanga_get_option( 'transparent-menu-color-responsive' ), 'mobile' );
+	$transparent_menu_h_color_mobile  = kanga_get_prop( kanga_get_option( 'transparent-menu-h-color-responsive' ), 'mobile' );
 
-	$transparent_sub_menu_color_desktop    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'desktop' );
-	$transparent_sub_menu_h_color_desktop  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'desktop' );
-	$transparent_sub_menu_bg_color_desktop = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'desktop' );
+	$transparent_sub_menu_color_desktop    = kanga_get_prop( kanga_get_option( 'transparent-submenu-color-responsive' ), 'desktop' );
+	$transparent_sub_menu_h_color_desktop  = kanga_get_prop( kanga_get_option( 'transparent-submenu-h-color-responsive' ), 'desktop' );
+	$transparent_sub_menu_bg_color_desktop = kanga_get_prop( kanga_get_option( 'transparent-submenu-bg-color-responsive' ), 'desktop' );
 
-	$transparent_sub_menu_color_tablet    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'tablet' );
-	$transparent_sub_menu_h_color_tablet  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'tablet' );
-	$transparent_sub_menu_bg_color_tablet = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'tablet' );
+	$transparent_sub_menu_color_tablet    = kanga_get_prop( kanga_get_option( 'transparent-submenu-color-responsive' ), 'tablet' );
+	$transparent_sub_menu_h_color_tablet  = kanga_get_prop( kanga_get_option( 'transparent-submenu-h-color-responsive' ), 'tablet' );
+	$transparent_sub_menu_bg_color_tablet = kanga_get_prop( kanga_get_option( 'transparent-submenu-bg-color-responsive' ), 'tablet' );
 
-	$transparent_sub_menu_color_mobile    = astra_get_prop( astra_get_option( 'transparent-submenu-color-responsive' ), 'mobile' );
-	$transparent_sub_menu_h_color_mobile  = astra_get_prop( astra_get_option( 'transparent-submenu-h-color-responsive' ), 'mobile' );
-	$transparent_sub_menu_bg_color_mobile = astra_get_prop( astra_get_option( 'transparent-submenu-bg-color-responsive' ), 'mobile' );
+	$transparent_sub_menu_color_mobile    = kanga_get_prop( kanga_get_option( 'transparent-submenu-color-responsive' ), 'mobile' );
+	$transparent_sub_menu_h_color_mobile  = kanga_get_prop( kanga_get_option( 'transparent-submenu-h-color-responsive' ), 'mobile' );
+	$transparent_sub_menu_bg_color_mobile = kanga_get_prop( kanga_get_option( 'transparent-submenu-bg-color-responsive' ), 'mobile' );
 
-	$transparent_content_section_text_color_desktop   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'desktop' );
-	$transparent_content_section_link_color_desktop   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'desktop' );
-	$transparent_content_section_link_h_color_desktop = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'desktop' );
+	$transparent_content_section_text_color_desktop   = kanga_get_prop( kanga_get_option( 'transparent-content-section-text-color-responsive' ), 'desktop' );
+	$transparent_content_section_link_color_desktop   = kanga_get_prop( kanga_get_option( 'transparent-content-section-link-color-responsive' ), 'desktop' );
+	$transparent_content_section_link_h_color_desktop = kanga_get_prop( kanga_get_option( 'transparent-content-section-link-h-color-responsive' ), 'desktop' );
 
-	$transparent_content_section_text_color_tablet   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'tablet' );
-	$transparent_content_section_link_color_tablet   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'tablet' );
-	$transparent_content_section_link_h_color_tablet = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'tablet' );
+	$transparent_content_section_text_color_tablet   = kanga_get_prop( kanga_get_option( 'transparent-content-section-text-color-responsive' ), 'tablet' );
+	$transparent_content_section_link_color_tablet   = kanga_get_prop( kanga_get_option( 'transparent-content-section-link-color-responsive' ), 'tablet' );
+	$transparent_content_section_link_h_color_tablet = kanga_get_prop( kanga_get_option( 'transparent-content-section-link-h-color-responsive' ), 'tablet' );
 
-	$transparent_content_section_text_color_mobile   = astra_get_prop( astra_get_option( 'transparent-content-section-text-color-responsive' ), 'mobile' );
-	$transparent_content_section_link_color_mobile   = astra_get_prop( astra_get_option( 'transparent-content-section-link-color-responsive' ), 'mobile' );
-	$transparent_content_section_link_h_color_mobile = astra_get_prop( astra_get_option( 'transparent-content-section-link-h-color-responsive' ), 'mobile' );
+	$transparent_content_section_text_color_mobile   = kanga_get_prop( kanga_get_option( 'transparent-content-section-text-color-responsive' ), 'mobile' );
+	$transparent_content_section_link_color_mobile   = kanga_get_prop( kanga_get_option( 'transparent-content-section-link-color-responsive' ), 'mobile' );
+	$transparent_content_section_link_h_color_mobile = kanga_get_prop( kanga_get_option( 'transparent-content-section-link-h-color-responsive' ), 'mobile' );
 
-	$transparent_header_devices = astra_get_option( 'transparent-header-on-devices' );
+	$transparent_header_devices = kanga_get_option( 'transparent-header-on-devices' );
 
 	/**
 	 * Generate Dynamic CSS
@@ -100,41 +100,41 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 				'display' => 'none',
 			),
 		);
-		$css       .= astra_parse_css( $css_output );
+		$css       .= kanga_parse_css( $css_output );
 	}
 
 	// Desktop Transparent Heder Logo Width.
 	$css_output = array(
-		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .astra-logo-svg' => array(
-			'width' => astra_get_css_value( $transparent_header_logo_width['desktop'], 'px' ),
+		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .kanga-logo-svg' => array(
+			'width' => kanga_get_css_value( $transparent_header_logo_width['desktop'], 'px' ),
 		),
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img' => array(
-			' max-width' => astra_get_css_value( $transparent_header_logo_width['desktop'], 'px' ),
+			' max-width' => kanga_get_css_value( $transparent_header_logo_width['desktop'], 'px' ),
 		),
 	);
-	$css       .= astra_parse_css( $css_output );
+	$css       .= kanga_parse_css( $css_output );
 
 	// Tablet Transparent Heder Logo Width.
 	$tablet_css_output = array(
-		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .astra-logo-svg' => array(
-			'width' => astra_get_css_value( $transparent_header_logo_width['tablet'], 'px' ),
+		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .kanga-logo-svg' => array(
+			'width' => kanga_get_css_value( $transparent_header_logo_width['tablet'], 'px' ),
 		),
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img' => array(
-			' max-width' => astra_get_css_value( $transparent_header_logo_width['tablet'], 'px' ),
+			' max-width' => kanga_get_css_value( $transparent_header_logo_width['tablet'], 'px' ),
 		),
 	);
-	$css              .= astra_parse_css( $tablet_css_output, '', astra_get_tablet_breakpoint() );
+	$css              .= kanga_parse_css( $tablet_css_output, '', kanga_get_tablet_breakpoint() );
 
 	// Mobile Transparent Heder Logo Width.
 	$mobile_css_output = array(
-		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .astra-logo-svg' => array(
-			'width' => astra_get_css_value( $transparent_header_logo_width['mobile'], 'px' ),
+		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo .kanga-logo-svg' => array(
+			'width' => kanga_get_css_value( $transparent_header_logo_width['mobile'], 'px' ),
 		),
 		'.ast-theme-transparent-header #masthead .site-logo-img .transparent-custom-logo img' => array(
-			' max-width' => astra_get_css_value( $transparent_header_logo_width['mobile'], 'px' ),
+			' max-width' => kanga_get_css_value( $transparent_header_logo_width['mobile'], 'px' ),
 		),
 	);
-	$css              .= astra_parse_css( $mobile_css_output, '', astra_get_mobile_breakpoint( 1 ) );
+	$css              .= kanga_parse_css( $mobile_css_output, '', kanga_get_mobile_breakpoint( 1 ) );
 
 	$transparent_header_base = array(
 		'.ast-theme-transparent-header #masthead'         => array(
@@ -342,90 +342,90 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 
 	/* Parse CSS from array() */
 	if ( 'both' === $transparent_header_devices || 'desktop' === $transparent_header_devices ) {
-		$css .= astra_parse_css( $transparent_header_base, astra_get_tablet_breakpoint( '', 1 ) );
+		$css .= kanga_parse_css( $transparent_header_base, kanga_get_tablet_breakpoint( '', 1 ) );
 
 		// If Transparent header is active on mobile + desktop, enqueue CSS without media queeries.
 		// If only for desktop add media query for the transparent header.
 		if ( 'both' === $transparent_header_devices ) {
-			$css .= astra_parse_css( $transparent_header_desktop );
+			$css .= kanga_parse_css( $transparent_header_desktop );
 		} else {
-			$css .= astra_parse_css( $transparent_header_desktop, astra_get_tablet_breakpoint( '', 1 ) );
+			$css .= kanga_parse_css( $transparent_header_desktop, kanga_get_tablet_breakpoint( '', 1 ) );
 		}
 	}
 
 	if ( 'mobile' === $transparent_header_devices ) {
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.transparent-custom-logo' => array(
 					'display' => 'none',
 				),
 			),
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.transparent-custom-logo' => array(
 					'display' => 'block',
 				),
 			),
 			'',
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.ast-transparent-desktop-logo' => array(
 					'display' => 'none',
 				),
 			),
 			'',
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 	}
 
 	if ( 'desktop' === $transparent_header_devices ) {
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.transparent-custom-logo' => array(
 					'display' => 'none',
 				),
 			),
 			'',
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.ast-transparent-mobile-logo' => array(
 					'display' => 'none',
 				),
 			),
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.ast-transparent-mobile-logo' => array(
 					'display' => 'block',
 				),
 			),
 			'',
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 	}
 
 	if ( 'both' === $transparent_header_devices || 'mobile' === $transparent_header_devices ) {
-		$css .= astra_parse_css( $transparent_header_base, '', astra_get_tablet_breakpoint() );
-		$css .= astra_parse_css( $transparent_header_tablet, '', astra_get_tablet_breakpoint() );
-		$css .= astra_parse_css( $transparent_header_mobile, '', astra_get_mobile_breakpoint() );
+		$css .= kanga_parse_css( $transparent_header_base, '', kanga_get_tablet_breakpoint() );
+		$css .= kanga_parse_css( $transparent_header_tablet, '', kanga_get_tablet_breakpoint() );
+		$css .= kanga_parse_css( $transparent_header_mobile, '', kanga_get_mobile_breakpoint() );
 	}
 
 	if ( 'both' === $transparent_header_devices ) {
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.ast-theme-transparent-header .main-header-bar, .ast-theme-transparent-header.ast-header-break-point .main-header-bar' => array(
-					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+					'border-bottom-width' => kanga_get_css_value( $transparent_header_separator, 'px' ),
 					'border-bottom-style' => 'solid',
 					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
 				),
@@ -434,29 +434,29 @@ function astra_ext_transparent_header_dynamic_css( $dynamic_css, $dynamic_css_fi
 	}
 
 	if ( 'mobile' === $transparent_header_devices ) {
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.ast-theme-transparent-header.ast-header-break-point .main-header-bar' => array(
-					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+					'border-bottom-width' => kanga_get_css_value( $transparent_header_separator, 'px' ),
 					'border-bottom-style' => 'solid',
 					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
 				),
 			),
 			'',
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 	}
 
 	if ( 'desktop' === $transparent_header_devices ) {
-		$css .= astra_parse_css(
+		$css .= kanga_parse_css(
 			array(
 				'.ast-theme-transparent-header .main-header-bar' => array(
-					'border-bottom-width' => astra_get_css_value( $transparent_header_separator, 'px' ),
+					'border-bottom-width' => kanga_get_css_value( $transparent_header_separator, 'px' ),
 					'border-bottom-style' => 'solid',
 					'border-bottom-color' => esc_attr( $transparent_header_separator_color ),
 				),
 			),
-			astra_get_tablet_breakpoint()
+			kanga_get_tablet_breakpoint()
 		);
 	}
 

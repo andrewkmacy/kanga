@@ -1,12 +1,12 @@
 <?php
 /**
- * Astra Meta Box Operations
+ * Kanga Meta Box Operations
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Meta Box
  */
-if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
+if ( ! class_exists( 'Kanga_Meta_Box_Operations' ) ) {
 
 	/**
 	 * Meta Box
 	 */
-	class Astra_Meta_Box_Operations {
+	class Kanga_Meta_Box_Operations {
 
 		/**
 		 * Instance
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 
 			if ( is_singular() ) {
 				add_action( 'wp_head', array( $this, 'primary_header' ) );
-				add_filter( 'astra_the_title_enabled', array( $this, 'post_title' ) );
+				add_filter( 'kanga_the_title_enabled', array( $this, 'post_title' ) );
 				add_filter( 'body_class', array( $this, 'body_class' ) );
 			}
 		}
@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 
 			if ( 'disabled' == $display_header ) {
 
-				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+				remove_action( 'kanga_masthead', 'kanga_masthead_primary_template' );
 			}
 		}
 
@@ -112,4 +112,4 @@ if ( ! class_exists( 'Astra_Meta_Box_Operations' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Meta_Box_Operations::get_instance();
+Kanga_Meta_Box_Operations::get_instance();

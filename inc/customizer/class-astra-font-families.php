@@ -2,11 +2,11 @@
 /**
  * Helper class for font settings.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.19
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.19
  */
 
 // Exit if accessed directly.
@@ -17,12 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Font info class for System and Google fonts.
  */
-if ( ! class_exists( 'Astra_Font_Families' ) ) :
+if ( ! class_exists( 'Kanga_Font_Families' ) ) :
 
 	/**
 	 * Font info class for System and Google fonts.
 	 */
-	final class Astra_Font_Families {
+	final class Kanga_Font_Families {
 
 		/**
 		 * System Fonts
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 *
 		 * @since 1.0.19
 		 *
-		 * @return Array All the system fonts in Astra
+		 * @return Array All the system fonts in Kanga
 		 */
 		public static function get_system_fonts() {
 			if ( empty( self::$system_fonts ) ) {
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 				);
 			}
 
-			return apply_filters( 'astra_system_fonts', self::$system_fonts );
+			return apply_filters( 'kanga_system_fonts', self::$system_fonts );
 		}
 
 		/**
@@ -109,16 +109,16 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 *
 		 * @since 1.0.19
 		 *
-		 * @return Array All the custom fonts in Astra
+		 * @return Array All the custom fonts in Kanga
 		 */
 		public static function get_custom_fonts() {
 			$custom_fonts = array();
 
-			return apply_filters( 'astra_custom_fonts', $custom_fonts );
+			return apply_filters( 'kanga_custom_fonts', $custom_fonts );
 		}
 
 		/**
-		 * Google Fonts used in astra.
+		 * Google Fonts used in kanga.
 		 * Array is generated from the google-fonts.json file.
 		 *
 		 * @since  1.0.19
@@ -129,13 +129,13 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 
 			if ( empty( self::$google_fonts ) ) {
 
-				$google_fonts_file = apply_filters( 'astra_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
+				$google_fonts_file = apply_filters( 'kanga_google_fonts_json_file', ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' );
 
 				if ( ! file_exists( ASTRA_THEME_DIR . 'assets/fonts/google-fonts.json' ) ) {
 					return array();
 				}
 
-				$file_contants     = astra_filesystem()->get_contents( $google_fonts_file );
+				$file_contants     = kanga_filesystem()->get_contents( $google_fonts_file );
 				$google_fonts_json = json_decode( $file_contants, 1 );
 
 				foreach ( $google_fonts_json as $key => $font ) {
@@ -157,7 +157,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 				}
 			}
 
-			return apply_filters( 'astra_google_fonts', self::$google_fonts );
+			return apply_filters( 'kanga_google_fonts', self::$google_fonts );
 		}
 
 	}

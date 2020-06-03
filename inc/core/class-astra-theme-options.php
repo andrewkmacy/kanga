@@ -1,12 +1,12 @@
 <?php
 /**
- * Astra Theme Options
+ * Kanga Theme Options
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,11 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme Options
  */
-if ( ! class_exists( 'Astra_Theme_Options' ) ) {
+if ( ! class_exists( 'Kanga_Theme_Options' ) ) {
 	/**
 	 * Theme Options
 	 */
-	class Astra_Theme_Options {
+	class Kanga_Theme_Options {
 
 		/**
 		 * Class instance.
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		public static function defaults() {
 			// Defaults list of options.
 			return apply_filters(
-				'astra_theme_defaults',
+				'kanga_theme_defaults',
 				array(
 					// Blog Single.
 					'blog-single-post-structure'          => array(
@@ -182,9 +182,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Footer - Small.
 					'footer-sml-layout'                   => 'footer-sml-layout-1',
 					'footer-sml-section-1'                => 'custom',
-					'footer-sml-section-1-credit'         => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
+					'footer-sml-section-1-credit'         => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'kanga' ),
 					'footer-sml-section-2'                => '',
-					'footer-sml-section-2-credit'         => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'astra' ),
+					'footer-sml-section-2-credit'         => __( 'Copyright &copy; [current_year] [site_title] | Powered by [theme_author]', 'kanga' ),
 					'footer-sml-dist-equal-align'         => true,
 					'footer-sml-divider'                  => 1,
 					'footer-sml-divider-color'            => '#7a7a7a',
@@ -205,11 +205,11 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'header-layouts'                      => 'header-main-layout-1',
 					'header-main-rt-section'              => 'none',
 					'header-display-outside-menu'         => false,
-					'header-main-rt-section-html'         => '<button>' . __( 'Contact Us', 'astra' ) . '</button>',
-					'header-main-rt-section-button-text'  => __( 'Button', 'astra' ),
-					'header-main-rt-section-button-link'  => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
+					'header-main-rt-section-html'         => '<button>' . __( 'Contact Us', 'kanga' ) . '</button>',
+					'header-main-rt-section-button-text'  => __( 'Button', 'kanga' ),
+					'header-main-rt-section-button-link'  => apply_filters( 'kanga_site_url', 'https://www.wpkanga.com' ),
 					'header-main-rt-section-button-link-option' => array(
-						'url'      => apply_filters( 'astra_site_url', 'https://www.wpastra.com' ),
+						'url'      => apply_filters( 'kanga_site_url', 'https://www.wpkanga.com' ),
 						'new_tab'  => false,
 						'link_rel' => '',
 					),
@@ -462,4 +462,4 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Theme_Options::get_instance();
+Kanga_Theme_Options::get_instance();

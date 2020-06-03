@@ -1,6 +1,6 @@
-.astra-search-icon::before {
+.kanga-search-icon::before {
 	content: "\e8b6";
-	font-family: 'Astra';
+	font-family: 'Kanga';
 	font-style: normal;
 	font-weight: normal;
 	text-decoration: inherit;
@@ -9,7 +9,7 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.ast-search-icon .astra-search-icon {
+.ast-search-icon .kanga-search-icon {
 	font-size: 1.3em;
 }
 
@@ -174,7 +174,7 @@
 			    padding-left: 30px;
 			    &:before{
 			    	content: "\e900";
-				    font-family: 'Astra';
+				    font-family: 'Kanga';
 				    font-size: .65em;
 				    text-decoration: inherit;
 				    display: inline-block;

@@ -4,10 +4,10 @@
  *
  * Creates a jQuery slider control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Responsive Slider control (range).
  */
-class Astra_Control_Responsive_Slider extends WP_Customize_Control {
+class Kanga_Control_Responsive_Slider extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -84,7 +84,7 @@ class Astra_Control_Responsive_Slider extends WP_Customize_Control {
 	 * @access protected
 	 */
 	protected function content_template() {
-		$reset = __( 'Back to default', 'astra' );
+		$reset = __( 'Back to default', 'kanga' );
 		?>
 		<label for="">
 			<# if ( data.label ) { #>
@@ -144,7 +144,7 @@ class Astra_Control_Responsive_Slider extends WP_Customize_Control {
 			<div class="wrapper">
 				<div class="input-field-wrapper desktop active">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_desktop }}" data-reset_value="{{ default_desktop }}" />
-					<div class="astra_range_value">
+					<div class="kanga_range_value">
 						<input type="number" data-id='desktop' class="ast-responsive-range-value-input" value="{{ value_desktop }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="ast-range-unit">{{ data.suffix }}</span><#
@@ -153,7 +153,7 @@ class Astra_Control_Responsive_Slider extends WP_Customize_Control {
 				</div>
 				<div class="input-field-wrapper tablet">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_tablet }}" data-reset_value="{{ default_tablet }}" />
-					<div class="astra_range_value">
+					<div class="kanga_range_value">
 						<input type="number" data-id='tablet' class="ast-responsive-range-value-input" value="{{ value_tablet }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="ast-range-unit">{{ data.suffix }}</span><#
@@ -162,7 +162,7 @@ class Astra_Control_Responsive_Slider extends WP_Customize_Control {
 				</div>
 				<div class="input-field-wrapper mobile">
 					<input {{{ data.inputAttrs }}} type="range" value="{{ value_mobile }}" data-reset_value="{{ default_mobile }}" />
-					<div class="astra_range_value">
+					<div class="kanga_range_value">
 						<input type="number" data-id='mobile' class="ast-responsive-range-value-input" value="{{ value_mobile }}" {{{ data.inputAttrs }}} ><#
 						if ( data.suffix ) {
 						#><span class="ast-range-unit">{{ data.suffix }}</span><#

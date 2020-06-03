@@ -2,11 +2,11 @@
 /**
  * Transparent Header Options for our theme.
  *
- * @package     Astra Addon
+ * @package     Kanga Addon
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.4.3
+ * @since       Kanga 1.4.3
  */
 
 // Block direct access to the file.
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Bail if Customizer config base class does not exist.
-if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Config_Base' ) ) {
 	return;
 }
 
@@ -24,20 +24,20 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  *
  * @since 1.4.3
  */
-if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
+if ( ! class_exists( 'Kanga_Transparent_Header_Panels_And_Sections' ) ) {
 
 	/**
 	 * Register Transparent Header Customizer Configurations.
 	 */
-	class Astra_Transparent_Header_Panels_And_Sections extends Astra_Customizer_Config_Base {
+	class Kanga_Transparent_Header_Panels_And_Sections extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Transparent Header Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 
 				array(
 					'name'     => 'section-transparent-header',
-					'title'    => __( 'Transparent Header', 'astra' ),
+					'title'    => __( 'Transparent Header', 'kanga' ),
 					'panel'    => 'panel-header-group',
 					'type'     => 'section',
 					'priority' => 33,
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 				array(
 					'name'     => 'section-colors-header-group',
 					'type'     => 'section',
-					'title'    => __( 'Header', 'astra' ),
+					'title'    => __( 'Header', 'kanga' ),
 					'panel'    => 'panel-colors-background',
 					'priority' => 20,
 				),
@@ -68,4 +68,4 @@ if ( ! class_exists( 'Astra_Transparent_Header_Panels_And_Sections' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Transparent_Header_Panels_And_Sections();
+new Kanga_Transparent_Header_Panels_And_Sections();

@@ -4,7 +4,7 @@
  *
  * @link https://easydigitaldownloads.com/
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Easy_Digital_Downloads' not exist then return.
@@ -13,16 +13,16 @@ if ( ! class_exists( 'Easy_Digital_Downloads' ) ) {
 }
 
 /**
- * Astra Easy Digital Downloads Compatibility
+ * Kanga Easy Digital Downloads Compatibility
  */
-if ( ! class_exists( 'Astra_Edd' ) ) :
+if ( ! class_exists( 'Kanga_Edd' ) ) :
 
 	/**
-	 * Astra Easy Digital Downloads Compatibility
+	 * Kanga Easy Digital Downloads Compatibility
 	 *
 	 * @since 1.5.5
 	 */
-	class Astra_Edd {
+	class Kanga_Edd {
 
 		/**
 		 * Member Variable
@@ -48,15 +48,15 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			require_once ASTRA_THEME_DIR . 'inc/compatibility/edd/edd-common-functions.php';
 
-			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
+			add_filter( 'kanga_theme_defaults', array( $this, 'theme_defaults' ) );
 			// Register Store Sidebars.
 			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 15 );
 			// Replace Edd Store Sidebars.
-			add_filter( 'astra_get_sidebar', array( $this, 'replace_store_sidebar' ) );
+			add_filter( 'kanga_get_sidebar', array( $this, 'replace_store_sidebar' ) );
 			// Edd Sidebar Layout.
-			add_filter( 'astra_page_layout', array( $this, 'store_sidebar_layout' ) );
+			add_filter( 'kanga_page_layout', array( $this, 'store_sidebar_layout' ) );
 			// Edd Content Layout.
-			add_filter( 'astra_get_content_layout', array( $this, 'store_content_layout' ) );
+			add_filter( 'kanga_get_content_layout', array( $this, 'store_content_layout' ) );
 
 			add_filter( 'body_class', array( $this, 'edd_products_item_class' ) );
 			add_filter( 'post_class', array( $this, 'edd_single_product_class' ) );
@@ -64,20 +64,20 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'kanga_theme_assets', array( $this, 'add_styles' ) );
 			add_filter( 'wp_enqueue_scripts', array( $this, 'add_inline_scripts' ) );
-			add_filter( 'astra_dynamic_theme_css', array( $this, 'add_inline_styles' ) );
+			add_filter( 'kanga_dynamic_theme_css', array( $this, 'add_inline_styles' ) );
 
 			add_action( 'wp', array( $this, 'edd_initialization' ) );
 			add_action( 'init', array( $this, 'edd_set_defaults_initialization' ) );
 
 			// Add Cart option in dropdown.
-			add_filter( 'astra_header_section_elements', array( $this, 'header_section_elements' ) );
+			add_filter( 'kanga_header_section_elements', array( $this, 'header_section_elements' ) );
 
 			// Add Cart icon in Menu.
-			add_filter( 'astra_get_dynamic_header_content', array( $this, 'astra_header_cart' ), 10, 3 );
+			add_filter( 'kanga_get_dynamic_header_content', array( $this, 'kanga_header_cart' ), 10, 3 );
 
-			add_filter( 'astra_single_post_navigation', array( $this, 'edd_single_post_navigation' ) );
+			add_filter( 'kanga_single_post_navigation', array( $this, 'edd_single_post_navigation' ) );
 		}
 
 		/**
@@ -87,14 +87,14 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function edd_set_defaults_initialization() {
 
-			$astra_theme_options = get_option( 'astra-settings' );
+			$kanga_theme_options = get_option( 'kanga-settings' );
 			$edd_settings        = get_option( 'edd_settings' );
 
 			// Set flag to set the EDD style disable only once for the very first time.
-			if ( ! isset( $astra_theme_options['ast-edd-disable-styles'] ) ) {
-				$astra_theme_options['ast-edd-disable-styles'] = true;
+			if ( ! isset( $kanga_theme_options['ast-edd-disable-styles'] ) ) {
+				$kanga_theme_options['ast-edd-disable-styles'] = true;
 				$edd_settings['disable_styles']                = true;
-				update_option( 'astra-settings', $astra_theme_options );
+				update_option( 'kanga-settings', $kanga_theme_options );
 				update_option( 'edd_settings', $edd_settings );
 			}
 
@@ -108,8 +108,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return array $args single products navigation arguments.
 		 */
 		public function edd_single_post_navigation( $args ) {
-			$is_edd_single_product_page        = astra_is_edd_single_product_page();
-			$disable_single_product_navigation = astra_get_option( 'disable-edd-single-product-nav' );
+			$is_edd_single_product_page        = kanga_is_edd_single_product_page();
+			$disable_single_product_navigation = kanga_get_option( 'disable-edd-single-product-nav' );
 			if ( $is_edd_single_product_page && ! $disable_single_product_navigation ) {
 				$next_post = get_next_post();
 				$prev_post = get_previous_post();
@@ -146,25 +146,25 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return void
 		 */
 		public function edd_initialization() {
-			$is_edd_archive_page        = astra_is_edd_archive_page();
-			$is_edd_single_product_page = astra_is_edd_single_product_page();
+			$is_edd_archive_page        = kanga_is_edd_archive_page();
+			$is_edd_single_product_page = kanga_is_edd_single_product_page();
 
 			if ( $is_edd_archive_page ) {
-				add_action( 'astra_template_parts_content', array( $this, 'edd_content_loop' ) );
-				remove_action( 'astra_template_parts_content', array( Astra_Loop::get_instance(), 'template_parts_default' ) );
+				add_action( 'kanga_template_parts_content', array( $this, 'edd_content_loop' ) );
+				remove_action( 'kanga_template_parts_content', array( Kanga_Loop::get_instance(), 'template_parts_default' ) );
 
 				// Add edd wrapper.
-				add_action( 'astra_template_parts_content_top', array( $this, 'astra_edd_templat_part_wrap_open' ), 25 );
-				add_action( 'astra_template_parts_content_bottom', array( $this, 'astra_edd_templat_part_wrap_close' ), 5 );
+				add_action( 'kanga_template_parts_content_top', array( $this, 'kanga_edd_templat_part_wrap_open' ), 25 );
+				add_action( 'kanga_template_parts_content_bottom', array( $this, 'kanga_edd_templat_part_wrap_close' ), 5 );
 
 				// Remove closing and ending div 'ast-row'.
-				remove_action( 'astra_template_parts_content_top', array( Astra_Loop::get_instance(), 'astra_templat_part_wrap_open' ), 25 );
-				remove_action( 'astra_template_parts_content_bottom', array( Astra_Loop::get_instance(), 'astra_templat_part_wrap_close' ), 5 );
+				remove_action( 'kanga_template_parts_content_top', array( Kanga_Loop::get_instance(), 'kanga_templat_part_wrap_open' ), 25 );
+				remove_action( 'kanga_template_parts_content_bottom', array( Kanga_Loop::get_instance(), 'kanga_templat_part_wrap_close' ), 5 );
 			}
 			if ( $is_edd_single_product_page ) {
-				remove_action( 'astra_template_parts_content', array( Astra_Loop::get_instance(), 'template_parts_post' ) );
+				remove_action( 'kanga_template_parts_content', array( Kanga_Loop::get_instance(), 'template_parts_post' ) );
 
-				add_action( 'astra_template_parts_content', array( $this, 'edd_single_template' ) );
+				add_action( 'kanga_template_parts_content', array( $this, 'edd_single_template' ) );
 
 			}
 		}
@@ -175,7 +175,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @return void
 		 */
-		public function astra_edd_templat_part_wrap_open() {
+		public function kanga_edd_templat_part_wrap_open() {
 			?>
 				<div class="ast-edd-container">
 			<?php
@@ -184,7 +184,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Add end of wrapper for edd archive pages
 		 */
-		public function astra_edd_templat_part_wrap_close() {
+		public function kanga_edd_templat_part_wrap_close() {
 			?>
 				</div> <!-- .ast-edd-container -->
 			<?php
@@ -195,21 +195,21 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function edd_single_template() {
 
-			astra_entry_before();
+			kanga_entry_before();
 			?>
 
 			<div <?php post_class(); ?>>
 
-				<?php astra_entry_top(); ?>
+				<?php kanga_entry_top(); ?>
 
-				<?php astra_entry_content_single(); ?>
+				<?php kanga_entry_content_single(); ?>
 
-				<?php astra_entry_bottom(); ?>
+				<?php kanga_entry_bottom(); ?>
 
 			</div><!-- #post-## -->
 
 			<?php
-			astra_entry_after();
+			kanga_entry_after();
 		}
 
 		/**
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function header_section_elements( $options ) {
 
-			$options['edd'] = __( 'Easy Digital Downloads', 'astra' );
+			$options['edd'] = __( 'Easy Digital Downloads', 'kanga' );
 
 			return $options;
 		}
@@ -239,7 +239,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				/**
 				 * Edd Archive Page Product Content Sorting
 				 */
-				do_action( 'astra_edd_archive_product_content' );
+				do_action( 'kanga_edd_archive_product_content' );
 				?>
 			</div>
 			<?php
@@ -262,13 +262,13 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				$classes = array_diff(
 					$classes,
 					array(
-						// Astra common grid.
+						// Kanga common grid.
 						'ast-col-sm-12',
 						'ast-col-md-8',
 						'ast-col-md-6',
 						'ast-col-md-12',
 
-						// Astra Blog / Single Post.
+						// Kanga Blog / Single Post.
 						'ast-article-post',
 						'ast-article-single',
 						'ast-separate-posts',
@@ -290,9 +290,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 *
 		 * @since 1.5.5
 		 */
-		public function astra_header_cart( $output, $section, $section_type ) {
+		public function kanga_header_cart( $output, $section, $section_type ) {
 
-			if ( 'edd' === $section_type && apply_filters( 'astra_edd_header_cart_icon', true ) ) {
+			if ( 'edd' === $section_type && apply_filters( 'kanga_edd_header_cart_icon', true ) ) {
 
 				$output = $this->edd_mini_cart_markup();
 			}
@@ -312,13 +312,13 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				$class = 'current-menu-item';
 			}
 
-			$cart_menu_classes = apply_filters( 'astra_edd_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+			$cart_menu_classes = apply_filters( 'kanga_edd_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
 
 			ob_start();
 			?>
 			<div class="ast-edd-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
 				<div class="ast-edd-site-header-cart-wrap <?php echo esc_attr( $class ); ?>">
-					<?php $this->astra_get_edd_cart(); ?>
+					<?php $this->kanga_get_edd_cart(); ?>
 				</div>
 				<?php if ( ! edd_is_checkout() ) { ?>
 				<div class="ast-edd-site-header-cart-widget">
@@ -339,22 +339,22 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @return void
 		 * @since  1.5.5
 		 */
-		public function astra_get_edd_cart() {
+		public function kanga_get_edd_cart() {
 
-			$view_shopping_cart = apply_filters( 'astra_edd_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
-			$edd_cart_link      = apply_filters( 'astra_edd_cart_link', edd_get_checkout_uri() );
+			$view_shopping_cart = apply_filters( 'kanga_edd_view_shopping_cart_title', __( 'View your shopping cart', 'kanga' ) );
+			$edd_cart_link      = apply_filters( 'kanga_edd_cart_link', edd_get_checkout_uri() );
 			?>
 			<a class="ast-edd-cart-container" href="<?php echo esc_url( $edd_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 
 						<?php
-						do_action( 'astra_edd_header_cart_icons_before' );
+						do_action( 'kanga_edd_header_cart_icons_before' );
 
-						if ( apply_filters( 'astra_edd_default_header_cart_icon', true ) ) {
+						if ( apply_filters( 'kanga_edd_default_header_cart_icon', true ) ) {
 							?>
 							<div class="ast-edd-cart-menu-wrap">
 								<span class="count"> 
 									<?php
-									if ( apply_filters( 'astra_edd_header_cart_total', true ) ) {
+									if ( apply_filters( 'kanga_edd_header_cart_total', true ) ) {
 										$cart_items = count( edd_get_cart_contents() );
 										echo esc_html( $cart_items );
 									}
@@ -364,7 +364,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 							<?php
 						}
 
-						do_action( 'astra_edd_header_cart_icons_after' );
+						do_action( 'kanga_edd_header_cart_icons_after' );
 
 						?>
 			</a>
@@ -379,7 +379,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 * @since 1.5.5
 		 */
 		public function add_styles( $assets ) {
-			$assets['css']['astra-edd'] = 'compatibility/edd';
+			$assets['css']['kanga-edd'] = 'compatibility/edd';
 			return $assets;
 		}
 
@@ -419,7 +419,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
-			$edd_css_output = astra_parse_css( $max_tablet_edd_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+			$edd_css_output = kanga_parse_css( $max_tablet_edd_css, kanga_get_mobile_breakpoint( '', 1 ), kanga_get_tablet_breakpoint() );
 
 			if ( $is_site_rtl ) {
 				$max_tablet_edd_lang_direction_css = array(
@@ -452,7 +452,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			}
 
 			/* Parse CSS from array() -> max-width: (tablet-breakpoint) px & min-width: (mobile-breakpoint + 1) px */
-			$edd_css_output .= astra_parse_css( $max_tablet_edd_lang_direction_css, astra_get_mobile_breakpoint( '', 1 ), astra_get_tablet_breakpoint() );
+			$edd_css_output .= kanga_parse_css( $max_tablet_edd_lang_direction_css, kanga_get_mobile_breakpoint( '', 1 ), kanga_get_tablet_breakpoint() );
 
 			$mobile_edd_css = array(
 				'.mobile-columns-1 .ast-edd-archive-article' => array(
@@ -481,7 +481,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
-			$edd_css_output .= astra_parse_css( $mobile_edd_css, '', astra_get_mobile_breakpoint() );
+			$edd_css_output .= kanga_parse_css( $mobile_edd_css, '', kanga_get_mobile_breakpoint() );
 
 			if ( $is_site_rtl ) {
 				$mobile_edd_lang_direction_css = array(
@@ -520,19 +520,19 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			}
 
 			/* Parse CSS from array() -> max-width: (mobile-breakpoint) px */
-			$edd_css_output .= astra_parse_css( $mobile_edd_lang_direction_css, '', astra_get_mobile_breakpoint() );
+			$edd_css_output .= kanga_parse_css( $mobile_edd_lang_direction_css, '', kanga_get_mobile_breakpoint() );
 
-			wp_add_inline_style( 'astra-edd', apply_filters( 'astra_theme_edd_dynamic_css', $edd_css_output ) );
+			wp_add_inline_style( 'kanga-edd', apply_filters( 'kanga_theme_edd_dynamic_css', $edd_css_output ) );
 
 			// Inline js for EDD Cart updates.
 			wp_add_inline_script(
 				'edd-ajax',
 				"jQuery( document ).ready( function($) {
 					/**
-					 * Astra - Easy Digital Downloads Cart Quantity & Total Amount
+					 * Kanga - Easy Digital Downloads Cart Quantity & Total Amount
 					 */
 					var cartQuantity = jQuery('.ast-edd-site-header-cart-wrap .count'),
-						iconQuantity = jQuery('.ast-edd-site-header-cart-wrap .astra-icon'),
+						iconQuantity = jQuery('.ast-edd-site-header-cart-wrap .kanga-icon'),
 						cartTotalAmount = jQuery('.ast-edd-site-header-cart-wrap .ast-edd-header-cart-total');
 
 					jQuery('body').on('edd_cart_item_added', function( event, response ) {
@@ -553,8 +553,8 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		/**
 		 * Dynamic CSS
 		 *
-		 * @param  string $dynamic_css          Astra Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @param  string $dynamic_css          Kanga Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Kanga Dynamic CSS Filters.
 		 * @since 1.5.5
 		 * @return string $dynamic_css
 		 */
@@ -564,31 +564,31 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			 * - Variable Declaration
 			 */
 
-			$site_content_width    = astra_get_option( 'site-content-width', 1200 );
-			$edd_archive_width     = astra_get_option( 'edd-archive-width' );
-			$edd_archive_max_width = astra_get_option( 'edd-archive-max-width' );
+			$site_content_width    = kanga_get_option( 'site-content-width', 1200 );
+			$edd_archive_width     = kanga_get_option( 'edd-archive-width' );
+			$edd_archive_max_width = kanga_get_option( 'edd-archive-max-width' );
 			$css_output            = '';
 
-			$theme_color  = astra_get_option( 'theme-color' );
-			$link_color   = astra_get_option( 'link-color', $theme_color );
-			$text_color   = astra_get_option( 'text-color' );
-			$link_h_color = astra_get_option( 'link-h-color' );
+			$theme_color  = kanga_get_option( 'theme-color' );
+			$link_color   = kanga_get_option( 'link-color', $theme_color );
+			$text_color   = kanga_get_option( 'text-color' );
+			$link_h_color = kanga_get_option( 'link-h-color' );
 
-			$btn_color = astra_get_option( 'button-color' );
+			$btn_color = kanga_get_option( 'button-color' );
 			if ( empty( $btn_color ) ) {
-				$btn_color = astra_get_foreground_color( $theme_color );
+				$btn_color = kanga_get_foreground_color( $theme_color );
 			}
 
-			$btn_h_color = astra_get_option( 'button-h-color' );
+			$btn_h_color = kanga_get_option( 'button-h-color' );
 			if ( empty( $btn_h_color ) ) {
-				$btn_h_color = astra_get_foreground_color( $link_h_color );
+				$btn_h_color = kanga_get_foreground_color( $link_h_color );
 			}
-			$btn_bg_color   = astra_get_option( 'button-bg-color', $theme_color );
-			$btn_bg_h_color = astra_get_option( 'button-bg-h-color', $link_h_color );
+			$btn_bg_color   = kanga_get_option( 'button-bg-color', $theme_color );
+			$btn_bg_h_color = kanga_get_option( 'button-bg-h-color', $link_h_color );
 
-			$btn_border_radius = astra_get_option( 'button-radius' );
+			$btn_border_radius = kanga_get_option( 'button-radius' );
 
-			$cart_h_color = astra_get_foreground_color( $link_h_color );
+			$cart_h_color = kanga_get_foreground_color( $link_h_color );
 
 			$css_output = array(
 				/**
@@ -624,7 +624,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					'color'            => $btn_h_color,
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
-					'border-radius'    => astra_get_css_value( $btn_border_radius, 'px' ),
+					'border-radius'    => kanga_get_css_value( $btn_border_radius, 'px' ),
 				),
 				'.site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a, .site-header .ast-edd-site-header-cart .ast-edd-site-header-cart-widget .edd_checkout a:hover' => array(
 					'color' => $btn_color,
@@ -643,31 +643,31 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 
 			/* Parse CSS from array() */
-			$css_output = astra_parse_css( $css_output );
+			$css_output = kanga_parse_css( $css_output );
 
 			/* Easy Digital DOwnloads Shop Archive width */
 			if ( 'custom' === $edd_archive_width ) :
 				// Easy Digital DOwnloads shop archive custom width.
 				$site_width  = array(
 					'.ast-edd-archive-page .site-content > .ast-container' => array(
-						'max-width' => astra_get_css_value( $edd_archive_max_width, 'px' ),
+						'max-width' => kanga_get_css_value( $edd_archive_max_width, 'px' ),
 					),
 				);
-				$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
+				$css_output .= kanga_parse_css( $site_width, kanga_get_tablet_breakpoint( '', 1 ) );
 
 			else :
 				// Easy Digital DOwnloads shop archive default width.
 				$site_width = array(
 					'.ast-edd-archive-page .site-content > .ast-container' => array(
-						'max-width' => astra_get_css_value( $site_content_width + 40, 'px' ),
+						'max-width' => kanga_get_css_value( $site_content_width + 40, 'px' ),
 					),
 				);
 
 				/* Parse CSS from array()*/
-				$css_output .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
+				$css_output .= kanga_parse_css( $site_width, kanga_get_tablet_breakpoint( '', 1 ) );
 			endif;
 
-			$dynamic_css .= apply_filters( 'astra_theme_edd_dynamic_css', $css_output );
+			$dynamic_css .= apply_filters( 'kanga_theme_edd_dynamic_css', $css_output );
 
 			return $dynamic_css;
 		}
@@ -702,9 +702,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				'add_cart',
 			);
 
-			$defaults['edd-archive-add-to-cart-button-text'] = __( 'Add To Cart', 'astra' );
+			$defaults['edd-archive-add-to-cart-button-text'] = __( 'Add To Cart', 'kanga' );
 			$defaults['edd-archive-variable-button']         = 'button';
-			$defaults['edd-archive-variable-button-text']    = __( 'View Details', 'astra' );
+			$defaults['edd-archive-variable-button-text']    = __( 'View Details', 'kanga' );
 
 			$defaults['edd-archive-width']              = 'default';
 			$defaults['edd-archive-max-width']          = 1200;
@@ -723,10 +723,10 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function edd_products_item_class( $classes = '' ) {
 
-			$is_edd_archive_page = astra_is_edd_archive_page();
+			$is_edd_archive_page = kanga_is_edd_archive_page();
 
 			if ( $is_edd_archive_page ) {
-				$shop_grid = astra_get_option( 'edd-archive-grids' );
+				$shop_grid = kanga_get_option( 'edd-archive-grids' );
 				$classes[] = 'columns-' . $shop_grid['desktop'];
 				$classes[] = 'tablet-columns-' . $shop_grid['tablet'];
 				$classes[] = 'mobile-columns-' . $shop_grid['mobile'];
@@ -746,7 +746,7 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function edd_single_product_class( $classes ) {
 
-			$is_edd_archive_page = astra_is_edd_archive_page();
+			$is_edd_archive_page = kanga_is_edd_archive_page();
 
 			if ( $is_edd_archive_page ) {
 				$classes[] = 'ast-edd-archive-article';
@@ -761,11 +761,11 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		public function store_widgets_init() {
 			register_sidebar(
 				apply_filters(
-					'astra_edd_sidebar_init',
+					'kanga_edd_sidebar_init',
 					array(
-						'name'          => esc_html__( 'Easy Digital Downloads Sidebar', 'astra' ),
-						'id'            => 'astra-edd-sidebar',
-						'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
+						'name'          => esc_html__( 'Easy Digital Downloads Sidebar', 'kanga' ),
+						'id'            => 'kanga-edd-sidebar',
+						'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'kanga' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget'  => '</div>',
 						'before_title'  => '<h2 class="widget-title">',
@@ -775,11 +775,11 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			);
 			register_sidebar(
 				apply_filters(
-					'astra_edd_single_product_sidebar_init',
+					'kanga_edd_single_product_sidebar_init',
 					array(
-						'name'          => esc_html__( 'EDD Single Product Sidebar', 'astra' ),
-						'id'            => 'astra-edd-single-product-sidebar',
-						'description'   => __( 'This sidebar will be used on EDD Single Product page.', 'astra' ),
+						'name'          => esc_html__( 'EDD Single Product Sidebar', 'kanga' ),
+						'id'            => 'kanga-edd-single-product-sidebar',
+						'description'   => __( 'This sidebar will be used on EDD Single Product page.', 'kanga' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget'  => '</div>',
 						'before_title'  => '<h2 class="widget-title">',
@@ -798,13 +798,13 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function replace_store_sidebar( $sidebar ) {
 
-			$is_edd_page                = astra_is_edd_page();
-			$is_edd_single_product_page = astra_is_edd_single_product_page();
+			$is_edd_page                = kanga_is_edd_page();
+			$is_edd_single_product_page = kanga_is_edd_single_product_page();
 
 			if ( $is_edd_page && ! $is_edd_single_product_page ) {
-				$sidebar = 'astra-edd-sidebar';
+				$sidebar = 'kanga-edd-sidebar';
 			} elseif ( $is_edd_single_product_page ) {
-				$sidebar = 'astra-edd-single-product-sidebar';
+				$sidebar = 'kanga-edd-single-product-sidebar';
 			}
 
 			return $sidebar;
@@ -819,13 +819,13 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function store_sidebar_layout( $sidebar_layout ) {
 
-			$is_edd_page                = astra_is_edd_page();
-			$is_edd_single_product_page = astra_is_edd_single_product_page();
-			$is_edd_archive_page        = astra_is_edd_archive_page();
+			$is_edd_page                = kanga_is_edd_page();
+			$is_edd_single_product_page = kanga_is_edd_single_product_page();
+			$is_edd_archive_page        = kanga_is_edd_archive_page();
 
 			if ( $is_edd_page ) {
 
-				$edd_sidebar = astra_get_option( 'edd-sidebar-layout' );
+				$edd_sidebar = kanga_get_option( 'edd-sidebar-layout' );
 
 				if ( 'default' !== $edd_sidebar ) {
 
@@ -833,20 +833,20 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 				}
 
 				if ( $is_edd_single_product_page ) {
-					$edd_single_product_sidebar = astra_get_option( 'edd-single-product-sidebar-layout' );
+					$edd_single_product_sidebar = kanga_get_option( 'edd-single-product-sidebar-layout' );
 
 					if ( 'default' !== $edd_single_product_sidebar ) {
 						$sidebar_layout = $edd_single_product_sidebar;
 					} else {
-						$sidebar_layout = astra_get_option( 'site-sidebar-layout' );
+						$sidebar_layout = kanga_get_option( 'site-sidebar-layout' );
 					}
 
 					$page_id            = get_the_ID();
 					$edd_sidebar_layout = get_post_meta( $page_id, 'site-sidebar-layout', true );
 				} elseif ( $is_edd_archive_page ) {
-					$edd_sidebar_layout = astra_get_option( 'edd-sidebar-layout' );
+					$edd_sidebar_layout = kanga_get_option( 'edd-sidebar-layout' );
 				} else {
-					$edd_sidebar_layout = astra_get_option_meta( 'site-sidebar-layout', '', true );
+					$edd_sidebar_layout = kanga_get_option_meta( 'site-sidebar-layout', '', true );
 				}
 
 				if ( 'default' !== $edd_sidebar_layout && ! empty( $edd_sidebar_layout ) ) {
@@ -865,13 +865,13 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 		 */
 		public function store_content_layout( $layout ) {
 
-			$is_edd_page         = astra_is_edd_page();
-			$is_edd_single_page  = astra_is_edd_single_page();
-			$is_edd_archive_page = astra_is_edd_archive_page();
+			$is_edd_page         = kanga_is_edd_page();
+			$is_edd_single_page  = kanga_is_edd_single_page();
+			$is_edd_archive_page = kanga_is_edd_archive_page();
 
 			if ( $is_edd_page ) {
 
-				$edd_layout = astra_get_option( 'edd-content-layout' );
+				$edd_layout = kanga_get_option( 'edd-content-layout' );
 
 				if ( 'default' !== $edd_layout ) {
 
@@ -882,9 +882,9 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 					$page_id         = get_the_ID();
 					$edd_page_layout = get_post_meta( $page_id, 'site-content-layout', true );
 				} elseif ( $is_edd_archive_page ) {
-					$edd_page_layout = astra_get_option( 'edd-content-layout' );
+					$edd_page_layout = kanga_get_option( 'edd-content-layout' );
 				} else {
-					$edd_page_layout = astra_get_option_meta( 'site-content-layout', '', true );
+					$edd_page_layout = kanga_get_option_meta( 'site-content-layout', '', true );
 				}
 
 				if ( 'default' !== $edd_page_layout && ! empty( $edd_page_layout ) ) {
@@ -906,15 +906,15 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/class-astra-customizer-register-edd-section.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/class-kanga-customizer-register-edd-section.php';
 
 			/**
 			 * Sections
 			 */
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-astra-edd-container-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-astra-edd-archive-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-astra-edd-single-product-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-kanga-edd-container-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/class-kanga-edd-sidebar-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-kanga-edd-archive-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/compatibility/edd/customizer/sections/layout/class-kanga-edd-single-product-layout-configs.php';
 
 		}
 
@@ -922,6 +922,6 @@ if ( ! class_exists( 'Astra_Edd' ) ) :
 
 endif;
 
-if ( apply_filters( 'astra_enable_edd_integration', true ) ) {
-	Astra_Edd::get_instance();
+if ( apply_filters( 'kanga_enable_edd_integration', true ) ) {
+	Kanga_Edd::get_instance();
 }

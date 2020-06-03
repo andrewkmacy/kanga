@@ -2,23 +2,23 @@
 /**
  * Template for Blog
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 ?>
-<div <?php astra_blog_layout_class( 'blog-layout-1' ); ?>>
+<div <?php kanga_blog_layout_class( 'blog-layout-1' ); ?>>
 
 	<div class="post-content ast-col-md-12">
 
-		<?php astra_blog_post_thumbnail_and_title_order(); ?>
+		<?php kanga_blog_post_thumbnail_and_title_order(); ?>
 
 		<div class="entry-content clear"
 			<?php
-				echo astra_attr(
+				echo kanga_attr(
 					'article-entry-content-blog-layout',
 					array(
 						'class' => '',
@@ -27,16 +27,16 @@
 				?>
 		>
 
-			<?php astra_entry_content_before(); ?>
+			<?php kanga_entry_content_before(); ?>
 
-			<?php astra_the_excerpt(); ?>
+			<?php kanga_the_excerpt(); ?>
 
-			<?php astra_entry_content_after(); ?>
+			<?php kanga_entry_content_after(); ?>
 
 			<?php
 				wp_link_pages(
 					array(
-						'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-blog-page-links-before', false ) ),
+						'before'      => '<div class="page-links">' . esc_html( kanga_default_strings( 'string-blog-page-links-before', false ) ),
 						'after'       => '</div>',
 						'link_before' => '<span class="page-link">',
 						'link_after'  => '</span>',

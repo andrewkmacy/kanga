@@ -2,10 +2,10 @@
 /**
  * Customizer Control: radio-image.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Radio Image control (modified radio).
  */
-class Astra_Control_Radio_Image extends WP_Customize_Control {
+class Kanga_Control_Radio_Image extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -43,9 +43,9 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	public function enqueue() {
 
 		if ( '' === self::$higlight_color ) {
-			self::astra_set_highlight_color();
+			self::kanga_set_highlight_color();
 			// Print radio image customizer css.
-			add_action( 'customize_controls_print_styles', array( $this, 'astra_add_radio_img_svg_css' ) );
+			add_action( 'customize_controls_print_styles', array( $this, 'kanga_add_radio_img_svg_css' ) );
 		}
 	}
 
@@ -55,7 +55,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 * @since 2.0.0
 	 * @return void
 	 */
-	public static function astra_add_radio_img_svg_css() {
+	public static function kanga_add_radio_img_svg_css() {
 		?>
 		<style type="text/css">.ast-radio-img-svg svg * { fill: <?php echo self::$higlight_color; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> !important; stroke: <?php echo self::$higlight_color; ?> !important }</style> 
 		<?php
@@ -67,7 +67,7 @@ class Astra_Control_Radio_Image extends WP_Customize_Control {
 	 * @since 2.0.0
 	 * @return void
 	 */
-	public static function astra_set_highlight_color() {
+	public static function kanga_set_highlight_color() {
 		global $_wp_admin_css_colors;
 
 		$current_color = get_user_option( 'admin_color' );

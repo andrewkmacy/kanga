@@ -2,32 +2,32 @@
 /**
  * Register customizer panels & sections fro Woocommerce.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.1.0
- * @since       1.4.6 Chnaged to using Astra_Customizer API
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.1.0
+ * @since       1.4.6 Chnaged to using Kanga_Customizer API
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Register_Woo_Section' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Customizer_Register_Woo_Section extends Astra_Customizer_Config_Base {
+	class Kanga_Customizer_Register_Woo_Section extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Panels and Sections for Customizer.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -35,14 +35,14 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 
 				array(
 					'name'     => 'section-woo-general',
-					'title'    => __( 'General', 'astra' ),
+					'title'    => __( 'General', 'kanga' ),
 					'type'     => 'section',
 					'priority' => 10,
 					'panel'    => 'woocommerce',
 				),
 				array(
 					'name'     => 'section-woo-shop',
-					'title'    => __( 'Shop', 'astra' ),
+					'title'    => __( 'Shop', 'kanga' ),
 					'type'     => 'section',
 					'priority' => 20,
 					'panel'    => 'woocommerce',
@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 				array(
 					'name'     => 'section-woo-shop-single',
 					'type'     => 'section',
-					'title'    => __( 'Single Product', 'astra' ),
+					'title'    => __( 'Single Product', 'kanga' ),
 					'priority' => 12,
 					'panel'    => 'woocommerce',
 				),
@@ -59,7 +59,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 				array(
 					'name'     => 'section-woo-shop-cart',
 					'type'     => 'section',
-					'title'    => __( 'Cart', 'astra' ),
+					'title'    => __( 'Cart', 'kanga' ),
 					'priority' => 20,
 					'panel'    => 'woocommerce',
 				),
@@ -71,4 +71,4 @@ if ( ! class_exists( 'Astra_Customizer_Register_Woo_Section' ) ) {
 }
 
 
-new Astra_Customizer_Register_Woo_Section();
+new Kanga_Customizer_Register_Woo_Section();

@@ -2,15 +2,15 @@
 /**
  * Template for Small Footer Layout 1
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
-$section_1 = astra_get_small_footer( 'footer-sml-section-1' );
-$section_2 = astra_get_small_footer( 'footer-sml-section-2' );
+$section_1 = kanga_get_small_footer( 'footer-sml-section-1' );
+$section_2 = kanga_get_small_footer( 'footer-sml-section-2' );
 
 ?>
 

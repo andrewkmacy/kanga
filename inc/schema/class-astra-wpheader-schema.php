@@ -2,11 +2,11 @@
 /**
  * Schema markup.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 2.1.3
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 2.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra CreativeWork Schema Markup.
+ * Kanga CreativeWork Schema Markup.
  *
  * @since 2.1.3
  */
-class Astra_WPHeader_Schema extends Astra_Schema {
+class Kanga_WPHeader_Schema extends Kanga_Schema {
 
 	/**
 	 * Setup schema
@@ -31,7 +31,7 @@ class Astra_WPHeader_Schema extends Astra_Schema {
 			return false;
 		}
 
-		add_filter( 'astra_attr_header', array( $this, 'wpheader_Schema' ) );
+		add_filter( 'kanga_attr_header', array( $this, 'wpheader_Schema' ) );
 	}
 
 	/**
@@ -55,9 +55,9 @@ class Astra_WPHeader_Schema extends Astra_Schema {
 	 * @since 2.1.3
 	 */
 	protected function schema_enabled() {
-		return apply_filters( 'astra_wpheader_schema_enabled', parent::schema_enabled() );
+		return apply_filters( 'kanga_wpheader_schema_enabled', parent::schema_enabled() );
 	}
 
 }
 
-new Astra_WPHeader_Schema();
+new Kanga_WPHeader_Schema();

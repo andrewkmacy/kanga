@@ -2,25 +2,25 @@
 /**
  * Theme Update
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Theme_Update' ) ) {
+if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 
 	/**
-	 * Astra_Theme_Update initial setup
+	 * Kanga_Theme_Update initial setup
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Theme_Update {
+	class Kanga_Theme_Update {
 
 		/**
 		 * Class instance.
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 			} else {
 				add_action( 'wp', __CLASS__ . '::init', 5 );
 			}
-			add_action( 'init', __CLASS__ . '::astra_pro_compatibility' );
+			add_action( 'init', __CLASS__ . '::kanga_pro_compatibility' );
 		}
 
 		/**
@@ -71,10 +71,10 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function init() {
 
-			do_action( 'astra_update_before' );
+			do_action( 'kanga_update_before' );
 
 			// Get auto saved version number.
-			$saved_version = astra_get_option( 'theme-auto-version', false );
+			$saved_version = kanga_get_option( 'theme-auto-version', false );
 
 			// If there is no saved version in the database then return.
 			if ( false === $saved_version ) {
@@ -111,42 +111,42 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				self::v_1_0_14();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kanga meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.0.28', '<' ) ) {
 				self::v_1_0_28();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kanga meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.1.0-beta.3', '<' ) ) {
 				self::v_1_1_0_beta_3();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kanga meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.1.0-beta.4', '<' ) ) {
 				self::v_1_1_0_beta_4();
 			}
 
-			// Update astra meta settings for Beaver Themer Backwards Compatibility.
+			// Update kanga meta settings for Beaver Themer Backwards Compatibility.
 			if ( version_compare( $saved_version, '1.2.2', '<' ) ) {
 				self::v_1_2_2();
 			}
 
-			// Update astra Theme colors values same as Link color.
+			// Update kanga Theme colors values same as Link color.
 			if ( version_compare( $saved_version, '1.2.4', '<' ) ) {
 				self::v_1_2_4();
 			}
 
-			// Update astra Google Fonts values with fallback font.
+			// Update kanga Google Fonts values with fallback font.
 			if ( version_compare( $saved_version, '1.2.7', '<' ) ) {
 				self::v_1_2_7();
 			}
 
-			// Update astra background image data.
+			// Update kanga background image data.
 			if ( version_compare( $saved_version, '1.3.0', '<' ) ) {
 				self::v_1_3_0();
 			}
 
-			// Update astra setting for inherit site logo compatibility.
+			// Update kanga setting for inherit site logo compatibility.
 			if ( version_compare( $saved_version, '1.4.0-beta.3', '<' ) ) {
 				self::v_1_4_0_beta_3();
 			}
@@ -200,12 +200,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		}
 
 		/**
-		 * Footer Widgets compatibilty for astra pro.
+		 * Footer Widgets compatibilty for kanga pro.
 		 */
-		public static function astra_pro_compatibility() {
+		public static function kanga_pro_compatibility() {
 
 			if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '1.0.0-beta.6', '<' ) ) {
-				remove_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
+				remove_action( 'kanga_footer_content', 'kanga_advanced_footer_markup', 1 );
 			}
 		}
 
@@ -270,15 +270,15 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( 'ast-settings', array() );
+			$kanga_options = get_option( 'ast-settings', array() );
 
-			if ( 0 < count( $astra_options ) ) {
+			if ( 0 < count( $kanga_options ) ) {
 				foreach ( $options as $key ) {
 
-					if ( array_key_exists( $key, $astra_options ) && ! is_array( $astra_options[ $key ] ) ) {
+					if ( array_key_exists( $key, $kanga_options ) && ! is_array( $kanga_options[ $key ] ) ) {
 
-						$astra_options[ $key ] = array(
-							'desktop'      => $astra_options[ $key ],
+						$kanga_options[ $key ] = array(
+							'desktop'      => $kanga_options[ $key ],
 							'tablet'       => '',
 							'mobile'       => '',
 							'desktop-unit' => 'px',
@@ -289,7 +289,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( 'ast-settings', $astra_options );
+			update_option( 'ast-settings', $kanga_options );
 		}
 
 		/**
@@ -299,14 +299,14 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_0_5() {
 
-			$astra_old_options = get_option( 'ast-settings', array() );
-			$astra_new_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_old_options = get_option( 'ast-settings', array() );
+			$kanga_new_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			// Merge old customizer options in new option.
-			$astra_options = wp_parse_args( $astra_new_options, $astra_old_options );
+			$kanga_options = wp_parse_args( $kanga_new_options, $kanga_old_options );
 
 			// Update option.
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 
 			// Delete old option.
 			delete_option( 'ast-settings' );
@@ -346,23 +346,23 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'line-height-entry-title',
 			);
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			if ( 0 < count( $astra_options ) ) {
+			if ( 0 < count( $kanga_options ) ) {
 				foreach ( $options as $key ) {
 
-					if ( array_key_exists( $key, $astra_options ) && is_array( $astra_options[ $key ] ) ) {
+					if ( array_key_exists( $key, $kanga_options ) && is_array( $kanga_options[ $key ] ) ) {
 
-						if ( in_array( $astra_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
-							$astra_options[ $key ] = $astra_options[ $key ]['desktop'];
+						if ( in_array( $kanga_options[ $key ]['desktop-unit'], array( '', 'em' ) ) ) {
+							$kanga_options[ $key ] = $kanga_options[ $key ]['desktop'];
 						} else {
-							$astra_options[ $key ] = '';
+							$kanga_options[ $key ] = '';
 						}
 					}
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -379,15 +379,15 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'archive-post-content-layout' => 'content-boxed-container',
 			);
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if ( ! isset( $astra_options[ $key ] ) ) {
-					$astra_options[ $key ] = $value;
+				if ( ! isset( $kanga_options[ $key ] ) ) {
+					$kanga_options[ $key ] = $value;
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -407,18 +407,18 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'archive-post-sidebar-layout' => 'right-sidebar',
 			);
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if ( ! isset( $astra_options[ $key ] ) ) {
-					$astra_options[ $key ] = $value;
+				if ( ! isset( $kanga_options[ $key ] ) ) {
+					$kanga_options[ $key ] = $value;
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 
-			update_option( '_astra_pb_compatibility_offset', 1 );
-			update_option( '_astra_pb_compatibility_time', gmdate( 'Y-m-d H:i:s' ) );
+			update_option( '_kanga_pb_compatibility_offset', 1 );
+			update_option( '_kanga_pb_compatibility_time', gmdate( 'Y-m-d H:i:s' ) );
 		}
 
 		/**
@@ -465,20 +465,20 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_1_0_beta_3() {
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options['shop-grid'] ) ) {
+			if ( isset( $kanga_options['shop-grid'] ) ) {
 
-				$astra_options['shop-grids'] = array(
-					'desktop' => $astra_options['shop-grid'],
+				$kanga_options['shop-grids'] = array(
+					'desktop' => $kanga_options['shop-grid'],
 					'tablet'  => 2,
 					'mobile'  => 1,
 				);
 
-				unset( $astra_options['shop-grid'] );
+				unset( $kanga_options['shop-grid'] );
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -492,7 +492,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_1_0_beta_4() {
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			$options = array(
 				'woocommerce-content-layout' => 'default',
@@ -506,15 +506,15 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'shop-no-of-products'        => '9',
 			);
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
 			foreach ( $options as $key => $value ) {
-				if ( ! isset( $astra_options[ $key ] ) ) {
-					$astra_options[ $key ] = $value;
+				if ( ! isset( $kanga_options[ $key ] ) ) {
+					$kanga_options[ $key ] = $value;
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -526,25 +526,25 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_2_2() {
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options['ast-header-logo-width'] ) && ! is_array( $astra_options['ast-header-logo-width'] ) ) {
-				$astra_options['ast-header-responsive-logo-width'] = array(
-					'desktop' => $astra_options['ast-header-logo-width'],
+			if ( isset( $kanga_options['ast-header-logo-width'] ) && ! is_array( $kanga_options['ast-header-logo-width'] ) ) {
+				$kanga_options['ast-header-responsive-logo-width'] = array(
+					'desktop' => $kanga_options['ast-header-logo-width'],
 					'tablet'  => '',
 					'mobile'  => '',
 				);
 			}
 
-			if ( isset( $astra_options['blog-width'] ) ) {
-				$astra_options['shop-archive-width'] = $astra_options['blog-width'];
+			if ( isset( $kanga_options['blog-width'] ) ) {
+				$kanga_options['shop-archive-width'] = $kanga_options['blog-width'];
 			}
 
-			if ( isset( $astra_options['blog-max-width'] ) ) {
-				$astra_options['shop-archive-max-width'] = $astra_options['blog-max-width'];
+			if ( isset( $kanga_options['blog-max-width'] ) ) {
+				$kanga_options['shop-archive-max-width'] = $kanga_options['blog-max-width'];
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -556,13 +556,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_2_4() {
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			if ( isset( $astra_options['link-color'] ) ) {
-				$astra_options['theme-color'] = $astra_options['link-color'];
+			if ( isset( $kanga_options['link-color'] ) ) {
+				$kanga_options['theme-color'] = $kanga_options['link-color'];
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -574,20 +574,20 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_2_7() {
 
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
-			$google_fonts  = Astra_Font_Families::get_google_fonts();
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$google_fonts  = Kanga_Font_Families::get_google_fonts();
 
-			foreach ( $astra_options as $key => $value ) {
+			foreach ( $kanga_options as $key => $value ) {
 
 				if ( ! is_array( $value ) && ! empty( $value ) && ! is_bool( $value ) ) {
 
 					if ( array_key_exists( $value, $google_fonts ) ) {
-						$astra_options[ $key ] = "'" . $value . "', " . $google_fonts[ $value ][1];
+						$kanga_options[ $key ] = "'" . $value . "', " . $google_fonts[ $value ][1];
 					}
 				}
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -598,58 +598,58 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @since 1.3.0
 		 */
 		public static function v_1_3_0() {
-			$astra_options = get_option( ASTRA_THEME_SETTINGS, array() );
+			$kanga_options = get_option( ASTRA_THEME_SETTINGS, array() );
 
-			$astra_options['header-bg-obj'] = array(
-				'background-color' => isset( $astra_options['header-bg-color'] ) ? $astra_options['header-bg-color'] : '',
+			$kanga_options['header-bg-obj'] = array(
+				'background-color' => isset( $kanga_options['header-bg-color'] ) ? $kanga_options['header-bg-color'] : '',
 			);
 
-			$astra_options['content-bg-obj'] = array(
-				'background-color' => isset( $astra_options['content-bg-color'] ) ? $astra_options['content-bg-color'] : '#ffffff',
+			$kanga_options['content-bg-obj'] = array(
+				'background-color' => isset( $kanga_options['content-bg-color'] ) ? $kanga_options['content-bg-color'] : '#ffffff',
 			);
 
-			$astra_options['footer-adv-bg-obj'] = array(
-				'background-color'      => isset( $astra_options['footer-adv-bg-color'] ) ? $astra_options['footer-adv-bg-color'] : '',
-				'background-image'      => isset( $astra_options['footer-adv-bg-img'] ) ? $astra_options['footer-adv-bg-img'] : '',
-				'background-repeat'     => isset( $astra_options['footer-adv-bg-repeat'] ) ? $astra_options['footer-adv-bg-repeat'] : 'no-repeat',
-				'background-position'   => isset( $astra_options['footer-adv-bg-pos'] ) ? $astra_options['footer-adv-bg-pos'] : 'center center',
-				'background-size'       => isset( $astra_options['footer-adv-bg-size'] ) ? $astra_options['footer-adv-bg-size'] : 'cover',
-				'background-attachment' => isset( $astra_options['footer-adv-bg-attac'] ) ? $astra_options['footer-adv-bg-attac'] : 'scroll',
+			$kanga_options['footer-adv-bg-obj'] = array(
+				'background-color'      => isset( $kanga_options['footer-adv-bg-color'] ) ? $kanga_options['footer-adv-bg-color'] : '',
+				'background-image'      => isset( $kanga_options['footer-adv-bg-img'] ) ? $kanga_options['footer-adv-bg-img'] : '',
+				'background-repeat'     => isset( $kanga_options['footer-adv-bg-repeat'] ) ? $kanga_options['footer-adv-bg-repeat'] : 'no-repeat',
+				'background-position'   => isset( $kanga_options['footer-adv-bg-pos'] ) ? $kanga_options['footer-adv-bg-pos'] : 'center center',
+				'background-size'       => isset( $kanga_options['footer-adv-bg-size'] ) ? $kanga_options['footer-adv-bg-size'] : 'cover',
+				'background-attachment' => isset( $kanga_options['footer-adv-bg-attac'] ) ? $kanga_options['footer-adv-bg-attac'] : 'scroll',
 			);
 
-			$astra_options['footer-bg-obj'] = array(
-				'background-color'      => isset( $astra_options['footer-bg-color'] ) ? $astra_options['footer-bg-color'] : '',
-				'background-image'      => isset( $astra_options['footer-bg-img'] ) ? $astra_options['footer-bg-img'] : '',
-				'background-repeat'     => isset( $astra_options['footer-bg-rep'] ) ? $astra_options['footer-bg-rep'] : 'repeat',
-				'background-position'   => isset( $astra_options['footer-bg-pos'] ) ? $astra_options['footer-bg-pos'] : 'center center',
-				'background-size'       => isset( $astra_options['footer-bg-size'] ) ? $astra_options['footer-bg-size'] : 'auto',
-				'background-attachment' => isset( $astra_options['footer-bg-atch'] ) ? $astra_options['footer-bg-atch'] : 'scroll',
+			$kanga_options['footer-bg-obj'] = array(
+				'background-color'      => isset( $kanga_options['footer-bg-color'] ) ? $kanga_options['footer-bg-color'] : '',
+				'background-image'      => isset( $kanga_options['footer-bg-img'] ) ? $kanga_options['footer-bg-img'] : '',
+				'background-repeat'     => isset( $kanga_options['footer-bg-rep'] ) ? $kanga_options['footer-bg-rep'] : 'repeat',
+				'background-position'   => isset( $kanga_options['footer-bg-pos'] ) ? $kanga_options['footer-bg-pos'] : 'center center',
+				'background-size'       => isset( $kanga_options['footer-bg-size'] ) ? $kanga_options['footer-bg-size'] : 'auto',
+				'background-attachment' => isset( $kanga_options['footer-bg-atch'] ) ? $kanga_options['footer-bg-atch'] : 'scroll',
 			);
 
 			// Site layout background image and color.
-			$site_layout = isset( $astra_options['site-layout'] ) ? $astra_options['site-layout'] : '';
+			$site_layout = isset( $kanga_options['site-layout'] ) ? $kanga_options['site-layout'] : '';
 			switch ( $site_layout ) {
 				case 'ast-box-layout':
-						$astra_options['site-layout-outside-bg-obj'] = array(
-							'background-color'      => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
-							'background-image'      => isset( $astra_options['site-layout-box-bg-img'] ) ? $astra_options['site-layout-box-bg-img'] : '',
-							'background-repeat'     => isset( $astra_options['site-layout-box-bg-rep'] ) ? $astra_options['site-layout-box-bg-rep'] : 'no-repeat',
-							'background-position'   => isset( $astra_options['site-layout-box-bg-pos'] ) ? $astra_options['site-layout-box-bg-pos'] : 'center center',
-							'background-size'       => isset( $astra_options['site-layout-box-bg-size'] ) ? $astra_options['site-layout-box-bg-size'] : 'cover',
-							'background-attachment' => isset( $astra_options['site-layout-box-bg-atch'] ) ? $astra_options['site-layout-box-bg-atch'] : 'scroll',
+						$kanga_options['site-layout-outside-bg-obj'] = array(
+							'background-color'      => isset( $kanga_options['site-layout-outside-bg-color'] ) ? $kanga_options['site-layout-outside-bg-color'] : '',
+							'background-image'      => isset( $kanga_options['site-layout-box-bg-img'] ) ? $kanga_options['site-layout-box-bg-img'] : '',
+							'background-repeat'     => isset( $kanga_options['site-layout-box-bg-rep'] ) ? $kanga_options['site-layout-box-bg-rep'] : 'no-repeat',
+							'background-position'   => isset( $kanga_options['site-layout-box-bg-pos'] ) ? $kanga_options['site-layout-box-bg-pos'] : 'center center',
+							'background-size'       => isset( $kanga_options['site-layout-box-bg-size'] ) ? $kanga_options['site-layout-box-bg-size'] : 'cover',
+							'background-attachment' => isset( $kanga_options['site-layout-box-bg-atch'] ) ? $kanga_options['site-layout-box-bg-atch'] : 'scroll',
 						);
 					break;
 
 				case 'ast-padded-layout':
-						$bg_color = isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '';
-						$bg_image = isset( $astra_options['site-layout-padded-bg-img'] ) ? $astra_options['site-layout-padded-bg-img'] : '';
+						$bg_color = isset( $kanga_options['site-layout-outside-bg-color'] ) ? $kanga_options['site-layout-outside-bg-color'] : '';
+						$bg_image = isset( $kanga_options['site-layout-padded-bg-img'] ) ? $kanga_options['site-layout-padded-bg-img'] : '';
 
-						$astra_options['site-layout-outside-bg-obj'] = array(
+						$kanga_options['site-layout-outside-bg-obj'] = array(
 							'background-color'      => empty( $bg_image ) ? $bg_color : '',
 							'background-image'      => $bg_image,
-							'background-repeat'     => isset( $astra_options['site-layout-padded-bg-rep'] ) ? $astra_options['site-layout-padded-bg-rep'] : 'no-repeat',
-							'background-position'   => isset( $astra_options['site-layout-padded-bg-pos'] ) ? $astra_options['site-layout-padded-bg-pos'] : 'center center',
-							'background-size'       => isset( $astra_options['site-layout-padded-bg-size'] ) ? $astra_options['site-layout-padded-bg-size'] : 'cover',
+							'background-repeat'     => isset( $kanga_options['site-layout-padded-bg-rep'] ) ? $kanga_options['site-layout-padded-bg-rep'] : 'no-repeat',
+							'background-position'   => isset( $kanga_options['site-layout-padded-bg-pos'] ) ? $kanga_options['site-layout-padded-bg-pos'] : 'center center',
+							'background-size'       => isset( $kanga_options['site-layout-padded-bg-size'] ) ? $kanga_options['site-layout-padded-bg-size'] : 'cover',
 							'background-attachment' => '',
 						);
 					break;
@@ -657,13 +657,13 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				case 'ast-full-width-layout':
 				case 'ast-fluid-width-layout':
 				default:
-						$astra_options['site-layout-outside-bg-obj'] = array(
-							'background-color' => isset( $astra_options['site-layout-outside-bg-color'] ) ? $astra_options['site-layout-outside-bg-color'] : '',
+						$kanga_options['site-layout-outside-bg-obj'] = array(
+							'background-color' => isset( $kanga_options['site-layout-outside-bg-color'] ) ? $kanga_options['site-layout-outside-bg-color'] : '',
 						);
 					break;
 			}
 
-			update_option( ASTRA_THEME_SETTINGS, $astra_options );
+			update_option( ASTRA_THEME_SETTINGS, $kanga_options );
 		}
 
 		/**
@@ -674,8 +674,8 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_4_0_beta_3() {
 
-			$theme_options     = get_option( 'astra-settings' );
-			$mobile_logo_width = astra_get_option( 'mobile-header-logo-width' );
+			$theme_options     = get_option( 'kanga-settings' );
+			$mobile_logo_width = kanga_get_option( 'mobile-header-logo-width' );
 
 			if ( '' != $mobile_logo_width ) {
 				$theme_options['ast-header-responsive-logo-width']['tablet'] = $mobile_logo_width;
@@ -687,7 +687,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['inherit-sticky-logo'] = false;
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
@@ -697,14 +697,14 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_4_0_beta_4() {
 
-			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
-			$theme_options      = get_option( 'astra-settings' );
+			$mobile_header_logo = kanga_get_option( 'mobile-header-logo' );
+			$theme_options      = get_option( 'kanga-settings' );
 
 			if ( '' != $mobile_header_logo ) {
 				$theme_options['different-mobile-logo'] = true;
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
@@ -715,7 +715,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		public static function v_1_4_0_beta_5() {
 
 			// Set default toggle button style.
-			$theme_options = get_option( 'astra-settings' );
+			$theme_options = get_option( 'kanga-settings' );
 
 			if ( ! isset( $theme_options['mobile-header-toggle-btn-style'] ) ) {
 				$theme_options['mobile-header-toggle-btn-style'] = 'fill';
@@ -723,7 +723,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 
 			$theme_options['hide-custom-menu-mobile'] = 0;
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 
 		}
 
@@ -735,14 +735,14 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 */
 		public static function v_1_4_3_alpha_1() {
 
-			$mobile_header_logo = astra_get_option( 'ast-header-retina-logo' );
-			$theme_options      = get_option( 'astra-settings' );
+			$mobile_header_logo = kanga_get_option( 'ast-header-retina-logo' );
+			$theme_options      = get_option( 'kanga-settings' );
 
 			if ( '' != $mobile_header_logo ) {
 				$theme_options['different-retina-logo'] = '1';
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
@@ -752,12 +752,12 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_4_9() {
-			$theme_options = get_option( 'astra-settings' );
+			$theme_options = get_option( 'kanga-settings' );
 
 			// Set flag to use anchors CSS selectors in the CSS for headings.
 			if ( ! isset( $theme_options['include-headings-in-typography'] ) ) {
 				$theme_options['include-headings-in-typography'] = true;
-				update_option( 'astra-settings', $theme_options );
+				update_option( 'kanga-settings', $theme_options );
 			}
 		}
 
@@ -790,7 +790,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				'bottom' => '1',
 			);
 
-			$theme_options  = get_option( 'astra-settings' );
+			$theme_options  = get_option( 'kanga-settings' );
 			$submenu_border = isset( $theme_options['primary-submenu-border'] ) ? $theme_options['primary-submenu-border'] : true;
 
 			// Primary Header.
@@ -802,36 +802,36 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['primary-submenu-item-border'] = $inside_border_disabled_values;
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
 		 * Set flag 'submenu-below-header' to false to load fallback CSS to force menu load right after the container cropping logo and header.
 		 *
-		 * @see https://github.com/brainstormforce/astra/pull/820/
+		 * @see https://github.com/brainstormforce/kanga/pull/820/
 		 *
 		 * @return void
 		 */
 		public static function v_1_5_0_rc_1() {
-			$theme_options = get_option( 'astra-settings' );
+			$theme_options = get_option( 'kanga-settings' );
 
 			// Set flag to use anchors CSS selectors in the CSS for headings.
 			if ( ! isset( $theme_options['submenu-below-header'] ) ) {
 				$theme_options['submenu-below-header'] = false;
-				update_option( 'astra-settings', $theme_options );
+				update_option( 'kanga-settings', $theme_options );
 			}
 		}
 
 		/**
 		 * Set Primary Header submenu border color 'primary-submenu-b-color' to '#eaeaea' for old users who doesn't set any color and set the theme color who install the fresh 1.5.0-rc.3 theme.
 		 *
-		 * @see https://github.com/brainstormforce/astra/pull/835
+		 * @see https://github.com/brainstormforce/kanga/pull/835
 		 *
 		 * @return void
 		 */
 		public static function v_1_5_0_rc_3() {
 
-			$theme_options = get_option( 'astra-settings' );
+			$theme_options = get_option( 'kanga-settings' );
 
 			// Set the default #eaeaea sub menu border color who doesn't set any color.
 			if ( ! isset( $theme_options['primary-submenu-b-color'] ) || empty( $theme_options['primary-submenu-b-color'] ) ) {
@@ -843,7 +843,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['header-main-submenu-container-animation'] = '';
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 
 		}
 
@@ -853,7 +853,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_5_1() {
-			$theme_options               = get_option( 'astra-settings', array() );
+			$theme_options               = get_option( 'kanga-settings', array() );
 			$primary_submenu_otem_border = isset( $theme_options['primary-submenu-item-border'] ) ? $theme_options['primary-submenu-item-border'] : array();
 
 			if ( ( is_array( $primary_submenu_otem_border ) && '0' != $primary_submenu_otem_border['bottom'] ) ) {
@@ -865,7 +865,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['primary-submenu-item-b-color'] = $theme_options['primary-submenu-b-color'];
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
@@ -874,7 +874,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_5_2() {
-			$theme_options = get_option( 'astra-settings', array() );
+			$theme_options = get_option( 'kanga-settings', array() );
 			if ( isset( $theme_options['body-font-weight'] ) && is_numeric( $theme_options['body-font-weight'] ) ) {
 				$theme_options['body-font-variant'] = $theme_options['body-font-weight'];
 			}
@@ -882,7 +882,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['headings-font-variant'] = $theme_options['headings-font-weight'];
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
@@ -891,11 +891,11 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_6_0() {
-			$theme_options = get_option( 'astra-settings', array() );
+			$theme_options = get_option( 'kanga-settings', array() );
 
-			// Disable Transparent header is Transparent Header addon was deactivated from Astra Pro.
-			if ( is_callable( 'Astra_Ext_Extension::get_enabled_addons' ) ) {
-				$addons = Astra_Ext_Extension::get_enabled_addons();
+			// Disable Transparent header is Transparent Header addon was deactivated from Kanga Pro.
+			if ( is_callable( 'Kanga_Ext_Extension::get_enabled_addons' ) ) {
+				$addons = Kanga_Ext_Extension::get_enabled_addons();
 
 				// If transparent header is addon was disabled, disable the transparent header.
 				if ( 'transparent-header' !== $addons['transparent-header'] ) {
@@ -903,7 +903,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				}
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
@@ -914,7 +914,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 		 * @return void
 		 */
 		public static function v_1_6_1() {
-			$theme_options = get_option( 'astra-settings', array() );
+			$theme_options = get_option( 'kanga-settings', array() );
 
 			// If user was using a default value for h1, Set the default in the option.
 			if ( ! isset( $theme_options['font-size-h1'] ) ) {
@@ -967,7 +967,7 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 				$theme_options['logo-title-inline'] = 0;
 			}
 
-			update_option( 'astra-settings', $theme_options );
+			update_option( 'kanga-settings', $theme_options );
 		}
 
 		/**
@@ -984,4 +984,4 @@ if ( ! class_exists( 'Astra_Theme_Update' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Theme_Update::get_instance();
+Kanga_Theme_Update::get_instance();

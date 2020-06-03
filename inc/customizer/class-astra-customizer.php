@@ -1,12 +1,12 @@
 <?php
 /**
- * Astra Theme Customizer
+ * Kanga Theme Customizer
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Loader
  */
-if ( ! class_exists( 'Astra_Customizer' ) ) {
+if ( ! class_exists( 'Kanga_Customizer' ) ) {
 
 	/**
 	 * Customizer Loader
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Customizer {
+	class Kanga_Customizer {
 
 		/**
 		 * Instance
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( is_admin() || is_customize_preview() ) {
 				add_action( 'customize_register', array( $this, 'include_configurations' ), 2 );
 				add_action( 'customize_register', array( $this, 'register_customizer_settings' ) );
-				add_action( 'customize_register', array( $this, 'astra_pro_upgrade_configurations' ), 2 );
+				add_action( 'customize_register', array( $this, 'kanga_pro_upgrade_configurations' ), 2 );
 			}
 
 			add_action( 'customize_controls_enqueue_scripts', array( $this, 'controls_scripts' ) );
@@ -116,7 +116,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$configurations = $this->get_customizer_configurations( $wp_customize );
 
 			foreach ( $configurations as $key => $config ) {
-				$config = wp_parse_args( $config, $this->get_astra_customizer_configuration_defaults() );
+				$config = wp_parse_args( $config, $this->get_kanga_customizer_configuration_defaults() );
 
 				switch ( $config['type'] ) {
 
@@ -180,7 +180,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				return self::$configuration;
 			}
 
-			return apply_filters( 'astra_customizer_configurations', array(), $wp_customize );
+			return apply_filters( 'kanga_customizer_configurations', array(), $wp_customize );
 		}
 
 		/**
@@ -189,9 +189,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.4.3
 		 * @return Array default values for the Customizer Configurations.
 		 */
-		private function get_astra_customizer_configuration_defaults() {
+		private function get_kanga_customizer_configuration_defaults() {
 			return apply_filters(
-				'astra_customizer_configuration_defaults',
+				'kanga_customizer_configuration_defaults',
 				array(
 					'priority'             => null,
 					'title'                => null,
@@ -223,7 +223,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		private function register_panel( $config, $wp_customize ) {
-			$wp_customize->add_panel( new Astra_WP_Customize_Panel( $wp_customize, astra_get_prop( $config, 'name' ), $config ) );
+			$wp_customize->add_panel( new Kanga_WP_Customize_Panel( $wp_customize, kanga_get_prop( $config, 'name' ), $config ) );
 		}
 
 		/**
@@ -236,9 +236,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private function register_section( $config, $wp_customize ) {
 
-			$callback = astra_get_prop( $config, 'section_callback', 'Astra_WP_Customize_Section' );
+			$callback = kanga_get_prop( $config, 'section_callback', 'Kanga_WP_Customize_Section' );
 
-			$wp_customize->add_section( new $callback( $wp_customize, astra_get_prop( $config, 'name' ), $config ) );
+			$wp_customize->add_section( new $callback( $wp_customize, kanga_get_prop( $config, 'name' ), $config ) );
 		}
 
 		/**
@@ -251,14 +251,14 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		private function register_sub_control_setting( $control_config, $wp_customize ) {
 
-			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $control_config, 'name' ) . ']';
+			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . kanga_get_prop( $control_config, 'name' ) . ']';
 
 			if ( isset( $wp_customize->get_control( $sub_control_name )->id ) ) {
 				return;
 			}
 
-			$parent = astra_get_prop( $control_config, 'parent' );
-			$tab    = astra_get_prop( $control_config, 'tab' );
+			$parent = kanga_get_prop( $control_config, 'parent' );
+			$tab    = kanga_get_prop( $control_config, 'tab' );
 
 			if ( empty( self::$group_configs[ $parent ] ) ) {
 				self::$group_configs[ $parent ] = array();
@@ -275,22 +275,22 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'datastore_type'    => 'option',
 				'transport'         => 'postMessage',
 				'control'           => 'ast-hidden',
-				'section'           => astra_get_prop( $control_config, 'section', 'title_tagline' ),
-				'default'           => astra_get_prop( $control_config, 'default' ),
-				'sanitize_callback' => astra_get_prop( $control_config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $control_config, 'control' ) ) ),
+				'section'           => kanga_get_prop( $control_config, 'section', 'title_tagline' ),
+				'default'           => kanga_get_prop( $control_config, 'default' ),
+				'sanitize_callback' => kanga_get_prop( $control_config, 'sanitize_callback', Kanga_Customizer_Control_Base::get_sanitize_call( kanga_get_prop( $control_config, 'control' ) ) ),
 			);
 
 			$wp_customize->add_setting(
-				astra_get_prop( $config, 'name' ),
+				kanga_get_prop( $config, 'name' ),
 				array(
-					'default'           => astra_get_prop( $config, 'default' ),
-					'type'              => astra_get_prop( $config, 'datastore_type' ),
-					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
-					'sanitize_callback' => astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) ),
+					'default'           => kanga_get_prop( $config, 'default' ),
+					'type'              => kanga_get_prop( $config, 'datastore_type' ),
+					'transport'         => kanga_get_prop( $config, 'transport', 'refresh' ),
+					'sanitize_callback' => kanga_get_prop( $config, 'sanitize_callback', Kanga_Customizer_Control_Base::get_sanitize_call( kanga_get_prop( $config, 'control' ) ) ),
 				)
 			);
 
-			$instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
+			$instance = Kanga_Customizer_Control_Base::get_control_instance( kanga_get_prop( $config, 'control' ) );
 
 			if ( false !== $instance ) {
 				$wp_customize->add_control(
@@ -314,53 +314,53 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			if ( 'ast-settings-group' === $config['control'] ) {
 				$callback = false;
 			} else {
-				$callback = astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
+				$callback = kanga_get_prop( $config, 'sanitize_callback', Kanga_Customizer_Control_Base::get_sanitize_call( kanga_get_prop( $config, 'control' ) ) );
 			}
 
 			$wp_customize->add_setting(
-				astra_get_prop( $config, 'name' ),
+				kanga_get_prop( $config, 'name' ),
 				array(
-					'default'           => astra_get_prop( $config, 'default' ),
-					'type'              => astra_get_prop( $config, 'datastore_type' ),
-					'transport'         => astra_get_prop( $config, 'transport', 'refresh' ),
+					'default'           => kanga_get_prop( $config, 'default' ),
+					'type'              => kanga_get_prop( $config, 'datastore_type' ),
+					'transport'         => kanga_get_prop( $config, 'transport', 'refresh' ),
 					'sanitize_callback' => $callback,
 				)
 			);
 
-			$instance = Astra_Customizer_Control_Base::get_control_instance( astra_get_prop( $config, 'control' ) );
+			$instance = Kanga_Customizer_Control_Base::get_control_instance( kanga_get_prop( $config, 'control' ) );
 
-			$config['label'] = astra_get_prop( $config, 'title' );
-			$config['type']  = astra_get_prop( $config, 'control' );
+			$config['label'] = kanga_get_prop( $config, 'title' );
+			$config['type']  = kanga_get_prop( $config, 'control' );
 
 			// For ast-font control font-weight and font-family is passed as param `font-type` which needs to be converted to `type`.
-			if ( false !== astra_get_prop( $config, 'font-type', false ) ) {
-				$config['type'] = astra_get_prop( $config, 'font-type', false );
+			if ( false !== kanga_get_prop( $config, 'font-type', false ) ) {
+				$config['type'] = kanga_get_prop( $config, 'font-type', false );
 			}
 
 			if ( false !== $instance ) {
 				$wp_customize->add_control(
-					new $instance( $wp_customize, astra_get_prop( $config, 'name' ), $config )
+					new $instance( $wp_customize, kanga_get_prop( $config, 'name' ), $config )
 				);
 			} else {
-				$wp_customize->add_control( astra_get_prop( $config, 'name' ), $config );
+				$wp_customize->add_control( kanga_get_prop( $config, 'name' ), $config );
 			}
 
-			if ( astra_get_prop( $config, 'partial', false ) ) {
+			if ( kanga_get_prop( $config, 'partial', false ) ) {
 
 				if ( isset( $wp_customize->selective_refresh ) ) {
 					$wp_customize->selective_refresh->add_partial(
-						astra_get_prop( $config, 'name' ),
+						kanga_get_prop( $config, 'name' ),
 						array(
-							'selector'            => astra_get_prop( $config['partial'], 'selector' ),
-							'container_inclusive' => astra_get_prop( $config['partial'], 'container_inclusive' ),
-							'render_callback'     => astra_get_prop( $config['partial'], 'render_callback' ),
+							'selector'            => kanga_get_prop( $config['partial'], 'selector' ),
+							'container_inclusive' => kanga_get_prop( $config['partial'], 'container_inclusive' ),
+							'render_callback'     => kanga_get_prop( $config['partial'], 'render_callback' ),
 						)
 					);
 				}
 			}
 
-			if ( false !== astra_get_prop( $config, 'required', false ) ) {
-				$this->update_dependency_arr( astra_get_prop( $config, 'name' ), astra_get_prop( $config, 'required' ) );
+			if ( false !== kanga_get_prop( $config, 'required', false ) ) {
+				$this->update_dependency_arr( kanga_get_prop( $config, 'name' ), kanga_get_prop( $config, 'required' ) );
 			}
 
 		}
@@ -394,30 +394,30 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		public function include_configurations() {
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/class-astra-customizer-config-base.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/class-kanga-customizer-config-base.php';
 
 			/**
 			 * Register Sections & Panels
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-register-sections-panels.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-register-sections-panels.php';
 
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-header-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-identity-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-blog-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-footer-layout-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-body-colors-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-footer-colors-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-advanced-footer-colors-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-archive-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-body-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-content-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-header-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-single-typo-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-kanga-customizer-button-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-header-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-identity-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-blog-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-blog-single-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-sidebar-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-site-container-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-kanga-footer-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-body-colors-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-footer-colors-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-kanga-advanced-footer-colors-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-archive-typo-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-body-typo-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-content-typo-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-header-typo-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-kanga-single-typo-configs.php';
 
 		}
 
@@ -445,7 +445,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	            	});
 	        	});';
 
-			$output .= Astra_Fonts_Data::js();
+			$output .= Kanga_Fonts_Data::js();
 			$output .= '</script>';
 
 			echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -462,136 +462,136 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Register Extended Panel
 			 */
-			$wp_customize->register_panel_type( 'Astra_WP_Customize_Panel' );
-			$wp_customize->register_section_type( 'Astra_WP_Customize_Section' );
-			$wp_customize->register_section_type( 'Astra_WP_Customize_Separator' );
+			$wp_customize->register_panel_type( 'Kanga_WP_Customize_Panel' );
+			$wp_customize->register_section_type( 'Kanga_WP_Customize_Section' );
+			$wp_customize->register_section_type( 'Kanga_WP_Customize_Separator' );
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-				$wp_customize->register_section_type( 'Astra_Pro_Customizer' );
+				$wp_customize->register_section_type( 'Kanga_Pro_Customizer' );
 			}
 
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-panel.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-section.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-astra-wp-customize-separator.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-panel.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-section.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/extend-customizer/class-kanga-wp-customize-separator.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/customizer-controls.php';
 
 			/**
 			 * Add Controls
 			 */
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'color',
 				array(
 					'callback'          => 'WP_Customize_Color_Control',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_hex_color' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_hex_color' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-sortable',
 				array(
-					'callback'          => 'Astra_Control_Sortable',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_multi_choices' ),
+					'callback'          => 'Kanga_Control_Sortable',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_multi_choices' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-radio-image',
 				array(
-					'callback'          => 'Astra_Control_Radio_Image',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
+					'callback'          => 'Kanga_Control_Radio_Image',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_choices' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-slider',
 				array(
-					'callback'          => 'Astra_Control_Slider',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+					'callback'          => 'Kanga_Control_Slider',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-responsive-slider',
 				array(
-					'callback'          => 'Astra_Control_Responsive_Slider',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'callback'          => 'Kanga_Control_Responsive_Slider',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-responsive',
 				array(
-					'callback'          => 'Astra_Control_Responsive',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
+					'callback'          => 'Kanga_Control_Responsive',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_responsive_typo' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-responsive-spacing',
 				array(
-					'callback'          => 'Astra_Control_Responsive_Spacing',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'callback'          => 'Kanga_Control_Responsive_Spacing',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-divider',
 				array(
-					'callback'          => 'Astra_Control_Divider',
+					'callback'          => 'Kanga_Control_Divider',
 					'sanitize_callback' => '',
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-heading',
 				array(
-					'callback'          => 'Astra_Control_Heading',
+					'callback'          => 'Kanga_Control_Heading',
 					'sanitize_callback' => '',
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-hidden',
 				array(
-					'callback'          => 'Astra_Control_Hidden',
+					'callback'          => 'Kanga_Control_Hidden',
 					'sanitize_callback' => '',
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-link',
 				array(
-					'callback'          => 'Astra_Control_Link',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_link' ),
+					'callback'          => 'Kanga_Control_Link',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_link' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-color',
 				array(
-					'callback'          => 'Astra_Control_Color',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+					'callback'          => 'Kanga_Control_Color',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-description',
 				array(
-					'callback'          => 'Astra_Control_Description',
+					'callback'          => 'Kanga_Control_Description',
 					'sanitize_callback' => '',
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-background',
 				array(
-					'callback'          => 'Astra_Control_Background',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_background_obj' ),
+					'callback'          => 'Kanga_Control_Background',
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_background_obj' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'image',
 				array(
 					'callback'          => 'WP_Customize_Image_Control',
@@ -599,32 +599,32 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-font',
 				array(
-					'callback'          => 'Astra_Control_Typography',
+					'callback'          => 'Kanga_Control_Typography',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'number',
 				array(
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number' ),
 				)
 			);
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-border',
 				array(
-					'callback'         => 'Astra_Control_Border',
+					'callback'         => 'Kanga_Control_Border',
 					'santize_callback' => 'sanitize_border',
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-responsive-color',
 				array(
-					'callback'         => 'Astra_Control_Responsive_Color',
+					'callback'         => 'Kanga_Control_Responsive_Color',
 					'santize_callback' => 'sanitize_responsive_color',
 				)
 			);
@@ -633,33 +633,33 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			 * Add Controls
 			 */
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-responsive-background',
 				array(
-					'callback'         => 'Astra_Control_Responsive_Background',
-					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_background' ),
+					'callback'         => 'Kanga_Control_Responsive_Background',
+					'santize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_responsive_background' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-customizer-link',
 				array(
-					'callback'         => 'Astra_Control_Customizer_Link',
-					'santize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_customizer_links' ),
+					'callback'         => 'Kanga_Control_Customizer_Link',
+					'santize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_customizer_links' ),
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-settings-group',
 				array(
-					'callback' => 'Astra_Control_Settings_Group',
+					'callback' => 'Kanga_Control_Settings_Group',
 				)
 			);
 
-			Astra_Customizer_Control_Base::add_control(
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-select',
 				array(
-					'callback'          => 'Astra_Control_Select',
+					'callback'          => 'Kanga_Control_Select',
 					'sanitize_callback' => '',
 				)
 			);
@@ -667,9 +667,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			/**
 			 * Helper files
 			 */
-			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-partials.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-callback.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer-sanitizes.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-partials.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-callback.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/class-kanga-customizer-sanitizes.php';
 		}
 
 		/**
@@ -693,11 +693,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 1.0.0
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
 		 */
-		public function astra_pro_upgrade_configurations( $wp_customize ) {
+		public function kanga_pro_upgrade_configurations( $wp_customize ) {
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-customizer.php';
-				require ASTRA_THEME_DIR . 'inc/customizer/astra-pro/class-astra-pro-upgrade-link-configs.php';
+				require ASTRA_THEME_DIR . 'inc/customizer/kanga-pro/class-kanga-pro-customizer.php';
+				require ASTRA_THEME_DIR . 'inc/customizer/kanga-pro/class-kanga-pro-upgrade-link-configs.php';
 			}
 		}
 
@@ -726,25 +726,25 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			wp_enqueue_style( 'wp-color-picker' );
-			wp_enqueue_script( 'astra-color-alpha' );
+			wp_enqueue_script( 'kanga-color-alpha' );
 
 			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_style( 'thickbox' );
 
 			// Customizer Core.
-			wp_enqueue_script( 'astra-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'kanga-customizer-controls-toggle-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls-toggle' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
 			// Extended Customizer Assets - Panel extended.
-			wp_enqueue_style( 'astra-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'astra-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
+			wp_enqueue_style( 'kanga-extend-customizer-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/extend-customizer' . $css_prefix, null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'kanga-extend-customizer-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/extend-customizer' . $js_prefix, array(), ASTRA_THEME_VERSION, true );
 
-			wp_enqueue_script( 'astra-customizer-dependency', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'astra-customizer-controls-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'kanga-customizer-dependency', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-dependency' . $js_prefix, array( 'kanga-customizer-controls-js' ), ASTRA_THEME_VERSION, true );
 
 			// Customizer Controls.
-			wp_enqueue_style( 'astra-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'astra-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'astra-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_style( 'kanga-customizer-controls-css', ASTRA_THEME_URI . 'assets/css/' . $dir . '/customizer-controls' . $css_prefix, null, ASTRA_THEME_VERSION );
+			wp_enqueue_script( 'kanga-customizer-controls-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-controls' . $js_prefix, array( 'kanga-customizer-controls-toggle-js' ), ASTRA_THEME_VERSION, true );
 
-			$google_fonts = Astra_Font_Families::get_google_fonts();
+			$google_fonts = Kanga_Font_Families::get_google_fonts();
 			$string       = $this->generate_font_dropdown();
 
 			$tmpl = '<div class="ast-field-settings-modal">
@@ -753,10 +753,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			</div>';
 
 			wp_localize_script(
-				'astra-customizer-controls-toggle-js',
-				'astra',
+				'kanga-customizer-controls-toggle-js',
+				'kanga',
 				apply_filters(
-					'astra_theme_customizer_js_localize',
+					'kanga_theme_customizer_js_localize',
 					array(
 						'customizer' => array(
 							'settings'         => array(
@@ -802,13 +802,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			?>
 
-			<option value="inherit"><?php esc_attr_e( 'Default System Font', 'astra' ); ?></option>
+			<option value="inherit"><?php esc_attr_e( 'Default System Font', 'kanga' ); ?></option>
 			<optgroup label="Other System Fonts">
 
 			<?php
 
-			$system_fonts = Astra_Font_Families::get_system_fonts();
-			$google_fonts = Astra_Font_Families::get_google_fonts();
+			$system_fonts = Kanga_Font_Families::get_system_fonts();
+			$google_fonts = Kanga_Font_Families::get_google_fonts();
 
 			foreach ( $system_fonts as $name => $variants ) {
 				?>
@@ -818,15 +818,15 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			// Add Custom Font List Into Customizer.
-			do_action( 'astra_customizer_font_list', '' );
+			do_action( 'kanga_customizer_font_list', '' );
 
 			?>
 			<optgroup label="Google">
 
 			<?php
 			foreach ( $google_fonts as $name => $single_font ) {
-				$variants = astra_get_prop( $single_font, '0' );
-				$category = astra_get_prop( $single_font, '1' );
+				$variants = kanga_get_prop( $single_font, '0' );
+				$category = kanga_get_prop( $single_font, '1' );
 
 				?>
 				<option value="<?php echo "'" . esc_attr( $name ) . "', " . esc_attr( $category ); ?>"><?php echo esc_attr( $name ); ?></option>
@@ -846,7 +846,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public function preview_init() {
 
 			// Update variables.
-			Astra_Theme_Options::refresh();
+			Kanga_Theme_Options::refresh();
 
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
@@ -857,17 +857,17 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$dir        = 'unminified';
 			}
 
-			wp_enqueue_script( 'astra-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
+			wp_enqueue_script( 'kanga-customizer-preview-js', ASTRA_THEME_URI . 'assets/js/' . $dir . '/customizer-preview' . $js_prefix, array( 'customize-preview' ), ASTRA_THEME_VERSION, null );
 
 			$localize_array = array(
-				'headerBreakpoint'                     => astra_header_break_point(),
-				'includeAnchorsInHeadindsCss'          => Astra_Dynamic_CSS::anchors_in_css_selectors_heading(),
-				'googleFonts'                          => Astra_Font_Families::get_google_fonts(),
-				'page_builder_button_style_css'        => Astra_Dynamic_CSS::page_builder_button_style_css(),
-				'elementor_default_color_font_setting' => Astra_Dynamic_CSS::elementor_default_color_font_setting(),
+				'headerBreakpoint'                     => kanga_header_break_point(),
+				'includeAnchorsInHeadindsCss'          => Kanga_Dynamic_CSS::anchors_in_css_selectors_heading(),
+				'googleFonts'                          => Kanga_Font_Families::get_google_fonts(),
+				'page_builder_button_style_css'        => Kanga_Dynamic_CSS::page_builder_button_style_css(),
+				'elementor_default_color_font_setting' => Kanga_Dynamic_CSS::elementor_default_color_font_setting(),
 			);
 
-			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );
+			wp_localize_script( 'kanga-customizer-preview-js', 'kangaCustomizer', $localize_array );
 		}
 
 		/**
@@ -880,16 +880,16 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public function customize_save() {
 
 			// Update variables.
-			Astra_Theme_Options::refresh();
+			Kanga_Theme_Options::refresh();
 
-			if ( apply_filters( 'astra_resize_logo', true ) ) {
+			if ( apply_filters( 'kanga_resize_logo', true ) ) {
 
 				/* Generate Header Logo */
 				$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-				add_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10, 2 );
+				add_filter( 'intermediate_image_sizes_advanced', 'Kanga_Customizer::logo_image_sizes', 10, 2 );
 				self::generate_logo_by_width( $custom_logo_id );
-				remove_filter( 'intermediate_image_sizes_advanced', 'Astra_Customizer::logo_image_sizes', 10 );
+				remove_filter( 'intermediate_image_sizes_advanced', 'Kanga_Customizer::logo_image_sizes', 10 );
 
 			} else {
 				// Regenerate the logo without custom image sizes.
@@ -897,7 +897,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				self::generate_logo_by_width( $custom_logo_id );
 			}
 
-			do_action( 'astra_customizer_save' );
+			do_action( 'kanga_customizer_save' );
 
 		}
 
@@ -912,7 +912,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public static function logo_image_sizes( $sizes, $metadata ) {
 
-			$logo_width = astra_get_option( 'ast-header-responsive-logo-width' );
+			$logo_width = kanga_get_option( 'ast-header-responsive-logo-width' );
 
 			if ( is_array( $sizes ) && '' != $logo_width['desktop'] ) {
 				$max_value              = max( $logo_width );
@@ -964,13 +964,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 */
 		public function preview_styles() {
 			if ( is_customize_preview() ) {
-				echo '<style class="astra-custom-shortcut-edit-icons">
-					.customize-partial-edit-shortcut-astra-settings-footer-adv {
+				echo '<style class="kanga-custom-shortcut-edit-icons">
+					.customize-partial-edit-shortcut-kanga-settings-footer-adv {
 						position: relative;
 					    top: -1em;
 					    left: -1.8em;
 					}
-					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
+					.customize-partial-edit-shortcut-kanga-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
 						top: -0.5em;
 					}
 					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut,
@@ -983,18 +983,18 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						position: absolute;
 					    left: 42%;
 					}
-					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
+					.ast-small-footer-section-1.ast-small-footer-section-equally .ast-footer-widget-1-area .ast-no-widget-row .customize-partial-edit-shortcut-kanga-settings-footer-sml-section-1 {
 						position: absolute;
 					    left: 1em;
 					}
-					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .ast-no-widget-row .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+					.ast-small-footer-section-2.ast-small-footer-section-equally .ast-footer-widget-2-area .ast-no-widget-row .customize-partial-edit-shortcut-kanga-settings-footer-sml-section-2 {
 						left: 83.5%;
 					}
-					.ast-small-footer-section-1.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-astra-settings-footer-sml-section-1 {
+					.ast-small-footer-section-1.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-kanga-settings-footer-sml-section-1 {
 						position: absolute;
 					    left: 1em;
 					}
-					.ast-small-footer-section-2.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-astra-settings-footer-sml-section-2 {
+					.ast-small-footer-section-2.ast-small-footer-section-equally .nav-menu .customize-partial-edit-shortcut-kanga-settings-footer-sml-section-2 {
 						position: absolute;
 					    left: 44.5%;
 					}
@@ -1002,7 +1002,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					.ast-small-footer .ast-container .ast-small-footer-section-2 .footer-primary-navigation > .customize-partial-edit-shortcut{
 						display: none;
 					}
-					.ast-small-footer .customize-partial-edit-shortcut-astra-settings-footer-sml-layout {
+					.ast-small-footer .customize-partial-edit-shortcut-kanga-settings-footer-sml-layout {
 						    position: absolute;
 						    top: 3%;
 						    left: 10%;
@@ -1014,9 +1014,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 						display: none;
 					}
 				</style>';
-				echo '<style class="astra-theme-custom-shortcut-edit-icons">
-					.ast-replace-site-logo-transparent.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-logo,
-					.ast-replace-site-logo-transparent.ast-theme-transparent-header .customize-partial-edit-shortcut-astra-settings-transparent-header-enable {
+				echo '<style class="kanga-theme-custom-shortcut-edit-icons">
+					.ast-replace-site-logo-transparent.ast-theme-transparent-header .customize-partial-edit-shortcut-kanga-settings-transparent-header-logo,
+					.ast-replace-site-logo-transparent.ast-theme-transparent-header .customize-partial-edit-shortcut-kanga-settings-transparent-header-enable {
 					    z-index: 6;
 					}
 				</style>';
@@ -1028,4 +1028,4 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 /**
  *  Kicking this off by calling 'get_instance()' method
  */
-Astra_Customizer::get_instance();
+Kanga_Customizer::get_instance();

@@ -2,25 +2,25 @@
 /**
  * Theme Update
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.13
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.13
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
+if ( ! class_exists( 'Kanga_PB_Compatibility' ) ) {
 
 	/**
-	 * Astra_PB_Compatibility initial setup
+	 * Kanga_PB_Compatibility initial setup
 	 *
 	 * @since 1.0.13
 	 */
-	class Astra_PB_Compatibility {
+	class Kanga_PB_Compatibility {
 
 		/**
 		 * Class instance.
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		 */
 		public function maybe_run_pb_compatibility() {
 
-			$is_compatibility_completed = astra_get_option( '_astra_pb_compatibility_completed', false );
+			$is_compatibility_completed = kanga_get_option( '_kanga_pb_compatibility_completed', false );
 
 			if ( ! $is_compatibility_completed ) {
 
@@ -76,11 +76,11 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		 */
 		public function page_builder_compatibility() {
 
-			$offset_comp = get_option( '_astra_pb_compatibility_offset', false );
-			$comp_time   = get_option( '_astra_pb_compatibility_time', false );
+			$offset_comp = get_option( '_kanga_pb_compatibility_offset', false );
+			$comp_time   = get_option( '_kanga_pb_compatibility_time', false );
 
 			if ( ! $offset_comp || ! $comp_time ) {
-				astra_update_option( '_astra_pb_compatibility_completed', true );
+				kanga_update_option( '_kanga_pb_compatibility_completed', true );
 				return;
 			}
 
@@ -129,11 +129,11 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 
 			if ( $continue ) {
 				$offset_comp += 30;
-				update_option( '_astra_pb_compatibility_offset', $offset_comp );
+				update_option( '_kanga_pb_compatibility_offset', $offset_comp );
 			} else {
-				delete_option( '_astra_pb_compatibility_offset' );
-				delete_option( '_astra_pb_compatibility_time' );
-				astra_update_option( '_astra_pb_compatibility_completed', true );
+				delete_option( '_kanga_pb_compatibility_offset' );
+				delete_option( '_kanga_pb_compatibility_time' );
+				kanga_update_option( '_kanga_pb_compatibility_completed', true );
 			}
 		}
 
@@ -146,32 +146,32 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 		 */
 		public function update_meta_values( $id ) {
 
-			$layout_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$layout_flag = get_post_meta( $id, '_kanga_content_layout_flag', true );
 			if ( empty( $layout_flag ) ) {
 				$site_content = get_post_meta( $id, 'site-content-layout', true );
 
 				if ( 'default' == $site_content ) {
 					$post_type = get_post_type( $id );
 					if ( 'page' == $post_type ) {
-						$site_content = astra_get_option( 'single-page-content-layout', '' );
+						$site_content = kanga_get_option( 'single-page-content-layout', '' );
 					} elseif ( 'post' == $post_type ) {
-						$site_content = astra_get_option( 'single-post-content-layout', '' );
+						$site_content = kanga_get_option( 'single-post-content-layout', '' );
 					}
 
 					if ( 'default' == $site_content ) {
-						$site_content = astra_get_option( 'site-content-layout', '' );
+						$site_content = kanga_get_option( 'site-content-layout', '' );
 					}
 				}
 
 				$elementor = get_post_meta( $id, '_elementor_edit_mode', true );
 				$vc        = get_post_meta( $id, '_wpb_vc_js_status', true );
 				if ( 'page-builder' === $site_content ) {
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kanga_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'site-sidebar-layout', 'no-sidebar' );
 				} elseif ( 'builder' === $elementor || true === $vc || 'true' === $vc ) {
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kanga_content_layout_flag', 'disabled' );
 				}
 			}
 		}
@@ -183,4 +183,4 @@ if ( ! class_exists( 'Astra_PB_Compatibility' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_PB_Compatibility::get_instance();
+Kanga_PB_Compatibility::get_instance();

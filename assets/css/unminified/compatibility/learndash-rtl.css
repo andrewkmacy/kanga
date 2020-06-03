@@ -2,7 +2,7 @@
  * LearnDash Compatibility
  */
 /**
- * Astra Theme compatibility with LearnDash
+ * Kanga Theme compatibility with LearnDash
  */
 /*----------  Media Query min-width Structure   ----------*/
 /*----------  Media Query max-width Structure   ----------*/
@@ -56,7 +56,7 @@
 #learndash_profile .notcompleted:before {
   content: "\e903";
   display: inline-block;
-  font-family: 'Astra';
+  font-family: 'Kanga';
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -92,7 +92,7 @@
 .learndash .topic-notcompleted span:before {
   content: "\e903";
   display: inline-block;
-  font-family: 'Astra';
+  font-family: 'Kanga';
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -254,7 +254,7 @@ body .learndash_topic_dots ul .topic-completed span:before,
 body .learndash_topic_dots ul .topic-notcompleted span:before {
   content: "\e903";
   display: inline-block;
-  font-family: 'Astra';
+  font-family: 'Kanga';
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -399,7 +399,7 @@ body .list_arrow.lesson_incomplete:before {
 
 body .list_arrow:before {
   display: inline-block;
-  font-family: 'Astra';
+  font-family: 'Kanga';
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -500,7 +500,7 @@ body #learndash_profile #course_list .certificate_icon_large {
 body #learndash_profile .profile_info .certificate_icon_large:before,
 body #learndash_profile #course_list .certificate_icon_large:before {
   content: "\e902";
-  font-family: 'Astra';
+  font-family: 'Kanga';
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -779,7 +779,7 @@ body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] .wpProQ
 
 body .wpProQuiz_content .wpProQuiz_questionList[data-type="sort_answer"] .wpProQuiz_sortable:before {
   content: "\e5d2";
-  font-family: Astra;
+  font-family: Kanga;
   font-size: 1.25em;
   line-height: 1;
   vertical-align: middle;
@@ -834,7 +834,7 @@ body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] 
 body .wpProQuiz_content .wpProQuiz_listItem[data-type="matrix_sort_answer"] .wpProQuiz_sortStringItem:before,
 body .wpProQuiz_content .wpProQuiz_questionList[data-type="matrix_sort_answer"] .wpProQuiz_sortStringItem:before {
   content: "\e5d2";
-  font-family: Astra;
+  font-family: Kanga;
   font-size: 1.25em;
   line-height: 1;
   vertical-align: middle;

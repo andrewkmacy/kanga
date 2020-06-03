@@ -2,11 +2,11 @@
 /**
  * Loader Functions
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme Enqueue Scripts
  */
-if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
+if ( ! class_exists( 'Kanga_Enqueue_Scripts' ) ) {
 
 	/**
 	 * Theme Enqueue Scripts
 	 */
-	class Astra_Enqueue_Scripts {
+	class Kanga_Enqueue_Scripts {
 
 		/**
 		 * Class styles.
@@ -44,11 +44,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function __construct() {
 
-			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+			add_action( 'kanga_get_fonts', array( $this, 'add_fonts' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 			add_action( 'enqueue_block_editor_assets', array( $this, 'gutenberg_assets' ) );
 			add_filter( 'admin_body_class', array( $this, 'admin_body_class' ) );
-			add_action( 'wp_print_footer_scripts', array( $this, 'astra_skip_link_focus_fix' ) );
+			add_action( 'wp_print_footer_scripts', array( $this, 'kanga_skip_link_focus_fix' ) );
 		}
 
 		/**
@@ -61,9 +61,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 * @link https://github.com/WordPress/twentynineteen/pull/47/files
 		 * @link https://github.com/ampproject/amphtml/issues/18671
 		 */
-		public function astra_skip_link_focus_fix() {
+		public function kanga_skip_link_focus_fix() {
 			// Skip printing script on AMP content, since accessibility fix is covered by AMP framework.
-			if ( astra_is_amp_endpoint() ) {
+			if ( kanga_is_amp_endpoint() ) {
 				return;
 			}
 
@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			if ( ( isset( $meta_content_layout ) && ! empty( $meta_content_layout ) ) && 'default' !== $meta_content_layout ) {
 				$content_layout = $meta_content_layout;
 			} else {
-				$content_layout = astra_get_option( 'site-content-layout' );
+				$content_layout = kanga_get_option( 'site-content-layout' );
 			}
 
 			if ( 'content-boxed-container' == $content_layout ) {
@@ -114,7 +114,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-plain-container';
 			}
 
-			$classes .= ' ast-' . astra_page_layout();
+			$classes .= ' ast-' . kanga_page_layout();
 
 			return $classes;
 		}
@@ -130,16 +130,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 				// handle => location ( in /assets/js/ ) ( without .js ext).
 				'js'  => array(
-					'astra-theme-js' => 'style',
+					'kanga-theme-js' => 'style',
 				),
 
 				// handle => location ( in /assets/css/ ) ( without .css ext).
 				'css' => array(
-					'astra-theme-css' => 'style',
+					'kanga-theme-css' => 'style',
 				),
 			);
 
-			return apply_filters( 'astra_theme_assets', $default_assets );
+			return apply_filters( 'kanga_theme_assets', $default_assets );
 		}
 
 		/**
@@ -147,20 +147,20 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 		 */
 		public function add_fonts() {
 
-			$font_family  = astra_get_option( 'body-font-family' );
-			$font_weight  = astra_get_option( 'body-font-weight' );
-			$font_variant = astra_get_option( 'body-font-variant' );
+			$font_family  = kanga_get_option( 'body-font-family' );
+			$font_weight  = kanga_get_option( 'body-font-weight' );
+			$font_variant = kanga_get_option( 'body-font-variant' );
 
-			Astra_Fonts::add_font( $font_family, $font_weight );
-			Astra_Fonts::add_font( $font_family, $font_variant );
+			Kanga_Fonts::add_font( $font_family, $font_weight );
+			Kanga_Fonts::add_font( $font_family, $font_variant );
 
 			// Render headings font.
-			$heading_font_family  = astra_get_option( 'headings-font-family' );
-			$heading_font_weight  = astra_get_option( 'headings-font-weight' );
-			$heading_font_variant = astra_get_option( 'headings-font-variant' );
+			$heading_font_family  = kanga_get_option( 'headings-font-family' );
+			$heading_font_weight  = kanga_get_option( 'headings-font-weight' );
+			$heading_font_variant = kanga_get_option( 'headings-font-variant' );
 
-			Astra_Fonts::add_font( $heading_font_family, $heading_font_weight );
-			Astra_Fonts::add_font( $heading_font_family, $heading_font_variant );
+			Kanga_Fonts::add_font( $heading_font_family, $heading_font_weight );
+			Kanga_Fonts::add_font( $heading_font_family, $heading_font_variant );
 		}
 
 		/**
@@ -183,12 +183,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			 * IE Only Js and CSS Files.
 			 */
 			// Flexibility.js for flexbox IE10 support.
-			wp_enqueue_script( 'astra-flexibility', $js_uri . 'flexibility' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, false );
-			wp_add_inline_script( 'astra-flexibility', 'flexibility(document.documentElement);' );
-			wp_script_add_data( 'astra-flexibility', 'conditional', 'IE' );
+			wp_enqueue_script( 'kanga-flexibility', $js_uri . 'flexibility' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, false );
+			wp_add_inline_script( 'kanga-flexibility', 'flexibility(document.documentElement);' );
+			wp_script_add_data( 'kanga-flexibility', 'conditional', 'IE' );
 
 			// Polyfill for CustomEvent for IE.
-			wp_register_script( 'astra-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, false );
+			wp_register_script( 'kanga-customevent', $js_uri . 'custom-events-polyfill' . $file_prefix . '.js', array(), ASTRA_THEME_VERSION, false );
 
 			// All assets.
 			$all_assets = self::theme_assets();
@@ -202,9 +202,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$dependency = array();
 
 					// Add dynamic CSS dependency for all styles except for theme's style.css.
-					if ( 'astra-theme-css' !== $key && class_exists( 'Astra_Cache_Base' ) ) {
-						if ( ! Astra_Cache_Base::inline_assets() ) {
-							$dependency[] = 'astra-theme-dynamic';
+					if ( 'kanga-theme-css' !== $key && class_exists( 'Kanga_Cache_Base' ) ) {
+						if ( ! Kanga_Cache_Base::inline_assets() ) {
+							$dependency[] = 'kanga-theme-dynamic';
 						}
 					}
 
@@ -223,35 +223,35 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			// Fonts - Render Fonts.
-			Astra_Fonts::render_fonts();
+			Kanga_Fonts::render_fonts();
 
 			/**
 			 * Inline styles
 			 */
 
-			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_output' ) );
-			add_filter( 'astra_dynamic_theme_css', array( 'Astra_Dynamic_CSS', 'return_meta_output' ) );
+			add_filter( 'kanga_dynamic_theme_css', array( 'Kanga_Dynamic_CSS', 'return_output' ) );
+			add_filter( 'kanga_dynamic_theme_css', array( 'Kanga_Dynamic_CSS', 'return_meta_output' ) );
 
 			// Submenu Container Animation.
-			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
+			$menu_animation = kanga_get_option( 'header-main-submenu-container-animation' );
 
 			$rtl = ( is_rtl() ) ? '-rtl' : '';
 
 			if ( ! empty( $menu_animation ) ) {
-				if ( class_exists( 'Astra_Cache' ) ) {
-					Astra_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
+				if ( class_exists( 'Kanga_Cache' ) ) {
+					Kanga_Cache::add_css_file( ASTRA_THEME_DIR . 'assets/css/' . $dir_name . '/menu-animation' . $rtl . $file_prefix . '.css' );
 				} else {
-					wp_register_style( 'astra-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
-					wp_enqueue_style( 'astra-menu-animation' );
+					wp_register_style( 'kanga-menu-animation', $css_uri . 'menu-animation' . $file_prefix . '.css', null, ASTRA_THEME_VERSION, 'all' );
+					wp_enqueue_style( 'kanga-menu-animation' );
 				}
 			}
 
-			if ( ! class_exists( 'Astra_Cache' ) ) {
-				$theme_css_data = apply_filters( 'astra_dynamic_theme_css', '' );
-				wp_add_inline_style( 'astra-theme-css', $theme_css_data );
+			if ( ! class_exists( 'Kanga_Cache' ) ) {
+				$theme_css_data = apply_filters( 'kanga_dynamic_theme_css', '' );
+				wp_add_inline_style( 'kanga-theme-css', $theme_css_data );
 			}
 
-			if ( astra_is_amp_endpoint() ) {
+			if ( kanga_is_amp_endpoint() ) {
 				return;
 			}
 
@@ -272,12 +272,12 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 			}
 
-			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
+			$kanga_localize = array(
+				'break_point' => kanga_header_break_point(),    // Header Break Point.
 				'isRtl'       => is_rtl(),
 			);
 
-			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+			wp_localize_script( 'kanga-theme-js', 'kanga', apply_filters( 'kanga_theme_js_localize', $kanga_localize ) );
 		}
 
 		/**
@@ -316,26 +316,26 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
 			$js_uri  = ASTRA_THEME_URI . 'inc/assets/js/block-editor-script.js';
 
-			wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
-			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'kanga-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
+			wp_enqueue_script( 'kanga-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 
 			// Render fonts in Gutenberg layout.
-			Astra_Fonts::render_fonts();
+			Kanga_Fonts::render_fonts();
 
-			wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
+			wp_add_inline_style( 'kanga-block-editor-styles', apply_filters( 'kanga_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
 		}
 
 		/**
-		 * Function to check if enqueuing of Astra assets are disabled.
+		 * Function to check if enqueuing of Kanga assets are disabled.
 		 *
 		 * @since 2.1.0
 		 * @return boolean
 		 */
 		public static function enqueue_theme_assets() {
-			return apply_filters( 'astra_enqueue_theme_assets', true );
+			return apply_filters( 'kanga_enqueue_theme_assets', true );
 		}
 
 	}
 
-	new Astra_Enqueue_Scripts();
+	new Kanga_Enqueue_Scripts();
 }

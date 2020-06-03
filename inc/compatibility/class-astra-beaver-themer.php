@@ -2,7 +2,7 @@
 /**
  * Beaver Themer Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Beaver Themer' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'FLThemeBuilderLoader' ) || ! class_exists( 'FLThemeBuilder
 }
 
 /**
- * Astra Beaver Themer Compatibility
+ * Kanga Beaver Themer Compatibility
  */
-if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
+if ( ! class_exists( 'Kanga_Beaver_Themer' ) ) :
 
 	/**
-	 * Astra Beaver Themer Compatibility
+	 * Kanga Beaver Themer Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Beaver_Themer {
+	class Kanga_Beaver_Themer {
 
 		/**
 		 * Member Variable
@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 			$post_type = get_post_type();
 
 			if ( 'fl-theme-layout' == $post_type ) {
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+				remove_action( 'kanga_entry_after', 'kanga_single_post_navigation_markup' );
 			}
 
 			if ( empty( $ids ) && 'fl-theme-layout' != $post_type ) {
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 				$classes = array_diff(
 					$classes,
 					array(
-						// Astra common grid.
+						// Kanga common grid.
 						'ast-col-xs-1',
 						'ast-col-xs-2',
 						'ast-col-xs-3',
@@ -152,14 +152,14 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 						'ast-col-xl-11',
 						'ast-col-xl-12',
 
-						// Astra Blog / Single Post.
+						// Kanga Blog / Single Post.
 						'ast-article-post',
 						'ast-article-single',
 						'ast-separate-posts',
 						'remove-featured-img-padding',
 						'ast-featured-post',
 
-						// Astra Woocommerce.
+						// Kanga Woocommerce.
 						'ast-product-gallery-layout-vertical',
 						'ast-product-gallery-layout-horizontal',
 						'ast-product-gallery-with-no-image',
@@ -172,7 +172,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 						'ast-qv-on-image-click',
 						'ast-qv-after-summary',
 
-						'astra-woo-hover-swap',
+						'kanga-woo-hover-swap',
 
 						'box-shadow-0',
 						'box-shadow-0-hover',
@@ -189,7 +189,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					)
 				);
 
-				add_filter( 'astra_post_link_enabled', '__return_false' );
+				add_filter( 'kanga_post_link_enabled', '__return_false' );
 			}
 
 			return $classes;
@@ -219,8 +219,8 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 			// If we have a header, remove the theme header and hook in Theme Builder's.
 			if ( ! empty( $header_ids ) ) {
-				remove_action( 'astra_header', 'astra_header_markup' );
-				add_action( 'astra_header', 'FLThemeBuilderLayoutRenderer::render_header' );
+				remove_action( 'kanga_header', 'kanga_header_markup' );
+				add_action( 'kanga_header', 'FLThemeBuilderLayoutRenderer::render_header' );
 			}
 
 			// Get the footer ID.
@@ -228,8 +228,8 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 			// If we have a footer, remove the theme footer and hook in Theme Builder's.
 			if ( ! empty( $footer_ids ) ) {
-				remove_action( 'astra_footer', 'astra_footer_markup' );
-				add_action( 'astra_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
+				remove_action( 'kanga_footer', 'kanga_footer_markup' );
+				add_action( 'kanga_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 			}
 
 			// BB Themer Support.
@@ -246,7 +246,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 
 					if ( 'default' !== $sidebar ) {
 						add_filter(
-							'astra_page_layout',
+							'kanga_page_layout',
 							function( $page_layout ) use ( $sidebar ) {
 
 								return $sidebar;
@@ -257,7 +257,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					$content_layout = get_post_meta( $template_id, 'site-content-layout', true );
 					if ( 'default' !== $content_layout ) {
 						add_filter(
-							'astra_get_content_layout',
+							'kanga_get_content_layout',
 							function( $layout ) use ( $content_layout ) {
 
 								return $content_layout;
@@ -269,7 +269,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					if ( 'disabled' === $main_header_display ) {
 
 						if ( 'archive' === $template_type ) {
-							remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+							remove_action( 'kanga_masthead', 'kanga_masthead_primary_template' );
 						} else {
 							add_filter(
 								'ast_main_header_display',
@@ -297,7 +297,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 					$footer_widgets = get_post_meta( $template_id, 'footer-adv-display', true );
 					if ( 'disabled' === $footer_widgets ) {
 						add_filter(
-							'astra_advanced_footer_disable',
+							'kanga_advanced_footer_disable',
 							function() {
 								return true;
 							}
@@ -308,7 +308,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		}
 
 		/**
-		 * Function to Astra theme parts
+		 * Function to Kanga theme parts
 		 *
 		 * @since 1.0.0
 		 */
@@ -318,49 +318,49 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 				array(
 					'label' => 'Page',
 					'hooks' => array(
-						'astra_body_top'    => __( 'Before Page', 'astra' ),
-						'astra_body_bottom' => __( 'After Page', 'astra' ),
+						'kanga_body_top'    => __( 'Before Page', 'kanga' ),
+						'kanga_body_bottom' => __( 'After Page', 'kanga' ),
 					),
 				),
 				array(
 					'label' => 'Header',
 					'hooks' => array(
-						'astra_header_before' => __( 'Before Header', 'astra' ),
-						'astra_header_after'  => __( 'After Header', 'astra' ),
+						'kanga_header_before' => __( 'Before Header', 'kanga' ),
+						'kanga_header_after'  => __( 'After Header', 'kanga' ),
 					),
 				),
 				array(
 					'label' => 'Content',
 					'hooks' => array(
-						'astra_primary_content_top'    => __( 'Before Content', 'astra' ),
-						'astra_primary_content_bottom' => __( 'After Content', 'astra' ),
+						'kanga_primary_content_top'    => __( 'Before Content', 'kanga' ),
+						'kanga_primary_content_bottom' => __( 'After Content', 'kanga' ),
 					),
 				),
 				array(
 					'label' => 'Footer',
 					'hooks' => array(
-						'astra_footer_before' => __( 'Before Footer', 'astra' ),
-						'astra_footer_after'  => __( 'After Footer', 'astra' ),
+						'kanga_footer_before' => __( 'Before Footer', 'kanga' ),
+						'kanga_footer_after'  => __( 'After Footer', 'kanga' ),
 					),
 				),
 				array(
 					'label' => 'Sidebar',
 					'hooks' => array(
-						'astra_sidebars_before' => __( 'Before Sidebar', 'astra' ),
-						'astra_sidebars_after'  => __( 'After Sidebar', 'astra' ),
+						'kanga_sidebars_before' => __( 'Before Sidebar', 'kanga' ),
+						'kanga_sidebars_after'  => __( 'After Sidebar', 'kanga' ),
 					),
 				),
 				array(
 					'label' => 'Posts',
 					'hooks' => array(
-						'loop_start'                 => __( 'Loop Start', 'astra' ),
-						'astra_entry_top'            => __( 'Before Post', 'astra' ),
-						'astra_entry_content_before' => __( 'Before Post Content', 'astra' ),
-						'astra_entry_content_after'  => __( 'After Post Content', 'astra' ),
-						'astra_entry_bottom'         => __( 'After Post', 'astra' ),
-						'astra_comments_before'      => __( 'Before Comments', 'astra' ),
-						'astra_comments_after'       => __( 'After Comments', 'astra' ),
-						'loop_end'                   => __( 'Loop End', 'astra' ),
+						'loop_start'                 => __( 'Loop Start', 'kanga' ),
+						'kanga_entry_top'            => __( 'Before Post', 'kanga' ),
+						'kanga_entry_content_before' => __( 'Before Post Content', 'kanga' ),
+						'kanga_entry_content_after'  => __( 'After Post Content', 'kanga' ),
+						'kanga_entry_bottom'         => __( 'After Post', 'kanga' ),
+						'kanga_comments_before'      => __( 'Before Comments', 'kanga' ),
+						'kanga_comments_after'       => __( 'After Comments', 'kanga' ),
+						'loop_end'                   => __( 'Loop End', 'kanga' ),
 					),
 				),
 			);
@@ -375,13 +375,13 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 		public function builder_before_render_content( $post_id ) {
 
 			?>
-			<?php if ( 'left-sidebar' === astra_page_layout() ) : ?>
+			<?php if ( 'left-sidebar' === kanga_page_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 
 			<?php endif ?>
 
-			<div id="primary" <?php astra_primary_class(); ?>>
+			<div id="primary" <?php kanga_primary_class(); ?>>
 			<?php
 		}
 
@@ -396,7 +396,7 @@ if ( ! class_exists( 'Astra_Beaver_Themer' ) ) :
 			?>
 			</div><!-- #primary -->
 
-			<?php if ( 'right-sidebar' === astra_page_layout() ) : ?>
+			<?php if ( 'right-sidebar' === kanga_page_layout() ) : ?>
 
 				<?php get_sidebar(); ?>
 
@@ -412,4 +412,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Beaver_Themer::get_instance();
+Kanga_Beaver_Themer::get_instance();

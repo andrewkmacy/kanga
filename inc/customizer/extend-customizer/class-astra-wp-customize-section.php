@@ -4,10 +4,10 @@
  *
  * Creates a jQuery color control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.0.0
  */
 
@@ -25,7 +25,7 @@ if ( class_exists( 'WP_Customize_Section' ) ) {
 	 * @since 1.0.31
 	 * @see WP_Customize_Section
 	 */
-	class Astra_WP_Customize_Section extends WP_Customize_Section {
+	class Kanga_WP_Customize_Section extends WP_Customize_Section {
 
 		/**
 		 * Section

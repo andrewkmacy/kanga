@@ -3,7 +3,7 @@
  */
 
 /**
- * Astra Theme compatibility with LearnDash
+ * Kanga Theme compatibility with LearnDash
  */
 @import "../mixins/mixins-master";
 @import "../../grid/variables";
@@ -62,7 +62,7 @@
 		&:before {
 			content: "\e903";
 			display: inline-block;
-			font-family: 'Astra';
+			font-family: 'Kanga';
 			text-rendering: auto;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -100,7 +100,7 @@
 		&:before {
 			content: "\e903";
 			display: inline-block;
-			font-family: 'Astra';
+			font-family: 'Kanga';
 			text-rendering: auto;
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
@@ -282,7 +282,7 @@ body {
 				&:before {
 					content: "\e903";
 					display: inline-block;
-					font-family: 'Astra';
+					font-family: 'Kanga';
 					text-rendering: auto;
 					-webkit-font-smoothing: antialiased;
 					-moz-osx-font-smoothing: grayscale;
@@ -438,7 +438,7 @@ body {
 		}
 		&:before {
 		    display: inline-block;
-		    font-family: 'Astra';
+		    font-family: 'Kanga';
 		    text-rendering: auto;
 		    -webkit-font-smoothing: antialiased;
 		    -moz-osx-font-smoothing: grayscale;
@@ -536,7 +536,7 @@ body {
 
 				&:before {
 				    content: "\e902";
-				    font-family: 'Astra';
+				    font-family: 'Kanga';
 				    text-rendering: auto;
 				    -webkit-font-smoothing: antialiased;
 				    -moz-osx-font-smoothing: grayscale;
@@ -826,7 +826,7 @@ body {
 
 					&:before {
 						content: "\e5d2";
-						font-family: Astra;
+						font-family: Kanga;
 						font-size: 1.25em;
 						line-height: 1;
 						vertical-align: middle;
@@ -886,7 +886,7 @@ body {
 
 					&:before {
 						content: "\e5d2";
-						font-family: Astra;
+						font-family: Kanga;
 						font-size: 1.25em;
 						line-height: 1;
 						vertical-align: middle;

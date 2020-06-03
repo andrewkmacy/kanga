@@ -1,32 +1,32 @@
 <?php
 /**
- * Heading Colors Options for Astra theme.
+ * Heading Colors Options for Kanga theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 2.1.4
+ * @since       Kanga 2.1.4
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Heading_Colors_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Heading_Colors_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Heading_Colors_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
-		 * Register Astra Heading Colors Settings.
+		 * Register Kanga Heading Colors Settings.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 2.1.4
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 18,
 					'name'      => ASTRA_THEME_SETTINGS . '[heading-base-color]',
-					'title'     => __( 'Heading Color ( H1 - H6 )', 'astra' ),
+					'title'     => __( 'Heading Color ( H1 - H6 )', 'kanga' ),
 					'section'   => 'section-colors-body',
 				),
 
@@ -56,8 +56,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
-					'default'   => astra_get_option( 'font-family-h1' ),
-					'title'     => __( 'Family', 'astra' ),
+					'default'   => kanga_get_option( 'font-family-h1' ),
+					'title'     => __( 'Family', 'kanga' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 5,
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-h1]',
@@ -72,9 +72,9 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'font-weight-h1' ),
+					'title'             => __( 'Weight', 'kanga' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => kanga_get_option( 'font-weight-h1' ),
 					'section'           => 'section-content-typo',
 					'priority'          => 7,
 					'connect'           => ASTRA_THEME_SETTINGS . '[font-family-h1]',
@@ -87,17 +87,17 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[text-transform-h1]',
 					'section'   => 'section-content-typo',
-					'default'   => astra_get_option( 'text-transform-h1' ),
-					'title'     => __( 'Text Transform', 'astra' ),
+					'default'   => kanga_get_option( 'text-transform-h1' ),
+					'title'     => __( 'Text Transform', 'kanga' ),
 					'type'      => 'control',
 					'control'   => 'select',
 					'priority'  => 8,
 					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
+						''           => __( 'Inherit', 'kanga' ),
+						'none'       => __( 'None', 'kanga' ),
+						'capitalize' => __( 'Capitalize', 'kanga' ),
+						'uppercase'  => __( 'Uppercase', 'kanga' ),
+						'lowercase'  => __( 'Lowercase', 'kanga' ),
 					),
 					'transport' => 'postMessage',
 				),
@@ -109,10 +109,10 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'name'              => ASTRA_THEME_SETTINGS . '[line-height-h1]',
 					'section'           => 'section-content-typo',
 					'default'           => '',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'type'              => 'control',
 					'control'           => 'ast-slider',
-					'title'             => __( 'Line Height', 'astra' ),
+					'title'             => __( 'Line Height', 'kanga' ),
 					'transport'         => 'postMessage',
 					'priority'          => 8,
 					'suffix'            => '',
@@ -132,8 +132,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra' ),
-					'default'   => astra_get_option( 'font-family-h2' ),
+					'title'     => __( 'Family', 'kanga' ),
+					'default'   => kanga_get_option( 'font-family-h2' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 10,
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-h2]',
@@ -148,10 +148,10 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra' ),
+					'title'             => __( 'Weight', 'kanga' ),
 					'section'           => 'section-content-typo',
-					'default'           => astra_get_option( 'font-weight-h2' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => kanga_get_option( 'font-weight-h2' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_font_weight' ),
 					'priority'          => 12,
 					'connect'           => ASTRA_THEME_SETTINGS . '[font-family-h2]',
 					'transport'         => 'postMessage',
@@ -163,18 +163,18 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[text-transform-h2]',
 					'section'   => 'section-content-typo',
-					'default'   => astra_get_option( 'text-transform-h2' ),
-					'title'     => __( 'Text Transform', 'astra' ),
+					'default'   => kanga_get_option( 'text-transform-h2' ),
+					'title'     => __( 'Text Transform', 'kanga' ),
 					'type'      => 'control',
 					'control'   => 'select',
 					'transport' => 'postMessage',
 					'priority'  => 13,
 					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
+						''           => __( 'Inherit', 'kanga' ),
+						'none'       => __( 'None', 'kanga' ),
+						'capitalize' => __( 'Capitalize', 'kanga' ),
+						'uppercase'  => __( 'Uppercase', 'kanga' ),
+						'lowercase'  => __( 'Lowercase', 'kanga' ),
 					),
 					'transport' => 'postMessage',
 				),
@@ -189,9 +189,9 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-slider',
 					'default'           => '',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'transport'         => 'postMessage',
-					'title'             => __( 'Line Height', 'astra' ),
+					'title'             => __( 'Line Height', 'kanga' ),
 					'priority'          => 14,
 					'suffix'            => '',
 					'input_attrs'       => array(
@@ -210,8 +210,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'      => 'control',
 					'control'   => 'ast-font',
 					'font-type' => 'ast-font-family',
-					'default'   => astra_get_option( 'font-family-h3' ),
-					'title'     => __( 'Family', 'astra' ),
+					'default'   => kanga_get_option( 'font-family-h3' ),
+					'title'     => __( 'Family', 'kanga' ),
 					'section'   => 'section-content-typo',
 					'priority'  => 15,
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-h3]',
@@ -226,9 +226,9 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-font',
 					'font-type'         => 'ast-font-weight',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'font-weight-h3' ),
-					'title'             => __( 'Weight', 'astra' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => kanga_get_option( 'font-weight-h3' ),
+					'title'             => __( 'Weight', 'kanga' ),
 					'section'           => 'section-content-typo',
 					'priority'          => 17,
 					'connect'           => ASTRA_THEME_SETTINGS . '[font-family-h3]',
@@ -242,17 +242,17 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[text-transform-h3]',
 					'type'      => 'control',
 					'section'   => 'section-content-typo',
-					'title'     => __( 'Text Transform', 'astra' ),
-					'default'   => astra_get_option( 'text-transform-h3' ),
+					'title'     => __( 'Text Transform', 'kanga' ),
+					'default'   => kanga_get_option( 'text-transform-h3' ),
 					'transport' => 'postMessage',
 					'control'   => 'select',
 					'priority'  => 18,
 					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
+						''           => __( 'Inherit', 'kanga' ),
+						'none'       => __( 'None', 'kanga' ),
+						'capitalize' => __( 'Capitalize', 'kanga' ),
+						'uppercase'  => __( 'Uppercase', 'kanga' ),
+						'lowercase'  => __( 'Lowercase', 'kanga' ),
 					),
 					'transport' => 'postMessage',
 				),
@@ -265,10 +265,10 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'              => 'control',
 					'control'           => 'ast-slider',
 					'section'           => 'section-content-typo',
-					'title'             => __( 'Line Height', 'astra' ),
+					'title'             => __( 'Line Height', 'kanga' ),
 					'transport'         => 'postMessage',
 					'default'           => '',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
 					'priority'          => 19,
 					'suffix'            => '',
 					'input_attrs'       => array(
@@ -287,7 +287,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-buttons',
-					'title'    => __( 'Typography', 'astra' ),
+					'title'    => __( 'Typography', 'kanga' ),
 					'priority' => 25,
 					'settings' => array(),
 				),
@@ -297,10 +297,10 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'default'   => astra_get_option( 'button-text-typography' ),
+					'default'   => kanga_get_option( 'button-text-typography' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Button Text', 'astra' ),
+					'title'     => __( 'Button Text', 'kanga' ),
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 25,
@@ -316,8 +316,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'   => 'section-buttons',
 					'control'   => 'ast-font',
 					'font_type' => 'ast-font-family',
-					'title'     => __( 'Family', 'astra' ),
-					'default'   => astra_get_option( 'font-family-button' ),
+					'title'     => __( 'Family', 'kanga' ),
+					'default'   => kanga_get_option( 'font-family-button' ),
 					'connect'   => ASTRA_THEME_SETTINGS . '[font-weight-button]',
 					'priority'  => 1,
 				),
@@ -328,12 +328,12 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				array(
 					'name'        => 'font-size-button',
 					'transport'   => 'postMessage',
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Size', 'kanga' ),
 					'type'        => 'sub-control',
 					'parent'      => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'     => 'section-buttons',
 					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-button' ),
+					'default'     => kanga_get_option( 'font-size-button' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -353,9 +353,9 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'           => 'section-buttons',
 					'control'           => 'ast-font',
 					'font_type'         => 'ast-font-weight',
-					'title'             => __( 'Weight', 'astra' ),
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-					'default'           => astra_get_option( 'font-weight-button' ),
+					'title'             => __( 'Weight', 'kanga' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_font_weight' ),
+					'default'           => kanga_get_option( 'font-weight-button' ),
 					'connect'           => 'font-family-button',
 					'priority'          => 2,
 				),
@@ -366,19 +366,19 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 				array(
 					'name'      => 'text-transform-button',
 					'transport' => 'postMessage',
-					'default'   => astra_get_option( 'text-transform-button' ),
-					'title'     => __( 'Text Transform', 'astra' ),
+					'default'   => kanga_get_option( 'text-transform-button' ),
+					'title'     => __( 'Text Transform', 'kanga' ),
 					'type'      => 'sub-control',
 					'parent'    => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'   => 'section-buttons',
 					'control'   => 'ast-select',
 					'priority'  => 3,
 					'choices'   => array(
-						''           => __( 'Inherit', 'astra' ),
-						'none'       => __( 'None', 'astra' ),
-						'capitalize' => __( 'Capitalize', 'astra' ),
-						'uppercase'  => __( 'Uppercase', 'astra' ),
-						'lowercase'  => __( 'Lowercase', 'astra' ),
+						''           => __( 'Inherit', 'kanga' ),
+						'none'       => __( 'None', 'kanga' ),
+						'capitalize' => __( 'Capitalize', 'kanga' ),
+						'uppercase'  => __( 'Uppercase', 'kanga' ),
+						'lowercase'  => __( 'Lowercase', 'kanga' ),
 					),
 				),
 
@@ -390,11 +390,11 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'control'           => 'ast-slider',
 					'transport'         => 'postMessage',
 					'type'              => 'sub-control',
-					'default'           => astra_get_option( 'theme-btn-line-height' ),
+					'default'           => kanga_get_option( 'theme-btn-line-height' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'           => 'section-buttons',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Line Height', 'astra' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Line Height', 'kanga' ),
 					'suffix'            => '',
 					'priority'          => 4,
 					'input_attrs'       => array(
@@ -415,8 +415,8 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'default'           => '',
 					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
 					'section'           => 'section-buttons',
-					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
-					'title'             => __( 'Letter Spacing', 'astra' ),
+					'sanitize_callback' => array( 'Kanga_Customizer_Sanitizes', 'sanitize_number_n_blank' ),
+					'title'             => __( 'Letter Spacing', 'kanga' ),
 					'suffix'            => '',
 					'priority'          => 5,
 					'input_attrs'       => array(
@@ -434,4 +434,4 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 	}
 }
 
-new Astra_Heading_Colors_Configs();
+new Kanga_Heading_Colors_Configs();

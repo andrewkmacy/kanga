@@ -2,11 +2,11 @@
 /**
  * Override default customizer panels, sections, settings or controls.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -41,7 +41,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		array(
 			'selector'            => '.main-header-bar .site-title a,  .ast-small-footer-wrap .ast-footer-site-title',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Partials', 'render_partial_site_title' ),
+			'render_callback'     => array( 'Kanga_Customizer_Partials', 'render_partial_site_title' ),
 		)
 	);
 }
@@ -52,7 +52,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		array(
 			'selector'            => '.main-header-bar .site-description',
 			'container_inclusive' => false,
-			'render_callback'     => array( 'Astra_Customizer_Partials', 'render_partial_site_tagline' ),
+			'render_callback'     => array( 'Kanga_Customizer_Partials', 'render_partial_site_tagline' ),
 		)
 	);
 }

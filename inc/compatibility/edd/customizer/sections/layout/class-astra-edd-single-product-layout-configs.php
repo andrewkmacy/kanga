@@ -1,33 +1,33 @@
 <?php
 /**
- * Easy Digital Downloads Options for Astra Theme.
+ * Easy Digital Downloads Options for Kanga Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.5.5
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.5.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Edd_Single_Product_Layout_Configs' ) ) {
 
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Edd_Single_Product_Layout_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Edd_Single_Product_Layout_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-Easy Digital Downloads Shop Cart Layout Customizer Configurations.
+		 * Register Kanga-Easy Digital Downloads Shop Cart Layout Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.5.5
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -41,8 +41,8 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 					'section'  => 'section-edd-single',
 					'type'     => 'control',
 					'control'  => 'checkbox',
-					'default'  => astra_get_option( 'disable-edd-single-product-nav' ),
-					'title'    => __( 'Disable Product Navigation', 'astra' ),
+					'default'  => kanga_get_option( 'disable-edd-single-product-nav' ),
+					'title'    => __( 'Disable Product Navigation', 'kanga' ),
 					'priority' => 10,
 				),
 			);
@@ -52,4 +52,4 @@ if ( ! class_exists( 'Astra_Edd_Single_Product_Layout_Configs' ) ) {
 	}
 }
 
-new Astra_Edd_Single_Product_Layout_Configs();
+new Kanga_Edd_Single_Product_Layout_Configs();

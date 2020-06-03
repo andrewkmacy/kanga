@@ -35,5 +35,5 @@ assignees: 'shubhw12'
 ### WordPress version:
 <!-- What version of WordPress are you using? -->
 
-### Astra Theme version:
+### Kanga Theme version:
 <!-- if applicable -->

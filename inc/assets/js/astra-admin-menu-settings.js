@@ -7,7 +7,7 @@
 
 (function($){
 
-	AstraThemeAdmin = {
+	KangaThemeAdmin = {
 
 		init: function()
 		{
@@ -16,7 +16,7 @@
 
 
 		/**
-		 * Binds events for the Astra Theme.
+		 * Binds events for the Kanga Theme.
 		 *
 		 * @since 1.0.0
 		 * @access private
@@ -24,13 +24,13 @@
 		 */
 		_bind: function()
 		{
-			$( document ).on('ast-after-plugin-active', AstraThemeAdmin._disableActivcationNotice );
-			$( document ).on('click' , '.astra-install-recommended-plugin', AstraThemeAdmin._installNow );
-			$( document ).on('click' , '.astra-activate-recommended-plugin', AstraThemeAdmin._activatePlugin);
-			$( document ).on('click' , '.astra-deactivate-recommended-plugin', AstraThemeAdmin._deactivatePlugin);
-			$( document ).on('wp-plugin-install-success' , AstraThemeAdmin._activatePlugin);
-			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
-			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
+			$( document ).on('ast-after-plugin-active', KangaThemeAdmin._disableActivcationNotice );
+			$( document ).on('click' , '.kanga-install-recommended-plugin', KangaThemeAdmin._installNow );
+			$( document ).on('click' , '.kanga-activate-recommended-plugin', KangaThemeAdmin._activatePlugin);
+			$( document ).on('click' , '.kanga-deactivate-recommended-plugin', KangaThemeAdmin._deactivatePlugin);
+			$( document ).on('wp-plugin-install-success' , KangaThemeAdmin._activatePlugin);
+			$( document ).on('wp-plugin-install-error'   , KangaThemeAdmin._installError);
+			$( document ).on('wp-plugin-installing'      , KangaThemeAdmin._pluginInstalling);
 		},
 
 		/**
@@ -38,7 +38,7 @@
 		 */
 		_installError: function( event, response ) {
 
-			var $card = jQuery( '.astra-install-recommended-plugin' );
+			var $card = jQuery( '.kanga-install-recommended-plugin' );
 
 			$card
 				.removeClass( 'button-primary' )
@@ -54,8 +54,8 @@
 
 			var slug = args.slug;
 
-			var $card = jQuery( '.astra-install-recommended-plugin' );
-			var activatingText = astra.recommendedPluiginActivatingText;
+			var $card = jQuery( '.kanga-install-recommended-plugin' );
+			var activatingText = kanga.recommendedPluiginActivatingText;
 
 
 			$card.each(function( index, element ) {
@@ -80,7 +80,7 @@
 			var activatedSlug; 
 
 			if (typeof $init === 'undefined') {
-				var $message = jQuery('.astra-install-recommended-plugin[data-slug=' + response.slug + ']');
+				var $message = jQuery('.kanga-install-recommended-plugin[data-slug=' + response.slug + ']');
 				activatedSlug = response.slug;
 			} else {
 				activatedSlug = $init;
@@ -88,12 +88,12 @@
 
 			// Transform the 'Install' button into an 'Activate' button.
 			var $init = $message.data('init');
-			var activatingText = astra.recommendedPluiginActivatingText;
+			var activatingText = kanga.recommendedPluiginActivatingText;
 			var settingsLink = $message.data('settings-link');
-			var settingsLinkText = astra.recommendedPluiginSettingsText;
-			var deactivateText = astra.recommendedPluiginDeactivateText;
-			var astraSitesLink = astra.astraSitesLink;
-			var astraPluginRecommendedNonce = astra.astraPluginManagerNonce;
+			var settingsLinkText = kanga.recommendedPluiginSettingsText;
+			var deactivateText = kanga.recommendedPluiginDeactivateText;
+			var kangaSitesLink = kanga.kangaSitesLink;
+			var kangaPluginRecommendedNonce = kanga.kangaPluginManagerNonce;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
@@ -103,27 +103,27 @@
 			setTimeout( function() {
 
 				$.ajax({
-					url: astra.ajaxUrl,
+					url: kanga.ajaxUrl,
 					type: 'POST',
 					data: {
-						'action'            : 'astra-sites-plugin-activate',
-						'nonce'             : astraPluginRecommendedNonce,
+						'action'            : 'kanga-sites-plugin-activate',
+						'nonce'             : kangaPluginRecommendedNonce,
 						'init'              : $init,
 					},
 				})
 				.done(function (result) {
 
 					if( result.success ) {
-						var output  = '<a href="#" class="astra-deactivate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ deactivateText +'" aria-label="'+ deactivateText +'">'+ deactivateText +'</a>';
+						var output  = '<a href="#" class="kanga-deactivate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ deactivateText +'" aria-label="'+ deactivateText +'">'+ deactivateText +'</a>';
 							output += ( typeof settingsLink === 'string' && settingsLink != 'undefined' ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
 							output += ( typeof settingsLink === undefined && settingsLink != undefined ) ? '<a href="' + settingsLink +'" aria-label="'+ settingsLinkText +'">' + settingsLinkText +' </a>' : '';
 
-						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
+						$message.removeClass( 'kanga-activate-recommended-plugin kanga-install-recommended-plugin button button-primary install-now activate-now updating-message' );
 
-						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').addClass('active');
+						$message.parent('.ast-addon-link-wrapper').parent('.kanga-recommended-plugin').addClass('active');
 						$message.parents('.ast-addon-link-wrapper').html( output );
 
-						var starterSitesRedirectionUrl = astraSitesLink + result.data.starter_template_slug;
+						var starterSitesRedirectionUrl = kangaSitesLink + result.data.starter_template_slug;
 						jQuery(document).trigger( 'ast-after-plugin-active', [starterSitesRedirectionUrl, activatedSlug] );
 
 					} else {
@@ -149,15 +149,15 @@
 			var $init = $message.data('init');
 
 			if (typeof $init === 'undefined') {
-				var $message = jQuery('.astra-install-recommended-plugin[data-slug=' + response.slug + ']');
+				var $message = jQuery('.kanga-install-recommended-plugin[data-slug=' + response.slug + ']');
 			}
 
 			// Transform the 'Install' button into an 'Activate' button.
 			var $init = $message.data('init');
-			var deactivatingText = $message.data('deactivating-text') || astra.recommendedPluiginDeactivatingText;
+			var deactivatingText = $message.data('deactivating-text') || kanga.recommendedPluiginDeactivatingText;
 			var settingsLink = $message.data('settings-link');
-			var activateText = astra.recommendedPluiginActivateText;
-			var astraPluginRecommendedNonce = astra.astraPluginManagerNonce;
+			var activateText = kanga.recommendedPluiginActivateText;
+			var kangaPluginRecommendedNonce = kanga.kangaPluginManagerNonce;
 
 			$message.removeClass( 'install-now installed button-disabled updated-message' )
 				.addClass('updating-message')
@@ -167,21 +167,21 @@
 			setTimeout( function() {
 
 				$.ajax({
-					url: astra.ajaxUrl,
+					url: kanga.ajaxUrl,
 					type: 'POST',
 					data: {
-						'action'            : 'astra-sites-plugin-deactivate',
-						'nonce'             : astraPluginRecommendedNonce,
+						'action'            : 'kanga-sites-plugin-deactivate',
+						'nonce'             : kangaPluginRecommendedNonce,
 						'init'              : $init,
 					},
 				})
 				.done(function (result) {
 
 					if( result.success ) {
-						var output = '<a href="#" class="astra-activate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ activateText +'" aria-label="'+ activateText +'">'+ activateText +'</a>';
-						$message.removeClass( 'astra-activate-recommended-plugin astra-install-recommended-plugin button button-primary install-now activate-now updating-message' );
+						var output = '<a href="#" class="kanga-activate-recommended-plugin" data-init="'+ $init +'" data-settings-link="'+ settingsLink +'" data-settings-link-text="'+ activateText +'" aria-label="'+ activateText +'">'+ activateText +'</a>';
+						$message.removeClass( 'kanga-activate-recommended-plugin kanga-install-recommended-plugin button button-primary install-now activate-now updating-message' );
 
-						$message.parent('.ast-addon-link-wrapper').parent('.astra-recommended-plugin').removeClass('active');
+						$message.parent('.ast-addon-link-wrapper').parent('.kanga-recommended-plugin').removeClass('active');
 						
 						$message.parents('.ast-addon-link-wrapper').html( output );
 
@@ -215,11 +215,11 @@
 				wp.updates.requestFilesystemCredentials( event );
 
 				$document.on( 'credential-modal-cancel', function() {
-					var $message = $( '.astra-install-recommended-plugin.updating-message' );
+					var $message = $( '.kanga-install-recommended-plugin.updating-message' );
 
 					$message
-						.addClass('astra-activate-recommended-plugin')
-						.removeClass( 'updating-message astra-install-recommended-plugin' )
+						.addClass('kanga-activate-recommended-plugin')
+						.removeClass( 'updating-message kanga-install-recommended-plugin' )
 						.text( wp.updates.l10n.installNow );
 
 					wp.a11y.speak( wp.updates.l10n.updateCancel, 'polite' );
@@ -234,24 +234,24 @@
 		/**
 		 * After plugin active redirect and deactivate activation notice
 		 */
-		_disableActivcationNotice: function( event, astraSitesLink, activatedSlug )
+		_disableActivcationNotice: function( event, kangaSitesLink, activatedSlug )
 		{
 			event.preventDefault();
 
-			if ( activatedSlug.indexOf( 'astra-sites' ) >= 0 || activatedSlug.indexOf( 'astra-pro-sites' ) >= 0 ) {
-				if ( 'undefined' != typeof AstraNotices ) {
-			    	AstraNotices._ajax( 'astra-sites-on-active', '' );
+			if ( activatedSlug.indexOf( 'kanga-sites' ) >= 0 || activatedSlug.indexOf( 'kanga-pro-sites' ) >= 0 ) {
+				if ( 'undefined' != typeof KangaNotices ) {
+			    	KangaNotices._ajax( 'kanga-sites-on-active', '' );
 				}
-				window.location.href = astraSitesLink + '&ast-disable-activation-notice';
+				window.location.href = kangaSitesLink + '&ast-disable-activation-notice';
 			}
 		},
 	};
 
 	/**
-	 * Initialize AstraThemeAdmin
+	 * Initialize KangaThemeAdmin
 	 */
 	$(function(){
-		AstraThemeAdmin.init();
+		KangaThemeAdmin.init();
 	});
 
 })(jQuery);

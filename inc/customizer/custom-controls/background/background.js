@@ -144,11 +144,11 @@
 				control.container.find( '.background-wrapper > .background-attachment' ).hide();
 				
 				control.container.find( '.more-settings' ).attr('data-direction', 'down');
-				control.container.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+				control.container.find( '.more-settings' ).find('.message').html( kangaCustomizerControlBackground.moreSettings );
 				control.container.find( '.more-settings' ).find('.icon').html( '↓' );
 
 				if ( preview.length ) {
-					preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+					preview.removeClass().addClass( 'placeholder' ).html( kangaCustomizerControlBackground.placeholder );
 				}
 				if ( removeButton.length ) {
 					removeButton.hide();
@@ -165,11 +165,11 @@
 				if( 'down' === $(this).attr( 'data-direction' ) )
 				{
 					$(this).attr('data-direction', 'up');
-					$(this).find('.message').html( astraCustomizerControlBackground.lessSettings );
+					$(this).find('.message').html( kangaCustomizerControlBackground.lessSettings );
 					$(this).find('.icon').html( '↑' );
 				} else {
 					$(this).attr('data-direction', 'down');
-					$(this).find('.message').html( astraCustomizerControlBackground.moreSettings );
+					$(this).find('.message').html( kangaCustomizerControlBackground.moreSettings );
 					$(this).find('.icon').html( '↓' );
 				}
 			});

@@ -2,11 +2,11 @@
 /**
  * Schema markup.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 2.1.3
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 2.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra Schema Markup.
+ * Kanga Schema Markup.
  *
  * @since 2.1.3
  */
-class Astra_Schema {
+class Kanga_Schema {
 
 	/**
 	 * Constructor
@@ -42,14 +42,14 @@ class Astra_Schema {
 	 * @since 2.1.3
 	 */
 	private function include_schemas() {
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-creativework-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpheader-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpfooter-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-wpsidebar-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-person-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-organization-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-site-navigation-schema.php';
-		require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-breadcrumb-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-creativework-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-wpheader-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-wpfooter-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-wpsidebar-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-person-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-organization-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-site-navigation-schema.php';
+		require_once ASTRA_THEME_DIR . 'inc/schema/class-kanga-breadcrumb-schema.php';
 	}
 
 	/**
@@ -58,9 +58,9 @@ class Astra_Schema {
 	 * @since 2.1.3
 	 */
 	protected function schema_enabled() {
-		return apply_filters( 'astra_schema_enabled', true );
+		return apply_filters( 'kanga_schema_enabled', true );
 	}
 
 }
 
-new Astra_Schema();
+new Kanga_Schema();

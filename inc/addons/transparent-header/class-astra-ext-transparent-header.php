@@ -2,7 +2,7 @@
 /**
  * Sticky Header Extension
  *
- * @package Astra Addon
+ * @package Kanga Addon
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,14 +12,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'ASTRA_THEME_TRANSPARENT_HEADER_DIR', ASTRA_THEME_DIR . 'inc/addons/transparent-header/' );
 define( 'ASTRA_THEME_TRANSPARENT_HEADER_URI', ASTRA_THEME_URI . 'inc/addons/transparent-header/' );
 
-if ( ! class_exists( 'Astra_Ext_Transparent_Header' ) ) {
+if ( ! class_exists( 'Kanga_Ext_Transparent_Header' ) ) {
 
 	/**
 	 * Sticky Header Initial Setup
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ext_Transparent_Header {
+	class Kanga_Ext_Transparent_Header {
 
 		/**
 		 * Member Variable
@@ -43,8 +43,8 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header' ) ) {
 		 */
 		public function __construct() {
 
-			require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-astra-ext-transparent-header-loader.php';
-			require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-astra-ext-transparent-header-markup.php';
+			require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-kanga-ext-transparent-header-loader.php';
+			require_once ASTRA_THEME_TRANSPARENT_HEADER_DIR . 'classes/class-kanga-ext-transparent-header-markup.php';
 
 			// Include front end files.
 			if ( ! is_admin() ) {
@@ -57,6 +57,6 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header' ) ) {
 	/**
 	 *  Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_Ext_Transparent_Header::get_instance();
+	Kanga_Ext_Transparent_Header::get_instance();
 
 }

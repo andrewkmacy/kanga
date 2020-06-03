@@ -288,7 +288,7 @@ input[type="text"].select2-search__field {
 /* Safari Browser specific CSS */
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
-    #customize-control-astra-settings-ast-header-responsive-logo-width .wrapper {
+    #customize-control-kanga-settings-ast-header-responsive-logo-width .wrapper {
       display: inline-block;
       width: 100%;
     }
@@ -314,7 +314,7 @@ input[type="text"].select2-search__field {
   .control-section.open .customize-control:last-child {
     padding-bottom: 20px;
   }
-  #customize-control-astra-settings-blog-archive-image-width .customize-control-title, #customize-control-astra-settings-blog-archive-image-height .customize-control-title, #customize-control-astra-settings-blog-single-post-image-width .customize-control-title, #customize-control-astra-settings-blog-single-post-image-height .customize-control-title {
+  #customize-control-kanga-settings-blog-archive-image-width .customize-control-title, #customize-control-kanga-settings-blog-archive-image-height .customize-control-title, #customize-control-kanga-settings-blog-single-post-image-width .customize-control-title, #customize-control-kanga-settings-blog-single-post-image-height .customize-control-title {
     margin-left: 0px;
     margin-right: 20px;
   }
@@ -464,14 +464,14 @@ input[type="text"].select2-search__field {
   height: 49px;
 }
 
-#customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-header-main-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-below-header-menu-align .ast-radio-img-svg svg {
+#customize-control-kanga-settings-above-header-menu-align .ast-radio-img-svg svg,
+#customize-control-kanga-settings-header-main-menu-align .ast-radio-img-svg svg,
+#customize-control-kanga-settings-below-header-menu-align .ast-radio-img-svg svg {
   width: 37px;
   height: 49px;
 }
 
-#customize-control-astra-settings-footer-adv .image label {
+#customize-control-kanga-settings-footer-adv .image label {
   margin-bottom: 12px;
 }
 
@@ -659,7 +659,7 @@ input[type="text"].select2-search__field {
   display: none;
 }
 
-.customize-control-ast-responsive-slider .astra_range_value {
+.customize-control-ast-responsive-slider .kanga_range_value {
   font-size: 14px;
   padding: 0 0 0 5px;
   font-weight: 400;
@@ -689,14 +689,14 @@ input[type="text"].select2-search__field {
   color: red;
 }
 
-.astra_range_value input.ast-responsive-range-value-input {
+.kanga_range_value input.ast-responsive-range-value-input {
   width: 50px;
   height: 22px;
   font-size: 12px;
   padding: 3px;
 }
 
-.astra_range_value .ast-range-unit {
+.kanga_range_value .ast-range-unit {
   margin-left: 5px;
 }
 
@@ -965,15 +965,15 @@ input[type="text"].select2-search__field {
   display: inline-block;
 }
 
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
+#customize-control-kanga-settings-font-size-body.customize-control-ast-responsive .input-wrapper {
   display: inline-block;
 }
 
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
+#customize-control-kanga-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-select {
   display: none;
 }
 
-#customize-control-astra-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
+#customize-control-kanga-settings-font-size-body.customize-control-ast-responsive .input-wrapper .ast-responsive-input {
   width: 100%;
 }
 
@@ -1279,7 +1279,7 @@ input[type="text"].select2-search__field {
   display: none;
 }
 
-.customize-control-ast-slider .astra_range_value {
+.customize-control-ast-slider .kanga_range_value {
   font-size: 14px;
   padding: 0 0 0 5px;
   font-weight: 400;
@@ -1310,14 +1310,14 @@ input[type="text"].select2-search__field {
   color: red;
 }
 
-.astra_range_value input.ast-range-value-input {
+.kanga_range_value input.ast-range-value-input {
   width: 50px;
   height: 22px;
   font-size: 12px;
   padding: 3px;
 }
 
-.astra_range_value .ast-range-unit {
+.kanga_range_value .ast-range-unit {
   margin-left: 5px;
 }
 

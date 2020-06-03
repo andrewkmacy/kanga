@@ -2,31 +2,31 @@
 /**
  * Register customizer panels & sections.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Register_Sections_Panels' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Customizer_Register_Sections_Panels extends Astra_Customizer_Config_Base {
+	class Kanga_Customizer_Register_Sections_Panels extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Panels and Sections for Customizer.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -40,30 +40,30 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'panel-global',
 					'type'     => 'panel',
 					'priority' => 10,
-					'title'    => __( 'Global', 'astra' ),
+					'title'    => __( 'Global', 'kanga' ),
 				),
 
 				array(
 					'name'               => 'section-container-layout',
 					'type'               => 'section',
 					'priority'           => 17,
-					'title'              => __( 'Container', 'astra' ),
+					'title'              => __( 'Container', 'kanga' ),
 					'panel'              => 'panel-global',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Site Layout Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Site Layout Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/site-layout-overview/', 'customizer', 'site-layout', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/site-layout-overview/', 'customizer', 'site-layout', 'helpful-information' ),
 									),
 								),
 								array(
-									'text'  => __( 'Container Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Container Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/container-overview/', 'customizer', 'container', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/container-overview/', 'customizer', 'container', 'helpful-information' ),
 									),
 								),
 							),
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'panel-header-group',
 					'type'     => 'panel',
 					'priority' => 20,
-					'title'    => __( 'Header', 'astra' ),
+					'title'    => __( 'Header', 'kanga' ),
 				),
 
 				/*
@@ -92,17 +92,17 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'               => 'title_tagline',
 					'type'               => 'section',
 					'priority'           => 5,
-					'title'              => __( 'Site Identity', 'astra' ),
+					'title'              => __( 'Site Identity', 'kanga' ),
 					'panel'              => 'panel-header-group',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Site Identity Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Site Identity Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/site-identity-free/', 'customizer', 'site-identity', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/site-identity-free/', 'customizer', 'site-identity', 'helpful-information' ),
 									),
 								),
 							),
@@ -119,17 +119,17 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'               => 'section-header',
 					'type'               => 'section',
 					'priority'           => 15,
-					'title'              => __( 'Primary Header', 'astra' ),
+					'title'              => __( 'Primary Header', 'kanga' ),
 					'panel'              => 'panel-header-group',
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Primary Header Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Primary Header Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/header-overview/', 'customizer', 'primary-header', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/header-overview/', 'customizer', 'primary-header', 'helpful-information' ),
 									),
 								),
 							),
@@ -141,13 +141,13 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-primary-menu',
 					'type'     => 'section',
 					'priority' => 15,
-					'title'    => __( 'Primary Menu', 'astra' ),
+					'title'    => __( 'Primary Menu', 'kanga' ),
 					'panel'    => 'panel-header-group',
 				),
 				array(
 					'name'     => 'section-footer-group',
 					'type'     => 'section',
-					'title'    => __( 'Footer', 'astra' ),
+					'title'    => __( 'Footer', 'kanga' ),
 					'priority' => 55,
 				),
 
@@ -155,7 +155,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'             => 'section-separator',
 					'type'             => 'section',
 					'priority'         => 70,
-					'section_callback' => 'Astra_WP_Customize_Separator',
+					'section_callback' => 'Kanga_WP_Customize_Separator',
 				),
 
 				/**
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-footer-adv',
 					'type'     => 'section',
-					'title'    => __( 'Footer Widgets', 'astra' ),
+					'title'    => __( 'Footer Widgets', 'kanga' ),
 					'section'  => 'section-footer-group',
 					'priority' => 5,
 				),
@@ -173,18 +173,18 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-footer-small',
 					'type'               => 'section',
-					'title'              => __( 'Footer Bar', 'astra' ),
+					'title'              => __( 'Footer Bar', 'kanga' ),
 					'section'            => 'section-footer-group',
 					'priority'           => 10,
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Footer Bar Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Footer Bar Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/footer-bar/', 'customizer', 'footer-bar', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/footer-bar/', 'customizer', 'footer-bar', 'helpful-information' ),
 									),
 								),
 							),
@@ -196,20 +196,20 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-blog-group',
 					'type'     => 'section',
 					'priority' => 40,
-					'title'    => __( 'Blog', 'astra' ),
+					'title'    => __( 'Blog', 'kanga' ),
 				),
 				array(
 					'name'     => 'section-blog',
 					'type'     => 'section',
 					'priority' => 5,
-					'title'    => __( 'Blog / Archive', 'astra' ),
+					'title'    => __( 'Blog / Archive', 'kanga' ),
 					'section'  => 'section-blog-group',
 				),
 				array(
 					'name'     => 'section-blog-single',
 					'type'     => 'section',
 					'priority' => 10,
-					'title'    => __( 'Single Post', 'astra' ),
+					'title'    => __( 'Single Post', 'kanga' ),
 					'section'  => 'section-blog-group',
 				),
 
@@ -217,16 +217,16 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'               => 'section-sidebars',
 					'type'               => 'section',
 					'priority'           => 50,
-					'title'              => __( 'Sidebar', 'astra' ),
+					'title'              => __( 'Sidebar', 'kanga' ),
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Sidebar Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Sidebar Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/sidebar-free/', 'customizer', 'sidebar', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/sidebar-free/', 'customizer', 'sidebar', 'helpful-information' ),
 									),
 								),
 							),
@@ -241,16 +241,16 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'               => 'section-colors-background',
 					'type'               => 'section',
 					'priority'           => 16,
-					'title'              => __( 'Colors', 'astra' ),
+					'title'              => __( 'Colors', 'kanga' ),
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Colors & Background Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Colors & Background Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/colors-background/', 'customizer', 'colors-background', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/colors-background/', 'customizer', 'colors-background', 'helpful-information' ),
 									),
 								),
 							),
@@ -262,7 +262,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-colors-body',
 					'type'     => 'section',
-					'title'    => __( 'Base Colors', 'astra' ),
+					'title'    => __( 'Base Colors', 'kanga' ),
 					'panel'    => 'panel-global',
 					'priority' => 1,
 					'section'  => 'section-colors-background',
@@ -271,7 +271,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-footer-adv-color-bg',
 					'type'     => 'section',
-					'title'    => __( 'Footer Widgets', 'astra' ),
+					'title'    => __( 'Footer Widgets', 'kanga' ),
 					'panel'    => 'panel-colors-background',
 					'priority' => 55,
 				),
@@ -282,17 +282,17 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'               => 'section-typography',
 					'type'               => 'section',
-					'title'              => __( 'Typography', 'astra' ),
+					'title'              => __( 'Typography', 'kanga' ),
 					'priority'           => 15,
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Typography Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Typography Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/typography-free/', 'customizer', 'typography', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/typography-free/', 'customizer', 'typography', 'helpful-information' ),
 									),
 								),
 							),
@@ -304,7 +304,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-body-typo',
 					'type'     => 'section',
-					'title'    => __( 'Base Typography', 'astra' ),
+					'title'    => __( 'Base Typography', 'kanga' ),
 					'section'  => 'section-typography',
 					'priority' => 1,
 					'panel'    => 'panel-global',
@@ -313,7 +313,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				array(
 					'name'     => 'section-content-typo',
 					'type'     => 'section',
-					'title'    => __( 'Headings', 'astra' ),
+					'title'    => __( 'Headings', 'kanga' ),
 					'section'  => 'section-typography',
 					'priority' => 35,
 					'panel'    => 'panel-global',
@@ -326,7 +326,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-buttons',
 					'type'     => 'section',
 					'priority' => 50,
-					'title'    => __( 'Buttons', 'astra' ),
+					'title'    => __( 'Buttons', 'kanga' ),
 					'panel'    => 'panel-global',
 				),
 
@@ -337,7 +337,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-header-button',
 					'type'     => 'section',
 					'priority' => 10,
-					'title'    => __( 'Header Button', 'astra' ),
+					'title'    => __( 'Header Button', 'kanga' ),
 					'section'  => 'section-buttons',
 				),
 
@@ -348,7 +348,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-header-button-default',
 					'type'     => 'section',
 					'priority' => 10,
-					'title'    => __( 'Primary Header Button', 'astra' ),
+					'title'    => __( 'Primary Header Button', 'kanga' ),
 					'section'  => 'section-header-button',
 				),
 
@@ -359,7 +359,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-header-button-transparent',
 					'type'     => 'section',
 					'priority' => 10,
-					'title'    => __( 'Transparent Header Button', 'astra' ),
+					'title'    => __( 'Transparent Header Button', 'kanga' ),
 					'section'  => 'section-header-button',
 				),
 
@@ -370,7 +370,7 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'name'     => 'section-widget-areas',
 					'type'     => 'section',
 					'priority' => 55,
-					'title'    => __( 'Widget Areas', 'astra' ),
+					'title'    => __( 'Widget Areas', 'kanga' ),
 				),
 
 			);
@@ -384,4 +384,4 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Register_Sections_Panels();
+new Kanga_Customizer_Register_Sections_Panels();

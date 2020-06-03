@@ -2,11 +2,11 @@
 /**
  * Schema markup.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 2.1.3
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 2.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra CreativeWork Schema Markup.
+ * Kanga CreativeWork Schema Markup.
  *
  * @since 2.1.3
  */
-class Astra_CreativeWork_Schema extends Astra_Schema {
+class Kanga_CreativeWork_Schema extends Kanga_Schema {
 
 	/**
 	 * Setup schema
@@ -31,23 +31,23 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 			return false;
 		}
 
-		add_filter( 'astra_attr_article-blog', array( $this, 'creative_work_schema' ) );
-		add_filter( 'astra_attr_article-page', array( $this, 'creative_work_schema' ) );
-		add_filter( 'astra_attr_article-single', array( $this, 'creative_work_schema' ) );
-		add_filter( 'astra_attr_article-content', array( $this, 'creative_work_schema' ) );
-		add_filter( 'astra_attr_article-title-blog', array( $this, 'article_title_blog_schema_prop' ) );
-		add_filter( 'astra_attr_article-title-blog-single', array( $this, 'article_title_blog_single_schema_prop' ) );
-		add_filter( 'astra_attr_article-title-content-page', array( $this, 'article_title_content_page_schema_prop' ) );
-		add_filter( 'astra_attr_article-title-content', array( $this, 'article_title_content_schema_prop' ) );
-		add_filter( 'astra_attr_article-entry-content-blog-layout', array( $this, 'article_content_blog_layout_schema_prop' ) );
-		add_filter( 'astra_attr_article-entry-content-page', array( $this, 'article_content_page_schema_prop' ) );
-		add_filter( 'astra_attr_article-entry-content', array( $this, 'article_content_schema_prop' ) );
-		add_filter( 'astra_attr_article-entry-content-blog-layout-2', array( $this, 'article_content_blog_layout_2_schema_prop' ) );
-		add_filter( 'astra_attr_article-entry-content-blog-layout-3', array( $this, 'article_content_blog_layout_3_schema_prop' ) );
-		add_filter( 'astra_attr_article-entry-content-single-layout', array( $this, 'article_content_single_layout_schema_prop' ) );
-		add_filter( 'astra_post_thumbnail_itemprop', array( $this, 'article_image_schema_prop' ) );
-		add_filter( 'astra_attr_article-image-blog-archive', array( $this, 'article_image_blog_archive_schema_prop' ) );
-		add_filter( 'astra_attr_article-image-blog-single-post', array( $this, 'article_image_blog_single_post_schema_prop' ) );
+		add_filter( 'kanga_attr_article-blog', array( $this, 'creative_work_schema' ) );
+		add_filter( 'kanga_attr_article-page', array( $this, 'creative_work_schema' ) );
+		add_filter( 'kanga_attr_article-single', array( $this, 'creative_work_schema' ) );
+		add_filter( 'kanga_attr_article-content', array( $this, 'creative_work_schema' ) );
+		add_filter( 'kanga_attr_article-title-blog', array( $this, 'article_title_blog_schema_prop' ) );
+		add_filter( 'kanga_attr_article-title-blog-single', array( $this, 'article_title_blog_single_schema_prop' ) );
+		add_filter( 'kanga_attr_article-title-content-page', array( $this, 'article_title_content_page_schema_prop' ) );
+		add_filter( 'kanga_attr_article-title-content', array( $this, 'article_title_content_schema_prop' ) );
+		add_filter( 'kanga_attr_article-entry-content-blog-layout', array( $this, 'article_content_blog_layout_schema_prop' ) );
+		add_filter( 'kanga_attr_article-entry-content-page', array( $this, 'article_content_page_schema_prop' ) );
+		add_filter( 'kanga_attr_article-entry-content', array( $this, 'article_content_schema_prop' ) );
+		add_filter( 'kanga_attr_article-entry-content-blog-layout-2', array( $this, 'article_content_blog_layout_2_schema_prop' ) );
+		add_filter( 'kanga_attr_article-entry-content-blog-layout-3', array( $this, 'article_content_blog_layout_3_schema_prop' ) );
+		add_filter( 'kanga_attr_article-entry-content-single-layout', array( $this, 'article_content_single_layout_schema_prop' ) );
+		add_filter( 'kanga_post_thumbnail_itemprop', array( $this, 'article_image_schema_prop' ) );
+		add_filter( 'kanga_attr_article-image-blog-archive', array( $this, 'article_image_blog_archive_schema_prop' ) );
+		add_filter( 'kanga_attr_article-image-blog-single-post', array( $this, 'article_image_blog_single_post_schema_prop' ) );
 	}
 
 	/**
@@ -239,9 +239,9 @@ class Astra_CreativeWork_Schema extends Astra_Schema {
 	 * @since 2.1.3
 	 */
 	protected function schema_enabled() {
-		return apply_filters( 'astra_creativework_schema_enabled', parent::schema_enabled() );
+		return apply_filters( 'kanga_creativework_schema_enabled', parent::schema_enabled() );
 	}
 
 }
 
-new Astra_CreativeWork_Schema();
+new Kanga_CreativeWork_Schema();

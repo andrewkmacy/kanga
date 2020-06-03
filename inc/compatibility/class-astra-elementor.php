@@ -2,7 +2,7 @@
 /**
  * Elementor Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 namespace Elementor;
@@ -13,16 +13,16 @@ if ( ! class_exists( '\Elementor\Plugin' ) ) {
 }
 
 /**
- * Astra Elementor Compatibility
+ * Kanga Elementor Compatibility
  */
-if ( ! class_exists( 'Astra_Elementor' ) ) :
+if ( ! class_exists( 'Kanga_Elementor' ) ) :
 
 	/**
-	 * Astra Elementor Compatibility
+	 * Kanga Elementor Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Elementor {
+	class Kanga_Elementor {
 
 		/**
 		 * Member Variable
@@ -87,7 +87,7 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 		 */
 		public function elementor_default_setting() {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false == kanga_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 
@@ -97,14 +97,14 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 			}
 
 			global $post;
-			$id = astra_get_post_id();
+			$id = kanga_get_post_id();
 
-			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$page_builder_flag = get_post_meta( $id, '_kanga_content_layout_flag', true );
 			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
 				if ( empty( $post->post_content ) && $this->is_elementor_activated( $id ) ) {
 
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kanga_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'ast-featured-img', 'disabled' );
@@ -121,21 +121,21 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 
 					// In the preview mode, Apply the layouts using filters for Elementor Template Library.
 					add_filter(
-						'astra_page_layout',
+						'kanga_page_layout',
 						function() {
 							return 'no-sidebar';
 						}
 					);
 
 					add_filter(
-						'astra_get_content_layout',
+						'kanga_get_content_layout',
 						function () {
 							return 'page-builder';
 						}
 					);
 
-					add_filter( 'astra_the_post_title_enabled', '__return_false' );
-					add_filter( 'astra_featured_image_enabled', '__return_false' );
+					add_filter( 'kanga_the_post_title_enabled', '__return_false' );
+					add_filter( 'kanga_featured_image_enabled', '__return_false' );
 				}
 			}
 		}
@@ -199,4 +199,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Elementor::get_instance();
+Kanga_Elementor::get_instance();

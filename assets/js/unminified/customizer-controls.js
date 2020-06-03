@@ -1,7 +1,7 @@
 /**
  * Customizer controls
  *
- * @package Astra
+ * @package Kanga
  */
 
 ( function( $ ) {
@@ -42,7 +42,7 @@
 		{
 
 			// Trigger the Adv Tab Click trigger.
-			ASTControlTrigger.triggerHook( 'astra-toggle-control', api );
+			ASTControlTrigger.triggerHook( 'kanga-toggle-control', api );
 
 			// Loop through each setting.
 			$.each( ASTCustomizerToggles, function( settingId, toggles ) {
@@ -84,8 +84,8 @@
 
 
 ( function( api ) {
-    // Extends our custom astra-pro section.
-    api.sectionConstructor['astra-pro'] = api.Section.extend( {
+    // Extends our custom kanga-pro section.
+    api.sectionConstructor['kanga-pro'] = api.Section.extend( {
         // No events for this type of section.
         attachEvents: function () {},
         // Always make the section active.

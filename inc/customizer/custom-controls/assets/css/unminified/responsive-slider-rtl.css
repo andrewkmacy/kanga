@@ -84,7 +84,7 @@
   display: none;
 }
 
-.customize-control-ast-responsive-slider .astra_range_value {
+.customize-control-ast-responsive-slider .kanga_range_value {
   font-size: 14px;
   padding: 0 5px 0 0;
   font-weight: 400;
@@ -114,14 +114,14 @@
   color: red;
 }
 
-.astra_range_value input.ast-responsive-range-value-input {
+.kanga_range_value input.ast-responsive-range-value-input {
   width: 50px;
   height: 22px;
   font-size: 12px;
   padding: 3px;
 }
 
-.astra_range_value .ast-range-unit {
+.kanga_range_value .ast-range-unit {
   margin-right: 5px;
 }
 

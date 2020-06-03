@@ -2,15 +2,15 @@
 /**
  * Yoast SEO Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 /**
- * Astra Yoast SEO Compatibility
+ * Kanga Yoast SEO Compatibility
  *
  * @since 2.1.2
  */
-class Astra_Yoast_SEO {
+class Kanga_Yoast_SEO {
 
 	/**
 	 * Constructor
@@ -27,7 +27,7 @@ class Astra_Yoast_SEO {
 	 * @since 2.1.2
 	 */
 	public function sitemap_exclude_post_type( $value, $post_type ) {
-		if ( 'astra-advanced-hook' === $post_type ) {
+		if ( 'kanga-advanced-hook' === $post_type ) {
 			return true;
 		}
 	}
@@ -37,4 +37,4 @@ class Astra_Yoast_SEO {
 /**
  * Kicking this off by object
  */
-new Astra_Yoast_SEO();
+new Kanga_Yoast_SEO();

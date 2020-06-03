@@ -1,32 +1,32 @@
 <?php
 /**
- * Styling Options for Astra Theme.
+ * Styling Options for Kanga Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.15
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.15
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Archive_Typo_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Archive_Typo_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Archive_Typo_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Archive Typography Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -40,7 +40,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-blog',
-					'title'    => __( 'Typography', 'astra' ),
+					'title'    => __( 'Typography', 'kanga' ),
 					'priority' => 135,
 					'settings' => array(),
 				),
@@ -50,10 +50,10 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-archive-summary-typo]',
-					'default'   => astra_get_option( 'blog-content-archive-summary-typo' ),
+					'default'   => kanga_get_option( 'blog-content-archive-summary-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Archive Title', 'astra' ),
+					'title'     => __( 'Archive Title', 'kanga' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 140,
@@ -61,10 +61,10 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[blog-content-blog-post-title-typo]',
-					'default'   => astra_get_option( 'blog-content-blog-post-title-typo' ),
+					'default'   => kanga_get_option( 'blog-content-blog-post-title-typo' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Post Title', 'astra' ),
+					'title'     => __( 'Post Title', 'kanga' ),
 					'section'   => 'section-blog',
 					'transport' => 'postMessage',
 					'priority'  => 140,
@@ -81,8 +81,8 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',
 					'priority'    => 2,
-					'default'     => astra_get_option( 'font-size-page-title' ),
-					'title'       => __( 'Size', 'astra' ),
+					'default'     => kanga_get_option( 'font-size-page-title' ),
+					'title'       => __( 'Size', 'kanga' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -102,9 +102,9 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 					'type'        => 'sub-control',
 					'control'     => 'ast-responsive',
 					'transport'   => 'postMessage',
-					'default'     => astra_get_option( 'font-size-archive-summary-title' ),
+					'default'     => kanga_get_option( 'font-size-archive-summary-title' ),
 					'priority'    => 8,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Size', 'kanga' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -117,7 +117,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 
 			$configurations = array_merge( $configurations, $_configs );
 
-			// Learn More link if Astra Pro is not activated.
+			// Learn More link if Kanga Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 				$_configs = array(
@@ -144,7 +144,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 						'section'  => 'section-blog',
 						'priority' => 999,
 						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Kanga Pro!', 'kanga' ) . '</p><a href="' . kanga_get_pro_url( 'https://wpkanga.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kanga' ) . '</a>',
 						'settings' => array(),
 					),
 				);
@@ -157,6 +157,6 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 	}
 }
 
-new Astra_Archive_Typo_Configs();
+new Kanga_Archive_Typo_Configs();
 
 

@@ -32,8 +32,8 @@ v2.4.1
 - Fix: Updated the theme screenshot and added license information for the images used in the screenshot.
 
 v2.4.0
-- New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpastra.com/docs/set-update-breakpoints-tablet-mobile-in-astra/ )
-- Improvement: Background color/image responsive param. ( https://wpastra.com/docs/how-to-set-background-image-for-the-site/ )
+- New: Filter to change default breakpoint of tablet & mobile devices. ( https://wpkanga.com/docs/set-update-breakpoints-tablet-mobile-in-kanga/ )
+- Improvement: Background color/image responsive param. ( https://wpkanga.com/docs/how-to-set-background-image-for-the-site/ )
 - Improvement: Updated admin Starter Templates plugin's informative strings.
 - Improvement: Addon minimum version notice is now dismissible.
 - Fix: Global button Color and Background Color options not working with Gutenberg button.
@@ -44,7 +44,7 @@ v2.3.5
 - Fix: WordPress 5.4 compatibility with Gutenberg Editor.
 
 v2.3.4
-- Fix: Lightning icon not appearing on astra options page.
+- Fix: Lightning icon not appearing on kanga options page.
 - Fix: Breadcrumb separator appearing as HTML entity for new users.
 
 v2.3.3
@@ -67,18 +67,18 @@ v2.3.1
 - Fix: Theme minimum version notice appearing in some cases even after theme is updated.
 
 v2.3.0
-- New: Options for Header Button - Open link in New Tab, add rel attribute. ( https://wpastra.com/docs/new-button-options-in-astra-theme/ )
+- New: Options for Header Button - Open link in New Tab, add rel attribute. ( https://wpkanga.com/docs/new-button-options-in-kanga-theme/ )
 - Improvement: Hardened the security of theme.
 - Improvement: Compatibility with latest WordPress PHP_CodeSniffer rules.
-- Improvement: Filter to remove featured image link on blog page. ( https://wpastra.com/docs/remove-featured-image-link-on-blog-page/ )
+- Improvement: Filter to remove featured image link on blog page. ( https://wpkanga.com/docs/remove-featured-image-link-on-blog-page/ )
 - Improvement: Added Fallback for database migration for some edge cases and when CRON is disabled.
 - Fix: Protect theme button padding to be overridden by default values during update.
-- Fix: Breadcrumb customizer doc link fix. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/ )
+- Fix: Breadcrumb customizer doc link fix. ( https://wpkanga.com/docs/add-breadcrumbs-with-kanga/ )
 - Fix: W3C HTML validation header button ( Replaced button tag with div tag ).
 - Fix: Archive Description <p> tag missing - conflict with SEOPress.
 - Fix: Duplicate search with sticky header.
-- Fix: Breadcrumb compatibility with Yoast Seo 12.8.1. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
-- Fix: Comment and Search Button form compatibility with v2.2.0 button options. ( https://wpastra.com/docs/typography-module/#button )
+- Fix: Breadcrumb compatibility with Yoast Seo 12.8.1. ( https://wpkanga.com/docs/add-breadcrumbs-with-kanga/#support-for-third-party-plugins )
+- Fix: Comment and Search Button form compatibility with v2.2.0 button options. ( https://wpkanga.com/docs/typography-module/#button )
 
 v2.2.1
 - Fix: Mobile Menu toggle not working in some cases.
@@ -86,7 +86,7 @@ v2.2.1
 
 v2.2.0
 - New: Typography and color settings for Headings and Button.
-- New: Added button and heading compatibility with Page Builders ( https://wpastra.com/docs/new-features-in-astra-2-2/ ).
+- New: Added button and heading compatibility with Page Builders ( https://wpkanga.com/docs/new-features-in-kanga-2-2/ ).
 - New: Partial refresh for Site Title & Site Tagline in Customizer.
 - Improvement: Theme name updated in credit link text.
 - Fix: Footer text partial refresh.
@@ -95,7 +95,7 @@ v2.2.0
 - Fix: Breadcrumb schema before title error.
 - Fix: Breadcrumb text color not working.
 - Fix: Customizer WordPress 5.3 compatibility with width param.
-- Fix: Default icon CSS added for Astra Font family.
+- Fix: Default icon CSS added for Kanga Font family.
 - Fix: FullScreen menu with hash link click not closing the menu.
 - Fix: Brizy elements not editable when transparent header enabled.
 - Fix: Removed role attribute from header and footer tags for proper HTML validation.
@@ -107,15 +107,15 @@ v2.1.4
 - Improvement: Updated minimum required version of PHP on WordPress.org.
 
 v2.1.3
-- New: Introduced filter astra_blog_template_name for the overriding blog template.
-- Improvement: Filters to Disable Schema. ( https://wpastra.com/docs/disable-schema-markup/ )
+- New: Introduced filter kanga_blog_template_name for the overriding blog template.
+- Improvement: Filters to Disable Schema. ( https://wpkanga.com/docs/disable-schema-markup/ )
 - Fix: Align Full and Align Wide option not working correctly for Gallery and Table GB blocks in case of full width stretched and full width contained layout.
 - Fix: Added support for Gutenberg Group block, which will be introduced in WordPress 5.3 version.
 - Fix: Compatibility with WordPress 5.3.
 - Fix: Gutenberg editor block mover controls not visible in case of full width stretched layout.
 - Fix: Primary menu padding bug on the closing of the menu on mobile devices.
 - Fix: Hide last menu item not working on mobile device when Above or Below header menu is merged. 
-- Fix: Submenu not opening below the header. ( https://wpastra.com/docs/display-sub-menu-below-the-header/ )
+- Fix: Submenu not opening below the header. ( https://wpkanga.com/docs/display-sub-menu-below-the-header/ )
 - Fix: .hidden CSS class renamed to .ast-hidden class due to conflict with third-party plugins.
 - Fix: Full content displayed on the archive page for post format video, image, and attachment.
 - Fix: Fatal error when WordPress root directory does not have write access.
@@ -130,14 +130,14 @@ v2.1.2
 - Fix: Remove unwanted schema meta of comment from creative work schema. 
 - Fix: Transparent header style not working in a few scenarios.
 - Fix: Unwanted border appearing below header when the above header is active.
-- Fix: Upload Theme button not working when Astra Notice enabled.
+- Fix: Upload Theme button not working when Kanga Notice enabled.
 
 v2.1.1
 - Fix: HTML markup break errors users facing when minify HTML is enabled from a few caching plugins. 
 
 v2.1.0
-- New: Introduce filter `astra_get_pro_url`. 
-- New: New filter `astra_single_post_comment_time_enabled` to disable post comment time on single blog page. 
+- New: Introduce filter `kanga_get_pro_url`. 
+- New: New filter `kanga_single_post_comment_time_enabled` to disable post comment time on single blog page. 
 - Improvement: Redesign admin notices as per WordPress standards
 - Fix: Broken menu style on iOS safari browsers for version 11 or lower.  
 - Fix: JavaScript conflict with WP Google maps plugin. 
@@ -151,7 +151,7 @@ v2.1.0
 v2.0.1
 - Fix: JavaScript error causing customizer to not load for a few users due to conflict with some third-party plugins.
 - Fix: Do not load accessibility fix for skip link in AMP endpoint as it is included in the amphtml (props @amedina)
-- Fix: Rename function astra_is_emp_endpoint() to astra_is_amp_endpoint() and depracate astra_is_emp_endpoint() to fix the typo in the function name.  
+- Fix: Rename function kanga_is_emp_endpoint() to kanga_is_amp_endpoint() and depracate kanga_is_emp_endpoint() to fix the typo in the function name.  
 
 v2.0.0
 - Improvement: Loading combined CSS and JS file for params in the customizer.
@@ -169,14 +169,14 @@ v2.0.0
 - Fix: RTL fixes for customizer custom controls.
 
 v2.0.0-rc.1
-- Improvement: Improved logic that is used to save the values of options inside the new popups, Earlier all the values of options inside the popup were combined and stored in JSON objects now all the values inside the popup are stored separately similar to Astra Version 1.X.X. This removes the requirement of the Database Upgrade routine when updating from Version 1.X to 2.X
+- Improvement: Improved logic that is used to save the values of options inside the new popups, Earlier all the values of options inside the popup were combined and stored in JSON objects now all the values inside the popup are stored separately similar to Kanga Version 1.X.X. This removes the requirement of the Database Upgrade routine when updating from Version 1.X to 2.X
 - Improvement: Changed the images inside customizer to new lightweight SVGs.
 - Improvement: Updated minor UI tweaks for all the customizer controls to unify the design accross all the options.
 
 v2.0.0-beta.4
 - Improvement: Layout design images.
 - Improvement: Control Sequence in WooCommerce Single Product Section in the Customizer.
-- Improvement: Distinguish Astra Sections from Default Sections in the Customizer. 
+- Improvement: Distinguish Kanga Sections from Default Sections in the Customizer. 
 - Improvement: Option Labels in the Customizer. 
 - Fix: PHP Warning in the Customizer while Woocommerce is not Active.
 
@@ -203,22 +203,22 @@ v1.8.6
 - Improvement: Deprecated layout options for LearnDash 3.0 template.
 
 v1.8.5
-- New: Introduced astra_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpastra.com/docs/modify-font-display-property-value/ )
-- New: Filter to add a title tag to Header background image as an alt text alternative. ( https://wpastra.com/docs/title-tag-in-header-background-image/ )
-- New: Filter to change tag of Site Tagline Markup. ( https://wpastra.com/docs/change-html-tag-for-site-tagline/ )
+- New: Introduced kanga_fonts_display_property filter to allow users to modify the font-display property.  ( https://wpkanga.com/docs/modify-font-display-property-value/ )
+- New: Filter to add a title tag to Header background image as an alt text alternative. ( https://wpkanga.com/docs/title-tag-in-header-background-image/ )
+- New: Filter to change tag of Site Tagline Markup. ( https://wpkanga.com/docs/change-html-tag-for-site-tagline/ )
 - Fix: Elementor Products widget grid layout responsive design compatibility.
 - Fix: Notice for HTTP_USER_AGENT when it is not set or filtered from firewall.
 - Fix: Display rating notice only to users with permission to install plugins.
 
 v1.8.4
-- New: Introduced astra_the_title filter to allow users to modify the title.
+- New: Introduced kanga_the_title filter to allow users to modify the title.
 - Improvement: Add a font-display property for the Google Fonts.
 - Fix: Missing Inherit option added for breadcrumb typography.
 - Fix: WooCommerce Shop Page row column compatibility with Elementor.
 - Fix: Breadcrumb NavXT plugin schema data not correctly visible.
 
 v1.8.3
-- Improvement: Add a font-display property for the Astra Fonts.
+- Improvement: Add a font-display property for the Kanga Fonts.
 - Fix: Gutenberg separator visibility issue.
 - Fix: WCAG 2.0 Search icon link accessibility fix.
 - Fix: Breadcrumb schema last item id error.
@@ -232,12 +232,12 @@ v1.8.1
 - Fix: Breadcrumb link colors not working in the customizer preview.
 - Fix: Refactored some functions for breadcrumb.
 - Fix: Last menu item take complete header width when menu is disabled.
-- Fix: Astra's post classes conflict with Beaver Themer and Elementor Pro's Archive layouts.
+- Fix: Kanga's post classes conflict with Beaver Themer and Elementor Pro's Archive layouts.
 - Fix: When hash link clicked inside Below Header mobile menu, Above Header mobile menu & desktop Primary menu, the menu was not closing.
 
 v1.8.0
-- New: Breadcrumb customizer option. Read more about here - https://wpastra.com/docs/add-breadcrumbs-with-astra/
-- New: Action hooks - astra_before_archive_title, astra_after_archive_title, astra_after_archive_description, astra_header_markup_after, astra_header_markup_before.
+- New: Breadcrumb customizer option. Read more about here - https://wpkanga.com/docs/add-breadcrumbs-with-kanga/
+- New: Action hooks - kanga_before_archive_title, kanga_after_archive_title, kanga_after_archive_description, kanga_header_markup_after, kanga_header_markup_before.
 - Improvement: Remove body schema when using WooCommerce template.
 - Fix: WP Block pullquote border not visible issue. 
 - Fix: LearnDash: sortable/dragable elements unable to scroll the page.
@@ -258,26 +258,26 @@ v1.7.1
 - Fix: Margin from the title meta was removed if only the title is enabled from customizer.
 
 v1.7.0
-- New: Native AMP support from Astra Theme and Astra Pro. Read more about here - https://wpastra.com/astra-is-amp-ready/
-- Fix: Upload New Theme button not working when Astra Theme is activated.
+- New: Native AMP support from Kanga Theme and Kanga Pro. Read more about here - https://wpkanga.com/kanga-is-amp-ready/
+- Fix: Upload New Theme button not working when Kanga Theme is activated.
 - Fix: Gutenberg - Container color does not work on pages freshly created.
 - Fix: Block Quote border color issue in Gutenberg back end and front end.
 - Fix: Extra Padding bottom being applied to blog post meta even if it is disabled from post meta.
 
 v1.6.9
-- New: Filter to disable automatic logo resizing. (https://wpastra.com/docs/disable-logo-cropping/)
-- New: CSS class `ast-left-align-sub-menu` will change the direction navigation menu opens for all submenus. (https://wpastra.com/docs/change-the-direction-for-submenu-opening/)
+- New: Filter to disable automatic logo resizing. (https://wpkanga.com/docs/disable-logo-cropping/)
+- New: CSS class `ast-left-align-sub-menu` will change the direction navigation menu opens for all submenus. (https://wpkanga.com/docs/change-the-direction-for-submenu-opening/)
 - Improvement: Gutenberg - Body color not applied in the block editor when boxed layout or contained boxed layout.
-- Improvement: Correctly move hook `astra_head_bottom` to the very bottom of the <head> tag.
+- Improvement: Correctly move hook `kanga_head_bottom` to the very bottom of the <head> tag.
 - Fix: Transparent header logo not displayed on tablet screen sizes.
 - Fix: After changing a font in typography param it would stop previewing next fonts due to a JS error.
 
 v1.6.8
 - Fix: JS error appearing in FireFox browser which blocks opening navigation menus.
-- Fix: JS errors from Astra Pro for header-sections addon due to missing JS functions.
+- Fix: JS errors from Kanga Pro for header-sections addon due to missing JS functions.
 
 v1.6.7
-- Fix: JS Error - Uncaught TypeError: Cannot read property 'addEventListener' of undefined at AstraToggleSetup
+- Fix: JS Error - Uncaught TypeError: Cannot read property 'addEventListener' of undefined at KangaToggleSetup
 
 v1.6.6
 - Fix: JS infinite loop causing frontend to not load when the sticky header is enabled and navigation menu does not have any sub-menu items.
@@ -286,7 +286,7 @@ v1.6.5
 - Fix: Menu toggle not working when the window is resized.
 - Fix: Block editor content width not exactly same as the frontend.
 - Fix: LearnDash sortable elements working incorrectly.
-- Fix: Submenu does not open incorrect sides when using RTL mode, You can manually choose to openn the submenu on the opposite side by adding a custom class - https://wpastra.com/docs/change-the-direction-for-submenu-opening/
+- Fix: Submenu does not open incorrect sides when using RTL mode, You can manually choose to openn the submenu on the opposite side by adding a custom class - https://wpkanga.com/docs/change-the-direction-for-submenu-opening/
 
 v1.6.4
 - Fix: Gutenberg columns not stacking correctly on mobile devices.
@@ -320,7 +320,7 @@ v1.6.1
 - Fix: Don't load transparent above and below header CSS if header sections are not active.
 
 v1.6.0
-- New: Transparent header options in Astra Theme.
+- New: Transparent header options in Kanga Theme.
 - New: Option to enable transparent header Only on Desktop/Mobile.
 - New: More options to conditionally disable transparent header.
 - New: Option to add button in the header as a Custom Menu item.
@@ -341,7 +341,7 @@ v1.5.2
 - New: Complete Gutenberg Support: Editor Styles, Wide and full width support.
 - New: Font variants selection for the base typography settings.
 - New: LifterLMS - Add icons for new Membership and My Grades tabs in the student dashboard. (credits @actual-saurabh)
-- Improvement: Add new filter `astra_post_meta_separator` for changing the separator style in post meta.
+- Improvement: Add new filter `kanga_post_meta_separator` for changing the separator style in post meta.
 - Fix: Logo not perfectly center aligned in mobile layout in case of stack layout.
 - Fix: Mobile menu toggle being displayed in IE devices on random intervals.
 - Fix: Minification plugins such as WP-Rocket, W3 Total Cache etc causing the mobile menu button to be hidden on small devices.
@@ -363,7 +363,7 @@ Fix: Menu highlight labels not working for non mega menus.
 
 v1.5.0-rc.1
 - Improvement: Submenu opens below the header instead of cropping the header. This fix introduces padding difference of ~5px in the header hence for existing sites updating to this version this change will be disabled by default. 
-You can enable this by adding a filter `add_filter( 'astra_submenu_below_header_fix', '__return_true' );` in your child theme's functions'php file.
+You can enable this by adding a filter `add_filter( 'kanga_submenu_below_header_fix', '__return_true' );` in your child theme's functions'php file.
 For all the new installations this option will be enabled by default and don't need any snippet.
 - Improvement: If the content in header is larger the navigation menu will drop on a new line.
 - Improvement: Add correct license information for the images used in the screenshot.
@@ -381,11 +381,11 @@ v1.5.0-beta.2
 - New: Menu container animation.
 
 v1.5.0-beta.1 
-- Introducing Nav Menu from Astra Pro
+- Introducing Nav Menu from Kanga Pro
 
 v1.4.9
 - Improvement: Search will not turn into search box on mobile devices. This will make search layouts usable on mobile devices as well.
-- Fix: Elementor Pro's WooCommerce grid adding not displayed in full width because of Astra's WooCommerce options.
+- Fix: Elementor Pro's WooCommerce grid adding not displayed in full width because of Kanga's WooCommerce options.
 - Fix: Content width not working in Full width / stretched container layout.
 
 v1.4.8
@@ -396,7 +396,7 @@ v1.4.7
 - Fix: W3 Validation error due to empty border-radius value.
 
 v1.4.6
-- Improvement: Default thumbnail size for blog set to `large` instead of full. credit - (ipokkel)[https://github.com/ipokkel] (#697)[https://github.com/brainstormforce/astra/pull/697]
+- Improvement: Default thumbnail size for blog set to `large` instead of full. credit - (ipokkel)[https://github.com/ipokkel] (#697)[https://github.com/brainstormforce/kanga/pull/697]
 - Improvement: Contact form 7 & Gravity Forms compatibility CSS will load only on the pages where contact forms are used. 
 - Fix: SVG logo getting incorrect height in firefox browser.
 - Fix: Header layouts not correctly aligned in case of IE10 & IE 11.
@@ -423,7 +423,7 @@ v1.4.1
 - Fix: Elementor editor controls hidden in the first row.
 
 v1.4.0
-- Introduced Mobile Headers support from Astra Theme and Mobile Headers addon in Astra Pro. Check out changelogs of 1.4.0 beta versions for list of complete changes.
+- Introduced Mobile Headers support from Kanga Theme and Mobile Headers addon in Kanga Pro. Check out changelogs of 1.4.0 beta versions for list of complete changes.
 - Improvement - Remove `-` and `--` from submenus and replace it with an icon `>`
 - Fix: LifterLMS RTL layout not working because of missing RTL variant of the stylesheet.
 
@@ -466,9 +466,9 @@ v1.3.3
 - Improvement: Added filter for editor style.
 - Improvement: Increased site header z-index to 99 to fix compatibility with third-party modules.
 - Improvement: Remove post navigation from LifterLMS Assignments single posts (Credits @thomasplevy)
-- Improvement: Add Astra theme fields to LifterLMS builder settings (Credits @thomasplevy)
+- Improvement: Add Kanga theme fields to LifterLMS builder settings (Credits @thomasplevy)
 - Fix: 403 and 404 errors in customizer in some sites.
-- Fix: Learndash + LearnDash WooCommerce + Astra errors.
+- Fix: Learndash + LearnDash WooCommerce + Kanga errors.
 - Fix: Mobile menu is displayed for until the page is completely loaded.
 - Fix: Variations product style issue with Stripe Payment Gateway.
 - Fix: Don't override the meta settings when previewing the elementor_template.
@@ -489,7 +489,7 @@ v1.3.2
 - Fix: Comments box not visible on the pages.
 
 v1.3.1
-- New: New filter `astra_site_title_tag` to change the HTML tag of the site title.
+- New: New filter `kanga_site_title_tag` to change the HTML tag of the site title.
 - Improvement: Improve RTL support for customizer controls.
 - Fix: Correct template part not being loaded for plugins that change the default WordPress template hierarchy. This fixes compatibility with plugins bbPress, LearnPress, PeepSo Core etc.
 - Fix: Background param color does not save then value when it is empty.
@@ -498,7 +498,7 @@ v1.3.1
 
 v1.3.0
 - New: Added LearnDash LMS complete support.
-- New: Introduced option to set the background image to the body. More background image options added from Astra Pro.
+- New: Introduced option to set the background image to the body. More background image options added from Kanga Pro.
 - Improvement: Merge the footer widget background options into the new background image settings.
 - Improvement: Merge the small footer background options into the new background image settings.
 
@@ -520,21 +520,21 @@ v1.2.6
 - Fixed: Single product variations fields added from the third party plugin not align properly.
 
 v1.2.5
-- Improvement: Whitelabel from Astra Pro now updates the strings and urls on Astra's welcome page as well.
+- Improvement: Whitelabel from Kanga Pro now updates the strings and urls on Kanga's welcome page as well.
 
 v1.2.4
 - New: Redesigned the welcome page.
 - Improvement: Separated the Theme Color & Link Color options.
-- Improvement: Added filter `astra_comment_form_title`  for comments title.
-- Improvement: Load the full size of the post thumbnail by default, Pass the value through a new filter `astra_post_thumbnail_default_size`.
-- Improvement: Introduces filter `astra_allowed_fullwidth_oembed_providers` of providers to be made full width.
+- Improvement: Added filter `kanga_comment_form_title`  for comments title.
+- Improvement: Load the full size of the post thumbnail by default, Pass the value through a new filter `kanga_post_thumbnail_default_size`.
+- Improvement: Introduces filter `kanga_allowed_fullwidth_oembed_providers` of providers to be made full width.
 - Improvement: Don't display post navigation on the LifterLMS Quizzes. (Props [thomasplevy](https://github.com/thomasplevy)).
-- Improvement: Add support for Course Builder for LifterLMS. Now Astra layout settings will be available for Quizzes in Course builder. (Props [thomasplevy](https://github.com/thomasplevy)).
+- Improvement: Add support for Course Builder for LifterLMS. Now Kanga layout settings will be available for Quizzes in Course builder. (Props [thomasplevy](https://github.com/thomasplevy)).
 - Improvement: Added support for Content Layout option on LifterLMS quizzes via the builder.
 - Improvement: Load WooCommerce compatibility on WordPress action `wp` instead of `init` to improve compatibility with some third party plugins.
 - Fixed: Make the LifterLMS course videos full width.
 - Fixed: Black bars appearing when the video is made full width in the LearnDash course/lesson.
-- Fixed: Fatal error while editing the Elementor with Astra shortcode for the mini cart is used on a page.
+- Fixed: Fatal error while editing the Elementor with Kanga shortcode for the mini cart is used on a page.
 - Fixed: Fatal error if using PHP 5.2.
 
 v1.2.3
@@ -554,7 +554,7 @@ v1.2.2
 - Fixed: Footer widget spacings were not being saved in the customizer.
 - Fixed: Incorrect alignment of the menu when using menu plugins.
 - Fixed: Blog width being applied to the WooCommerce archive pages.
-- Fixed: Allow WooCommerce mini cart to be extended from the Astra Pro.
+- Fixed: Allow WooCommerce mini cart to be extended from the Kanga Pro.
 - Fixed: Fixed the style of category list on the Shop Page.
 - Fixed: Update all the `schema.org` URLs to https scheme.
 - Fixed: Submenu not correctly aligned with the parent menu item.
@@ -570,7 +570,7 @@ v1.2.0
 - Better support for navigation menu plugins, Allowing plugins to override complete menu markup easily.
 
 v1.1.6
-- Fixed: Astra Settings options on shop page are not working.
+- Fixed: Kanga Settings options on shop page are not working.
 - Fixed: Reduce unnecessary escaping when rendering tags and categories.
 
 v1.1.5
@@ -596,8 +596,8 @@ v1.1.2
 
 v1.1.1
 - New: Added option to display inline the logo and site title/site description.
-- New: Added filter `astra_woocommerce_integration` to disable WooCommerce integration in Astra.
-- New: Added filter `astra_enqueue_theme_assets` to disable loading of Astra's CSS and JS.
+- New: Added filter `kanga_woocommerce_integration` to disable WooCommerce integration in Kanga.
+- New: Added filter `kanga_enqueue_theme_assets` to disable loading of Kanga's CSS and JS.
 - Fixed: PHP notice in the small footer on PHP 7.2
 - Fixed: Updated woocommerce Related products design for responsive devices.
 - Fixed: Deprecated filter fatal error in WordPress 4.5 & below.
@@ -612,7 +612,7 @@ v1.0.32
 - Fixed: Logo being croped in customizer preview.
 
 v1.0.31
-- New: Filter `astra_enable_page_builder_compatibility` added to disable default page builder compatibility meta settings.
+- New: Filter `kanga_enable_page_builder_compatibility` added to disable default page builder compatibility meta settings.
 - Fixed: Some SVG logos being not displayed.
 - Fixed: Thumbnail image not visible on blog page.
 
@@ -620,7 +620,7 @@ v1.0.30
 - Fixed: Regression in v1.0.29 which caused site logo to be full width.
 
 v1.0.29
-- New: Added filters `astra_post_read_more` and `astra_post_read_more_class` to change the custom text and custom class to the read more text for blog posts.
+- New: Added filters `kanga_post_read_more` and `kanga_post_read_more_class` to change the custom text and custom class to the read more text for blog posts.
 - Fix: Site SVG logo only visible if site title is enabled in some cases.
 
 v1.0.28
@@ -629,22 +629,22 @@ v1.0.28
 v1.0.27
 - Fix: Two primary menu navigation drop-down icon visible for responsive devices.
 - Fix: Remove empty div for responsive devices if primary menu and custom menu item is disabled.
-- Improvement: Renamed filter `astra_sigle_post_navigation_enabled` to `astra_single_post_navigation_enabled`. The older filter will keep working but it is recommended to change to the new filter.
-- Enhancement: Astra meta box support added to BB Themer for single, 404 and archive page.
+- Improvement: Renamed filter `kanga_sigle_post_navigation_enabled` to `kanga_single_post_navigation_enabled`. The older filter will keep working but it is recommended to change to the new filter.
+- Enhancement: Kanga meta box support added to BB Themer for single, 404 and archive page.
 
 v1.0.26
 - Fix: duplicate menu dropdown toggle appearing on mobile devices
 
 v1.0.25
-- Fixed: Astra's menu CSS being applied to the Elementor's menu when used as replacement in the header.
+- Fixed: Kanga's menu CSS being applied to the Elementor's menu when used as replacement in the header.
 - Updated the theme screenshot and correct license details for the screenshot.
 
 v1.0.24
 - Improvement: Save the current theme version in the database so that it can be used for data processing on theme upgrades.
 
 v1.0.23
-- Improvement: Whitelabel from Astra Pro now updates the strings on Astra's welcome page as well.
-- Improvement: Renamed filter `astra_color_palletes` to `astra_color_palettes`. The older filter will keep working but it is recommended to change to the new filter.
+- Improvement: Whitelabel from Kanga Pro now updates the strings on Kanga's welcome page as well.
+- Improvement: Renamed filter `kanga_color_palletes` to `kanga_color_palettes`. The older filter will keep working but it is recommended to change to the new filter.
 - Fix: Mobile navigation breakpoint not working on IE11 and Edge.
 
 v1.0.22
@@ -656,10 +656,10 @@ v1.0.21
 - Updated the theme screenshot.
 
 v1.0.20
-- New: Added filters for functions `astra_get_option()` and `astra_get_option_meta()`. This allows for modifying the theme options with very ease.
+- New: Added filters for functions `kanga_get_option()` and `kanga_get_option_meta()`. This allows for modifying the theme options with very ease.
 - New: Added fullscreen support for any oEmbed markup.
-- New: Added filter 'astra_enable_default_fonts' to disable astra default font file.
-- New: Added filter 'astra_color_palletes' to set the default color palettes inside your color pickers in the Customizer.
+- New: Added filter 'kanga_enable_default_fonts' to disable kanga default font file.
+- New: Added filter 'kanga_color_palletes' to set the default color palettes inside your color pickers in the Customizer.
 - Fix: SVG logos cannot be cropped hence this will fall back to resizing the logo with CSS when using a SVG logo.
 
 v1.0.19
@@ -667,8 +667,8 @@ v1.0.19
 - New: Logo width option added.
 - Fixed: Title is not working for anspress questions shortcode.
 - Fixed: Accessibility, focus on navigation link, color not working as on hover
-- Fixed: Display correct page title When on Astra Settings Page.
-- Improvement: Register Astra meta box only for public post type.
+- Fixed: Display correct page title When on Kanga Settings Page.
+- Improvement: Register Kanga meta box only for public post type.
 
 v1.0.18
 - New: Blog / Archive and Single Post Layout : Post Structure sortable option added to control the post title and post featured image.
@@ -679,8 +679,8 @@ v1.0.17
 - Improvement: Updated the latest google fonts. Also added a grunt command to make it easier to update the google fonts in the future.
 
 v1.0.16
-- Improvement: Added new filter `astra_render_fonts` to add the support for custom fonts.
-- Improvement: Added new action `astra_customizer_font_list` to add the custom fonts list into customizer.
+- Improvement: Added new filter `kanga_render_fonts` to add the support for custom fonts.
+- Improvement: Added new action `kanga_customizer_font_list` to add the custom fonts list into customizer.
 - Improvement: Font size, Font weight, Line height updated for h1 to h6 and paragraph for Editor style.
 - Fixed: Default textarea height for contact form 7(https://wordpress.org/plugins/contact-form-7/) removed.
 - Improvement: Colors & Backgrounds for body renamed as Base Colors.
@@ -691,19 +691,19 @@ v1.0.15
 - New: Font family, font weight and text transform options implemented for Headings.
 - New: Footer Bar Color options Implemented.
 - New: Footer Widgets Color options Implemented.
-- Improvement: Added new filter `astra_the_post_id` to Enable or Disable title of archive posts.
+- Improvement: Added new filter `kanga_the_post_id` to Enable or Disable title of archive posts.
 - Fixed: System fonts should not call for googleapi.
 - Fixed: Featured images not showing up on Page after v1.0.14
 - Fixed: Notice - Getting property of Non-object variable with activated Visual Composer.
 
 v1.0.14
-- Improvement: Added new filter `astra_blog_post_meta_enabled` to Enable or Disable meta on archive pages.
-- Improvement: Added new filter `astra_single_post_meta_enabled` to Enable or Disable meta on single post.
+- Improvement: Added new filter `kanga_blog_post_meta_enabled` to Enable or Disable meta on archive pages.
+- Improvement: Added new filter `kanga_single_post_meta_enabled` to Enable or Disable meta on single post.
 - Fixed: Regression in v1.0.14 which caused page titles to be displayed on some of the pages.
 
 v1.0.13
 - New: When using page builders Beaver Builder or Elementor on a new page - Page layout will be changed to "Full width / Stretched" and for Visual Composer the page layout will be changed to "Full width / Contained" Also the title bar will be disabled hence reducing the number of clicks needed to get full-width pages.
-- Improvement: Added new filter `astra_post_link_enabled` to Enable or Disable read more links on archive pages.
+- Improvement: Added new filter `kanga_post_link_enabled` to Enable or Disable read more links on archive pages.
 - Improvement: Renamed the layout option `Plain` with `Full Width / Contained`
 - Improvement: Renamed the layout option `Page Builder` with `Full Width / Streched`
 - Fixed: Extra space at above with `Full Width / Streched` Layout on page.
@@ -711,17 +711,17 @@ v1.0.13
 
 v1.0.12
 - New: 'Footer Widgets' added in customizer.
-- Improvement: 'astra_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
-- Improvement: 'astra_featured_image_enabled' filter added for Enable or Disable featured image.
+- Improvement: 'kanga_pagination_enabled' filter added for Enable or Disable blog/archive pagination.
+- Improvement: 'kanga_featured_image_enabled' filter added for Enable or Disable featured image.
 - Improvement: Smooth font Rendering style updated.
-- Fixed: Admin notice issue with Astra name.
+- Fixed: Admin notice issue with Kanga name.
 - Fixed: Fetal error while bb lite version is activated.
 
 v1.0.11
 - Removed: accessibility-ready tag until the final review is done.
 
 v1.0.10
-- New: 'Get more with Astra Pro' added in customizer.
+- New: 'Get more with Kanga Pro' added in customizer.
 - Fixed: Warning for sanitize_html callback.
 
 v1.0.9
@@ -739,9 +739,9 @@ v1.0.7
 - Removed: Unwanted dyanamic css filter.
 
 v1.0.6
-- Enhancement: Combined CSS files 'blog-layout-1' and 'astra-font' files in style.css.
+- Enhancement: Combined CSS files 'blog-layout-1' and 'kanga-font' files in style.css.
 - Enhancement: Combined JS files 'flexibility', 'navigation' and 'skip-link-focus-fix' files in style.js
-- Enhancement: Used astra_get_option() to set default customizer options instead of representative Astra_Theme_Options::defaults().
+- Enhancement: Used kanga_get_option() to set default customizer options instead of representative Kanga_Theme_Options::defaults().
 - Fixed: RTL support for minified css files.
 - New: Typography option for Archive Summary Box.
 - Enhancement: Updated default heading font-size support for small devices.
@@ -757,7 +757,7 @@ v1.0.5.1
 - Fixed: Escaping implemented for Dynamic CSS
 
 v1.0.5
-- Enhancement: Updated customizer option prefix from 'ast-settings' with 'astra-settings'
+- Enhancement: Updated customizer option prefix from 'ast-settings' with 'kanga-settings'
 - Fixed: PHP Notice - Array to string conversion
 - Fixed: Change date('Y') to date_i18n(__('Y','textdomain'))
 - Fixed: Remove comment-form from add_theme_support( 'html5' )
@@ -779,7 +779,7 @@ v1.0.3.1
 - Removed functions that override WordPress global's.
 
 v1.0.3
-- Enhancement: Removed option _astra_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
+- Enhancement: Removed option _kanga_auto_version and used option ASTRA_THEME_SETTINGS for auto storing latest theme version.
 - Fixed: Content Layout meta working on beaver builder page/post.
 
 v1.0.2
@@ -792,7 +792,7 @@ v1.0.2
 - Improvement: Removed unwanted minified & unminified files.
 - Improvement: Removed unwanted constants.
 - Improvement: Removed unused variables when a classes are initialised.
-- Improvement: Moved hook astra_body_bottom at the top of the wp_footer hook.
+- Improvement: Moved hook kanga_body_bottom at the top of the wp_footer hook.
 - Improvement: Renamed the uabb theme compatibility functions to not include redundant prefix.
 - Improvement: Used get_bloginfo() instead of get_option('blogname').
 
@@ -800,7 +800,7 @@ v1.0.1.1
 - Added: Welcome screen for in theme page
 - Added: Theme page support in base theme.
 - Removed: Unwanted add_theme_supports.
-- Removed: Unused function 'astra_the_archive_title()'
+- Removed: Unused function 'kanga_the_archive_title()'
 - Removed: 'Walker_Nav_Menu' & 'Walker_Page' classes
 - Fixed: Theme page settings save message jerk issue.
 
@@ -810,7 +810,7 @@ v1.0.1
 - Properly use get_search_form() function.
 - Updated Theme Screenshot.
 - Updated Theme URI.
-- Changed text-domain as `astra`
+- Changed text-domain as `kanga`
 - Added flexibility unminified file.
 - Tweaked the code to skip need to override WordPress globals.
 - Fixed Terniary condition middle omittion not working in PHP < 5.3

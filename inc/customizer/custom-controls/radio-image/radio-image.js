@@ -3,7 +3,7 @@
  *
  * Handles toggling the radio images button
  *
- * @package Astra
+ * @package Kanga
  */
 
 wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend({

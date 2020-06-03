@@ -2,7 +2,7 @@
 /**
  * Divi Builder File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Divi Builder' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'ET_Builder_Plugin' ) ) {
 }
 
 /**
- * Astra Divi Builder
+ * Kanga Divi Builder
  */
-if ( ! class_exists( 'Astra_Divi_Builder' ) ) :
+if ( ! class_exists( 'Kanga_Divi_Builder' ) ) :
 
 	/**
-	 * Astra Divi Builder
+	 * Kanga Divi Builder
 	 *
 	 * @since 1.4.0
 	 */
-	class Astra_Divi_Builder {
+	class Kanga_Divi_Builder {
 
 		/**
 		 * Member Variable
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Divi_Builder' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'kanga_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Divi_Builder' ) ) :
 		 * @since 1.4.0
 		 */
 		public function add_styles( $assets ) {
-			$assets['css']['astra-divi-builder'] = 'compatibility/divi-builder';
+			$assets['css']['kanga-divi-builder'] = 'compatibility/divi-builder';
 			return $assets;
 		}
 
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Divi_Builder::get_instance();
+Kanga_Divi_Builder::get_instance();

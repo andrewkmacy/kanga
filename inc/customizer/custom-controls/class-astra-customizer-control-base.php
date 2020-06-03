@@ -1,12 +1,12 @@
 <?php
 /**
- * Astra Theme Customizer Configuration Base.
+ * Kanga Theme Customizer Configuration Base.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.4.3
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.4.3
  */
 
 // No direct access, please.
@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.4.3
  */
-if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Control_Base' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Customizer_Control_Base {
+	class Kanga_Customizer_Control_Base {
 
 		/**
 		 * Registered Controls.
@@ -56,15 +56,15 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 			$js_uri      = ASTRA_THEME_URI . 'inc/customizer/custom-controls/assets/js/' . $dir_name . '/';
 
 			wp_enqueue_style( 'custom-control-style' . $file_rtl, $css_uri . 'custom-controls' . $file_prefix . $file_rtl . '.css', null, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'astra-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'custom-control-script', $js_uri . 'custom-controls' . $file_prefix . '.js', array( 'jquery', 'customize-base', 'kanga-color-alpha', 'jquery-ui-tabs', 'jquery-ui-sortable' ), ASTRA_THEME_VERSION, true );
 
 			wp_localize_script(
 				'custom-control-script',
-				'astraCustomizerControlBackground',
+				'kangaCustomizerControlBackground',
 				array(
-					'placeholder'  => __( 'No file selected', 'astra' ),
-					'lessSettings' => __( 'Less Settings', 'astra' ),
-					'moreSettings' => __( 'More Settings', 'astra' ),
+					'placeholder'  => __( 'No file selected', 'kanga' ),
+					'lessSettings' => __( 'Less Settings', 'kanga' ),
+					'moreSettings' => __( 'More Settings', 'kanga' ),
 				)
 			);
 		}
@@ -141,4 +141,4 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Control_Base();
+new Kanga_Customizer_Control_Base();

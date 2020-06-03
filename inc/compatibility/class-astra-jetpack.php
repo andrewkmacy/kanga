@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.me/
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Jetpack' not exist then return.
@@ -13,16 +13,16 @@ if ( ! class_exists( 'Jetpack' ) ) {
 }
 
 /**
- * Astra Jetpack Compatibility
+ * Kanga Jetpack Compatibility
  */
-if ( ! class_exists( 'Astra_Jetpack' ) ) :
+if ( ! class_exists( 'Kanga_Jetpack' ) ) :
 
 	/**
-	 * Astra Jetpack Compatibility
+	 * Kanga Jetpack Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Jetpack {
+	class Kanga_Jetpack {
 
 		/**
 		 * Member Variable
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Jetpack' ) ) :
 		public function infinite_scroll_render() {
 			while ( have_posts() ) {
 				the_post();
-				get_template_part( 'template-parts/content', astra_get_post_format() );
+				get_template_part( 'template-parts/content', kanga_get_post_format() );
 			}
 		} // end function infinite_scroll_render
 
@@ -80,4 +80,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Jetpack::get_instance();
+Kanga_Jetpack::get_instance();

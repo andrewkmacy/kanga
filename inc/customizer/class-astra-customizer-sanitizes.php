@@ -1,12 +1,12 @@
 <?php
 /**
- * Astra Theme Customizer Sanitize.
+ * Kanga Theme Customizer Sanitize.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 // No direct access, please.
@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Sanitizes' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Customizer_Sanitizes {
+	class Kanga_Customizer_Sanitizes {
 
 		/**
 		 * Instance
@@ -292,7 +292,7 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 		 */
 		public static function validate_email( $validity, $value ) {
 			if ( ! is_email( $value ) ) {
-				$validity->add( 'required', __( 'Enter valid email address!', 'astra' ) );
+				$validity->add( 'required', __( 'Enter valid email address!', 'kanga' ) );
 			}
 			return $validity;
 		}
@@ -653,4 +653,4 @@ if ( ! class_exists( 'Astra_Customizer_Sanitizes' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Customizer_Sanitizes::get_instance();
+Kanga_Customizer_Sanitizes::get_instance();

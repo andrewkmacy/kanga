@@ -117,9 +117,9 @@
 	}
 }
 
-.ast-masthead-custom-menu-items .ast-dropdown-active .slide-search.astra-search-icon,
-.below-header-user-select .ast-dropdown-active .slide-search.astra-search-icon,
-.ast-above-header-section .user-select .ast-dropdown-active .slide-search.astra-search-icon {
+.ast-masthead-custom-menu-items .ast-dropdown-active .slide-search.kanga-search-icon,
+.below-header-user-select .ast-dropdown-active .slide-search.kanga-search-icon,
+.ast-above-header-section .user-select .ast-dropdown-active .slide-search.kanga-search-icon {
     color: #757575;
 }
 
@@ -153,7 +153,7 @@
 		background-color: #fff;
 	}
 
-	.astra-search-icon {
+	.kanga-search-icon {
 		display: flex;
 		line-height: normal;
 
@@ -205,7 +205,7 @@ li.ast-masthead-custom-menu-items {
 	a:focus {
 		background: transparent;
 	}
-	.ast-search-icon .astra-search-icon {
+	.ast-search-icon .kanga-search-icon {
 		line-height: 1;
 	}
 }
@@ -368,7 +368,7 @@ li.ast-masthead-custom-menu-items {
 					&::before {
 						font-weight: bold;
 						content: "\e900";
-						font-family: 'Astra';
+						font-family: 'Kanga';
 						text-decoration: inherit;
 						display: inline-block;
 					}
@@ -448,7 +448,7 @@ li.ast-masthead-custom-menu-items {
 	&.ast-mobile-inherit-site-logo{
 		.ast-has-mobile-header-logo{
 			.custom-logo-link,
-			.astra-logo-svg{
+			.kanga-logo-svg{
 				display: block;
 			}
 		}
@@ -593,13 +593,13 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 }
-.customize-partial-edit-shortcut-astra-settings-display-site-title {
+.customize-partial-edit-shortcut-kanga-settings-display-site-title {
 	button.customize-partial-edit-shortcut-button {
 		display: none;
 	}
 }
 
-.customize-partial-edit-shortcut-astra-settings-display-site-tagline {
+.customize-partial-edit-shortcut-kanga-settings-display-site-tagline {
 	button.customize-partial-edit-shortcut-button {
 		display: none;
 	}
@@ -618,14 +618,14 @@ li.ast-masthead-custom-menu-items {
 	}
 }
 
-.customize-partial-edit-shortcut-astra-settings-disable-primary-nav {
+.customize-partial-edit-shortcut-kanga-settings-disable-primary-nav {
 	button.customize-partial-edit-shortcut-button {
 		display: none;
 	}
 }
 
 .main-navigation:hover {
-	.customize-partial-edit-shortcut-astra-settings-disable-primary-nav {
+	.customize-partial-edit-shortcut-kanga-settings-disable-primary-nav {
 		button.customize-partial-edit-shortcut-button {
 			display: inline-block;
 		}
@@ -635,13 +635,13 @@ li.ast-masthead-custom-menu-items {
 /* Sticky Header CSS */
 
 .ast-primary-sticky-header-active {
-	.customize-partial-edit-shortcut-astra-settings-header-main-stick {
+	.customize-partial-edit-shortcut-kanga-settings-header-main-stick {
 		.customize-partial-edit-shortcut-button {
 			left: 100px;
 		}
 	}
 	&.ast-full-width-header {
-		.customize-partial-edit-shortcut-astra-settings-header-main-stick {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-stick {
 			.customize-partial-edit-shortcut-button {
 				left: 5px;
 			}
@@ -651,7 +651,7 @@ li.ast-masthead-custom-menu-items {
 
 /* Primary Header common CSS */
 
-.customize-partial-edit-shortcut-astra-settings-disable-primary-nav {
+.customize-partial-edit-shortcut-kanga-settings-disable-primary-nav {
 	.customize-partial-edit-shortcut-button {
 		top: 15px;
 	}
@@ -659,7 +659,7 @@ li.ast-masthead-custom-menu-items {
 
 .ast-masthead-custom-menu-items {
 	&.search-custom-menu-item {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section {
 			.customize-partial-edit-shortcut-button {
 				left: -30px;
 				top: -7px;
@@ -668,14 +668,14 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	&.search-custom-menu-item:hover {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section {
 			.customize-partial-edit-shortcut-button {
 				display: block;
 			}
 		}
 	}
 	&.button-custom-menu-item {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-text {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section-button-text {
 			.customize-partial-edit-shortcut-button {
 				top: -14px;
 				display: none;
@@ -683,14 +683,14 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	&.button-custom-menu-item:hover {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-button-text {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section-button-text {
 			.customize-partial-edit-shortcut-button {
 				display: block;
 			}
 		}
 	}
 	&.text-html-custom-menu-item {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section-html {
 			.customize-partial-edit-shortcut-button {
 				left: -30px;
 				top: 15px;
@@ -699,7 +699,7 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	&.text-html-custom-menu-item:hover {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section-html {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section-html {
 			.customize-partial-edit-shortcut-button {
 				display: block;
 			}
@@ -723,7 +723,7 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	&.woocommerce-custom-menu-item {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section {
 			.customize-partial-edit-shortcut-button {
 				top: -20px;
 				left: -25px;
@@ -732,7 +732,7 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	&.woocommerce-custom-menu-item:hover {
-		.customize-partial-edit-shortcut-astra-settings-header-main-rt-section {
+		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section {
 			.customize-partial-edit-shortcut-button {
 				display: block;
 			}
@@ -778,14 +778,14 @@ li.ast-masthead-custom-menu-items {
 
 .ast-above-header-section-1 {
 	.ast-above-header-navigation {
-		.customize-partial-edit-shortcut-astra-settings-above-header-section-1 {
+		.customize-partial-edit-shortcut-kanga-settings-above-header-section-1 {
 			.customize-partial-edit-shortcut-button {
 				left: -14px;
 			}
 		}
 	}
 	.ast-search-menu-icon {
-		.customize-partial-edit-shortcut-astra-settings-above-header-section-1-search-box-type {
+		.customize-partial-edit-shortcut-kanga-settings-above-header-section-1-search-box-type {
 			.customize-partial-edit-shortcut-button {
 				left: -25px;			
 				top: -10px;
@@ -793,14 +793,14 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	&.woocommerce-above-header {
-		.customize-partial-edit-shortcut-astra-settings-above-header-section-1 {
+		.customize-partial-edit-shortcut-kanga-settings-above-header-section-1 {
 			.customize-partial-edit-shortcut-button {
 				left: -25px;
 				top: -15px;
 			}
 		}
 	}
-	.customize-partial-edit-shortcut-astra-settings-above-header-section-1-html {
+	.customize-partial-edit-shortcut-kanga-settings-above-header-section-1-html {
 		.customize-partial-edit-shortcut-button {
 			left: -25px;
 		}
@@ -811,14 +811,14 @@ li.ast-masthead-custom-menu-items {
 
 .ast-above-header-section-2 {
 	.ast-above-header-navigation {
-		.customize-partial-edit-shortcut-astra-settings-above-header-section-2 {
+		.customize-partial-edit-shortcut-kanga-settings-above-header-section-2 {
 			.customize-partial-edit-shortcut-button {
 				left: -14px;
 			}
 		}
 	}
 	.ast-search-menu-icon {
-		.customize-partial-edit-shortcut-astra-settings-above-header-section-2-search-box-type {
+		.customize-partial-edit-shortcut-kanga-settings-above-header-section-2-search-box-type {
 			.customize-partial-edit-shortcut-button {
 				top: -10px;
 				left: -25px;			
@@ -826,7 +826,7 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	&.woocommerce-above-header {
-		.customize-partial-edit-shortcut-astra-settings-above-header-section-2 {
+		.customize-partial-edit-shortcut-kanga-settings-above-header-section-2 {
 			.customize-partial-edit-shortcut-button {
 				left: -25px;
 			}
@@ -838,14 +838,14 @@ li.ast-masthead-custom-menu-items {
 
 .below-header-section-1 {
 	&.ast-below-header-navigation {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
+		.customize-partial-edit-shortcut-kanga-settings-below-header-section-1 {
 			.customize-partial-edit-shortcut-button {
 				left: -14px;
 			}
 		}
 	}
 	.ast-search-menu-icon {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-1-search-box-type {
+		.customize-partial-edit-shortcut-kanga-settings-below-header-section-1-search-box-type {
 			.customize-partial-edit-shortcut-button {
 				top: -10px;
 				left: -25px;			
@@ -853,13 +853,13 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	.ast-site-header-cart {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-1 {
+		.customize-partial-edit-shortcut-kanga-settings-below-header-section-1 {
 			.customize-partial-edit-shortcut-button {
 				left: -25px;
 			}
 		}
 	}
-	.customize-partial-edit-shortcut-astra-settings-below-header-section-1-html {
+	.customize-partial-edit-shortcut-kanga-settings-below-header-section-1-html {
 		.customize-partial-edit-shortcut-button {
 			left: -25px;
 		}
@@ -870,14 +870,14 @@ li.ast-masthead-custom-menu-items {
 
 .below-header-section-2 {
 	&.ast-below-header-navigation {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
+		.customize-partial-edit-shortcut-kanga-settings-below-header-section-2 {
 			.customize-partial-edit-shortcut-button {
 				left: -14px;
 			}
 		}
 	}
 	.ast-search-menu-icon {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-2-search-box-type {
+		.customize-partial-edit-shortcut-kanga-settings-below-header-section-2-search-box-type {
 			.customize-partial-edit-shortcut-button {
 				top: -10px;
 				left: -25px;			
@@ -885,21 +885,21 @@ li.ast-masthead-custom-menu-items {
 		}
 	}
 	.ast-site-header-cart {
-		.customize-partial-edit-shortcut-astra-settings-below-header-section-2 {
+		.customize-partial-edit-shortcut-kanga-settings-below-header-section-2 {
 			.customize-partial-edit-shortcut-button {
 				left: -25px;
 			}
 		}
 	}
-	.customize-partial-edit-shortcut-astra-settings-below-header-section-2-html {
+	.customize-partial-edit-shortcut-kanga-settings-below-header-section-2-html {
 		.customize-partial-edit-shortcut-button {
 			left: -25px;
 		}
 	}
 }
 
-.customize-partial-edit-shortcut-astra-settings-above-header-layout,
-.customize-partial-edit-shortcut-astra-settings-below-header-layout {
+.customize-partial-edit-shortcut-kanga-settings-above-header-layout,
+.customize-partial-edit-shortcut-kanga-settings-below-header-layout {
 	.customize-partial-edit-shortcut-button {
 		left: -60px;
 	}

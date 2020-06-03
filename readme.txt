@@ -1,4 +1,4 @@
-=== Astra ===
+=== Kanga ===
 Contributors: brainstormforce
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -7,35 +7,35 @@ Tested up to: 5.4.1
 Requires PHP: 5.3
 Stable tag: 2.4.5
 
-Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
+Kanga is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront.
 
 == Description ==
 
-Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with Schema.org code integrated and is Native AMP ready so search engines will love your site. 
+Kanga is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Kanga comes with Schema.org code integrated and is Native AMP ready so search engines will love your site. 
 
 It offers special features and templates so it works perfectly with all page builders like Elementor, Beaver Builder, Visual Composer, SiteOrigin, Divi, etc. Some of the other features: # WooCommerce Ready # Responsive # RTL & Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. 
 
-Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and WooCommerce ready theme that you can use for building any kind of website!
+Looking for a perfect base theme? Look no further. Kanga is fast, fully customizable and WooCommerce ready theme that you can use for building any kind of website!
 
 == Installation ==
 
 = From within WordPress =
 1. Visit "Appearance > Themes > Add New"
-2. Search for "Astra"
+2. Search for "Kanga"
 3. Install and activate
 
 == License ==
 
-Astra WordPress Theme, Copyright 2020 WPAstra.
-Astra is distributed under the terms of the GNU GPL.
+Kanga WordPress Theme, Copyright 2020 WPKanga.
+Kanga is distributed under the terms of the GNU GPL.
 
-Astra is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Kanga is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 == Features ==
 
 = Appearance > Widgets =
-Astra has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 in your footer.
+Kanga has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 in your footer.
 
 = Appearance > Customize =
 	- Site Identity: Hide your site title or tagline, and upload your own header.
@@ -48,9 +48,9 @@ Astra has up to 4 widget area. 1 in your header, 1 for each sidebar and up to 2 
 
 = ASTRA Child Theme =
 
-There are multiple ways you can use a child theme with the Astra Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
+There are multiple ways you can use a child theme with the Kanga Theme, Use any one method mentoned below to create a child theme or use a child theme we have created.
 
-1. Download the child theme from Github - https://github.com/brainstormforce/astra-child/releases/latest/
+1. Download the child theme from Github - https://github.com/brainstormforce/kanga-child/releases/latest/
 2. More information on creating child theme. - https://developer.wordpress.org/themes/advanced-topics/child-themes/
 
 
@@ -81,6 +81,6 @@ Distributed under the terms of the GNU GPL v2.
 
 = IcoMoon-Free = 
 
-Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
+Kanga icon font is based on IcoMoon-Free vector icon by Keyamoon.
 IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (https://creativecommons.org/licenses/by/4.0/ or https://www.gnu.org/licenses/gpl.html)
 Source: https://keyamoon.com/

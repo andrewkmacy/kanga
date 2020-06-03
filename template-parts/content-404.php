@@ -4,22 +4,22 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Astra
+ * @package Kanga
  * @since 1.2.7
  */
 
 ?>
 
-<?php astra_entry_before(); ?>
+<?php kanga_entry_before(); ?>
 
 <section class="error-404 not-found">
 
-	<?php astra_entry_top(); ?>
+	<?php kanga_entry_top(); ?>
 
-	<?php astra_entry_content_404_page(); ?>
+	<?php kanga_entry_content_404_page(); ?>
 
-	<?php astra_entry_bottom(); ?>
+	<?php kanga_entry_bottom(); ?>
 
 </section><!-- .error-404 -->
 
-<?php astra_entry_after(); ?>
+<?php kanga_entry_after(); ?>

@@ -1,32 +1,32 @@
 <?php
 /**
- * Styling Options for Astra Theme.
+ * Styling Options for Kanga Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.15
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.15
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Header_Typo_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Header_Typo_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Header_Typo_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Header Typography Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -41,10 +41,10 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[site-title-typography]',
 					'section'     => 'title_tagline',
 					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-site-title' ),
+					'default'     => kanga_get_option( 'font-size-site-title' ),
 					'transport'   => 'postMessage',
 					'priority'    => 9,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Size', 'kanga' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -63,10 +63,10 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 					'parent'      => ASTRA_THEME_SETTINGS . '[site-tagline-typography]',
 					'section'     => 'title_tagline',
 					'control'     => 'ast-responsive',
-					'default'     => astra_get_option( 'font-size-site-tagline' ),
+					'default'     => kanga_get_option( 'font-size-site-tagline' ),
 					'transport'   => 'postMessage',
 					'priority'    => 15,
-					'title'       => __( 'Size', 'astra' ),
+					'title'       => __( 'Size', 'kanga' ),
 					'input_attrs' => array(
 						'min' => 0,
 					),
@@ -84,6 +84,6 @@ if ( ! class_exists( 'Astra_Header_Typo_Configs' ) ) {
 	}
 }
 
-new Astra_Header_Typo_Configs();
+new Kanga_Header_Typo_Configs();
 
 

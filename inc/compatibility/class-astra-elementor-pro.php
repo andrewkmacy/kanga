@@ -2,7 +2,7 @@
 /**
  * Elementor Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 namespace Elementor;
@@ -23,16 +23,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra Elementor Compatibility
+ * Kanga Elementor Compatibility
  */
-if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
+if ( ! class_exists( 'Kanga_Elementor_Pro' ) ) :
 
 	/**
-	 * Astra Elementor Compatibility
+	 * Kanga Elementor Compatibility
 	 *
 	 * @since 1.2.7
 	 */
-	class Astra_Elementor_Pro {
+	class Kanga_Elementor_Pro {
 
 		/**
 		 * Member Variable
@@ -64,11 +64,11 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			add_action( 'elementor/theme/register_locations', array( $this, 'register_locations' ) );
 
 			// Override theme templates.
-			add_action( 'astra_header', array( $this, 'do_header' ), 0 );
-			add_action( 'astra_footer', array( $this, 'do_footer' ), 0 );
-			add_action( 'astra_template_parts_content_top', array( $this, 'do_template_parts' ), 0 );
+			add_action( 'kanga_header', array( $this, 'do_header' ), 0 );
+			add_action( 'kanga_footer', array( $this, 'do_footer' ), 0 );
+			add_action( 'kanga_template_parts_content_top', array( $this, 'do_template_parts' ), 0 );
 
-			add_action( 'astra_entry_content_404_page', array( $this, 'do_template_part_404' ), 0 );
+			add_action( 'kanga_entry_content_404_page', array( $this, 'do_template_part_404' ), 0 );
 
 			add_filter( 'post_class', array( $this, 'render_post_class' ), 99 );
 			// Override post meta.
@@ -97,24 +97,24 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'archive' );
 			if ( $did_location ) {
 				// Search and default.
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_search' ) );
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_default' ) );
+				remove_action( 'kanga_template_parts_content', array( \Kanga_Loop::get_instance(), 'template_parts_search' ) );
+				remove_action( 'kanga_template_parts_content', array( \Kanga_Loop::get_instance(), 'template_parts_default' ) );
 
 				// Remove pagination.
-				remove_action( 'astra_pagination', 'astra_number_pagination' );
-				remove_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+				remove_action( 'kanga_pagination', 'kanga_number_pagination' );
+				remove_action( 'kanga_entry_after', 'kanga_single_post_navigation_markup' );
 
 				// Content.
-				remove_action( 'astra_entry_content_single', 'astra_entry_content_single_template' );
+				remove_action( 'kanga_entry_content_single', 'kanga_entry_content_single_template' );
 			}
 
 			// IS Single?
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 			if ( $did_location ) {
-				remove_action( 'astra_page_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_page' ) );
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_post' ) );
-				remove_action( 'astra_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_comments' ), 15 );
-				remove_action( 'astra_page_template_parts_content', array( \Astra_Loop::get_instance(), 'template_parts_comments' ), 15 );
+				remove_action( 'kanga_page_template_parts_content', array( \Kanga_Loop::get_instance(), 'template_parts_page' ) );
+				remove_action( 'kanga_template_parts_content', array( \Kanga_Loop::get_instance(), 'template_parts_post' ) );
+				remove_action( 'kanga_template_parts_content', array( \Kanga_Loop::get_instance(), 'template_parts_comments' ), 15 );
+				remove_action( 'kanga_page_template_parts_content', array( \Kanga_Loop::get_instance(), 'template_parts_comments' ), 15 );
 			}
 		}
 
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				// Is Single?
 				$did_location = Module::instance()->get_locations_manager()->do_location( 'single' );
 				if ( $did_location ) {
-					remove_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
+					remove_action( 'kanga_entry_content_404_page', 'kanga_entry_content_404_page_template' );
 				}
 			}
 		}
@@ -178,11 +178,11 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( 'disabled' === $title ) {
 
 				// Archive page.
-				add_filter( 'astra_the_title_enabled', '__return_false', 99 );
+				add_filter( 'kanga_the_title_enabled', '__return_false', 99 );
 
 				// Single page.
-				add_filter( 'astra_the_title_enabled', '__return_false' );
-				remove_action( 'astra_archive_header', 'astra_archive_page_info' );
+				add_filter( 'kanga_the_title_enabled', '__return_false' );
+				remove_action( 'kanga_archive_header', 'kanga_archive_page_info' );
 			}
 
 			// Override! Sidebar.
@@ -193,7 +193,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			if ( 'default' !== $sidebar ) {
 				add_filter(
-					'astra_page_layout',
+					'kanga_page_layout',
 					function( $page_layout ) use ( $sidebar ) {
 						return $sidebar;
 					}
@@ -208,7 +208,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			if ( 'default' !== $content_layout ) {
 				add_filter(
-					'astra_get_content_layout',
+					'kanga_get_content_layout',
 					function( $layout ) use ( $content_layout ) {
 						return $content_layout;
 					}
@@ -238,7 +238,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			if ( 'disabled' === $footer_widgets ) {
 				add_filter(
-					'astra_advanced_footer_disable',
+					'kanga_advanced_footer_disable',
 					function() {
 						return true;
 					}
@@ -252,7 +252,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 
 			if ( 'disabled' === $main_header_display ) {
-				remove_action( 'astra_masthead', 'astra_masthead_primary_template' );
+				remove_action( 'kanga_masthead', 'kanga_masthead_primary_template' );
 				add_filter(
 					'ast_main_header_display',
 					function( $display_header ) {
@@ -271,7 +271,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		public function do_header() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'header' );
 			if ( $did_location ) {
-				remove_action( 'astra_header', 'astra_header_markup' );
+				remove_action( 'kanga_header', 'kanga_header_markup' );
 			}
 		}
 
@@ -284,7 +284,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		public function do_footer() {
 			$did_location = Module::instance()->get_locations_manager()->do_location( 'footer' );
 			if ( $did_location ) {
-				remove_action( 'astra_footer', 'astra_footer_markup' );
+				remove_action( 'kanga_footer', 'kanga_footer_markup' );
 			}
 		}
 
@@ -303,7 +303,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				$classes = array_diff(
 					$classes,
 					array(
-						// Astra common grid.
+						// Kanga common grid.
 						'ast-col-xs-1',
 						'ast-col-xs-2',
 						'ast-col-xs-3',
@@ -365,14 +365,14 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 						'ast-col-xl-11',
 						'ast-col-xl-12',
 
-						// Astra Blog / Single Post.
+						// Kanga Blog / Single Post.
 						'ast-article-post',
 						'ast-article-single',
 						'ast-separate-posts',
 						'remove-featured-img-padding',
 						'ast-featured-post',
 
-						// Astra Woocommerce.
+						// Kanga Woocommerce.
 						'ast-product-gallery-layout-vertical',
 						'ast-product-gallery-layout-horizontal',
 						'ast-product-gallery-with-no-image',
@@ -385,7 +385,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 						'ast-qv-on-image-click',
 						'ast-qv-after-summary',
 
-						'astra-woo-hover-swap',
+						'kanga-woo-hover-swap',
 
 						'box-shadow-0',
 						'box-shadow-0-hover',
@@ -411,6 +411,6 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_Elementor_Pro::get_instance();
+	Kanga_Elementor_Pro::get_instance();
 
 endif;

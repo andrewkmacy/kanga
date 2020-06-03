@@ -2,7 +2,7 @@
 /**
  * Beaver Builder Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Builder Builder' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'FLBuilderModel' ) ) {
 }
 
 /**
- * Astra Beaver Builder Compatibility
+ * Kanga Beaver Builder Compatibility
  */
-if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
+if ( ! class_exists( 'Kanga_Beaver_Builder' ) ) :
 
 	/**
-	 * Astra Beaver Builder Compatibility
+	 * Kanga Beaver Builder Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Beaver_Builder {
+	class Kanga_Beaver_Builder {
 
 		/**
 		 * Member Variable
@@ -55,21 +55,21 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 */
 		public function beaver_builder_default_setting() {
 
-			if ( false == astra_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
+			if ( false == kanga_enable_page_builder_compatibility() || 'post' == get_post_type() ) {
 				return;
 			}
 
 			global $post;
-			$id = astra_get_post_id();
+			$id = kanga_get_post_id();
 
 			$do_render = apply_filters( 'fl_builder_do_render_content', true, FLBuilderModel::get_post_id() );
 
-			$page_builder_flag = get_post_meta( $id, '_astra_content_layout_flag', true );
+			$page_builder_flag = get_post_meta( $id, '_kanga_content_layout_flag', true );
 			if ( isset( $post ) && empty( $page_builder_flag ) && ( is_admin() || is_singular() ) ) {
 
 				if ( empty( $post->post_content ) && $do_render && FLBuilderModel::is_builder_enabled() ) {
 
-					update_post_meta( $id, '_astra_content_layout_flag', 'disabled' );
+					update_post_meta( $id, '_kanga_content_layout_flag', 'disabled' );
 					update_post_meta( $id, 'site-post-title', 'disabled' );
 					update_post_meta( $id, 'ast-title-bar-display', 'disabled' );
 					update_post_meta( $id, 'ast-featured-img', 'disabled' );
@@ -94,4 +94,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Beaver_Builder::get_instance();
+Kanga_Beaver_Builder::get_instance();

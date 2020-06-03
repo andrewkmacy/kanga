@@ -1,12 +1,12 @@
 <?php
 /**
- * Functions for Astra Theme.
+ * Functions for Kanga Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Foreground Color
  */
-if ( ! function_exists( 'astra_get_foreground_color' ) ) {
+if ( ! function_exists( 'kanga_get_foreground_color' ) ) {
 
 	/**
 	 * Foreground Color
@@ -24,7 +24,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 	 * @param  string $hex Color code in HEX format.
 	 * @return string      Return foreground color depend on input HEX color.
 	 */
-	function astra_get_foreground_color( $hex ) {
+	function kanga_get_foreground_color( $hex ) {
 
 		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
@@ -64,7 +64,7 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 /**
  * Generate CSS
  */
-if ( ! function_exists( 'astra_css' ) ) {
+if ( ! function_exists( 'kanga_css' ) ) {
 
 	/**
 	 * Generate CSS
@@ -75,7 +75,7 @@ if ( ! function_exists( 'astra_css' ) ) {
 	 * @param  string $unit         CSS property unit.
 	 * @return void               Echo generated CSS.
 	 */
-	function astra_css( $value = '', $css_property = '', $selector = '', $unit = '' ) {
+	function kanga_css( $value = '', $css_property = '', $selector = '', $unit = '' ) {
 
 		if ( $selector ) {
 			if ( $css_property && $value ) {
@@ -98,7 +98,7 @@ if ( ! function_exists( 'astra_css' ) ) {
 /**
  * Get Font Size value
  */
-if ( ! function_exists( 'astra_responsive_font' ) ) {
+if ( ! function_exists( 'kanga_responsive_font' ) ) {
 
 	/**
 	 * Get Font CSS value
@@ -108,18 +108,18 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 	 * @param  string $default Default value.
 	 * @return mixed
 	 */
-	function astra_responsive_font( $font, $device = 'desktop', $default = '' ) {
+	function kanga_responsive_font( $font, $device = 'desktop', $default = '' ) {
 
 		$css_val = '';
 
 		if ( isset( $font[ $device ] ) && isset( $font[ $device . '-unit' ] ) ) {
 			if ( '' != $default ) {
-				$font_size = astra_get_css_value( $font[ $device ], $font[ $device . '-unit' ], $default );
+				$font_size = kanga_get_css_value( $font[ $device ], $font[ $device . '-unit' ], $default );
 			} else {
-				$font_size = astra_get_font_css_value( $font[ $device ], $font[ $device . '-unit' ] );
+				$font_size = kanga_get_font_css_value( $font[ $device ], $font[ $device . '-unit' ] );
 			}
 		} elseif ( is_numeric( $font ) ) {
-			$font_size = astra_get_css_value( $font );
+			$font_size = kanga_get_css_value( $font );
 		} else {
 			$font_size = ( ! is_array( $font ) ) ? $font : '';
 		}
@@ -131,27 +131,27 @@ if ( ! function_exists( 'astra_responsive_font' ) ) {
 /**
  * Get Font Size value
  */
-if ( ! function_exists( 'astra_get_font_css_value' ) ) {
+if ( ! function_exists( 'kanga_get_font_css_value' ) ) {
 
 	/**
 	 * Get Font CSS value
 	 *
 	 * Syntax:
 	 *
-	 *  astra_get_font_css_value( VALUE, DEVICE, UNIT );
+	 *  kanga_get_font_css_value( VALUE, DEVICE, UNIT );
 	 *
 	 * E.g.
 	 *
-	 *  astra_get_css_value( VALUE, 'desktop', '%' );
-	 *  astra_get_css_value( VALUE, 'tablet' );
-	 *  astra_get_css_value( VALUE, 'mobile' );
+	 *  kanga_get_css_value( VALUE, 'desktop', '%' );
+	 *  kanga_get_css_value( VALUE, 'tablet' );
+	 *  kanga_get_css_value( VALUE, 'mobile' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
 	 * @param  string $device       CSS device.
 	 * @return mixed                CSS value depends on $unit & $device
 	 */
-	function astra_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
+	function kanga_get_font_css_value( $value, $unit = 'px', $device = 'desktop' ) {
 
 		// If value is empty or 0 then return blank.
 		if ( '' == $value || 0 == $value ) {
@@ -170,7 +170,7 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value            = intval( $value );
 					$fonts            = array();
-					$body_font_size   = astra_get_option( 'font-size-body' );
+					$body_font_size   = kanga_get_option( 'font-size-body' );
 					$fonts['desktop'] = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
 					$fonts['tablet']  = ( isset( $body_font_size['tablet'] ) && '' != $body_font_size['tablet'] ) ? $body_font_size['tablet'] : $fonts['desktop'];
 					$fonts['mobile']  = ( isset( $body_font_size['mobile'] ) && '' != $body_font_size['mobile'] ) ? $body_font_size['mobile'] : $fonts['tablet'];
@@ -190,25 +190,25 @@ if ( ! function_exists( 'astra_get_font_css_value' ) ) {
 /**
  * Get Font family
  */
-if ( ! function_exists( 'astra_get_font_family' ) ) {
+if ( ! function_exists( 'kanga_get_font_family' ) ) {
 
 	/**
 	 * Get Font family
 	 *
 	 * Syntax:
 	 *
-	 *  astra_get_font_family( VALUE, DEFAULT );
+	 *  kanga_get_font_family( VALUE, DEFAULT );
 	 *
 	 * E.g.
-	 *  astra_get_font_family( VALUE, '' );
+	 *  kanga_get_font_family( VALUE, '' );
 	 *
 	 * @since  1.0.19
 	 *
 	 * @param  string $value       CSS value.
 	 * @return mixed               CSS value depends on $unit
 	 */
-	function astra_get_font_family( $value = '' ) {
-		$system_fonts = Astra_Font_Families::get_system_fonts();
+	function kanga_get_font_family( $value = '' ) {
+		$system_fonts = Kanga_Font_Families::get_system_fonts();
 		if ( isset( $system_fonts[ $value ] ) && isset( $system_fonts[ $value ]['fallback'] ) ) {
 			$value .= ',' . $system_fonts[ $value ]['fallback'];
 		}
@@ -221,27 +221,27 @@ if ( ! function_exists( 'astra_get_font_family' ) ) {
 /**
  * Get CSS value
  */
-if ( ! function_exists( 'astra_get_css_value' ) ) {
+if ( ! function_exists( 'kanga_get_css_value' ) ) {
 
 	/**
 	 * Get CSS value
 	 *
 	 * Syntax:
 	 *
-	 *  astra_get_css_value( VALUE, UNIT );
+	 *  kanga_get_css_value( VALUE, UNIT );
 	 *
 	 * E.g.
 	 *
-	 *  astra_get_css_value( VALUE, 'url' );
-	 *  astra_get_css_value( VALUE, 'px' );
-	 *  astra_get_css_value( VALUE, 'em' );
+	 *  kanga_get_css_value( VALUE, 'url' );
+	 *  kanga_get_css_value( VALUE, 'px' );
+	 *  kanga_get_css_value( VALUE, 'em' );
 	 *
 	 * @param  string $value        CSS value.
 	 * @param  string $unit         CSS unit.
 	 * @param  string $default      CSS default font.
 	 * @return mixed               CSS value depends on $unit
 	 */
-	function astra_get_css_value( $value = '', $unit = 'px', $default = '' ) {
+	function kanga_get_css_value( $value = '', $unit = 'px', $default = '' ) {
 
 		if ( '' == $value && '' == $default ) {
 			return $value;
@@ -253,7 +253,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 
 			case 'font':
 				if ( 'inherit' != $value ) {
-					$value   = astra_get_font_family( $value );
+					$value   = kanga_get_font_family( $value );
 					$css_val = $value;
 				} elseif ( '' != $default ) {
 					$css_val = $default;
@@ -282,7 +282,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 				}
 				if ( is_numeric( $value ) || strpos( $value, 'px' ) ) {
 					$value          = intval( $value );
-					$body_font_size = astra_get_option( 'font-size-body' );
+					$body_font_size = kanga_get_option( 'font-size-body' );
 					if ( is_array( $body_font_size ) ) {
 						$body_font_size_desktop = ( isset( $body_font_size['desktop'] ) && '' != $body_font_size['desktop'] ) ? $body_font_size['desktop'] : 15;
 					} else {
@@ -312,7 +312,7 @@ if ( ! function_exists( 'astra_get_css_value' ) ) {
 /**
  * Adjust the background obj.
  */
-if ( ! function_exists( 'astra_get_background_obj' ) ) {
+if ( ! function_exists( 'kanga_get_background_obj' ) ) {
 
 	/**
 	 * Adjust Brightness
@@ -321,7 +321,7 @@ if ( ! function_exists( 'astra_get_background_obj' ) ) {
 	 *
 	 * @return array         Color code in HEX.
 	 */
-	function astra_get_background_obj( $bg_obj ) {
+	function kanga_get_background_obj( $bg_obj ) {
 
 		$gen_bg_css = array();
 
@@ -364,7 +364,7 @@ if ( ! function_exists( 'astra_get_background_obj' ) ) {
 /**
  * Parse CSS
  */
-if ( ! function_exists( 'astra_parse_css' ) ) {
+if ( ! function_exists( 'kanga_parse_css' ) ) {
 
 	/**
 	 * Parse CSS
@@ -374,7 +374,7 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 	 * @param  string $max_media  Max Media breakpoint.
 	 * @return string             Generated CSS.
 	 */
-	function astra_parse_css( $css_output = array(), $min_media = '', $max_media = '' ) {
+	function kanga_parse_css( $css_output = array(), $min_media = '', $max_media = '' ) {
 
 		$parse_css = '';
 		if ( is_array( $css_output ) && count( $css_output ) > 0 ) {
@@ -437,7 +437,7 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 /**
  * Return Theme options.
  */
-if ( ! function_exists( 'astra_get_option' ) ) {
+if ( ! function_exists( 'kanga_get_option' ) ) {
 
 	/**
 	 * Return Theme options.
@@ -447,36 +447,36 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	 * @param  string $deprecated   Option default value.
 	 * @return Mixed               Return option value.
 	 */
-	function astra_get_option( $option, $default = '', $deprecated = '' ) {
+	function kanga_get_option( $option, $default = '', $deprecated = '' ) {
 
 		if ( '' != $deprecated ) {
 			$default = $deprecated;
 		}
 
-		$theme_options = Astra_Theme_Options::get_options();
+		$theme_options = Kanga_Theme_Options::get_options();
 
 		/**
-		 * Filter the options array for Astra Settings.
+		 * Filter the options array for Kanga Settings.
 		 *
 		 * @since  1.0.20
 		 * @var Array
 		 */
-		$theme_options = apply_filters( 'astra_get_option_array', $theme_options, $option, $default );
+		$theme_options = apply_filters( 'kanga_get_option_array', $theme_options, $option, $default );
 
 		$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
 
 		/**
-		 * Dynamic filter astra_get_option_$option.
-		 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
+		 * Dynamic filter kanga_get_option_$option.
+		 * $option is the name of the Kanga Setting, Refer Kanga_Theme_Options::defaults() for option names from the theme.
 		 *
 		 * @since  1.0.20
 		 * @var Mixed.
 		 */
-		return apply_filters( "astra_get_option_{$option}", $value, $option, $default );
+		return apply_filters( "kanga_get_option_{$option}", $value, $option, $default );
 	}
 }
 
-if ( ! function_exists( 'astra_update_option' ) ) {
+if ( ! function_exists( 'kanga_update_option' ) ) {
 
 	/**
 	 * Update Theme options.
@@ -485,9 +485,9 @@ if ( ! function_exists( 'astra_update_option' ) ) {
 	 * @param  Mixed  $value  option value.
 	 * @return void
 	 */
-	function astra_update_option( $option, $value ) {
+	function kanga_update_option( $option, $value ) {
 
-		do_action( "astra_before_update_option_{$option}", $value, $option );
+		do_action( "kanga_before_update_option_{$option}", $value, $option );
 
 		// Get all customizer options.
 		$theme_options = get_option( ASTRA_THEME_SETTINGS );
@@ -497,11 +497,11 @@ if ( ! function_exists( 'astra_update_option' ) ) {
 
 		update_option( ASTRA_THEME_SETTINGS, $theme_options );
 
-		do_action( "astra_after_update_option_{$option}", $value, $option );
+		do_action( "kanga_after_update_option_{$option}", $value, $option );
 	}
 }
 
-if ( ! function_exists( 'astra_delete_option' ) ) {
+if ( ! function_exists( 'kanga_delete_option' ) ) {
 
 	/**
 	 * Update Theme options.
@@ -509,9 +509,9 @@ if ( ! function_exists( 'astra_delete_option' ) ) {
 	 * @param  string $option option key.
 	 * @return void
 	 */
-	function astra_delete_option( $option ) {
+	function kanga_delete_option( $option ) {
 
-		do_action( "astra_before_delete_option_{$option}", $option );
+		do_action( "kanga_before_delete_option_{$option}", $option );
 
 		// Get all customizer options.
 		$theme_options = get_option( ASTRA_THEME_SETTINGS );
@@ -521,14 +521,14 @@ if ( ! function_exists( 'astra_delete_option' ) ) {
 
 		update_option( ASTRA_THEME_SETTINGS, $theme_options );
 
-		do_action( "astra_after_delete_option_{$option}", $option );
+		do_action( "kanga_after_delete_option_{$option}", $option );
 	}
 }
 
 /**
  * Return Theme options from postmeta.
  */
-if ( ! function_exists( 'astra_get_option_meta' ) ) {
+if ( ! function_exists( 'kanga_get_option_meta' ) ) {
 
 	/**
 	 * Return Theme options from postmeta.
@@ -540,11 +540,11 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 	 * @param  string  $post_id   Get value from specific post by post ID.
 	 * @return Mixed             Return option value.
 	 */
-	function astra_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
+	function kanga_get_option_meta( $option_id, $default = '', $only_meta = false, $extension = '', $post_id = '' ) {
 
-		$post_id = ( '' != $post_id ) ? $post_id : astra_get_post_id();
+		$post_id = ( '' != $post_id ) ? $post_id : kanga_get_post_id();
 
-		$value = astra_get_option( $option_id, $default );
+		$value = kanga_get_option( $option_id, $default );
 
 		// Get value from option 'post-meta'.
 		if ( is_singular() || ( is_home() && ! is_front_page() ) ) {
@@ -557,25 +557,25 @@ if ( ! function_exists( 'astra_get_option_meta' ) ) {
 					return false;
 				}
 
-				$value = astra_get_option( $option_id, $default );
+				$value = kanga_get_option( $option_id, $default );
 			}
 		}
 
 		/**
-		 * Dynamic filter astra_get_option_meta_$option.
-		 * $option_id is the name of the Astra Meta Setting.
+		 * Dynamic filter kanga_get_option_meta_$option.
+		 * $option_id is the name of the Kanga Meta Setting.
 		 *
 		 * @since  1.0.20
 		 * @var Mixed.
 		 */
-		return apply_filters( "astra_get_option_meta_{$option_id}", $value, $default, $default );
+		return apply_filters( "kanga_get_option_meta_{$option_id}", $value, $default, $default );
 	}
 }
 
 /**
  * Helper function to get the current post id.
  */
-if ( ! function_exists( 'astra_get_post_id' ) ) {
+if ( ! function_exists( 'kanga_get_post_id' ) ) {
 
 	/**
 	 * Get post ID.
@@ -583,9 +583,9 @@ if ( ! function_exists( 'astra_get_post_id' ) ) {
 	 * @param  string $post_id_override Get override post ID.
 	 * @return number                   Post ID.
 	 */
-	function astra_get_post_id( $post_id_override = '' ) {
+	function kanga_get_post_id( $post_id_override = '' ) {
 
-		if ( null == Astra_Theme_Options::$post_id ) {
+		if ( null == Kanga_Theme_Options::$post_id ) {
 			global $post;
 
 			$post_id = 0;
@@ -599,10 +599,10 @@ if ( ! function_exists( 'astra_get_post_id' ) ) {
 				$post_id = $post->ID;
 			}
 
-			Astra_Theme_Options::$post_id = $post_id;
+			Kanga_Theme_Options::$post_id = $post_id;
 		}
 
-		return apply_filters( 'astra_get_post_id', Astra_Theme_Options::$post_id, $post_id_override );
+		return apply_filters( 'kanga_get_post_id', Kanga_Theme_Options::$post_id, $post_id_override );
 	}
 }
 
@@ -610,7 +610,7 @@ if ( ! function_exists( 'astra_get_post_id' ) ) {
 /**
  * Display classes for primary div
  */
-if ( ! function_exists( 'astra_primary_class' ) ) {
+if ( ! function_exists( 'kanga_primary_class' ) ) {
 
 	/**
 	 * Display classes for primary div
@@ -618,17 +618,17 @@ if ( ! function_exists( 'astra_primary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return void        Echo classes.
 	 */
-	function astra_primary_class( $class = '' ) {
+	function kanga_primary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', astra_get_primary_class( $class ) ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', kanga_get_primary_class( $class ) ) ) . '"';
 	}
 }
 
 /**
  * Retrieve the classes for the primary element as an array.
  */
-if ( ! function_exists( 'astra_get_primary_class' ) ) {
+if ( ! function_exists( 'kanga_get_primary_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the primary element as an array.
@@ -636,7 +636,7 @@ if ( ! function_exists( 'astra_get_primary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array        Return array of classes.
 	 */
-	function astra_get_primary_class( $class = '' ) {
+	function kanga_get_primary_class( $class = '' ) {
 
 		// array of class names.
 		$classes = array();
@@ -659,7 +659,7 @@ if ( ! function_exists( 'astra_get_primary_class' ) ) {
 		}
 
 		// Filter primary div class names.
-		$classes = apply_filters( 'astra_primary_class', $classes, $class );
+		$classes = apply_filters( 'kanga_primary_class', $classes, $class );
 
 		$classes = array_map( 'sanitize_html_class', $classes );
 
@@ -670,7 +670,7 @@ if ( ! function_exists( 'astra_get_primary_class' ) ) {
 /**
  * Display classes for secondary div
  */
-if ( ! function_exists( 'astra_secondary_class' ) ) {
+if ( ! function_exists( 'kanga_secondary_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the secondary element as an array.
@@ -678,17 +678,17 @@ if ( ! function_exists( 'astra_secondary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return void        echo classes.
 	 */
-	function astra_secondary_class( $class = '' ) {
+	function kanga_secondary_class( $class = '' ) {
 
 		// Separates classes with a single space, collates classes for body element.
-		echo 'class="' . esc_attr( join( ' ', astra_get_secondary_class( $class ) ) ) . '"';
+		echo 'class="' . esc_attr( join( ' ', kanga_get_secondary_class( $class ) ) ) . '"';
 	}
 }
 
 /**
  * Retrieve the classes for the secondary element as an array.
  */
-if ( ! function_exists( 'astra_get_secondary_class' ) ) {
+if ( ! function_exists( 'kanga_get_secondary_class' ) ) {
 
 	/**
 	 * Retrieve the classes for the secondary element as an array.
@@ -696,7 +696,7 @@ if ( ! function_exists( 'astra_get_secondary_class' ) ) {
 	 * @param string|array $class One or more classes to add to the class list.
 	 * @return array        Return array of classes.
 	 */
-	function astra_get_secondary_class( $class = '' ) {
+	function kanga_get_secondary_class( $class = '' ) {
 
 		// array of class names.
 		$classes = array();
@@ -719,7 +719,7 @@ if ( ! function_exists( 'astra_get_secondary_class' ) ) {
 		}
 
 		// Filter secondary div class names.
-		$classes = apply_filters( 'astra_secondary_class', $classes, $class );
+		$classes = apply_filters( 'kanga_secondary_class', $classes, $class );
 
 		$classes = array_map( 'sanitize_html_class', $classes );
 
@@ -730,7 +730,7 @@ if ( ! function_exists( 'astra_get_secondary_class' ) ) {
 /**
  * Get post format
  */
-if ( ! function_exists( 'astra_get_post_format' ) ) {
+if ( ! function_exists( 'kanga_get_post_format' ) ) {
 
 	/**
 	 * Get post format
@@ -738,7 +738,7 @@ if ( ! function_exists( 'astra_get_post_format' ) ) {
 	 * @param  string $post_format_override Override post formate.
 	 * @return string                       Return post format.
 	 */
-	function astra_get_post_format( $post_format_override = '' ) {
+	function kanga_get_post_format( $post_format_override = '' ) {
 
 		if ( ( is_home() ) || is_archive() ) {
 			$post_format = 'blog';
@@ -746,14 +746,14 @@ if ( ! function_exists( 'astra_get_post_format' ) ) {
 			$post_format = get_post_format();
 		}
 
-		return apply_filters( 'astra_get_post_format', $post_format, $post_format_override );
+		return apply_filters( 'kanga_get_post_format', $post_format, $post_format_override );
 	}
 }
 
 /**
  * Wrapper function for get_the_title() for blog post.
  */
-if ( ! function_exists( 'astra_the_post_title' ) ) {
+if ( ! function_exists( 'kanga_the_post_title' ) ) {
 
 	/**
 	 * Wrapper function for get_the_title() for blog post.
@@ -767,14 +767,14 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 	 * @param bool   $echo   Optional, default to true.Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
-	function astra_the_post_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
+	function kanga_the_post_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
-		$enabled = apply_filters( 'astra_the_post_title_enabled', true );
+		$enabled = apply_filters( 'kanga_the_post_title_enabled', true );
 		if ( $enabled ) {
 
-			$title  = astra_get_the_title( $post_id );
-			$before = apply_filters( 'astra_the_post_title_before', $before );
-			$after  = apply_filters( 'astra_the_post_title_after', $after );
+			$title  = kanga_get_the_title( $post_id );
+			$before = apply_filters( 'kanga_the_post_title_before', $before );
+			$after  = apply_filters( 'kanga_the_post_title_after', $after );
 
 			// This will work same as `the_title` function but with Custom Title if exits.
 			if ( $echo ) {
@@ -789,7 +789,7 @@ if ( ! function_exists( 'astra_the_post_title' ) ) {
 /**
  * Wrapper function for the_title()
  */
-if ( ! function_exists( 'astra_the_title' ) ) {
+if ( ! function_exists( 'kanga_the_title' ) ) {
 
 	/**
 	 * Wrapper function for the_title()
@@ -802,18 +802,18 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 	 * @param bool   $echo   Optional, default to true.Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
-	function astra_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
+	function kanga_the_title( $before = '', $after = '', $post_id = 0, $echo = true ) {
 
 		$title             = '';
-		$blog_post_title   = astra_get_option( 'blog-post-structure' );
-		$single_post_title = astra_get_option( 'blog-single-post-structure' );
+		$blog_post_title   = kanga_get_option( 'blog-post-structure' );
+		$single_post_title = kanga_get_option( 'blog-single-post-structure' );
 
 		if ( ( ( ! is_singular() && in_array( 'title-meta', $blog_post_title ) ) || ( is_single() && in_array( 'single-title-meta', $single_post_title ) ) || is_page() ) ) {
-			if ( apply_filters( 'astra_the_title_enabled', true ) ) {
+			if ( apply_filters( 'kanga_the_title_enabled', true ) ) {
 
-				$title  = astra_get_the_title( $post_id );
-				$before = apply_filters( 'astra_the_title_before', $before );
-				$after  = apply_filters( 'astra_the_title_after', $after );
+				$title  = kanga_get_the_title( $post_id );
+				$before = apply_filters( 'kanga_the_title_before', $before );
+				$after  = apply_filters( 'kanga_the_title_after', $after );
 
 				$title = $before . $title . $after;
 			}
@@ -831,7 +831,7 @@ if ( ! function_exists( 'astra_the_title' ) ) {
 /**
  * Wrapper function for get_the_title()
  */
-if ( ! function_exists( 'astra_get_the_title' ) ) {
+if ( ! function_exists( 'kanga_get_the_title' ) ) {
 
 	/**
 	 * Wrapper function for get_the_title()
@@ -842,7 +842,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 	 * @param bool $echo   Optional, default to false. Whether to display or return.
 	 * @return string|void String if $echo parameter is false.
 	 */
-	function astra_get_the_title( $post_id = 0, $echo = false ) {
+	function kanga_get_the_title( $post_id = 0, $echo = false ) {
 
 		$title = '';
 		if ( $post_id || is_singular() ) {
@@ -850,19 +850,19 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 		} else {
 			if ( is_front_page() && is_home() ) {
 				// Default homepage.
-				$title = apply_filters( 'astra_the_default_home_page_title', esc_html__( 'Home', 'astra' ) );
+				$title = apply_filters( 'kanga_the_default_home_page_title', esc_html__( 'Home', 'kanga' ) );
 			} elseif ( is_home() ) {
 				// blog page.
-				$title = apply_filters( 'astra_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
+				$title = apply_filters( 'kanga_the_blog_home_page_title', get_the_title( get_option( 'page_for_posts', true ) ) );
 			} elseif ( is_404() ) {
 				// for 404 page - title always display.
-				$title = apply_filters( 'astra_the_404_page_title', esc_html__( 'This page doesn\'t seem to exist.', 'astra' ) );
+				$title = apply_filters( 'kanga_the_404_page_title', esc_html__( 'This page doesn\'t seem to exist.', 'kanga' ) );
 
 				// for search page - title always display.
 			} elseif ( is_search() ) {
 
 				/* translators: 1: search string */
-				$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
+				$title = apply_filters( 'kanga_the_search_page_title', sprintf( __( 'Search Results for: %s', 'kanga' ), '<span>' . get_search_query() . '</span>' ) );
 
 			} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
 
@@ -875,7 +875,7 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 			}
 		}
 
-		$title = apply_filters( 'astra_the_title', $title, $post_id );
+		$title = apply_filters( 'kanga_the_title', $title, $post_id );
 
 		// This will work same as `get_the_title` function but with Custom Title if exits.
 		if ( $echo ) {
@@ -889,27 +889,27 @@ if ( ! function_exists( 'astra_get_the_title' ) ) {
 /**
  * Archive Page Title
  */
-if ( ! function_exists( 'astra_archive_page_info' ) ) {
+if ( ! function_exists( 'kanga_archive_page_info' ) ) {
 
 	/**
 	 * Wrapper function for the_title()
 	 *
 	 * Displays title only if the page title bar is disabled.
 	 */
-	function astra_archive_page_info() {
+	function kanga_archive_page_info() {
 
-		if ( apply_filters( 'astra_the_title_enabled', true ) ) {
+		if ( apply_filters( 'kanga_the_title_enabled', true ) ) {
 
 			// Author.
 			if ( is_author() ) { ?>
 
 				<section class="ast-author-box ast-archive-description">
 					<div class="ast-author-bio">
-						<?php do_action( 'astra_before_archive_title' ); ?>
+						<?php do_action( 'kanga_before_archive_title' ); ?>
 						<h1 class='page-title ast-archive-title'><?php echo get_the_author(); ?></h1>
-						<?php do_action( 'astra_after_archive_title' ); ?>
+						<?php do_action( 'kanga_after_archive_title' ); ?>
 						<p><?php echo wp_kses_post( get_the_author_meta( 'description' ) ); ?></p>
-						<?php do_action( 'astra_after_archive_description' ); ?>
+						<?php do_action( 'kanga_after_archive_description' ); ?>
 					</div>
 					<div class="ast-author-avatar">
 						<?php echo get_avatar( get_the_author_meta( 'email' ), 120 ); ?>
@@ -923,11 +923,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
-					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php do_action( 'kanga_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_cat_title(); ?></h1>
-					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php do_action( 'kanga_after_archive_title' ); ?>
 					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
-					<?php do_action( 'astra_after_archive_description' ); ?>
+					<?php do_action( 'kanga_after_archive_description' ); ?>
 				</section>
 
 				<?php
@@ -937,11 +937,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
-					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php do_action( 'kanga_before_archive_title' ); ?>
 					<h1 class="page-title ast-archive-title"><?php echo single_tag_title(); ?></h1>
-					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php do_action( 'kanga_after_archive_title' ); ?>
 					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
-					<?php do_action( 'astra_after_archive_description' ); ?>
+					<?php do_action( 'kanga_after_archive_description' ); ?>
 				</section>
 
 				<?php
@@ -951,13 +951,13 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
-					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php do_action( 'kanga_before_archive_title' ); ?>
 					<?php
 						/* translators: 1: search string */
-						$title = apply_filters( 'astra_the_search_page_title', sprintf( __( 'Search Results for: %s', 'astra' ), '<span>' . get_search_query() . '</span>' ) );
+						$title = apply_filters( 'kanga_the_search_page_title', sprintf( __( 'Search Results for: %s', 'kanga' ), '<span>' . get_search_query() . '</span>' ) );
 					?>
 					<h1 class="page-title ast-archive-title"> <?php echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> </h1>
-					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php do_action( 'kanga_after_archive_title' ); ?>
 				</section>
 
 				<?php
@@ -967,11 +967,11 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 				?>
 
 				<section class="ast-archive-description">
-					<?php do_action( 'astra_before_archive_title' ); ?>
+					<?php do_action( 'kanga_before_archive_title' ); ?>
 					<?php the_archive_title( '<h1 class="page-title ast-archive-title">', '</h1>' ); ?>
-					<?php do_action( 'astra_after_archive_title' ); ?>
+					<?php do_action( 'kanga_after_archive_title' ); ?>
 					<?php echo wp_kses_post( wpautop( get_the_archive_description() ) ); ?>
-					<?php do_action( 'astra_after_archive_description' ); ?>
+					<?php do_action( 'kanga_after_archive_description' ); ?>
 				</section>
 
 				<?php
@@ -979,13 +979,13 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 		}
 	}
 
-	add_action( 'astra_archive_header', 'astra_archive_page_info' );
+	add_action( 'kanga_archive_header', 'kanga_archive_page_info' );
 }
 
 /**
  * Adjust the HEX color brightness
  */
-if ( ! function_exists( 'astra_adjust_brightness' ) ) {
+if ( ! function_exists( 'kanga_adjust_brightness' ) ) {
 
 	/**
 	 * Adjust Brightness
@@ -995,7 +995,7 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 	 * @param  string $type  brightness is reverse or default.
 	 * @return string        Color code in HEX.
 	 */
-	function astra_adjust_brightness( $hex, $steps, $type ) {
+	function kanga_adjust_brightness( $hex, $steps, $type ) {
 
 		// Get rgb vars.
 		$hex = str_replace( '#', '', $hex );
@@ -1036,7 +1036,7 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 /**
  * Convert colors from HEX to RGBA
  */
-if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
+if ( ! function_exists( 'kanga_hex_to_rgba' ) ) :
 
 	/**
 	 * Convert colors from HEX to RGBA
@@ -1045,7 +1045,7 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 	 * @param  boolean $opacity Color code opacity.
 	 * @return string           Color code in RGB or RGBA.
 	 */
-	function astra_hex_to_rgba( $color, $opacity = false ) {
+	function kanga_hex_to_rgba( $color, $opacity = false ) {
 
 		$default = 'rgb(0,0,0)';
 
@@ -1088,25 +1088,25 @@ if ( ! function_exists( 'astra_hex_to_rgba' ) ) :
 endif;
 
 
-if ( ! function_exists( 'astra_enable_page_builder_compatibility' ) ) :
+if ( ! function_exists( 'kanga_enable_page_builder_compatibility' ) ) :
 
 	/**
 	 * Allow filter to enable/disable page builder compatibility.
 	 *
-	 * @see  https://wpastra.com/docs/recommended-settings-beaver-builder-astra/
-	 * @see  https://wpastra.com/docs/recommended-settings-for-elementor/
+	 * @see  https://wpkanga.com/docs/recommended-settings-beaver-builder-kanga/
+	 * @see  https://wpkanga.com/docs/recommended-settings-for-elementor/
 	 *
 	 * @since  1.2.2
 	 * @return  bool True - If the page builder compatibility is enabled. False - IF the page builder compatibility is disabled.
 	 */
-	function astra_enable_page_builder_compatibility() {
-		return apply_filters( 'astra_enable_page_builder_compatibility', true );
+	function kanga_enable_page_builder_compatibility() {
+		return apply_filters( 'kanga_enable_page_builder_compatibility', true );
 	}
 
 endif;
 
 
-if ( ! function_exists( 'astra_get_pro_url' ) ) :
+if ( ! function_exists( 'kanga_get_pro_url' ) ) :
 	/**
 	 * Returns an URL with utm tags
 	 * the admin settings page.
@@ -1117,24 +1117,24 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 	 * @param string $campaign utm campaign.
 	 * @return mixed
 	 */
-	function astra_get_pro_url( $url, $source = '', $medium = '', $campaign = '' ) {
+	function kanga_get_pro_url( $url, $source = '', $medium = '', $campaign = '' ) {
 
-		$astra_pro_url = trailingslashit( $url );
+		$kanga_pro_url = trailingslashit( $url );
 
 		// Set up our URL if we have a source.
 		if ( isset( $source ) ) {
-			$astra_pro_url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
+			$kanga_pro_url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
 		}
 		// Set up our URL if we have a medium.
 		if ( isset( $medium ) ) {
-			$astra_pro_url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
+			$kanga_pro_url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
 		}
 		// Set up our URL if we have a campaign.
 		if ( isset( $campaign ) ) {
-			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
+			$kanga_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
 		}
 
-		return esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
+		return esc_url( apply_filters( 'kanga_get_pro_url', $kanga_pro_url, $url ) );
 	}
 
 endif;
@@ -1143,21 +1143,21 @@ endif;
 /**
  * Search Form
  */
-if ( ! function_exists( 'astra_get_search_form' ) ) :
+if ( ! function_exists( 'kanga_get_search_form' ) ) :
 	/**
 	 * Display search form.
 	 *
 	 * @param bool $echo Default to echo and not return the form.
 	 * @return string|void String when $echo is false.
 	 */
-	function astra_get_search_form( $echo = true ) {
+	function kanga_get_search_form( $echo = true ) {
 
 		$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
 			<label>
-				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'astra' ) . '</span>
-				<input type="search" class="search-field" ' . apply_filters( 'astra_search_field_toggle_data_attrs', '' ) . ' placeholder="' . apply_filters( 'astra_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'astra' ) ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
+				<span class="screen-reader-text">' . _x( 'Search for:', 'label', 'kanga' ) . '</span>
+				<input type="search" class="search-field" ' . apply_filters( 'kanga_search_field_toggle_data_attrs', '' ) . ' placeholder="' . apply_filters( 'kanga_search_field_placeholder', esc_attr_x( 'Search &hellip;', 'placeholder', 'kanga' ) ) . '" value="' . get_search_query() . '" name="s" role="search" tabindex="-1"/>
 			</label>
-			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'astra' ) . '"  aria-label="search submit"><i class="astra-search-icon"></i></button>
+			<button type="submit" class="search-submit" value="' . esc_attr__( 'Search', 'kanga' ) . '"  aria-label="search submit"><i class="kanga-search-icon"></i></button>
 		</form>';
 
 		/**
@@ -1165,7 +1165,7 @@ if ( ! function_exists( 'astra_get_search_form' ) ) :
 		 *
 		 * @param string $form The search form HTML output.
 		 */
-		$result = apply_filters( 'astra_get_search_form', $form );
+		$result = apply_filters( 'kanga_get_search_form', $form );
 
 		if ( null === $result ) {
 			$result = $form;
@@ -1185,14 +1185,14 @@ endif;
  *
  * @return bool
  */
-function astra_is_amp_endpoint() {
+function kanga_is_amp_endpoint() {
 	return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 }
 
 /*
  * Get Responsive Spacing
  */
-if ( ! function_exists( 'astra_responsive_spacing' ) ) {
+if ( ! function_exists( 'kanga_responsive_spacing' ) ) {
 
 	/**
 	 * Get Spacing value
@@ -1204,12 +1204,12 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 	 * @param  string $prefix Prefix value.
 	 * @return mixed
 	 */
-	function astra_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '', $prefix = '' ) {
+	function kanga_responsive_spacing( $option, $side = '', $device = 'desktop', $default = '', $prefix = '' ) {
 
 		if ( isset( $option[ $device ][ $side ] ) && isset( $option[ $device . '-unit' ] ) ) {
-			$spacing = astra_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
+			$spacing = kanga_get_css_value( $option[ $device ][ $side ], $option[ $device . '-unit' ], $default );
 		} elseif ( is_numeric( $option ) ) {
-			$spacing = astra_get_css_value( $option );
+			$spacing = kanga_get_css_value( $option );
 		} else {
 			$spacing = ( ! is_array( $option ) ) ? $option : '';
 		}
@@ -1231,14 +1231,14 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
  *
  * @return number $breakpoint.
  */
-function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
+function kanga_get_tablet_breakpoint( $min = '', $max = '' ) {
 
-	$update_breakpoint = astra_get_option( 'can-update-theme-tablet-breakpoint', true );
+	$update_breakpoint = kanga_get_option( 'can-update-theme-tablet-breakpoint', true );
 
 	// Change default for new users.
 	$default = ( true === $update_breakpoint ) ? 921 : 768;
 
-	$header_breakpoint = apply_filters( 'astra_tablet_breakpoint', $default );
+	$header_breakpoint = apply_filters( 'kanga_tablet_breakpoint', $default );
 
 	if ( '' !== $min ) {
 		$header_breakpoint = $header_breakpoint - $min;
@@ -1259,9 +1259,9 @@ function astra_get_tablet_breakpoint( $min = '', $max = '' ) {
  *
  * @return number header_breakpoint.
  */
-function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
+function kanga_get_mobile_breakpoint( $min = '', $max = '' ) {
 
-	$header_breakpoint = apply_filters( 'astra_mobile_breakpoint', 544 );
+	$header_breakpoint = apply_filters( 'kanga_mobile_breakpoint', 544 );
 
 	if ( '' !== $min ) {
 		$header_breakpoint = $header_breakpoint - $min;
@@ -1275,37 +1275,37 @@ function astra_get_mobile_breakpoint( $min = '', $max = '' ) {
 /*
  * Apply CSS for the element
  */
-if ( ! function_exists( 'astra_color_responsive_css' ) ) {
+if ( ! function_exists( 'kanga_color_responsive_css' ) ) {
 
 	/**
-	 * Astra Responsive Colors
+	 * Kanga Responsive Colors
 	 *
 	 * @param  array  $setting      Responsive colors.
 	 * @param  string $css_property CSS property.
 	 * @param  string $selector     CSS selector.
 	 * @return string               Dynamic responsive CSS.
 	 */
-	function astra_color_responsive_css( $setting, $css_property, $selector ) {
+	function kanga_color_responsive_css( $setting, $css_property, $selector ) {
 		$css = '';
 		if ( isset( $setting['desktop'] ) && ! empty( $setting['desktop'] ) ) {
 			$css .= $selector . '{' . $css_property . ':' . esc_attr( $setting['desktop'] ) . ';}';
 		}
 		if ( isset( $setting['tablet'] ) && ! empty( $setting['tablet'] ) ) {
-			$css .= '@media (max-width:' . astra_get_tablet_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
+			$css .= '@media (max-width:' . kanga_get_tablet_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['tablet'] ) . ';} }';
 		}
 		if ( isset( $setting['mobile'] ) && ! empty( $setting['mobile'] ) ) {
-			$css .= '@media (max-width:' . astra_get_mobile_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
+			$css .= '@media (max-width:' . kanga_get_mobile_breakpoint() . 'px) {' . $selector . '{' . $css_property . ':' . esc_attr( $setting['mobile'] ) . ';} }';
 		}
 		return $css;
 	}
 }
 
-if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
+if ( ! function_exists( 'kanga_check_is_bb_themer_layout' ) ) :
 
 	/**
 	 * Check if layout is bb themer's layout
 	 */
-	function astra_check_is_bb_themer_layout() {
+	function kanga_check_is_bb_themer_layout() {
 
 		$is_layout = false;
 
@@ -1323,18 +1323,18 @@ if ( ! function_exists( 'astra_check_is_bb_themer_layout' ) ) :
 endif;
 
 
-if ( ! function_exists( 'astra_is_white_labelled' ) ) :
+if ( ! function_exists( 'kanga_is_white_labelled' ) ) :
 
 	/**
-	 * Check if white label option is enabled in astra pro plugin
+	 * Check if white label option is enabled in kanga pro plugin
 	 */
-	function astra_is_white_labelled() {
+	function kanga_is_white_labelled() {
 
-		if ( is_callable( 'Astra_Ext_White_Label_Markup::show_branding' ) && ! Astra_Ext_White_Label_Markup::show_branding() ) {
-			return apply_filters( 'astra_is_white_labelled', true );
+		if ( is_callable( 'Kanga_Ext_White_Label_Markup::show_branding' ) && ! Kanga_Ext_White_Label_Markup::show_branding() ) {
+			return apply_filters( 'kanga_is_white_labelled', true );
 		}
 
-		return apply_filters( 'astra_is_white_labelled', false );
+		return apply_filters( 'kanga_is_white_labelled', false );
 	}
 
 endif;
@@ -1345,8 +1345,8 @@ endif;
  * @since 1.8.6
  * @return string
  */
-function astra_get_fonts_display_property() {
-	return apply_filters( 'astra_fonts_display_property', 'fallback' );
+function kanga_get_fonts_display_property() {
+	return apply_filters( 'kanga_fonts_display_property', 'fallback' );
 }
 
 /**
@@ -1357,32 +1357,32 @@ function astra_get_fonts_display_property() {
  * @param  string $deprecated   Option default value.
  * @return Mixed               Return option value.
  */
-function astra_get_db_option( $option, $default = '', $deprecated = '' ) {
+function kanga_get_db_option( $option, $default = '', $deprecated = '' ) {
 
 	if ( '' != $deprecated ) {
 		$default = $deprecated;
 	}
 
-	$theme_options = Astra_Theme_Options::get_db_options();
+	$theme_options = Kanga_Theme_Options::get_db_options();
 
 	/**
-	 * Filter the options array for Astra Settings.
+	 * Filter the options array for Kanga Settings.
 	 *
 	 * @since  1.0.20
 	 * @var Array
 	 */
-	$theme_options = apply_filters( 'astra_get_db_option_array', $theme_options, $option, $default );
+	$theme_options = apply_filters( 'kanga_get_db_option_array', $theme_options, $option, $default );
 
 	$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
 
 	/**
-	 * Dynamic filter astra_get_option_$option.
-	 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
+	 * Dynamic filter kanga_get_option_$option.
+	 * $option is the name of the Kanga Setting, Refer Kanga_Theme_Options::defaults() for option names from the theme.
 	 *
 	 * @since  1.0.20
 	 * @var Mixed.
 	 */
-	return apply_filters( "astra_get_db_option_{$option}", $value, $option, $default );
+	return apply_filters( "kanga_get_db_option_{$option}", $value, $option, $default );
 }
 
 /**
@@ -1393,7 +1393,7 @@ function astra_get_db_option( $option, $default = '', $deprecated = '' ) {
  *
  * @return array         Color code in HEX.
  */
-function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
+function kanga_get_responsive_background_obj( $bg_obj_res, $device ) {
 
 	$gen_bg_css = array();
 

@@ -144,11 +144,11 @@
 				control.container.find( '.background-wrapper > .background-attachment' ).hide();
 				
 				control.container.find( '.more-settings' ).attr('data-direction', 'down');
-				control.container.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+				control.container.find( '.more-settings' ).find('.message').html( kangaCustomizerControlBackground.moreSettings );
 				control.container.find( '.more-settings' ).find('.icon').html( '↓' );
 
 				if ( preview.length ) {
-					preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+					preview.removeClass().addClass( 'placeholder' ).html( kangaCustomizerControlBackground.placeholder );
 				}
 				if ( removeButton.length ) {
 					removeButton.hide();
@@ -165,11 +165,11 @@
 				if( 'down' === $(this).attr( 'data-direction' ) )
 				{
 					$(this).attr('data-direction', 'up');
-					$(this).find('.message').html( astraCustomizerControlBackground.lessSettings );
+					$(this).find('.message').html( kangaCustomizerControlBackground.lessSettings );
 					$(this).find('.icon').html( '↑' );
 				} else {
 					$(this).attr('data-direction', 'down');
-					$(this).find('.message').html( astraCustomizerControlBackground.moreSettings );
+					$(this).find('.message').html( kangaCustomizerControlBackground.moreSettings );
 					$(this).find('.icon').html( '↓' );
 				}
 			});
@@ -198,7 +198,7 @@
 	 *
 	 * Handles the spacing
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-border'] = wp.customize.Control.extend({
@@ -300,7 +300,7 @@
 	 *
 	 * Handles Slider control
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	jQuery(window).on("load", function() {
@@ -360,7 +360,7 @@
 	 *
 	 * Handles the link
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-link'] = wp.customize.Control.extend({
@@ -418,7 +418,7 @@
  *
  * Handles the spacing
  *
- * @package Astra
+ * @package Kanga
  */
 
 wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.extend({
@@ -456,7 +456,7 @@ wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.ex
  *
  * Handles toggling the radio images button
  *
- * @package Astra
+ * @package Kanga
  */
 
 wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend({
@@ -482,7 +482,7 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 	 *
 	 * Handles the responsive
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-responsive'] = wp.customize.Control.extend({
@@ -595,7 +595,7 @@ wp.customize.controlConstructor['ast-radio-image'] = wp.customize.Control.extend
 	 *
 	 * Handles the responsive color
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 	wp.customize.controlConstructor['ast-responsive-color'] = wp.customize.Control.extend({
 
@@ -878,11 +878,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			control.container.find( '.background-wrapper > .background-container.'+ screen +' > .background-attachment' ).hide();
 			
 			control.container.find( '.background-container.'+ screen +' .more-settings' ).attr('data-direction', 'down');
-			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.message').html( kangaCustomizerControlBackground.moreSettings );
 			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.icon').html( '↓' );
 
 			if ( preview.length ) {
-				preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+				preview.removeClass().addClass( 'placeholder' ).html( kangaCustomizerControlBackground.placeholder );
 			}
 			if ( removeButton.length ) {
 				removeButton.hide();
@@ -902,11 +902,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			if( 'down' === jQuery(this).attr( 'data-direction' ) )
 			{
 				jQuery(this).attr('data-direction', 'up');
-				jQuery(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+				jQuery(this).find('.message').html( kangaCustomizerControlBackground.lessSettings )
 				jQuery(this).find('.icon').html( '↑' );
 			} else {
 				jQuery(this).attr('data-direction', 'down');
-				jQuery(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+				jQuery(this).find('.message').html( kangaCustomizerControlBackground.moreSettings )
 				jQuery(this).find('.icon').html( '↓' );
 			}
 		});
@@ -960,7 +960,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 	 *
 	 * Handles Slider control
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-responsive-slider'] = wp.customize.Control.extend({
@@ -1068,7 +1068,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 	 *
 	 * Handles the spacing
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-responsive-spacing'] = wp.customize.Control.extend({
@@ -1332,7 +1332,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                     } else {
                         var fields = control.params.ast_fields;
 
-                        var $modal_wrap = $( astra.customizer.group_modal_tmpl );
+                        var $modal_wrap = $( kanga.customizer.group_modal_tmpl );
 
                         parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
                         parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
@@ -1456,7 +1456,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
                     case "ast-font": 
 
-                        var googleFontsString = astra.customizer.settings.google_fonts;
+                        var googleFontsString = kanga.customizer.settings.google_fonts;
                         control.container.find( '.ast-font-family' ).html( googleFontsString );
 
                         control.container.find( '.ast-font-family' ).each( function() {
@@ -1543,7 +1543,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                     
                         control.container.on('input change', 'input[type=range]', function () {
                             var value = jQuery(this).attr('value'),
-                                input_number = jQuery(this).closest('.wrapper').find('.astra_range_value .value');
+                                input_number = jQuery(this).closest('.wrapper').find('.kanga_range_value .value');
 
                             input_number.val(value);
 
@@ -1558,7 +1558,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
                             var wrapper = jQuery(this).closest('.wrapper'),
                                 input_range = wrapper.find('input[type=range]'),
-                                input_number = wrapper.find('.astra_range_value .value'),
+                                input_number = wrapper.find('.kanga_range_value .value'),
                                 default_value = input_range.data('reset_value');
 
                             input_range.val(default_value);
@@ -1669,7 +1669,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
             _.each(fields_data, function (attr, index) {
 
-                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
+                new_value = ( wp.customize.control( 'kanga-settings['+attr.name+']' ) ? wp.customize.control( 'kanga-settings['+attr.name+']' ).params.value : '' ); 
                 var control = attr.control;
                 var template_id = "customize-control-" + control + "-content";
                 var template = wp.template(template_id);
@@ -1729,7 +1729,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
             var counter = 0;
             var weightObject        = $.merge( inheritWeightObject, weightObject );
             var weightValue         = element.val() || '400';
-            astraTypo[ 'inherit' ] = currentWeightTitle;
+            kangaTypo[ 'inherit' ] = currentWeightTitle;
 
             for ( ; counter < weightObject.length; counter++ ) {
 
@@ -1740,7 +1740,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                     selected = weightObject[ counter ] == weightValue ? ' selected="selected"' : '';
                 }
                 if( ! weightObject[ counter ].includes( "italic" ) ){
-                    weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';
+                    weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + kangaTypo[ weightObject[ counter ] ] + '</option>';
                 }
             }
             
@@ -1909,9 +1909,9 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
         onOptionChange:function ( e, control, element, value, name ) {
 
-            var control_id  = $( '.hidden-field-astra-settings-' + name );
+            var control_id  = $( '.hidden-field-kanga-settings-' + name );
             control_id.val( value );
-            sub_control = wp.customize.control( "astra-settings[" + name + "]" );
+            sub_control = wp.customize.control( "kanga-settings[" + name + "]" );
             sub_control.setting.set( value );
         },
 
@@ -2119,11 +2119,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                 controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').hide();
 
                 controlContainer.find('.background-container.' + screen + ' .more-settings').attr('data-direction', 'down');
-                controlContainer.find('.background-container.' + screen + ' .more-settings').find('.message').html(astraCustomizerControlBackground.moreSettings);
+                controlContainer.find('.background-container.' + screen + ' .more-settings').find('.message').html(kangaCustomizerControlBackground.moreSettings);
                 controlContainer.find('.background-container.' + screen + ' .more-settings').find('.icon').html('↓');
 
                 if (preview.length) {
-                    preview.removeClass().addClass('placeholder').html(astraCustomizerControlBackground.placeholder);
+                    preview.removeClass().addClass('placeholder').html(kangaCustomizerControlBackground.placeholder);
                 }
                 if (removeButton.length) {
                     removeButton.hide();
@@ -2145,11 +2145,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
                 if ('down' === $(this).attr('data-direction')) {
                     $(this).attr('data-direction', 'up');
-                    $(this).find('.message').html(astraCustomizerControlBackground.lessSettings)
+                    $(this).find('.message').html(kangaCustomizerControlBackground.lessSettings)
                     $(this).find('.icon').html('↑');
                 } else {
                     $(this).attr('data-direction', 'down');
-                    $(this).find('.message').html(astraCustomizerControlBackground.moreSettings)
+                    $(this).find('.message').html(kangaCustomizerControlBackground.moreSettings)
                     $(this).find('.icon').html('↓');
                 }
             });
@@ -2308,11 +2308,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                 controlContainer.find( '.background-wrapper > .background-attachment' ).hide();
                 
                 controlContainer.find( '.more-settings' ).attr('data-direction', 'down');
-                controlContainer.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+                controlContainer.find( '.more-settings' ).find('.message').html( kangaCustomizerControlBackground.moreSettings );
                 controlContainer.find( '.more-settings' ).find('.icon').html( '↓' );
 
                 if ( preview.length ) {
-                    preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+                    preview.removeClass().addClass( 'placeholder' ).html( kangaCustomizerControlBackground.placeholder );
                 }
                 if ( removeButton.length ) {
                     removeButton.hide();
@@ -2329,11 +2329,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                 if( 'down' === $(this).attr( 'data-direction' ) )
                 {
                     $(this).attr('data-direction', 'up');
-                    $(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+                    $(this).find('.message').html( kangaCustomizerControlBackground.lessSettings )
                     $(this).find('.icon').html( '↑' );
                 } else {
                     $(this).attr('data-direction', 'down');
-                    $(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+                    $(this).find('.message').html( kangaCustomizerControlBackground.moreSettings )
                     $(this).find('.icon').html( '↓' );
                 }
             });
@@ -2411,7 +2411,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 	 *
 	 * Handles Slider control
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-slider'] = wp.customize.Control.extend({
@@ -2429,7 +2429,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			// Update the text value.
 			jQuery( 'input[type=range]' ).on( 'input change', function() {
 				var value 		 = jQuery( this ).attr( 'value' ),
-					input_number = jQuery( this ).closest( '.wrapper' ).find( '.astra_range_value .value' );
+					input_number = jQuery( this ).closest( '.wrapper' ).find( '.kanga_range_value .value' );
 
 				input_number.val( value );
 				input_number.change();
@@ -2439,7 +2439,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			jQuery( '.ast-slider-reset' ).click( function() {
 				var wrapper 		= jQuery( this ).closest( '.wrapper' ),
 					input_range   	= wrapper.find( 'input[type=range]' ),
-					input_number 	= wrapper.find( '.astra_range_value .value' ),
+					input_number 	= wrapper.find( '.kanga_range_value .value' ),
 					default_value	= input_range.data( 'reset_value' );
 
 				input_range.val( default_value );
@@ -2463,7 +2463,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 	 *
 	 * Handles sortable list
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-sortable'] = wp.customize.Control.extend({
@@ -2523,7 +2523,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
  *
  * Handles Typography of the site
  *
- * @package Astra
+ * @package Kanga
  */
 
 ( function( $ ) {
@@ -2560,8 +2560,8 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 		{
 			$( '.customize-control-ast-font-family select' ).each( function(e) {
 
-				if( 'undefined' != typeof astra.customizer ) {
-					var fonts = astra.customizer.settings.google_fonts;
+				if( 'undefined' != typeof kanga.customizer ) {
+					var fonts = kanga.customizer.settings.google_fonts;
 					var optionName = $(this).data('name');
 
 					$(this).html( fonts );
@@ -2715,7 +2715,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			inheritWeightObject = [ 'inherit' ],
 			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
-			weightMap           = astraTypo;
+			weightMap           = kangaTypo;
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
@@ -2767,7 +2767,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 				weightValue        = '',
 				weightOptions       = '',
 				currentWeightTitle  = variantSelect.data( 'inherit' ),
-				weightMap           = astraTypo;
+				weightMap           = kangaTypo;
 
 				var variantArray = variantSavedField.val().split(',');
 

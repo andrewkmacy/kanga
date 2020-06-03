@@ -2,31 +2,31 @@
 /**
  * Content Spacing Options for our theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.0
+ * @since       Kanga 1.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Woo_Shop_Sidebar_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Woo_Shop_Sidebar_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Woo_Shop_Sidebar_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-WooCommerce Shop Sidebar Configurations.
+		 * Register Kanga-WooCommerce Shop Sidebar Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -52,14 +52,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'select',
 					'section'  => 'section-sidebars',
-					'default'  => astra_get_option( 'woocommerce-sidebar-layout' ),
+					'default'  => kanga_get_option( 'woocommerce-sidebar-layout' ),
 					'priority' => 5,
-					'title'    => __( 'WooCommerce', 'astra' ),
+					'title'    => __( 'WooCommerce', 'kanga' ),
 					'choices'  => array(
-						'default'       => __( 'Default', 'astra' ),
-						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+						'default'       => __( 'Default', 'kanga' ),
+						'no-sidebar'    => __( 'No Sidebar', 'kanga' ),
+						'left-sidebar'  => __( 'Left Sidebar', 'kanga' ),
+						'right-sidebar' => __( 'Right Sidebar', 'kanga' ),
 					),
 				),
 
@@ -70,15 +70,15 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[single-product-sidebar-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
-					'default'  => astra_get_option( 'single-product-sidebar-layout' ),
+					'default'  => kanga_get_option( 'single-product-sidebar-layout' ),
 					'section'  => 'section-sidebars',
 					'priority' => 5,
-					'title'    => __( 'Single Product', 'astra' ),
+					'title'    => __( 'Single Product', 'kanga' ),
 					'choices'  => array(
-						'default'       => __( 'Default', 'astra' ),
-						'no-sidebar'    => __( 'No Sidebar', 'astra' ),
-						'left-sidebar'  => __( 'Left Sidebar', 'astra' ),
-						'right-sidebar' => __( 'Right Sidebar', 'astra' ),
+						'default'       => __( 'Default', 'kanga' ),
+						'no-sidebar'    => __( 'No Sidebar', 'kanga' ),
+						'left-sidebar'  => __( 'Left Sidebar', 'kanga' ),
+						'right-sidebar' => __( 'Right Sidebar', 'kanga' ),
 					),
 				),
 			);
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 	}
 }
 
-new Astra_Woo_Shop_Sidebar_Configs();
+new Kanga_Woo_Shop_Sidebar_Configs();
 
 
 

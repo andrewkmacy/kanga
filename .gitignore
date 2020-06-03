@@ -14,7 +14,7 @@ node_modules/
 *.map
 
 # Skip package file from versoning
-astra-theme.zip
+kanga-theme.zip
 
 # ignore git inside subproject
 admin/bsf-core/.git
@@ -24,7 +24,7 @@ phpcs-summary.log
 phpcs-full.log
 
 # Org Package
-astra
+kanga
 *.zip
 
 # Ignore Composer's directories

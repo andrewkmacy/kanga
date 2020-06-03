@@ -2,11 +2,11 @@
 /**
  * Post Meta Box
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,12 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Meta Boxes setup
  */
-if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
+if ( ! class_exists( 'Kanga_Meta_Boxes' ) ) {
 
 	/**
 	 * Meta Boxes setup
 	 */
-	class Astra_Meta_Boxes {
+	class Kanga_Meta_Boxes {
 
 		/**
 		 * Instance
@@ -89,7 +89,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 				if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
 
-					remove_meta_box( 'astra_settings_meta_box', 'fl-theme-layout', 'side' );
+					remove_meta_box( 'kanga_settings_meta_box', 'fl-theme-layout', 'side' );
 				}
 			}
 		}
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 * @see https://php.net/manual/en/filter.filters.sanitize.php
 			 */
 			self::$meta_option = apply_filters(
-				'astra_meta_box_options',
+				'kanga_meta_box_options',
 				array(
 					'ast-main-header-display' => array(
 						'sanitize' => 'FILTER_DEFAULT',
@@ -156,8 +156,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			$metabox_name = sprintf(
 				// Translators: %s is the theme name.
-				__( '%s Settings', 'astra' ),
-				astra_get_theme_name()
+				__( '%s Settings', 'kanga' ),
+				kanga_get_theme_name()
 			);
 
 			// Enable for all posts.
@@ -165,7 +165,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 				if ( 'attachment' !== $type ) {
 					add_meta_box(
-						'astra_settings_meta_box',              // Id.
+						'kanga_settings_meta_box',              // Id.
 						$metabox_name,                          // Title.
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
@@ -191,7 +191,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function markup_meta_box( $post ) {
 
-			wp_nonce_field( basename( __FILE__ ), 'astra_settings_meta_box' );
+			wp_nonce_field( basename( __FILE__ ), 'kanga_settings_meta_box' );
 			$stored = get_post_meta( $post->ID );
 
 			if ( is_array( $stored ) ) {
@@ -218,7 +218,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$breadcrumbs_content = ( isset( $meta['ast-breadcrumbs-content']['default'] ) ) ? $meta['ast-breadcrumbs-content']['default'] : '';
 
 			$show_meta_field = ! self::is_bb_themer_layout();
-			do_action( 'astra_meta_box_markup_before', $meta );
+			do_action( 'kanga_meta_box_markup_before', $meta );
 
 			/**
 			 * Option: Sidebar
@@ -226,13 +226,13 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			?>
 			<div class="site-sidebar-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Sidebar', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Sidebar', 'kanga' ); ?> </strong>
 				</p>
 				<select name="site-sidebar-layout" id="site-sidebar-layout">
-					<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'astra' ); ?></option>
-					<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'astra' ); ?></option>
-					<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'astra' ); ?></option>
+					<option value="default" <?php selected( $site_sidebar, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'kanga' ); ?></option>
+					<option value="left-sidebar" <?php selected( $site_sidebar, 'left-sidebar' ); ?> > <?php esc_html_e( 'Left Sidebar', 'kanga' ); ?></option>
+					<option value="right-sidebar" <?php selected( $site_sidebar, 'right-sidebar' ); ?> > <?php esc_html_e( 'Right Sidebar', 'kanga' ); ?></option>
+					<option value="no-sidebar" <?php selected( $site_sidebar, 'no-sidebar' ); ?> > <?php esc_html_e( 'No Sidebar', 'kanga' ); ?></option>
 				</select>
 			</div>
 			<?php
@@ -242,14 +242,14 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			?>
 			<div class="site-content-layout-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper" >
-					<strong> <?php esc_html_e( 'Content Layout', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Content Layout', 'kanga' ); ?> </strong>
 				</p>
 				<select name="site-content-layout" id="site-content-layout">
-					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'astra' ); ?></option>
-					<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'astra' ); ?></option>
-					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
-					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'astra' ); ?></option>
-					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'astra' ); ?></option>
+					<option value="default" <?php selected( $site_content_layout, 'default' ); ?> > <?php esc_html_e( 'Customizer Setting', 'kanga' ); ?></option>
+					<option value="boxed-container" <?php selected( $site_content_layout, 'boxed-container' ); ?> > <?php esc_html_e( 'Boxed', 'kanga' ); ?></option>
+					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'kanga' ); ?></option>
+					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'kanga' ); ?></option>
+					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'kanga' ); ?></option>
 				</select>
 			</div>
 			<?php
@@ -259,33 +259,33 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			?>
 			<div class="disable-section-meta-wrap components-base-control__field">
 				<p class="post-attributes-label-wrapper">
-					<strong> <?php esc_html_e( 'Disable Sections', 'astra' ); ?> </strong>
+					<strong> <?php esc_html_e( 'Disable Sections', 'kanga' ); ?> </strong>
 				</p>
 				<div class="disable-section-meta">
-					<?php do_action( 'astra_meta_box_markup_disable_sections_before', $meta ); ?>
+					<?php do_action( 'kanga_meta_box_markup_disable_sections_before', $meta ); ?>
 
 					<div class="ast-main-header-display-option-wrap">
 						<label for="ast-main-header-display">
 							<input type="checkbox" id="ast-main-header-display" name="ast-main-header-display" value="disabled" <?php checked( $primary_header, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Primary Header', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Primary Header', 'kanga' ); ?>
 						</label>
 					</div>
-					<?php do_action( 'astra_meta_box_markup_disable_sections_after_primary_header', $meta ); ?>
+					<?php do_action( 'kanga_meta_box_markup_disable_sections_after_primary_header', $meta ); ?>
 					<?php if ( $show_meta_field ) { ?>
 						<div class="site-post-title-option-wrap">
 							<label for="site-post-title">
 								<input type="checkbox" id="site-post-title" name="site-post-title" value="disabled" <?php checked( $site_post_title, 'disabled' ); ?> />
-								<?php esc_html_e( 'Disable Title', 'astra' ); ?>
+								<?php esc_html_e( 'Disable Title', 'kanga' ); ?>
 							</label>
 						</div>
 						<?php
-						$ast_breadcrumbs_content = astra_get_option( 'ast-breadcrumbs-content' );
-						if ( 'disabled' != $ast_breadcrumbs_content && 'none' !== astra_get_option( 'breadcrumb-position' ) ) {
+						$ast_breadcrumbs_content = kanga_get_option( 'ast-breadcrumbs-content' );
+						if ( 'disabled' != $ast_breadcrumbs_content && 'none' !== kanga_get_option( 'breadcrumb-position' ) ) {
 							?>
 					<div class="ast-breadcrumbs-content-option-wrap">
 						<label for="ast-breadcrumbs-content">
 							<input type="checkbox" id="ast-breadcrumbs-content" name="ast-breadcrumbs-content" value="disabled" <?php checked( $breadcrumbs_content, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Breadcrumb', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Breadcrumb', 'kanga' ); ?>
 						</label>
 					</div>
 						<?php } ?>
@@ -293,43 +293,43 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						<div class="ast-featured-img-option-wrap">
 							<label for="ast-featured-img">
 								<input type="checkbox" id="ast-featured-img" name="ast-featured-img" value="disabled" <?php checked( $ast_featured_img, 'disabled' ); ?> />
-								<?php esc_html_e( 'Disable Featured Image', 'astra' ); ?>
+								<?php esc_html_e( 'Disable Featured Image', 'kanga' ); ?>
 							</label>
 						</div>
 					<?php } ?>
 
 					<?php
-					$footer_adv_layout = astra_get_option( 'footer-adv' );
+					$footer_adv_layout = kanga_get_option( 'footer-adv' );
 
 					if ( $show_meta_field && 'disabled' != $footer_adv_layout ) {
 						?>
 					<div class="footer-adv-display-option-wrap">
 						<label for="footer-adv-display">
 							<input type="checkbox" id="footer-adv-display" name="footer-adv-display" value="disabled" <?php checked( $footer_widgets, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Footer Widgets', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Footer Widgets', 'kanga' ); ?>
 						</label>
 					</div>
 
 						<?php
 					}
-					$footer_sml_layout = astra_get_option( 'footer-sml-layout' );
+					$footer_sml_layout = kanga_get_option( 'footer-sml-layout' );
 					if ( 'disabled' != $footer_sml_layout ) {
 						?>
 					<div class="footer-sml-layout-option-wrap">
 						<label for="footer-sml-layout">
 							<input type="checkbox" id="footer-sml-layout" name="footer-sml-layout" value="disabled" <?php checked( $footer_bar, 'disabled' ); ?> />
-							<?php esc_html_e( 'Disable Footer Bar', 'astra' ); ?>
+							<?php esc_html_e( 'Disable Footer Bar', 'kanga' ); ?>
 						</label>
 					</div>
 						<?php
 					}
 					?>
-					<?php do_action( 'astra_meta_box_markup_disable_sections_after', $meta ); ?>
+					<?php do_action( 'kanga_meta_box_markup_disable_sections_after', $meta ); ?>
 				</div>
 			</div>
 			<?php
 
-			do_action( 'astra_meta_box_markup_after', $meta );
+			do_action( 'kanga_meta_box_markup_after', $meta );
 		}
 
 		/**
@@ -343,7 +343,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			// Checks save status.
 			$is_autosave    = wp_is_post_autosave( $post_id );
 			$is_revision    = wp_is_post_revision( $post_id );
-			$is_valid_nonce = ( isset( $_POST['astra_settings_meta_box'] ) && wp_verify_nonce( $_POST['astra_settings_meta_box'], basename( __FILE__ ) ) ) ? true : false;
+			$is_valid_nonce = ( isset( $_POST['kanga_settings_meta_box'] ) && wp_verify_nonce( $_POST['kanga_settings_meta_box'], basename( __FILE__ ) ) ) ? true : false;
 
 			// Exits script depending on save status.
 			if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
@@ -394,4 +394,4 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Meta_Boxes::get_instance();
+Kanga_Meta_Boxes::get_instance();

@@ -2,8 +2,8 @@
 /**
  * Footer Layout 4
  *
- * @package Astra Addon
- * @since   Astra 1.0.12
+ * @package Kanga Addon
+ * @since   Kanga 1.0.12
  */
 
 /**
@@ -32,17 +32,17 @@ $classes   = implode( ' ', $classes );
 	<div class="footer-adv-overlay">
 		<div class="ast-container">
 			<div class="ast-row">
-				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-1" <?php echo wp_kses_post( apply_filters( 'astra_sidebar_data_attrs', '', 'advanced-footer-widget-1' ) ); ?>>
-					<?php astra_get_footer_widget( 'advanced-footer-widget-1' ); ?>
+				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-1" <?php echo wp_kses_post( apply_filters( 'kanga_sidebar_data_attrs', '', 'advanced-footer-widget-1' ) ); ?>>
+					<?php kanga_get_footer_widget( 'advanced-footer-widget-1' ); ?>
 				</div>
-				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-2" <?php echo wp_kses_post( apply_filters( 'astra_sidebar_data_attrs', '', 'advanced-footer-widget-2' ) ); ?>>
-					<?php astra_get_footer_widget( 'advanced-footer-widget-2' ); ?>
+				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-2" <?php echo wp_kses_post( apply_filters( 'kanga_sidebar_data_attrs', '', 'advanced-footer-widget-2' ) ); ?>>
+					<?php kanga_get_footer_widget( 'advanced-footer-widget-2' ); ?>
 				</div>
-				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-3" <?php echo wp_kses_post( apply_filters( 'astra_sidebar_data_attrs', '', 'advanced-footer-widget-3' ) ); ?>>
-					<?php astra_get_footer_widget( 'advanced-footer-widget-3' ); ?>
+				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-3" <?php echo wp_kses_post( apply_filters( 'kanga_sidebar_data_attrs', '', 'advanced-footer-widget-3' ) ); ?>>
+					<?php kanga_get_footer_widget( 'advanced-footer-widget-3' ); ?>
 				</div>
-				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-4" <?php echo wp_kses_post( apply_filters( 'astra_sidebar_data_attrs', '', 'advanced-footer-widget-4' ) ); ?>>
-					<?php astra_get_footer_widget( 'advanced-footer-widget-4' ); ?>
+				<div class="ast-col-lg-3 ast-col-md-3 ast-col-sm-12 ast-col-xs-12 footer-adv-widget footer-adv-widget-4" <?php echo wp_kses_post( apply_filters( 'kanga_sidebar_data_attrs', '', 'advanced-footer-widget-4' ) ); ?>>
+					<?php kanga_get_footer_widget( 'advanced-footer-widget-4' ); ?>
 				</div>
 			</div><!-- .ast-row -->
 		</div><!-- .ast-container -->

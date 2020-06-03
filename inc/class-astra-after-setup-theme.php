@@ -1,7 +1,7 @@
 <?php
 /**
- * Astra functions and definitions.
- * Text Domain: astra
+ * Kanga functions and definitions.
+ * Text Domain: kanga
  * When using a child theme (see https://codex.wordpress.org/Theme_Development
  * and https://codex.wordpress.org/Child_Themes), you can override certain
  * functions (those wrapped in a function_exists() call) by defining them first
@@ -12,14 +12,14 @@
  * For more information on hooks, actions, and filters,
  * see https://codex.wordpress.org/Plugin_API
  *
- * Astra is a very powerful theme and virtually anything can be customized
+ * Kanga is a very powerful theme and virtually anything can be customized
  * via a child theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,16 +27,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra_After_Setup_Theme initial setup
+ * Kanga_After_Setup_Theme initial setup
  *
  * @since 1.0.0
  */
-if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
+if ( ! class_exists( 'Kanga_After_Setup_Theme' ) ) {
 
 	/**
-	 * Astra_After_Setup_Theme initial setup
+	 * Kanga_After_Setup_Theme initial setup
 	 */
-	class Astra_After_Setup_Theme {
+	class Kanga_After_Setup_Theme {
 
 		/**
 		 * Instance
@@ -73,15 +73,15 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		public function setup_theme() {
 
-			do_action( 'astra_class_loaded' );
+			do_action( 'kanga_class_loaded' );
 
 			/**
 			 * Make theme available for translation.
 			 * Translations can be filed in the /languages/ directory.
 			 * If you're building a theme based on Next, use a find and replace
-			 * to change 'astra' to the name of your theme in all the template files.
+			 * to change 'kanga' to the name of your theme in all the template files.
 			 */
-			load_theme_textdomain( 'astra', ASTRA_THEME_DIR . '/languages' );
+			load_theme_textdomain( 'kanga', ASTRA_THEME_DIR . '/languages' );
 
 			/**
 			 * Theme Support
@@ -148,11 +148,11 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			/* Directory and Extension */
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			if ( apply_filters( 'astra_theme_editor_style', true ) ) {
+			if ( apply_filters( 'kanga_theme_editor_style', true ) ) {
 				add_editor_style( 'assets/css/' . $dir_name . '/editor-style' . $file_prefix . '.css' );
 			}
 
-			if ( apply_filters( 'astra_fullwidth_oembed', true ) ) {
+			if ( apply_filters( 'kanga_fullwidth_oembed', true ) ) {
 				// Filters the oEmbed process to run the responsive_oembed_wrapper() function.
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 			}
@@ -161,11 +161,11 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			add_theme_support( 'woocommerce' );
 
 			// Native AMP Support.
-			if ( true === apply_filters( 'astra_amp_support', true ) ) {
+			if ( true === apply_filters( 'kanga_amp_support', true ) ) {
 				add_theme_support(
 					'amp',
 					apply_filters(
-						'astra_amp_theme_features',
+						'kanga_amp_theme_features',
 						array(
 							'paired' => true,
 						)
@@ -190,29 +190,29 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			if ( ! isset( $content_width ) ) {
 
 				if ( is_home() || is_post_type_archive( 'post' ) ) {
-					$blog_width = astra_get_option( 'blog-width' );
+					$blog_width = kanga_get_option( 'blog-width' );
 
 					if ( 'custom' === $blog_width ) {
-						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-max-width', 1200 ) );
+						$content_width = apply_filters( 'kanga_content_width', kanga_get_option( 'blog-max-width', 1200 ) );
 					} else {
-						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
+						$content_width = apply_filters( 'kanga_content_width', kanga_get_option( 'site-content-width', 1200 ) );
 					}
 				} elseif ( is_single() ) {
 
 					if ( 'post' === get_post_type() ) {
-						$single_post_max = astra_get_option( 'blog-single-width' );
+						$single_post_max = kanga_get_option( 'blog-single-width' );
 
 						if ( 'custom' === $single_post_max ) {
-							$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-single-max-width', 1200 ) );
+							$content_width = apply_filters( 'kanga_content_width', kanga_get_option( 'blog-single-max-width', 1200 ) );
 						} else {
-							$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
+							$content_width = apply_filters( 'kanga_content_width', kanga_get_option( 'site-content-width', 1200 ) );
 						}
 					}
 
 					// For custom post types set the global content width.
-					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
+					$content_width = apply_filters( 'kanga_content_width', kanga_get_option( 'site-content-width', 1200 ) );
 				} else {
-					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
+					$content_width = apply_filters( 'kanga_content_width', kanga_get_option( 'site-content-width', 1200 ) );
 				}
 			}
 
@@ -229,10 +229,10 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		public function responsive_oembed_wrapper( $html, $url, $attr ) {
 
-			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
+			$add_kanga_oembed_wrapper = apply_filters( 'kanga_responsive_oembed_wrapper_enable', true );
 
 			$allowed_providers = apply_filters(
-				'astra_allowed_fullwidth_oembed_providers',
+				'kanga_allowed_fullwidth_oembed_providers',
 				array(
 					'vimeo.com',
 					'youtube.com',
@@ -242,8 +242,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 				)
 			);
 
-			if ( astra_strposa( $url, $allowed_providers ) ) {
-				if ( $add_astra_oembed_wrapper ) {
+			if ( kanga_strposa( $url, $allowed_providers ) ) {
+				if ( $add_kanga_oembed_wrapper ) {
 					$html = ( '' !== $html ) ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
 				}
 			}
@@ -256,4 +256,4 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_After_Setup_Theme::get_instance();
+Kanga_After_Setup_Theme::get_instance();

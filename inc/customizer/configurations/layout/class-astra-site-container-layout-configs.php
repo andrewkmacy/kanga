@@ -1,12 +1,12 @@
 <?php
 /**
- * General Options for Astra Theme.
+ * General Options for Kanga Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -15,20 +15,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 
-if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Site_Container_Layout_Configs' ) ) {
 
 	/**
-	 * Register Astra Site Container Layout Customizer Configurations.
+	 * Register Kanga Site Container Layout Customizer Configurations.
 	 */
-	class Astra_Site_Container_Layout_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Site_Container_Layout_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
-		 * Register Astra Site Container Layout Customizer Configurations.
+		 * Register Kanga Site Container Layout Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -53,16 +53,16 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[site-content-layout]',
 					'type'     => 'control',
-					'default'  => astra_get_option( 'site-content-layout' ),
+					'default'  => kanga_get_option( 'site-content-layout' ),
 					'control'  => 'select',
 					'section'  => 'section-container-layout',
 					'priority' => 50,
-					'title'    => __( 'Layout', 'astra' ),
+					'title'    => __( 'Layout', 'kanga' ),
 					'choices'  => array(
-						'boxed-container'         => __( 'Boxed', 'astra' ),
-						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+						'boxed-container'         => __( 'Boxed', 'kanga' ),
+						'content-boxed-container' => __( 'Content Boxed', 'kanga' ),
+						'plain-container'         => __( 'Full Width / Contained', 'kanga' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'kanga' ),
 					),
 				),
 
@@ -70,16 +70,16 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
-					'default'  => astra_get_option( 'single-page-content-layout' ),
+					'default'  => kanga_get_option( 'single-page-content-layout' ),
 					'section'  => 'section-container-layout',
-					'title'    => __( 'Page Layout', 'astra' ),
+					'title'    => __( 'Page Layout', 'kanga' ),
 					'priority' => 55,
 					'choices'  => array(
-						'default'                 => __( 'Default', 'astra' ),
-						'boxed-container'         => __( 'Boxed', 'astra' ),
-						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+						'default'                 => __( 'Default', 'kanga' ),
+						'boxed-container'         => __( 'Boxed', 'kanga' ),
+						'content-boxed-container' => __( 'Content Boxed', 'kanga' ),
+						'plain-container'         => __( 'Full Width / Contained', 'kanga' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'kanga' ),
 					),
 				),
 
@@ -87,16 +87,16 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
-					'default'  => astra_get_option( 'single-post-content-layout' ),
+					'default'  => kanga_get_option( 'single-post-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 60,
-					'title'    => __( 'Blog Post Layout', 'astra' ),
+					'title'    => __( 'Blog Post Layout', 'kanga' ),
 					'choices'  => array(
-						'default'                 => __( 'Default', 'astra' ),
-						'boxed-container'         => __( 'Boxed', 'astra' ),
-						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+						'default'                 => __( 'Default', 'kanga' ),
+						'boxed-container'         => __( 'Boxed', 'kanga' ),
+						'content-boxed-container' => __( 'Content Boxed', 'kanga' ),
+						'plain-container'         => __( 'Full Width / Contained', 'kanga' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'kanga' ),
 					),
 				),
 
@@ -107,16 +107,16 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
-					'default'  => astra_get_option( 'archive-post-content-layout' ),
+					'default'  => kanga_get_option( 'archive-post-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 65,
-					'title'    => __( 'Archives Layout', 'astra' ),
+					'title'    => __( 'Archives Layout', 'kanga' ),
 					'choices'  => array(
-						'default'                 => __( 'Default', 'astra' ),
-						'boxed-container'         => __( 'Boxed', 'astra' ),
-						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+						'default'                 => __( 'Default', 'kanga' ),
+						'boxed-container'         => __( 'Boxed', 'kanga' ),
+						'content-boxed-container' => __( 'Content Boxed', 'kanga' ),
+						'plain-container'         => __( 'Full Width / Contained', 'kanga' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'kanga' ),
 					),
 				),
 
@@ -127,18 +127,18 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[site-layout-outside-bg-obj-responsive]',
 					'type'      => 'control',
 					'control'   => 'ast-responsive-background',
-					'default'   => astra_get_option( 'site-layout-outside-bg-obj-responsive' ),
+					'default'   => kanga_get_option( 'site-layout-outside-bg-obj-responsive' ),
 					'section'   => 'section-colors-body',
 					'transport' => 'postMessage',
 					'priority'  => 25,
-					'title'     => __( 'Background', 'astra' ),
+					'title'     => __( 'Background', 'kanga' ),
 				),
 
 			);
 
 			$configurations = array_merge( $configurations, $_configs );
 
-			// Learn More link if Astra Pro is not activated.
+			// Learn More link if Kanga Pro is not activated.
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 
 				$config = array(
@@ -150,7 +150,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-divider]',
 						'type'     => 'control',
-						'default'  => astra_get_option( 'site-content-layout' ),
+						'default'  => kanga_get_option( 'site-content-layout' ),
 						'control'  => 'ast-divider',
 						'section'  => 'section-container-layout',
 						'priority' => 999,
@@ -164,7 +164,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 						'section'  => 'section-container-layout',
 						'priority' => 999,
 						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
+						'help'     => '<p>' . __( 'More Options Available in Kanga Pro!', 'kanga' ) . '</p><a href="' . kanga_get_pro_url( 'https://wpkanga.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'kanga' ) . '</a>',
 						'settings' => array(),
 					),
 				);
@@ -178,7 +178,7 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 }
 
 
-new Astra_Site_Container_Layout_Configs();
+new Kanga_Site_Container_Layout_Configs();
 
 
 

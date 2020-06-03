@@ -1,17 +1,17 @@
 <?php
 /**
- * Astra Sites Notices
+ * Kanga Sites Notices
  *
- * Closing notice on click on `astra-notice-close` class.
+ * Closing notice on click on `kanga-notice-close` class.
  *
  * If notice has the data attribute `data-repeat-notice-after="%2$s"` then notice close for that SPECIFIC TIME.
  * If notice has NO data attribute `data-repeat-notice-after="%2$s"` then notice close for the CURRENT USER FOREVER.
  *
  * > Create custom close notice link in the notice markup. E.g.
- * `<a href="#" data-repeat-notice-after="<?php echo MONTH_IN_SECONDS; ?>" class="astra-notice-close">`
+ * `<a href="#" data-repeat-notice-after="<?php echo MONTH_IN_SECONDS; ?>" class="kanga-notice-close">`
  * It close the notice for 30 days.
  *
- * @package Astra Sites
+ * @package Kanga Sites
  * @since 1.4.0
  */
 
@@ -19,14 +19,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Notices' ) ) :
+if ( ! class_exists( 'Kanga_Notices' ) ) :
 
 	/**
-	 * Astra_Notices
+	 * Kanga_Notices
 	 *
 	 * @since 1.4.0
 	 */
-	class Astra_Notices {
+	class Kanga_Notices {
 
 		/**
 		 * Notices
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		public function __construct() {
 			add_action( 'admin_notices', array( $this, 'show_notices' ), 30 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-			add_action( 'wp_ajax_astra-notice-dismiss', array( $this, 'dismiss_notice' ) );
+			add_action( 'wp_ajax_kanga-notice-dismiss', array( $this, 'dismiss_notice' ) );
 			add_filter( 'wp_kses_allowed_html', array( $this, 'add_data_attributes' ), 10, 2 );
 		}
 
@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public function dismiss_notice() {
 
-			if ( ! apply_filters( 'astra_notices_user_cap_check', current_user_can( 'manage_options' ) ) ) {
+			if ( ! apply_filters( 'kanga_notices_user_cap_check', current_user_can( 'manage_options' ) ) ) {
 				return;
 			}
 
@@ -121,8 +121,8 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 			$repeat_notice_after = ( isset( $_POST['repeat_notice_after'] ) ) ? absint( $_POST['repeat_notice_after'] ) : '';
 			$nonce               = ( isset( $_POST['nonce'] ) ) ? sanitize_key( $_POST['nonce'] ) : '';
 
-			if ( false === wp_verify_nonce( $nonce, 'astra-notices' ) ) {
-				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'astra' ) );
+			if ( false === wp_verify_nonce( $nonce, 'kanga-notices' ) ) {
+				wp_send_json_error( esc_html_e( 'WordPress Nonce not validated.', 'kanga' ) );
 			}
 
 			// Valid inputs?
@@ -147,12 +147,12 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return void
 		 */
 		public function enqueue_scripts() {
-			wp_register_script( 'astra-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), self::$version, true );
+			wp_register_script( 'kanga-notices', self::_get_uri() . 'notices.js', array( 'jquery' ), self::$version, true );
 			wp_localize_script(
-				'astra-notices',
-				'astraNotices',
+				'kanga-notices',
+				'kangaNotices',
 				array(
-					'_notice_nonce' => wp_create_nonce( 'astra-notices' ),
+					'_notice_nonce' => wp_create_nonce( 'kanga-notices' ),
 				)
 			);
 		}
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		public function show_notices() {
 
 			$defaults = array(
-				'id'                         => '',      // Optional, Notice ID. If empty it set `astra-notices-id-<$array-index>`.
+				'id'                         => '',      // Optional, Notice ID. If empty it set `kanga-notices-id-<$array-index>`.
 				'type'                       => 'info',  // Optional, Notice type. Default `info`. Expected [info, warning, notice, error].
 				'message'                    => '',      // Optional, Message.
 				'show_if'                    => true,    // Optional, Show notice on custom condition. E.g. 'show_if' => if( is_admin() ) ? true, false, .
@@ -193,7 +193,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				'display-notice-after'       => false,      // Optional, Dismiss-able notice time. It'll auto show after given time.
 				'class'                      => '',      // Optional, Additional notice wrapper class.
 				'priority'                   => 10,      // Priority of the notice.
-				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Astra_Notices.
+				'display-with-other-notices' => true,    // Should the notice be displayed if other notices  are being displayed from Kanga_Notices.
 				'is_dismissible'             => true,
 			);
 
@@ -238,24 +238,24 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 */
 		public static function markup( $notice = array() ) {
 
-			wp_enqueue_script( 'astra-notices' );
+			wp_enqueue_script( 'kanga-notices' );
 
-			do_action( 'astra_notice_before_markup' );
+			do_action( 'kanga_notice_before_markup' );
 
-			do_action( "astra_notice_before_markup_{$notice['id']}" );
+			do_action( "kanga_notice_before_markup_{$notice['id']}" );
 
 			?>
 			<div id="<?php echo esc_attr( $notice['id'] ); ?>" class="<?php echo esc_attr( $notice['classes'] ); ?>" data-repeat-notice-after="<?php echo esc_attr( $notice['repeat-notice-after'] ); ?>">
 				<div class="notice-container">
-					<?php do_action( "astra_notice_inside_markup_{$notice['id']}" ); ?>
+					<?php do_action( "kanga_notice_inside_markup_{$notice['id']}" ); ?>
 					<?php echo wp_kses_post( $notice['message'] ); ?>
 				</div>
 			</div>
 			<?php
 
-			do_action( "astra_notice_after_markup_{$notice['id']}" );
+			do_action( "kanga_notice_after_markup_{$notice['id']}" );
 
-			do_action( 'astra_notice_after_markup' );
+			do_action( 'kanga_notice_after_markup' );
 
 		}
 
@@ -268,7 +268,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 		 * @return array       Notice wrapper classes.
 		 */
 		private static function get_wrap_classes( $notice ) {
-			$classes = array( 'astra-notice', 'notice' );
+			$classes = array( 'kanga-notice', 'notice' );
 
 			if ( $notice['is_dismissible'] ) {
 				$classes[] = 'is-dismissible';
@@ -296,7 +296,7 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 				return $notice['id'];
 			}
 
-			return 'astra-notices-id-' . $key;
+			return 'kanga-notices-id-' . $key;
 		}
 
 		/**
@@ -360,6 +360,6 @@ if ( ! class_exists( 'Astra_Notices' ) ) :
 	/**
 	 * Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_Notices::get_instance();
+	Kanga_Notices::get_instance();
 
 endif;

@@ -2,7 +2,7 @@
 /**
  * LifterLMS General Options for our theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
@@ -13,20 +13,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Learndash_General_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Learndash_General_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Learndash_General_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register LearnDash General Layout settings.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -40,8 +40,8 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 					'section'  => 'section-learndash',
 					'type'     => 'control',
 					'control'  => 'checkbox',
-					'default'  => astra_get_option( 'learndash-lesson-serial-number' ),
-					'title'    => __( 'Display Serial Number', 'astra' ),
+					'default'  => kanga_get_option( 'learndash-lesson-serial-number' ),
+					'title'    => __( 'Display Serial Number', 'kanga' ),
 					'priority' => 25,
 				),
 
@@ -50,11 +50,11 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[learndash-differentiate-rows]',
-					'default'  => astra_get_option( 'learndash-differentiate-rows' ),
+					'default'  => kanga_get_option( 'learndash-differentiate-rows' ),
 					'type'     => 'control',
 					'control'  => 'checkbox',
 					'section'  => 'section-learndash',
-					'title'    => __( 'Differentiate Rows', 'astra' ),
+					'title'    => __( 'Differentiate Rows', 'kanga' ),
 					'priority' => 30,
 				),
 			);
@@ -65,4 +65,4 @@ if ( ! class_exists( 'Astra_Learndash_General_Configs' ) ) {
 	}
 }
 
-new Astra_Learndash_General_Configs();
+new Kanga_Learndash_General_Configs();

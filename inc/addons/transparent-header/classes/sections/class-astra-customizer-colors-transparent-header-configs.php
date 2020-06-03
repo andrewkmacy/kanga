@@ -2,11 +2,11 @@
 /**
  * Colors and Background - Header Options for our theme.
  *
- * @package     Astra Addon
+ * @package     Kanga Addon
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.4.3
+ * @since       Kanga 1.4.3
  */
 
 // Block direct access to the file.
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Bail if Customizer config base class does not exist.
-if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Config_Base' ) ) {
 	return;
 }
 
@@ -24,24 +24,24 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  *
  * @since 1.4.3
  */
-if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Colors_Transparent_Header_Configs' ) ) {
 
 	/**
 	 * Register Colors and Background - Header Options Customizer Configurations.
 	 */
-	class Astra_Customizer_Colors_Transparent_Header_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Customizer_Colors_Transparent_Header_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Colors and Background - Header Options Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
+			$defaults = Kanga_Theme_Options::defaults();
 
 			$_configs = array(
 
@@ -58,7 +58,7 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'title'      => __( 'Background Overlay Color', 'astra' ),
+					'title'      => __( 'Background Overlay Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -75,8 +75,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'title'      => __( 'Site Title Color', 'astra' ),
-					'tab'        => __( 'Normal', 'astra' ),
+					'title'      => __( 'Site Title Color', 'kanga' ),
+					'tab'        => __( 'Normal', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -93,8 +93,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'title'      => __( 'Site Title Color', 'astra' ),
-					'tab'        => __( 'Hover', 'astra' ),
+					'title'      => __( 'Site Title Color', 'kanga' ),
+					'tab'        => __( 'Hover', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -111,8 +111,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'title'      => __( 'Link / Text Color', 'astra' ),
+					'tab'        => __( 'Normal', 'kanga' ),
+					'title'      => __( 'Link / Text Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -129,8 +129,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'tab'        => __( 'Normal', 'astra' ),
-					'title'      => __( 'Background Color', 'astra' ),
+					'tab'        => __( 'Normal', 'kanga' ),
+					'title'      => __( 'Background Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -147,8 +147,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Hover', 'astra' ),
-					'title'      => __( 'Link Active / Hover Color', 'astra' ),
+					'tab'        => __( 'Hover', 'kanga' ),
+					'title'      => __( 'Link Active / Hover Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -165,8 +165,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'title'      => __( 'Link / Text Color', 'astra' ),
+					'tab'        => __( 'Normal', 'kanga' ),
+					'title'      => __( 'Link / Text Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -183,8 +183,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Normal', 'astra' ),
-					'title'      => __( 'Background Color', 'astra' ),
+					'tab'        => __( 'Normal', 'kanga' ),
+					'title'      => __( 'Background Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -201,8 +201,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'control'    => 'ast-responsive-color',
 					'transport'  => 'postMessage',
-					'tab'        => __( 'Hover', 'astra' ),
-					'title'      => __( 'Link Active / Hover Color', 'astra' ),
+					'tab'        => __( 'Hover', 'kanga' ),
+					'title'      => __( 'Link Active / Hover Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -219,8 +219,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'tab'        => __( 'Normal', 'astra' ),
-					'title'      => __( 'Text Color', 'astra' ),
+					'tab'        => __( 'Normal', 'kanga' ),
+					'title'      => __( 'Text Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -236,8 +236,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'tab'        => __( 'Normal', 'astra' ),
-					'title'      => __( 'Link Color', 'astra' ),
+					'tab'        => __( 'Normal', 'kanga' ),
+					'title'      => __( 'Link Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -254,8 +254,8 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 					'section'    => 'section-transparent-header',
 					'transport'  => 'postMessage',
 					'control'    => 'ast-responsive-color',
-					'tab'        => __( 'Hover', 'astra' ),
-					'title'      => __( 'Link Color', 'astra' ),
+					'tab'        => __( 'Hover', 'kanga' ),
+					'title'      => __( 'Link Color', 'kanga' ),
 					'responsive' => true,
 					'rgba'       => true,
 				),
@@ -269,4 +269,4 @@ if ( ! class_exists( 'Astra_Customizer_Colors_Transparent_Header_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Colors_Transparent_Header_Configs();
+new Kanga_Customizer_Colors_Transparent_Header_Configs();

@@ -1,26 +1,26 @@
 <?php
 /**
- * Breadcrumbs Loader for Astra theme.
+ * Breadcrumbs Loader for Kanga theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.0
+ * @since       Kanga 1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
+if ( ! class_exists( 'Kanga_Breadcrumbs_Loader' ) ) {
 
 	/**
 	 * Customizer Initialization
 	 *
 	 * @since 1.7.0
 	 */
-	class Astra_Breadcrumbs_Loader {
+	class Kanga_Breadcrumbs_Loader {
 
 		/**
 		 * Member Variable
@@ -44,11 +44,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 */
 		public function __construct() {
 
-			add_filter( 'astra_theme_defaults', array( $this, 'theme_defaults' ) );
+			add_filter( 'kanga_theme_defaults', array( $this, 'theme_defaults' ) );
 			add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 			add_action( 'customize_register', array( $this, 'customize_register' ), 2 );
 			// Load Google fonts.
-			add_action( 'astra_get_fonts', array( $this, 'add_fonts' ), 1 );
+			add_action( 'kanga_get_fonts', array( $this, 'add_fonts' ), 1 );
 		}
 
 		/**
@@ -57,15 +57,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 		 * @return void
 		 */
 		public function add_fonts() {
-			$breadcrumb_font_family = astra_get_option( 'breadcrumb-font-family' );
-			$breadcrumb_font_weight = astra_get_option( 'breadcrumb-font-weight' );
-			Astra_Fonts::add_font( $breadcrumb_font_family, $breadcrumb_font_weight );
+			$breadcrumb_font_family = kanga_get_option( 'breadcrumb-font-family' );
+			$breadcrumb_font_weight = kanga_get_option( 'breadcrumb-font-weight' );
+			Kanga_Fonts::add_font( $breadcrumb_font_family, $breadcrumb_font_weight );
 		}
 
 		/**
 		 * Set Options Default Values
 		 *
-		 * @param  array $defaults  Astra options default value array.
+		 * @param  array $defaults  Kanga options default value array.
 		 * @return array
 		 */
 		public function theme_defaults( $defaults ) {
@@ -154,9 +154,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			/**
 			 * Register Panel & Sections
 			 */
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-configs.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-color-configs.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-astra-breadcrumbs-typo-configs.php';
+			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-configs.php';
+			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-color-configs.php';
+			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'customizer/class-kanga-breadcrumbs-typo-configs.php';
 
 		}
 
@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 			/* Directory and Extension */
 			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			wp_enqueue_script( 'astra-breadcrumbs-customizer-preview-js', ASTRA_THEME_BREADCRUMBS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'kanga-breadcrumbs-customizer-preview-js', ASTRA_THEME_BREADCRUMBS_URI . 'assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'kanga-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
 		}
 	}
 }
@@ -178,4 +178,4 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Loader' ) ) {
 /**
 *  Kicking this off by calling 'get_instance()' method
 */
-Astra_Breadcrumbs_Loader::get_instance();
+Kanga_Breadcrumbs_Loader::get_instance();

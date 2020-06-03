@@ -1,28 +1,28 @@
 <?php
 /**
- * Astra Helper.
+ * Kanga Helper.
  *
- * @package Astra
+ * @package Kanga
  */
 
 /**
- * Class Astra_Filesystem.
+ * Class Kanga_Filesystem.
  */
-class Astra_Filesystem {
+class Kanga_Filesystem {
 
 	/**
-	 * Store instance of Astra_Filesystem
+	 * Store instance of Kanga_Filesystem
 	 *
 	 * @since 2.1.0
-	 * @var Astra_Filesystem
+	 * @var Kanga_Filesystem
 	 */
 	protected static $instance = null;
 
 	/**
-	 * Get instance of Astra_Filesystem
+	 * Get instance of Kanga_Filesystem
 	 *
 	 * @since 2.1.0
-	 * @return Astra_Filesystem
+	 * @return Kanga_Filesystem
 	 */
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
@@ -104,16 +104,16 @@ class Astra_Filesystem {
 		// Create the upload dir if it doesn't exist.
 		if ( ! file_exists( $dir ) ) {
 			// Create the directory.
-			$status = astra_filesystem()->get_filesystem()->mkdir( $dir );
+			$status = kanga_filesystem()->get_filesystem()->mkdir( $dir );
 
 			// IF a directory cannot be created, return with false status.
 			if ( false === $status ) {
-				astra_filesystem()->update_filesystem_access_status( $status );
+				kanga_filesystem()->update_filesystem_access_status( $status );
 				return false;
 			}
 
 			// Add an index file for security.
-			astra_filesystem()->get_filesystem()->put_contents( $dir . 'index.php', '' );
+			kanga_filesystem()->get_filesystem()->put_contents( $dir . 'index.php', '' );
 		}
 
 		return true;
@@ -127,7 +127,7 @@ class Astra_Filesystem {
 	 * @return void
 	 */
 	public function update_filesystem_access_status( $status ) {
-		astra_update_option( 'file-write-access', $status );
+		kanga_update_option( 'file-write-access', $status );
 	}
 
 	/**
@@ -137,7 +137,7 @@ class Astra_Filesystem {
 	 * @return boolean True if filesystem has access, false if does not have access.
 	 */
 	public function can_access_filesystem() {
-		return (bool) astra_get_option( 'file-write-access', true );
+		return (bool) kanga_get_option( 'file-write-access', true );
 	}
 
 	/**
@@ -147,7 +147,7 @@ class Astra_Filesystem {
 	 * @return void
 	 */
 	public function reset_filesystem_access_status() {
-		astra_delete_option( 'file-write-access' );
+		kanga_delete_option( 'file-write-access' );
 	}
 
 	/**
@@ -172,7 +172,7 @@ class Astra_Filesystem {
 			'url'  => $wp_info['baseurl'] . '/' . $assets_dir . '/',
 		);
 
-		return apply_filters( 'astra_get_assets_uploads_dir', $dir_info );
+		return apply_filters( 'kanga_get_assets_uploads_dir', $dir_info );
 	}
 
 	/**
@@ -185,7 +185,7 @@ class Astra_Filesystem {
 	 * @return void
 	 */
 	public function delete( $file, $recursive = false, $type = false ) {
-		astra_filesystem()->get_filesystem()->delete( $file, $recursive, $type );
+		kanga_filesystem()->get_filesystem()->delete( $file, $recursive, $type );
 	}
 
 	/**
@@ -197,7 +197,7 @@ class Astra_Filesystem {
 	 * @return bool $put_content returns false if file write is not successful.
 	 */
 	public function put_contents( $file_path, $style_data ) {
-		return astra_filesystem()->get_filesystem()->put_contents( $file_path, $style_data );
+		return kanga_filesystem()->get_filesystem()->put_contents( $file_path, $style_data );
 	}
 
 	/**
@@ -208,6 +208,6 @@ class Astra_Filesystem {
 	 * @return bool $get_contents Gets te file contents.
 	 */
 	public function get_contents( $file_path ) {
-		return astra_filesystem()->get_filesystem()->get_contents( $file_path );
+		return kanga_filesystem()->get_filesystem()->get_contents( $file_path );
 	}
 }

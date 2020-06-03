@@ -2,10 +2,10 @@
 /**
  * Customizer Control: Settings Group
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       2.0.0
  */
 
@@ -14,12 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Customize_Control' ) ) :
+if ( ! class_exists( 'Kanga_Control_Settings_Group' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	/**
 	 * A Settings group control.
 	 */
-	class Astra_Control_Settings_Group extends WP_Customize_Control {
+	class Kanga_Control_Settings_Group extends WP_Customize_Control {
 
 
 		/**
@@ -85,16 +85,16 @@ if ( ! class_exists( 'Astra_Control_Settings_Group' ) && class_exists( 'WP_Custo
 
 			$config = array();
 
-			if ( isset( Astra_Customizer::$group_configs[ $this->name ]['tabs'] ) ) {
-				$tab = array_keys( Astra_Customizer::$group_configs[ $this->name ]['tabs'] );
+			if ( isset( Kanga_Customizer::$group_configs[ $this->name ]['tabs'] ) ) {
+				$tab = array_keys( Kanga_Customizer::$group_configs[ $this->name ]['tabs'] );
 
 				foreach ( $tab as $key => $value ) {
 
-					$config['tabs'][ $value ] = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ]['tabs'][ $value ], 'priority' );
+					$config['tabs'][ $value ] = wp_list_sort( Kanga_Customizer::$group_configs[ $this->name ]['tabs'][ $value ], 'priority' );
 				}
 			} else {
-				if ( isset( Astra_Customizer::$group_configs[ $this->name ] ) ) {
-					$config = wp_list_sort( Astra_Customizer::$group_configs[ $this->name ], 'priority' );
+				if ( isset( Kanga_Customizer::$group_configs[ $this->name ] ) ) {
+					$config = wp_list_sort( Kanga_Customizer::$group_configs[ $this->name ], 'priority' );
 				}
 			}
 

@@ -2,7 +2,7 @@
 /**
  * Contact Form 7 Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Contact Form 7' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'WPCF7' ) ) {
 }
 
 /**
- * Astra Contact Form 7 Compatibility
+ * Kanga Contact Form 7 Compatibility
  */
-if ( ! class_exists( 'Astra_Contact_Form_7' ) ) :
+if ( ! class_exists( 'Kanga_Contact_Form_7' ) ) :
 
 	/**
-	 * Astra Contact Form 7 Compatibility
+	 * Kanga Contact Form 7 Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Contact_Form_7 {
+	class Kanga_Contact_Form_7 {
 
 		/**
 		 * Member Variable
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Contact_Form_7' ) ) :
 
 			$css_file = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/contact-form-7' . $file_prefix . '.css';
 
-			wp_enqueue_style( 'astra-contact-form-7', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'kanga-contact-form-7', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 		}
 
 	}
@@ -71,4 +71,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Contact_Form_7::get_instance();
+Kanga_Contact_Form_7::get_instance();

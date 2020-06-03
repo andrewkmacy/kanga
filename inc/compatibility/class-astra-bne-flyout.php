@@ -2,7 +2,7 @@
 /**
  * BNE Flyout Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'BNE Flyout' not exist then return.
@@ -11,16 +11,16 @@ if ( ! defined( 'BNE_FLYOUT_VERSION' ) ) {
 }
 
 /**
- * Astra BNE Flyout Compatibility
+ * Kanga BNE Flyout Compatibility
  */
-if ( ! class_exists( 'Astra_BNE_Flyout' ) ) :
+if ( ! class_exists( 'Kanga_BNE_Flyout' ) ) :
 
 	/**
-	 * Astra BNE Flyout Compatibility
+	 * Kanga BNE Flyout Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_BNE_Flyout {
+	class Kanga_BNE_Flyout {
 
 		/**
 		 * Member Variable
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_BNE_Flyout' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'kanga_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_BNE_Flyout' ) ) :
 		 * @since 1.0.0
 		 */
 		public function add_styles( $assets ) {
-			$assets['css']['astra-bne-flyout'] = 'compatibility/bne-flyout';
+			$assets['css']['kanga-bne-flyout'] = 'compatibility/bne-flyout';
 			return $assets;
 		}
 
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_BNE_Flyout::get_instance();
+Kanga_BNE_Flyout::get_instance();

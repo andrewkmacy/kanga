@@ -1,12 +1,12 @@
 <?php
 /**
- * Breadcrumbs for Astra theme.
+ * Breadcrumbs for Kanga theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.0
+ * @since       Kanga 1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,14 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'ASTRA_THEME_BREADCRUMBS_DIR', ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/' );
 define( 'ASTRA_THEME_BREADCRUMBS_URI', ASTRA_THEME_URI . 'inc/addons/breadcrumbs/' );
 
-if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
+if ( ! class_exists( 'Kanga_Breadcrumbs' ) ) {
 
 	/**
 	 * Breadcrumbs Initial Setup
 	 *
 	 * @since 1.7.0
 	 */
-	class Astra_Breadcrumbs {
+	class Kanga_Breadcrumbs {
 
 		/**
 		 * Member Variable
@@ -47,11 +47,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		 */
 		public function __construct() {
 
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-loader.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumbs-markup.php';
-			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-astra-breadcrumb-trail.php';
+			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumbs-loader.php';
+			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumbs-markup.php';
+			require_once ASTRA_THEME_BREADCRUMBS_DIR . 'class-kanga-breadcrumb-trail.php';
 			// Third Party plugins in the breadcrumb options.
-			add_filter( 'astra_breadcrumb_source_list', array( $this, 'astra_breadcrumb_source_list_items' ) );
+			add_filter( 'kanga_breadcrumb_source_list', array( $this, 'kanga_breadcrumb_source_list_items' ) );
 
 			// Include front end files.
 			if ( ! is_admin() ) {
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 		 * @return Array breadcrumb options array.
 		 * @since 1.0.0
 		 */
-		public function astra_breadcrumb_source_list_items( $options ) {
+		public function kanga_breadcrumb_source_list_items( $options ) {
 
 			$breadcrumb_enable = is_callable( 'WPSEO_Options::get' ) ? WPSEO_Options::get( 'breadcrumbs-enable' ) : false;
 			$wpseo_option      = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : $breadcrumb_enable;
@@ -97,6 +97,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs' ) ) {
 	/**
 	 *  Kicking this off by calling 'get_instance()' method
 	 */
-	Astra_Breadcrumbs::get_instance();
+	Kanga_Breadcrumbs::get_instance();
 
 }

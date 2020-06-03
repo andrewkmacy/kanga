@@ -1,11 +1,11 @@
 <?php
 /**
- * Styling Options for Astra Theme.
+ * Styling Options for Kanga Theme.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.4.3
  */
 
@@ -13,20 +13,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Body_Colors_Configs' ) ) {
 
 	/**
 	 * Register Body Color Customizer Configurations.
 	 */
-	class Astra_Body_Colors_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Body_Colors_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Body Color Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 			$_configs = array(
@@ -41,7 +41,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'control'  => 'ast-color',
 					'section'  => 'section-colors-body',
 					'priority' => 5,
-					'title'    => __( 'Text Color', 'astra' ),
+					'title'    => __( 'Text Color', 'kanga' ),
 				),
 
 				/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'section'  => 'section-colors-body',
 					'default'  => '#0274be',
 					'priority' => 5,
-					'title'    => __( 'Theme Color', 'astra' ),
+					'title'    => __( 'Theme Color', 'kanga' ),
 				),
 
 				/**
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'control'  => 'ast-color',
 					'default'  => '#0274be',
 					'priority' => 5,
-					'title'    => __( 'Link Color', 'astra' ),
+					'title'    => __( 'Link Color', 'kanga' ),
 				),
 
 				/**
@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-color',
 					'priority' => 15,
-					'title'    => __( 'Link Hover Color', 'astra' ),
+					'title'    => __( 'Link Hover Color', 'kanga' ),
 				),
 
 				/**
@@ -103,6 +103,6 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 	}
 }
 
-new Astra_Body_Colors_Configs();
+new Kanga_Body_Colors_Configs();
 
 

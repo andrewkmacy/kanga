@@ -4,10 +4,10 @@
  *
  * Creates a jQuery color control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.0.0
  */
 
@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Field overrides.
  */
-if ( ! class_exists( 'Astra_Control_Responsive_Color' ) && class_exists( 'WP_Customize_Control' ) ) :
+if ( ! class_exists( 'Kanga_Control_Responsive_Color' ) && class_exists( 'WP_Customize_Control' ) ) :
 
 	/**
 	 * Color control (alpha).
 	 */
-	class Astra_Control_Responsive_Color extends WP_Customize_Control {
+	class Kanga_Control_Responsive_Color extends WP_Customize_Control {
 
 		/**
 		 * The control type.

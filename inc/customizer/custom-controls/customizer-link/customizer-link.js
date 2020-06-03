@@ -3,7 +3,7 @@
  *
  * Handles the spacing
  *
- * @package Astra
+ * @package Kanga
  */
 
 wp.customize.controlConstructor['ast-customizer-link'] = wp.customize.Control.extend({

@@ -4,7 +4,7 @@
 	 *
 	 * Handles the responsive
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-responsive'] = wp.customize.Control.extend({

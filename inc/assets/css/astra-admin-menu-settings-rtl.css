@@ -1,7 +1,7 @@
 /**
- * CSS code for all Astra Extensions admin screens
+ * CSS code for all Kanga Extensions admin screens
  *
- * @package Astra
+ * @package Kanga
  * @since 1.0.0
  */
 
@@ -22,9 +22,9 @@
 }
 
 /**
- * CSS code for all Astra Extensions admin screens
+ * CSS code for all Kanga Extensions admin screens
  *
- * @package Astra
+ * @package Kanga
  * @since 1.2.4
  */
 .ast-addon-list-section .ast-addon-list .active {
@@ -32,9 +32,9 @@
     padding-right: 12px;
 }
 /**
- * Astra Welcome Page
+ * Kanga Welcome Page
  */
-.appearance_page_astra #wpcontent{
+.appearance_page_kanga #wpcontent{
  	padding: 0;
  }
 .ast-menu-page-wrapper.wrap{
@@ -65,7 +65,7 @@
 }
 
 /* Details link for starter sites */
-a.astra-starter-sites-detail-link {
+a.kanga-starter-sites-detail-link {
     margin: 0 10px;
 }
 
@@ -124,7 +124,7 @@ a.astra-starter-sites-detail-link {
     align-content: flex-start;
     text-align: right;
 }
-.ast-theme-title .astra-theme-version {
+.ast-theme-title .kanga-theme-version {
     background-color: #e5e5e5;
     border-radius: 3px;
     font-size:  0.5em;
@@ -149,13 +149,13 @@ a.astra-starter-sites-detail-link {
     vertical-align: bottom;
 }
 
-.astra-lightning-icon{
+.kanga-lightning-icon{
     width: 15px;
     vertical-align: bottom;
 }
 
 /**
- * Astra Quick Settings
+ * Kanga Quick Settings
  */
  .ast-quick-setting-section ul,
  .ast-addon-list-section ul{
@@ -247,7 +247,7 @@ a.astra-starter-sites-detail-link {
 }
 
 /**
- * Astra Welcome screen sidebar
+ * Kanga Welcome screen sidebar
  */
 .ast-sidebar .hndle .dashicons{
 	margin: 0 0 0 5px;
@@ -260,7 +260,7 @@ a.astra-starter-sites-detail-link {
 }
 
 /**
- * Astra Custom Notice for static position
+ * Kanga Custom Notice for static position
  */
 .ast-notice{
     margin-bottom: 20px;

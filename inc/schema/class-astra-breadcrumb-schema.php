@@ -2,11 +2,11 @@
 /**
  * Schema markup.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 2.1.3
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 2.1.3
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra Breadcrumb Schema Markup.
+ * Kanga Breadcrumb Schema Markup.
  *
  * @since 2.1.3
  */
-class Astra_Breadcrumb_Schema extends Astra_Schema {
+class Kanga_Breadcrumb_Schema extends Kanga_Schema {
 
 	/**
 	 * Setup schema
@@ -37,11 +37,11 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 	 * @return void
 	 */
 	public function disable_schema_before_title() {
-		$breadcrumb_position = astra_get_option( 'breadcrumb-position' );
-		$breadcrumb_source   = astra_get_option( 'select-breadcrumb-source' );
+		$breadcrumb_position = kanga_get_option( 'breadcrumb-position' );
+		$breadcrumb_source   = kanga_get_option( 'select-breadcrumb-source' );
 
-		if ( ( 'astra_entry_top' === $breadcrumb_position && ( 'default' === $breadcrumb_source || empty( $breadcrumb_source ) ) ) || ( true !== $this->schema_enabled() ) ) {
-			add_filter( 'astra_breadcrumb_trail_args', array( $this, 'breadcrumb_schema' ) );
+		if ( ( 'kanga_entry_top' === $breadcrumb_position && ( 'default' === $breadcrumb_source || empty( $breadcrumb_source ) ) ) || ( true !== $this->schema_enabled() ) ) {
+			add_filter( 'kanga_breadcrumb_trail_args', array( $this, 'breadcrumb_schema' ) );
 		}
 	}
 
@@ -66,9 +66,9 @@ class Astra_Breadcrumb_Schema extends Astra_Schema {
 	 * @since 2.1.3
 	 */
 	protected function schema_enabled() {
-		return apply_filters( 'astra_breadcrumb_schema_enabled', parent::schema_enabled() );
+		return apply_filters( 'kanga_breadcrumb_schema_enabled', parent::schema_enabled() );
 	}
 
 }
 
-new Astra_Breadcrumb_Schema();
+new Kanga_Breadcrumb_Schema();

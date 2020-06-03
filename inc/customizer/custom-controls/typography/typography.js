@@ -3,7 +3,7 @@
  *
  * Handles Typography of the site
  *
- * @package Astra
+ * @package Kanga
  */
 
 ( function( $ ) {
@@ -40,8 +40,8 @@
 		{
 			$( '.customize-control-ast-font-family select' ).each( function(e) {
 
-				if( 'undefined' != typeof astra.customizer ) {
-					var fonts = astra.customizer.settings.google_fonts;
+				if( 'undefined' != typeof kanga.customizer ) {
+					var fonts = kanga.customizer.settings.google_fonts;
 					var optionName = $(this).data('name');
 
 					$(this).html( fonts );
@@ -195,7 +195,7 @@
 			inheritWeightObject = [ 'inherit' ],
 			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
-			weightMap           = astraTypo;
+			weightMap           = kangaTypo;
 			if ( fontValue == 'inherit' ) {
 				weightValue     = init ? weightSelect.val() : 'inherit';
 			}
@@ -247,7 +247,7 @@
 				weightValue        = '',
 				weightOptions       = '',
 				currentWeightTitle  = variantSelect.data( 'inherit' ),
-				weightMap           = astraTypo;
+				weightMap           = kangaTypo;
 
 				var variantArray = variantSavedField.val().split(',');
 

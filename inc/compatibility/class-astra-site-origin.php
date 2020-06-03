@@ -2,7 +2,7 @@
 /**
  * Site Origin Compatibility File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Site Origin' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'SiteOrigin_Panels_Settings' ) ) {
 }
 
 /**
- * Astra Site Origin Compatibility
+ * Kanga Site Origin Compatibility
  */
-if ( ! class_exists( 'Astra_Site_Origin' ) ) :
+if ( ! class_exists( 'Kanga_Site_Origin' ) ) :
 
 	/**
-	 * Astra Site Origin Compatibility
+	 * Kanga Site Origin Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Site_Origin {
+	class Kanga_Site_Origin {
 
 		/**
 		 * Member Variable
@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Site_Origin' ) ) :
 		 * Constructor
 		 */
 		public function __construct() {
-			add_filter( 'astra_theme_assets', array( $this, 'add_styles' ) );
+			add_filter( 'kanga_theme_assets', array( $this, 'add_styles' ) );
 		}
 
 		/**
@@ -54,7 +54,7 @@ if ( ! class_exists( 'Astra_Site_Origin' ) ) :
 		 * @since 1.0.0
 		 */
 		public function add_styles( $assets ) {
-			$assets['css']['astra-site-origin'] = 'compatibility/site-origin';
+			$assets['css']['kanga-site-origin'] = 'compatibility/site-origin';
 			return $assets;
 		}
 
@@ -65,4 +65,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Site_Origin::get_instance();
+Kanga_Site_Origin::get_instance();

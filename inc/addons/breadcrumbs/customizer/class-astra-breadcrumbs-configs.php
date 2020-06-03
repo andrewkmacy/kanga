@@ -1,39 +1,39 @@
 <?php
 /**
- * Breadcrumbs Options for Astra theme.
+ * Breadcrumbs Options for Kanga theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.7.0
+ * @since       Kanga 1.7.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Breadcrumbs_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Breadcrumbs_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Breadcrumbs_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-Breadcrumbs Settings.
+		 * Register Kanga-Breadcrumbs Settings.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.7.0
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$breadcrumb_source_list = apply_filters(
-				'astra_breadcrumb_source_list',
+				'kanga_breadcrumb_source_list',
 				array(
-					'default' => __( 'Default', 'astra' ),
+					'default' => __( 'Default', 'kanga' ),
 				),
 				'breadcrumb-list'
 			);
@@ -47,16 +47,16 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'               => 'section-breadcrumb',
 					'type'               => 'section',
 					'priority'           => 20,
-					'title'              => __( 'Breadcrumb', 'astra' ),
+					'title'              => __( 'Breadcrumb', 'kanga' ),
 					'description_hidden' => true,
 					'description'        => $this->section_get_description(
 						array(
-							'description' => '<p><b>' . __( 'Helpful Information', 'astra' ) . '</b></p>',
+							'description' => '<p><b>' . __( 'Helpful Information', 'kanga' ) . '</b></p>',
 							'links'       => array(
 								array(
-									'text'  => __( 'Breadcrumb Overview', 'astra' ) . ' &#187;',
+									'text'  => __( 'Breadcrumb Overview', 'kanga' ) . ' &#187;',
 									'attrs' => array(
-										'href' => astra_get_pro_url( 'https://wpastra.com/docs/add-breadcrumbs-with-astra/', 'customizer', 'sidebar', 'helpful-information' ),
+										'href' => kanga_get_pro_url( 'https://wpkanga.com/docs/add-breadcrumbs-with-kanga/', 'customizer', 'sidebar', 'helpful-information' ),
 									),
 								),
 							),
@@ -71,15 +71,15 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
 					'default'  => 'none',
 					'section'  => 'section-breadcrumb',
-					'title'    => __( 'Position', 'astra' ),
+					'title'    => __( 'Position', 'kanga' ),
 					'type'     => 'control',
 					'control'  => 'select',
 					'priority' => 5,
 					'choices'  => array(
-						'none'                      => __( 'None', 'astra' ),
-						'astra_masthead_content'    => __( 'Inside Header', 'astra' ),
-						'astra_header_markup_after' => __( 'After Header', 'astra' ),
-						'astra_entry_top'           => __( 'Before Title', 'astra' ),
+						'none'                      => __( 'None', 'kanga' ),
+						'kanga_masthead_content'    => __( 'Inside Header', 'kanga' ),
+						'kanga_header_markup_after' => __( 'After Header', 'kanga' ),
+						'kanga_entry_top'           => __( 'Before Title', 'kanga' ),
 					),
 					'partial'  => array(
 						'selector'            => '.ast-breadcrumbs-wrapper .ast-breadcrumbs .trail-items',
@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'default'         => 'default',
 					'section'         => 'section-breadcrumb',
 					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'           => __( 'Breadcrumb Source', 'astra' ),
+					'title'           => __( 'Breadcrumb Source', 'kanga' ),
 					'type'            => 'control',
 					'control'         => 'select',
 					'priority'        => 10,
@@ -111,10 +111,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'type'            => 'control',
 					'control'         => 'text',
 					'section'         => 'section-breadcrumb',
-					'default'         => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
+					'default'         => kanga_get_option( 'breadcrumb-separator' ) ? kanga_get_option( 'breadcrumb-separator' ) : '\00bb',
 					'required'        => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'priority'        => 15,
-					'title'           => __( 'Separator', 'astra' ),
+					'title'           => __( 'Separator', 'kanga' ),
 					'active_callback' => array( $this, 'is_selected_breadcrumb_active' ),
 				),
 
@@ -123,11 +123,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-home-page]',
-					'default'  => astra_get_option( 'breadcrumb-disable-home-page' ),
+					'default'  => kanga_get_option( 'breadcrumb-disable-home-page' ),
 					'type'     => 'control',
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Home Page?', 'astra' ),
+					'title'    => __( 'Disable on Home Page?', 'kanga' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
 				),
@@ -137,12 +137,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-blog-posts-page]',
-					'default'     => astra_get_option( 'breadcrumb-disable-blog-posts-page' ),
+					'default'     => kanga_get_option( 'breadcrumb-disable-blog-posts-page' ),
 					'type'        => 'control',
 					'section'     => 'section-breadcrumb',
-					'description' => __( 'Latest posts page or when any page is selected as blog page', 'astra' ),
+					'description' => __( 'Latest posts page or when any page is selected as blog page', 'kanga' ),
 					'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'       => __( 'Disable on Blog / Posts Page?', 'astra' ),
+					'title'       => __( 'Disable on Blog / Posts Page?', 'kanga' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
 				),
@@ -152,11 +152,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-search]',
-					'default'  => astra_get_option( 'breadcrumb-disable-search' ),
+					'default'  => kanga_get_option( 'breadcrumb-disable-search' ),
 					'type'     => 'control',
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Search?', 'astra' ),
+					'title'    => __( 'Disable on Search?', 'kanga' ),
 					'priority' => 30,
 					'control'  => 'checkbox',
 				),
@@ -166,11 +166,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-archive]',
-					'default'  => astra_get_option( 'breadcrumb-disable-archive' ),
+					'default'  => kanga_get_option( 'breadcrumb-disable-archive' ),
 					'type'     => 'control',
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Archive?', 'astra' ),
+					'title'    => __( 'Disable on Archive?', 'kanga' ),
 					'priority' => 35,
 					'control'  => 'checkbox',
 				),
@@ -180,11 +180,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-page]',
-					'default'  => astra_get_option( 'breadcrumb-disable-single-page' ),
+					'default'  => kanga_get_option( 'breadcrumb-disable-single-page' ),
 					'type'     => 'control',
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Single Page?', 'astra' ),
+					'title'    => __( 'Disable on Single Page?', 'kanga' ),
 					'priority' => 40,
 					'control'  => 'checkbox',
 				),
@@ -194,11 +194,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-single-post]',
-					'default'  => astra_get_option( 'breadcrumb-disable-single-post' ),
+					'default'  => kanga_get_option( 'breadcrumb-disable-single-post' ),
 					'type'     => 'control',
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on Single Post?', 'astra' ),
+					'title'    => __( 'Disable on Single Post?', 'kanga' ),
 					'priority' => 45,
 					'control'  => 'checkbox',
 				),
@@ -208,12 +208,12 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-singular]',
-					'default'     => astra_get_option( 'breadcrumb-disable-singular' ),
+					'default'     => kanga_get_option( 'breadcrumb-disable-singular' ),
 					'type'        => 'control',
 					'section'     => 'section-breadcrumb',
-					'description' => __( 'All Pages, All Posts, All Attachments', 'astra' ),
+					'description' => __( 'All Pages, All Posts, All Attachments', 'kanga' ),
 					'required'    => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'       => __( 'Disable on Singular?', 'astra' ),
+					'title'       => __( 'Disable on Singular?', 'kanga' ),
 					'priority'    => 50,
 					'control'     => 'checkbox',
 				),
@@ -223,11 +223,11 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-disable-404-page]',
-					'default'  => astra_get_option( 'breadcrumb-disable-404-page' ),
+					'default'  => kanga_get_option( 'breadcrumb-disable-404-page' ),
 					'type'     => 'control',
 					'section'  => 'section-breadcrumb',
 					'required' => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'    => __( 'Disable on 404 Page?', 'astra' ),
+					'title'    => __( 'Disable on 404 Page?', 'kanga' ),
 					'priority' => 55,
 					'control'  => 'checkbox',
 				),
@@ -241,14 +241,14 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'section'   => 'section-breadcrumb',
 					'transport' => 'postMessage',
 					'required'  => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
-					'title'     => __( 'Alignment', 'astra' ),
+					'title'     => __( 'Alignment', 'kanga' ),
 					'type'      => 'control',
 					'control'   => 'select',
 					'priority'  => 65,
 					'choices'   => array(
-						'left'   => __( 'Left', 'astra' ),
-						'center' => __( 'Center', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
+						'left'   => __( 'Left', 'kanga' ),
+						'center' => __( 'Center', 'kanga' ),
+						'right'  => __( 'Right', 'kanga' ),
 					),
 				),
 
@@ -257,19 +257,19 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 				 */
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[breadcrumb-spacing]',
-					'default'        => astra_get_option( 'breadcrumb-spacing' ),
+					'default'        => kanga_get_option( 'breadcrumb-spacing' ),
 					'type'           => 'control',
 					'transport'      => 'postMessage',
 					'control'        => 'ast-responsive-spacing',
 					'priority'       => 70,
-					'title'          => __( 'Spacing', 'astra' ),
+					'title'          => __( 'Spacing', 'kanga' ),
 					'linked_choices' => true,
 					'unit_choices'   => array( 'px', 'em', '%' ),
 					'choices'        => array(
-						'top'    => __( 'Top', 'astra' ),
-						'right'  => __( 'Right', 'astra' ),
-						'bottom' => __( 'Bottom', 'astra' ),
-						'left'   => __( 'Left', 'astra' ),
+						'top'    => __( 'Top', 'kanga' ),
+						'right'  => __( 'Right', 'kanga' ),
+						'bottom' => __( 'Bottom', 'kanga' ),
+						'left'   => __( 'Left', 'kanga' ),
 					),
 					'required'       => array( ASTRA_THEME_SETTINGS . '[breadcrumb-position]', '!=', 'none' ),
 					'section'        => 'section-breadcrumb',
@@ -321,7 +321,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 		public function is_selected_breadcrumb_active() {
 
 			// Check if breadcrumb is turned on from WPSEO option.
-			$selected_breadcrumb_source = astra_get_option( 'select-breadcrumb-source' );
+			$selected_breadcrumb_source = kanga_get_option( 'select-breadcrumb-source' );
 			$breadcrumb_enable          = is_callable( 'WPSEO_Options::get' ) ? WPSEO_Options::get( 'breadcrumbs-enable' ) : false;
 			$wpseo_option               = get_option( 'wpseo_internallinks' ) ? get_option( 'wpseo_internallinks' ) : $breadcrumb_enable;
 			if ( ! is_array( $wpseo_option ) ) {
@@ -348,4 +348,4 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 	}
 }
 
-new Astra_Breadcrumbs_Configs();
+new Kanga_Breadcrumbs_Configs();

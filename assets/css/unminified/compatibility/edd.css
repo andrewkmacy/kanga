@@ -5,7 +5,7 @@
  * integrate with Easy Digital Downloads specifically.
  */
 /**
- * Astra Theme compatibility with Easy Digital Downloads
+ * Kanga Theme compatibility with Easy Digital Downloads
  */
 /*----------  Media Query min-width Structure   ----------*/
 /*----------  Media Query max-width Structure   ----------*/
@@ -494,7 +494,7 @@ a.edd-add-to-cart .edd-add-to-cart-label, .edd-loading {
 
 .ast-edd-site-header-cart .ast-edd-shopping-cart-icon:before {
   content: "\e854";
-  font-family: 'Astra';
+  font-family: 'Kanga';
   font-size: 18px;
   font-size: 1.2857rem;
 }

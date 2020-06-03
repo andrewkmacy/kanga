@@ -1,8 +1,8 @@
 <?php
 /**
- * Astra Loop
+ * Kanga Loop
  *
- * @package Astra
+ * @package Kanga
  * @since 1.4.0
  */
 
@@ -10,14 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
+if ( ! class_exists( 'Kanga_Mobile_Header' ) ) :
 
 	/**
-	 * Astra_Mobile_Header
+	 * Kanga_Mobile_Header
 	 *
 	 * @since 1.4.0
 	 */
-	class Astra_Mobile_Header {
+	class Kanga_Mobile_Header {
 
 		/**
 		 * Instance
@@ -49,11 +49,11 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @since 1.4.0
 		 */
 		public function __construct() {
-			add_action( 'astra_header', array( $this, 'mobile_header_markup' ), 5 );
+			add_action( 'kanga_header', array( $this, 'mobile_header_markup' ), 5 );
 			add_action( 'body_class', array( $this, 'add_body_class' ) );
-			add_filter( 'astra_main_menu_toggle_classes', array( $this, 'menu_toggle_classes' ) );
+			add_filter( 'kanga_main_menu_toggle_classes', array( $this, 'menu_toggle_classes' ) );
 			add_filter( 'walker_nav_menu_start_el', array( $this, 'toggle_button' ), 20, 4 );
-			add_filter( 'astra_walker_nav_menu_start_el', array( $this, 'toggle_button' ), 10, 4 );
+			add_filter( 'kanga_walker_nav_menu_start_el', array( $this, 'toggle_button' ), 10, 4 );
 		}
 
 		/**
@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @return String Menu item's starting markup.
 		 */
 		public function toggle_button( $item_output, $item, $depth, $args ) {
-			// Add toggle button if menu is from Astra.
+			// Add toggle button if menu is from Kanga.
 			if ( true === is_object( $args ) ) {
 				if ( isset( $args->theme_location ) &&
 				( 'primary' === $args->theme_location ||
@@ -99,14 +99,14 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @return string Menu item arrow button markup.
 		 */
 		public function menu_arrow_button_markup( $item_output, $item ) {
-			$item_output  = apply_filters( 'astra_toggle_button_markup', $item_output, $item );
-			$item_output .= '<button ' . astra_attr(
+			$item_output  = apply_filters( 'kanga_toggle_button_markup', $item_output, $item );
+			$item_output .= '<button ' . kanga_attr(
 				'ast-menu-toggle',
 				array(
 					'aria-expanded' => 'false',
 				),
 				$item
-			) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'astra' ) . '</span></button>';
+			) . '><span class="screen-reader-text">' . __( 'Menu Toggle', 'kanga' ) . '</span></button>';
 
 			return $item_output;
 		}
@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @return array;
 		 */
 		public function menu_toggle_classes( $classes ) {
-			return ' ast-mobile-menu-buttons-' . astra_get_option( 'mobile-header-toggle-btn-style' ) . ' ';
+			return ' ast-mobile-menu-buttons-' . kanga_get_option( 'mobile-header-toggle-btn-style' ) . ' ';
 		}
 
 		/**
@@ -129,13 +129,13 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @return void
 		 */
 		public function mobile_header_markup() {
-			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
-			$different_logo     = astra_get_option( 'different-mobile-logo' );
+			$mobile_header_logo = kanga_get_option( 'mobile-header-logo' );
+			$different_logo     = kanga_get_option( 'different-mobile-logo' );
 
 			if ( '' !== $mobile_header_logo && '1' == $different_logo ) {
-				add_filter( 'astra_has_custom_logo', '__return_true' );
-				add_filter( 'get_custom_logo', array( $this, 'astra_mobile_header_custom_logo' ), 10, 2 );
-				add_filter( 'astra_is_logo_attachment', array( $this, 'add_mobile_logo_svg_class' ), 10, 2 );
+				add_filter( 'kanga_has_custom_logo', '__return_true' );
+				add_filter( 'get_custom_logo', array( $this, 'kanga_mobile_header_custom_logo' ), 10, 2 );
+				add_filter( 'kanga_is_logo_attachment', array( $this, 'add_mobile_logo_svg_class' ), 10, 2 );
 			}
 		}
 
@@ -147,9 +147,9 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 * @since 1.4.0
 		 * @return string html markup of logo.
 		 */
-		public function astra_mobile_header_custom_logo( $html, $blog_id ) {
+		public function kanga_mobile_header_custom_logo( $html, $blog_id ) {
 
-			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
+			$mobile_header_logo = kanga_get_option( 'mobile-header-logo' );
 
 			$custom_logo_id = attachment_url_to_postid( $mobile_header_logo );
 
@@ -186,7 +186,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 		 */
 		public function add_mobile_logo_svg_class( $is_logo_attachment, $attachment ) {
 
-			$mobile_header_logo = astra_get_option( 'mobile-header-logo' );
+			$mobile_header_logo = kanga_get_option( 'mobile-header-logo' );
 			$custom_logo_id     = attachment_url_to_postid( $mobile_header_logo );
 
 			if ( $custom_logo_id === $attachment->ID ) {
@@ -207,7 +207,7 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 			/**
 			 * Add class for header width
 			 */
-			$header_content_layout = astra_get_option( 'different-mobile-logo' );
+			$header_content_layout = kanga_get_option( 'different-mobile-logo' );
 
 			if ( '0' == $header_content_layout ) {
 				$classes[] = 'ast-mobile-inherit-site-logo';
@@ -221,6 +221,6 @@ if ( ! class_exists( 'Astra_Mobile_Header' ) ) :
 	/**
 	 * Initialize class object with 'get_instance()' method
 	 */
-	Astra_Mobile_Header::get_instance();
+	Kanga_Mobile_Header::get_instance();
 
 endif;

@@ -2,7 +2,7 @@
 /**
  * Gravity Forms File.
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Gravity Forms' not exist then return.
@@ -11,16 +11,16 @@ if ( ! class_exists( 'GFForms' ) ) {
 }
 
 /**
- * Astra Gravity Forms
+ * Kanga Gravity Forms
  */
-if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
+if ( ! class_exists( 'Kanga_Gravity_Forms' ) ) :
 
 	/**
-	 * Astra Gravity Forms
+	 * Kanga Gravity Forms
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Gravity_Forms {
+	class Kanga_Gravity_Forms {
 
 		/**
 		 * Member Variable
@@ -61,7 +61,7 @@ if ( ! class_exists( 'Astra_Gravity_Forms' ) ) :
 
 			$css_file = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/compatibility/gravity-forms' . $file_prefix . '.css';
 
-			wp_enqueue_style( 'astra-gravity-forms', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'kanga-gravity-forms', $css_file, array(), ASTRA_THEME_VERSION, 'all' );
 		}
 
 	}
@@ -71,4 +71,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Gravity_Forms::get_instance();
+Kanga_Gravity_Forms::get_instance();

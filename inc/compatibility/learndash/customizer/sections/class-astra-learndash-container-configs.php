@@ -1,8 +1,8 @@
 <?php
 /**
- * Container Options for Astra theme.
+ * Container Options for Kanga theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
@@ -13,20 +13,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Learndash_Container_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Learndash_Container_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Learndash_Container_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register LearnDash Container settings.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -52,16 +52,16 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 					'type'        => 'control',
 					'control'     => 'select',
 					'section'     => 'section-container-layout',
-					'default'     => astra_get_option( 'learndash-content-layout' ),
+					'default'     => kanga_get_option( 'learndash-content-layout' ),
 					'priority'    => 68,
-					'title'       => __( 'LearnDash Layout', 'astra' ),
-					'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'astra' ),
+					'title'       => __( 'LearnDash Layout', 'kanga' ),
+					'description' => __( 'Will be applied to All Single Courses, Topics, Lessons and Quizzes. Does not work on pages created with LearnDash shortcodes.', 'kanga' ),
 					'choices'     => array(
-						'default'                 => __( 'Default', 'astra' ),
-						'boxed-container'         => __( 'Boxed', 'astra' ),
-						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+						'default'                 => __( 'Default', 'kanga' ),
+						'boxed-container'         => __( 'Boxed', 'kanga' ),
+						'content-boxed-container' => __( 'Content Boxed', 'kanga' ),
+						'plain-container'         => __( 'Full Width / Contained', 'kanga' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'kanga' ),
 					),
 				),
 			);
@@ -72,4 +72,4 @@ if ( ! class_exists( 'Astra_Learndash_Container_Configs' ) ) {
 	}
 }
 
-new Astra_Learndash_Container_Configs();
+new Kanga_Learndash_Container_Configs();

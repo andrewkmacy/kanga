@@ -2,7 +2,7 @@
 /**
  * LifterLMS General Options for our theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
@@ -13,20 +13,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Lifter_General_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Lifter_General_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Lifter_General_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-LifterLMS General Customizer Configurations.
+		 * Register Kanga-LifterLMS General Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 						'tablet'  => 2,
 						'mobile'  => 1,
 					),
-					'title'       => __( 'Course Columns', 'astra' ),
+					'title'       => __( 'Course Columns', 'kanga' ),
 					'priority'    => 0,
 					'input_attrs' => array(
 						'step' => 1,
@@ -67,7 +67,7 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 						'tablet'  => 2,
 						'mobile'  => 1,
 					),
-					'title'       => __( 'Membership Columns', 'astra' ),
+					'title'       => __( 'Membership Columns', 'kanga' ),
 					'priority'    => 0,
 					'input_attrs' => array(
 						'step' => 1,
@@ -83,4 +83,4 @@ if ( ! class_exists( 'Astra_Lifter_General_Configs' ) ) {
 	}
 }
 
-new Astra_Lifter_General_Configs();
+new Kanga_Lifter_General_Configs();

@@ -1,32 +1,32 @@
 <?php
 /**
- * Easy Digital Downloads Container Options for Astra theme.
+ * Easy Digital Downloads Container Options for Kanga theme.
  *
- * @package     Astra
+ * @package     Kanga
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.5.5
+ * @since       Kanga 1.5.5
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Edd_Container_Configs' ) ) {
 
 	/**
 	 * Customizer Sanitizes Initial setup
 	 */
-	class Astra_Edd_Container_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Edd_Container_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
-		 * Register Astra-Easy Digital Downloads Shop Container Settings.
+		 * Register Kanga-Easy Digital Downloads Shop Container Settings.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.5.5
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
@@ -51,16 +51,16 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 					'name'     => ASTRA_THEME_SETTINGS . '[edd-content-layout]',
 					'type'     => 'control',
 					'control'  => 'select',
-					'default'  => astra_get_option( 'edd-content-layout' ),
+					'default'  => kanga_get_option( 'edd-content-layout' ),
 					'section'  => 'section-container-layout',
 					'priority' => 85,
-					'title'    => __( 'Easy Digital Downloads Layout', 'astra' ),
+					'title'    => __( 'Easy Digital Downloads Layout', 'kanga' ),
 					'choices'  => array(
-						'default'                 => __( 'Default', 'astra' ),
-						'boxed-container'         => __( 'Boxed', 'astra' ),
-						'content-boxed-container' => __( 'Content Boxed', 'astra' ),
-						'plain-container'         => __( 'Full Width / Contained', 'astra' ),
-						'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+						'default'                 => __( 'Default', 'kanga' ),
+						'boxed-container'         => __( 'Boxed', 'kanga' ),
+						'content-boxed-container' => __( 'Content Boxed', 'kanga' ),
+						'plain-container'         => __( 'Full Width / Contained', 'kanga' ),
+						'page-builder'            => __( 'Full Width / Stretched', 'kanga' ),
 					),
 				),
 			);
@@ -71,5 +71,5 @@ if ( ! class_exists( 'Astra_Edd_Container_Configs' ) ) {
 	}
 }
 
-new Astra_Edd_Container_Configs();
+new Kanga_Edd_Container_Configs();
 

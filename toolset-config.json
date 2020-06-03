@@ -84,7 +84,7 @@
       "type": [
         "global"
       ],
-      "global_key" : "astra-settings",
+      "global_key" : "kanga-settings",
       "group": "Archive Layout Settings",
       "target": [
         "archive"
@@ -114,7 +114,7 @@
       "type": [
         "global"
       ],
-      "global_key" : "astra-settings",
+      "global_key" : "kanga-settings",
       "group": "Archive Layout Settings on Blog and Search Results",
       "target": [
         "archive"
@@ -177,7 +177,7 @@
       "type": [
         "global"
       ],
-      "global_key" : "astra-settings",
+      "global_key" : "kanga-settings",
       "group": "Archive Layout Settings",
       "target": [
         "archive"
@@ -211,7 +211,7 @@
       "type": [
         "global"
       ],
-      "global_key" : "astra-settings",
+      "global_key" : "kanga-settings",
       "group": "Archive Layout Settings on Blog and Search Results",
       "target": [
         "archive"
@@ -270,7 +270,7 @@
       "type": [
         "global"
       ],
-      "global_key" : "astra-settings",
+      "global_key" : "kanga-settings",
       "group": "Archive Layout Settings",
       "target": [
         "archive"
@@ -288,7 +288,7 @@
       "default_value": "toolset_use_theme_setting"
     },
     {
-      "name": "astra_pagination_enabled",
+      "name": "kanga_pagination_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"
@@ -315,7 +315,7 @@
       "default_value": 0
     },
     {
-      "name": "astra_the_title_enabled",
+      "name": "kanga_the_title_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"
@@ -342,7 +342,7 @@
       "default_value": 0
     },
     {
-      "name": "astra_featured_image_enabled",
+      "name": "kanga_featured_image_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"
@@ -369,7 +369,7 @@
       "default_value": 0
     },
     {
-      "name": "astra_single_post_meta_enabled",
+      "name": "kanga_single_post_meta_enabled",
       "filter_method": "__return_false",
       "type": [
         "control_filters"

@@ -4,17 +4,17 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Astra
+ * @package Kanga
  * @since 1.0.0
  */
 
 ?>
 
-<?php astra_entry_before(); ?>
+<?php kanga_entry_before(); ?>
 
 <article 
 	<?php
-		echo astra_attr(
+		echo kanga_attr(
 			'article-single',
 			array(
 				'id'    => 'post-' . get_the_id(),
@@ -24,12 +24,12 @@
 		?>
 >
 
-	<?php astra_entry_top(); ?>
+	<?php kanga_entry_top(); ?>
 
-	<?php astra_entry_content_single(); ?>
+	<?php kanga_entry_content_single(); ?>
 
-	<?php astra_entry_bottom(); ?>
+	<?php kanga_entry_bottom(); ?>
 
 </article><!-- #post-## -->
 
-<?php astra_entry_after(); ?>
+<?php kanga_entry_after(); ?>

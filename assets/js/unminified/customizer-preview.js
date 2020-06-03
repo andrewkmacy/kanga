@@ -4,13 +4,13 @@
  * here. Your javascript should grab settings from customizer controls, and
  * then make any necessary changes to the page using jQuery.
  *
- * @package Astra
+ * @package Kanga
  */
 
 /**
  * Generate font size in PX & REM
  */
-function astra_font_size_rem( size, with_rem, device ) {
+function kanga_font_size_rem( size, with_rem, device ) {
 
 	var css = '';
 
@@ -23,7 +23,7 @@ function astra_font_size_rem( size, with_rem, device ) {
 
 		// font size with 'rem'.
 		if ( with_rem ) {
-			var body_font_size = wp.customize( 'astra-settings[font-size-body]' ).get();
+			var body_font_size = wp.customize( 'kanga-settings[font-size-body]' ).get();
 
 			body_font_size['desktop'] 	= ( body_font_size['desktop'] != '' ) ? body_font_size['desktop'] : 15;
 			body_font_size['tablet'] 	= ( body_font_size['tablet'] != '' ) ? body_font_size['tablet'] : body_font_size['desktop'];
@@ -40,7 +40,7 @@ function astra_font_size_rem( size, with_rem, device ) {
 /**
  * Apply CSS for the element
  */
-function astra_color_responsive_css( addon, control, css_property, selector ) {
+function kanga_color_responsive_css( addon, control, css_property, selector ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
@@ -86,7 +86,7 @@ function astra_color_responsive_css( addon, control, css_property, selector ) {
 /**
  * Responsive Font Size CSS
  */
-function astra_responsive_font_size( control, selector ) {
+function kanga_responsive_font_size( control, selector ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
@@ -113,7 +113,7 @@ function astra_responsive_font_size( control, selector ) {
 				}
 
 				if( value['desktop-unit'] == 'px' ) {
-					fontSize = astra_font_size_rem( value.desktop, true, 'desktop' );
+					fontSize = kanga_font_size_rem( value.desktop, true, 'desktop' );
 				}
 
 				// Concat and append new <style>.
@@ -137,7 +137,7 @@ function astra_responsive_font_size( control, selector ) {
 /**
  * Responsive Spacing CSS
  */
-function astra_responsive_spacing( control, selector, type, side ) {
+function kanga_responsive_spacing( control, selector, type, side ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( value ) {
@@ -201,7 +201,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 /**
  * CSS
  */
-function astra_css_font_size( control, selector ) {
+function kanga_css_font_size( control, selector ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( size ) {
@@ -216,7 +216,7 @@ function astra_css_font_size( control, selector ) {
 				var fontSize = 'font-size: ' + size;
 				if ( ! isNaN( size ) || size.indexOf( 'px' ) >= 0 ) {
 					size = size.replace( 'px', '' );
-					fontSize = astra_font_size_rem( size, true );
+					fontSize = kanga_font_size_rem( size, true );
 				}
 
 				// Concat and append new <style>.
@@ -246,7 +246,7 @@ function get_hexdec( hex ) {
 /**
  * Apply CSS for the element
  */
-function astra_css( control, css_property, selector, unit ) {
+function kanga_css( control, css_property, selector, unit ) {
 
 	wp.customize( control, function( value ) {
 		value.bind( function( new_value ) {
@@ -295,7 +295,7 @@ function astra_css( control, css_property, selector, unit ) {
 /**
  * Dynamic Internal/Embedded Style for a Control
  */
-function astra_add_dynamic_css( control, style ) {
+function kanga_add_dynamic_css( control, style ) {
 	control = control.replace( '[', '-' );
 	control = control.replace( ']', '' );
 	jQuery( 'style#' + control ).remove();
@@ -308,7 +308,7 @@ function astra_add_dynamic_css( control, style ) {
 /**
  * Generate background_obj CSS
  */
-function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
+function kanga_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 	var gen_bg_css 	= '';
 	var bg_img		= bg_obj['background-image'];
@@ -338,14 +338,14 @@ function astra_background_obj_css( wp_customize, bg_obj, ctrl_name, style ) {
 
 		var dynamicStyle = style.replace( "{{css}}", gen_bg_css );
 
-		astra_add_dynamic_css( ctrl_name, dynamicStyle );
+		kanga_add_dynamic_css( ctrl_name, dynamicStyle );
 	}
 }
 
 /**
  * Apply CSS for the element
  */
-function astra_apply_background_css(group, subControl, selector ) {
+function kanga_apply_background_css(group, subControl, selector ) {
 	wp.customize(group, function (control) {
 		control.bind(function (value, oldValue) {
 			var parse_bg_obj = JSON.parse(value);
@@ -394,7 +394,7 @@ function astra_apply_background_css(group, subControl, selector ) {
 /*
 * Generate Font Family CSS
 */
-function astra_generate_outside_font_family_css( control, selector ) {
+function kanga_generate_outside_font_family_css( control, selector ) {
 	wp.customize( control, function (value) {
 		value.bind( function ( value, oldValue ) {
 
@@ -410,7 +410,7 @@ function astra_generate_outside_font_family_css( control, selector ) {
 
 			jQuery('style#' + control + '-' + cssProperty ).remove();
 
-			if ( fontName in astraCustomizer.googleFonts ) {
+			if ( fontName in kangaCustomizer.googleFonts ) {
 				// Remove old.
 
 				var fontName = fontName.split(' ').join('+');
@@ -433,7 +433,7 @@ function astra_generate_outside_font_family_css( control, selector ) {
 /*
 * Generate Font Weight CSS
 */
-function astra_generate_font_weight_css( font_control, control, css_property, selector ) {
+function kanga_generate_font_weight_css( font_control, control, css_property, selector ) {
 	wp.customize( control, function( value ) {
 		value.bind( function( new_value ) {
 
@@ -464,7 +464,7 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 				// Remove old.
 				jQuery( 'style#' + control + '-' + css_property ).remove();
 
-				if ( fontName in astraCustomizer.googleFonts ) {
+				if ( fontName in kangaCustomizer.googleFonts ) {
 					// Remove old.
 
 					jQuery('#' + font_control).remove();
@@ -491,7 +491,7 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 /**
  * Apply CSS for the element
  */
-function astra_apply_responsive_background_css( control, selector, device, singleColorSelector, addon ) {
+function kanga_apply_responsive_background_css( control, selector, device, singleColorSelector, addon ) {
 	wp.customize( control, function( value ) {
 		value.bind( function( bg_obj ) {
 
@@ -647,13 +647,13 @@ function isJsonString( str ) {
 	/*
 	 * Site Identity Logo Width
 	 */
-	wp.customize( 'astra-settings[ast-header-responsive-logo-width]', function( setting ) {
+	wp.customize( 'kanga-settings[ast-header-responsive-logo-width]', function( setting ) {
 		setting.bind( function( logo_width ) {
 			if ( logo_width['desktop'] != '' || logo_width['tablet'] != '' || logo_width['mobile'] != '' ) {
-				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;} .astra-logo-svg{width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;} .astra-logo-svg{width: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} .astra-logo-svg{width: ' + logo_width['mobile'] + 'px; } }';
-				astra_add_dynamic_css( 'ast-header-responsive-logo-width', dynamicStyle );
+				var dynamicStyle = '#masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['desktop'] + 'px;} .kanga-logo-svg{width: ' + logo_width['desktop'] + 'px;} @media( max-width: 768px ) { #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['tablet'] + 'px;} .kanga-logo-svg{width: ' + logo_width['tablet'] + 'px; } } @media( max-width: 544px ) { .ast-header-break-point .site-branding img, .ast-header-break-point #masthead .site-logo-img .custom-logo-link img { max-width: ' + logo_width['mobile'] + 'px;} .kanga-logo-svg{width: ' + logo_width['mobile'] + 'px; } }';
+				kanga_add_dynamic_css( 'ast-header-responsive-logo-width', dynamicStyle );
 				var mobileLogoStyle = '.ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; } @media( max-width: 768px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['tablet'] + 'px; }  @media( max-width: 544px ) { .ast-header-break-point #masthead .site-logo-img .custom-mobile-logo-link img { max-width: ' + logo_width['mobile'] + 'px; }';
-				astra_add_dynamic_css( 'mobile-header-logo-width', mobileLogoStyle );
+				kanga_add_dynamic_css( 'mobile-header-logo-width', mobileLogoStyle );
 			}
 			else{
 				wp.customize.preview.send( 'refresh' );
@@ -664,7 +664,7 @@ function isJsonString( str ) {
 	/*
 	 * Full width layout
 	 */
-	wp.customize( 'astra-settings[site-content-width]', function( setting ) {
+	wp.customize( 'kanga-settings[site-content-width]', function( setting ) {
 		setting.bind( function( width ) {
 				var dynamicStyle = '@media (min-width: 554px) {';
 				dynamicStyle += '.ast-container, .fl-builder #content .entry-header { max-width: ' + ( 40 + parseInt( width ) ) + 'px } ';
@@ -675,7 +675,7 @@ function isJsonString( str ) {
 					dynamicStyle += '}';
 				}
 
-				astra_add_dynamic_css( 'site-content-width', dynamicStyle );
+				kanga_add_dynamic_css( 'site-content-width', dynamicStyle );
 
 		} );
 	} );
@@ -683,7 +683,7 @@ function isJsonString( str ) {
 	/*
 	 * Full width layout
 	 */
-	wp.customize( 'astra-settings[header-main-menu-label]', function( setting ) {
+	wp.customize( 'kanga-settings[header-main-menu-label]', function( setting ) {
 		setting.bind( function( label ) {
 			if( $('button.main-header-menu-toggle .mobile-menu-wrap .mobile-menu').length > 0 ) {
 				if ( label != '' ) {
@@ -704,14 +704,14 @@ function isJsonString( str ) {
 	/*
 	 * Layout Body Background
 	 */
-	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'desktop' );
-	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'tablet' );
-	astra_apply_responsive_background_css( 'astra-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'mobile' );
+	kanga_apply_responsive_background_css( 'kanga-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'desktop' );
+	kanga_apply_responsive_background_css( 'kanga-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'tablet' );
+	kanga_apply_responsive_background_css( 'kanga-settings[site-layout-outside-bg-obj-responsive]', 'body, .ast-separate-container', 'mobile' );
 
 	/*
 	 * Blog Custom Width
 	 */
-	wp.customize( 'astra-settings[blog-max-width]', function( setting ) {
+	wp.customize( 'kanga-settings[blog-max-width]', function( setting ) {
 		setting.bind( function( width ) {
 
 			var dynamicStyle = '@media all and ( min-width: 921px ) {';
@@ -724,7 +724,7 @@ function isJsonString( str ) {
 				dynamicStyle += '.blog .site-content > .ast-container,.archive .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
 			}
 				dynamicStyle += '}';
-				astra_add_dynamic_css( 'blog-max-width', dynamicStyle );
+				kanga_add_dynamic_css( 'blog-max-width', dynamicStyle );
 
 		} );
 	} );
@@ -732,7 +732,7 @@ function isJsonString( str ) {
 	/*
 	 * Single Blog Custom Width
 	 */
-	wp.customize( 'astra-settings[blog-single-max-width]', function( setting ) {
+	wp.customize( 'kanga-settings[blog-single-max-width]', function( setting ) {
 		setting.bind( function( width ) {
 
 				var dynamicStyle = '@media all and ( min-width: 921px ) {';
@@ -743,7 +743,7 @@ function isJsonString( str ) {
 				dynamicStyle += '.single-post .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
 			}
 				dynamicStyle += '}';
-				astra_add_dynamic_css( 'blog-single-max-width', dynamicStyle );
+				kanga_add_dynamic_css( 'blog-single-max-width', dynamicStyle );
 
 		} );
 	} );
@@ -751,12 +751,12 @@ function isJsonString( str ) {
 	/*
 	 * EDD Archive Custom Width
 	 */
-	wp.customize( 'astra-settings[edd-archive-max-width]', function( setting ) {
+	wp.customize( 'kanga-settings[edd-archive-max-width]', function( setting ) {
 		setting.bind( function( width ) {
 
 				var dynamicStyle = '.ast-edd-archive-page .site-content > .ast-container { max-width: ' + parseInt( width ) + 'px } ';
 
-				astra_add_dynamic_css( 'edd-archive-max-width', dynamicStyle );
+				kanga_add_dynamic_css( 'edd-archive-max-width', dynamicStyle );
 
 		} );
 	} );
@@ -764,7 +764,7 @@ function isJsonString( str ) {
 	/**
 	 * Primary Width Option
 	 */
-	wp.customize( 'astra-settings[site-sidebar-width]', function( setting ) {
+	wp.customize( 'kanga-settings[site-sidebar-width]', function( setting ) {
 		setting.bind( function( width ) {
 
 			if ( ! jQuery( 'body' ).hasClass( 'ast-no-sidebar' ) && width >= 15 && width <= 50 ) {
@@ -775,7 +775,7 @@ function isJsonString( str ) {
 				dynamicStyle += '#secondary { width: ' + width + '% } ';
 				dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'site-sidebar-width', dynamicStyle );
+				kanga_add_dynamic_css( 'site-sidebar-width', dynamicStyle );
 			}
 
 		} );
@@ -784,7 +784,7 @@ function isJsonString( str ) {
 	/**
 	 * Header Bottom Border
 	 */
-	wp.customize( 'astra-settings[header-main-sep]', function( setting ) {
+	wp.customize( 'kanga-settings[header-main-sep]', function( setting ) {
 		setting.bind( function( border ) {
 
 			var dynamicStyle = 'body.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px }';
@@ -793,7 +793,7 @@ function isJsonString( str ) {
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
-			astra_add_dynamic_css( 'header-main-sep', dynamicStyle );
+			kanga_add_dynamic_css( 'header-main-sep', dynamicStyle );
 
 		} );
 	} );
@@ -801,7 +801,7 @@ function isJsonString( str ) {
 	/**
 	 * Small Footer Top Border
 	 */
-	wp.customize( 'astra-settings[footer-sml-divider]', function( value ) {
+	wp.customize( 'kanga-settings[footer-sml-divider]', function( value ) {
 		value.bind( function( border_width ) {
 			jQuery( '.ast-small-footer' ).css( 'border-top-width', border_width + 'px' );
 		} );
@@ -810,14 +810,14 @@ function isJsonString( str ) {
 	/**
 	 * Footer Widget Top Border
 	 */
-	wp.customize( 'astra-settings[footer-adv-border-width]', function( value ) {
+	wp.customize( 'kanga-settings[footer-adv-border-width]', function( value ) {
 		value.bind( function( border_width ) {
 			jQuery( '.footer-adv .footer-adv-overlay' ).css( 'border-top-width', border_width + 'px' );
 		} );
 	} );
 
 
-	wp.customize( 'astra-settings[footer-adv-border-color]', function( value ) {
+	wp.customize( 'kanga-settings[footer-adv-border-color]', function( value ) {
 		value.bind( function( border_color ) {
 			jQuery( '.footer-adv .footer-adv-overlay' ).css( 'border-top-color', border_color );
 		} );
@@ -827,7 +827,7 @@ function isJsonString( str ) {
 	/**
 	 * Small Footer Top Border Color
 	 */
-	wp.customize( 'astra-settings[footer-sml-divider-color]', function( value ) {
+	wp.customize( 'kanga-settings[footer-sml-divider-color]', function( value ) {
 		value.bind( function( border_color ) {
 			jQuery( '.ast-small-footer' ).css( 'border-top-color', border_color );
 		} );
@@ -836,14 +836,14 @@ function isJsonString( str ) {
 	/**
 	 * Button Border Radius
 	 */
-	wp.customize( 'astra-settings[theme-button-border-group]', function( setting ) {
+	wp.customize( 'kanga-settings[theme-button-border-group]', function( setting ) {
 		setting.bind( function( border ) {
 
 			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
 			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
 				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
 			}
-			astra_add_dynamic_css( 'button-radius', dynamicStyle );
+			kanga_add_dynamic_css( 'button-radius', dynamicStyle );
 
 		} );
 	} );
@@ -851,7 +851,7 @@ function isJsonString( str ) {
 	/**
 	 * Header Bottom Border width
 	 */
-	wp.customize( 'astra-settings[header-main-sep]', function( value ) {
+	wp.customize( 'kanga-settings[header-main-sep]', function( value ) {
 		value.bind( function( border ) {
 
 			var dynamicStyle = ' body.ast-header-break-point .main-header-bar { border-bottom-width: ' + border + 'px } ';
@@ -860,7 +860,7 @@ function isJsonString( str ) {
 			dynamicStyle += 'border-bottom-width: ' + border + 'px';
 			dynamicStyle += '}';
 
-			astra_add_dynamic_css( 'header-main-sep', dynamicStyle );
+			kanga_add_dynamic_css( 'header-main-sep', dynamicStyle );
 
 		} );
 	} );
@@ -868,7 +868,7 @@ function isJsonString( str ) {
 	/**
 	 * Header Bottom Border color
 	 */
-	wp.customize( 'astra-settings[header-main-sep-color]', function( value ) {
+	wp.customize( 'kanga-settings[header-main-sep-color]', function( value ) {
 		value.bind( function( color ) {
 			if (color == '') {
 				wp.customize.preview.send( 'refresh' );
@@ -879,7 +879,7 @@ function isJsonString( str ) {
 				var dynamicStyle = ' .ast-desktop .main-header-bar { border-bottom-color: ' + color + '; } ';
 					dynamicStyle += ' body.ast-header-break-point .main-header-bar { border-bottom-color: ' + color + '; } ';
 
-				astra_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
+				kanga_add_dynamic_css( 'header-main-sep-color', dynamicStyle );
 			}
 
 		} );
@@ -888,7 +888,7 @@ function isJsonString( str ) {
 	/**
 	 * Primary Toggle Button Color
 	 */
-	wp.customize( 'astra-settings[mobile-header-toggle-btn-style-color]', function( setting ) {
+	wp.customize( 'kanga-settings[mobile-header-toggle-btn-style-color]', function( setting ) {
 		setting.bind( function( toggle_button_color ) {
 			if ( toggle_button_color != '' ) {
 				if( jQuery( '.menu-toggle' ).hasClass( 'ast-mobile-menu-buttons-fill' ) ) {
@@ -900,7 +900,7 @@ function isJsonString( str ) {
 				else {	
 					var dynamicStyle = '.ast-header-break-point .ast-mobile-menu-buttons-minimal.menu-toggle { color: ' + toggle_button_color + '}';
 				}
-				astra_add_dynamic_css( 'primary-toggle-button-color', dynamicStyle );
+				kanga_add_dynamic_css( 'primary-toggle-button-color', dynamicStyle );
 			}
 			else{
 				wp.customize.preview.send( 'refresh' );
@@ -909,32 +909,32 @@ function isJsonString( str ) {
 	});
 
 
-	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );
-	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title' );
+	kanga_responsive_font_size( 'kanga-settings[font-size-site-tagline]', '.site-header .site-description' );
+	kanga_responsive_font_size( 'kanga-settings[font-size-site-title]', '.site-title' );
 
-	astra_responsive_font_size( 'astra-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
-	astra_responsive_font_size( 'astra-settings[font-size-archive-summary-title]', '.ast-archive-description .ast-archive-title' );
-	astra_responsive_font_size( 'astra-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
+	kanga_responsive_font_size( 'kanga-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
+	kanga_responsive_font_size( 'kanga-settings[font-size-archive-summary-title]', '.ast-archive-description .ast-archive-title' );
+	kanga_responsive_font_size( 'kanga-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
 
 	// Check if anchors should be loaded in the CSS for headings.	
-	if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
-		astra_responsive_font_size('astra-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a');
-		astra_responsive_font_size('astra-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a');
-		astra_responsive_font_size('astra-settings[font-size-h3]', 'h3, .entry-content h3, .entry-content h3 a');
-		astra_responsive_font_size('astra-settings[font-size-h4]', 'h4, .entry-content h4, .entry-content h4 a');
-		astra_responsive_font_size('astra-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a');
-		astra_responsive_font_size('astra-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a');
+	if (true == kangaCustomizer.includeAnchorsInHeadindsCss) {
+		kanga_responsive_font_size('kanga-settings[font-size-h1]', 'h1, .entry-content h1, .entry-content h1 a');
+		kanga_responsive_font_size('kanga-settings[font-size-h2]', 'h2, .entry-content h2, .entry-content h2 a');
+		kanga_responsive_font_size('kanga-settings[font-size-h3]', 'h3, .entry-content h3, .entry-content h3 a');
+		kanga_responsive_font_size('kanga-settings[font-size-h4]', 'h4, .entry-content h4, .entry-content h4 a');
+		kanga_responsive_font_size('kanga-settings[font-size-h5]', 'h5, .entry-content h5, .entry-content h5 a');
+		kanga_responsive_font_size('kanga-settings[font-size-h6]', 'h6, .entry-content h6, .entry-content h6 a');
 	} else {
-		astra_responsive_font_size('astra-settings[font-size-h1]', 'h1, .entry-content h1');
-		astra_responsive_font_size('astra-settings[font-size-h2]', 'h2, .entry-content h2');
-		astra_responsive_font_size('astra-settings[font-size-h3]', 'h3, .entry-content h3');
-		astra_responsive_font_size('astra-settings[font-size-h4]', 'h4, .entry-content h4');
-		astra_responsive_font_size('astra-settings[font-size-h5]', 'h5, .entry-content h5');
-		astra_responsive_font_size('astra-settings[font-size-h6]', 'h6, .entry-content h6');
+		kanga_responsive_font_size('kanga-settings[font-size-h1]', 'h1, .entry-content h1');
+		kanga_responsive_font_size('kanga-settings[font-size-h2]', 'h2, .entry-content h2');
+		kanga_responsive_font_size('kanga-settings[font-size-h3]', 'h3, .entry-content h3');
+		kanga_responsive_font_size('kanga-settings[font-size-h4]', 'h4, .entry-content h4');
+		kanga_responsive_font_size('kanga-settings[font-size-h5]', 'h5, .entry-content h5');
+		kanga_responsive_font_size('kanga-settings[font-size-h6]', 'h6, .entry-content h6');
 	}
 
 	// paragraph margin bottom.
-	wp.customize( 'astra-settings[para-margin-bottom]', function( value ) {
+	wp.customize( 'kanga-settings[para-margin-bottom]', function( value ) {
 		value.bind( function( marginBottom ) {
 			if ( marginBottom == '' ) {
 				wp.customize.preview.send( 'refresh' );
@@ -942,74 +942,74 @@ function isJsonString( str ) {
 
 			if ( marginBottom ) {
 				var dynamicStyle = ' p, .entry-content p { margin-bottom: ' + marginBottom + 'em; } ';
-				astra_add_dynamic_css( 'para-margin-bottom', dynamicStyle );
+				kanga_add_dynamic_css( 'para-margin-bottom', dynamicStyle );
 			}
 
 		} );
 	} );
 
-	if ( astraCustomizer.page_builder_button_style_css ) {
-		if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
-			if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'typo' == astraCustomizer.elementor_default_color_font_setting ) {
-				astra_css('astra-settings[headings-line-height]', 'line-height', '.elementor-widget-heading h1.elementor-heading-title, .elementor-widget-heading h2.elementor-heading-title, .elementor-widget-heading h3.elementor-heading-title, .elementor-widget-heading h4.elementor-heading-title, .elementor-widget-heading h5.elementor-heading-title, .elementor-widget-heading h6.elementor-heading-title');
+	if ( kangaCustomizer.page_builder_button_style_css ) {
+		if (true == kangaCustomizer.includeAnchorsInHeadindsCss) {
+			if ( 'color-typo' == kangaCustomizer.elementor_default_color_font_setting || 'typo' == kangaCustomizer.elementor_default_color_font_setting ) {
+				kanga_css('kanga-settings[headings-line-height]', 'line-height', '.elementor-widget-heading h1.elementor-heading-title, .elementor-widget-heading h2.elementor-heading-title, .elementor-widget-heading h3.elementor-heading-title, .elementor-widget-heading h4.elementor-heading-title, .elementor-widget-heading h5.elementor-heading-title, .elementor-widget-heading h6.elementor-heading-title');
 			}
-			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+			kanga_css('kanga-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
 		} else {
-			if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'typo' == astraCustomizer.elementor_default_color_font_setting ) {
-				astra_css('astra-settings[headings-line-height]', 'line-height', '.elementor-widget-heading h1.elementor-heading-title, .elementor-widget-heading h2.elementor-heading-title, .elementor-widget-heading h3.elementor-heading-title, .elementor-widget-heading h4.elementor-heading-title, .elementor-widget-heading h5.elementor-heading-title, .elementor-widget-heading h6.elementor-heading-title');
+			if ( 'color-typo' == kangaCustomizer.elementor_default_color_font_setting || 'typo' == kangaCustomizer.elementor_default_color_font_setting ) {
+				kanga_css('kanga-settings[headings-line-height]', 'line-height', '.elementor-widget-heading h1.elementor-heading-title, .elementor-widget-heading h2.elementor-heading-title, .elementor-widget-heading h3.elementor-heading-title, .elementor-widget-heading h4.elementor-heading-title, .elementor-widget-heading h5.elementor-heading-title, .elementor-widget-heading h6.elementor-heading-title');
 			}
-			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+			kanga_css('kanga-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
 		}
 	} else {
-		if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
-			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+		if (true == kangaCustomizer.includeAnchorsInHeadindsCss) {
+			kanga_css('kanga-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
 		} else {
-			astra_css('astra-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+			kanga_css('kanga-settings[headings-line-height]', 'line-height', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
 		}
 	}
 	
 	// Check if anchors should be loaded in the CSS for headings.
-	if (true == astraCustomizer.includeAnchorsInHeadindsCss) {
-		astra_generate_outside_font_family_css('astra-settings[headings-font-family]', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
-		astra_css('astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
-		astra_css('astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+	if (true == kangaCustomizer.includeAnchorsInHeadindsCss) {
+		kanga_generate_outside_font_family_css('kanga-settings[headings-font-family]', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+		kanga_css('kanga-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
+		kanga_css('kanga-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, .entry-content h1 a, h2, .entry-content h2, .entry-content h2 a, h3, .entry-content h3, .entry-content h3 a, h4, .entry-content h4, .entry-content h4 a, h5, .entry-content h5, .entry-content h5 a, h6, .entry-content h6, .entry-content h6 a, .site-title, .site-title a');
 	} else {
-		astra_generate_outside_font_family_css('astra-settings[headings-font-family]', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
-		astra_css('astra-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
-		astra_css('astra-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+		kanga_generate_outside_font_family_css('kanga-settings[headings-font-family]', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+		kanga_css('kanga-settings[headings-font-weight]', 'font-weight', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
+		kanga_css('kanga-settings[headings-text-transform]', 'text-transform', 'h1, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6, .site-title, .site-title a');
 	}
 
 
 	// Footer Bar.
-	astra_css( 'astra-settings[footer-color]', 'color', '.ast-small-footer' );
-	astra_css( 'astra-settings[footer-link-color]', 'color', '.ast-small-footer a' );
-	astra_css( 'astra-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
-	wp.customize( 'astra-settings[footer-bg-obj]', function( value ) {
+	kanga_css( 'kanga-settings[footer-color]', 'color', '.ast-small-footer' );
+	kanga_css( 'kanga-settings[footer-link-color]', 'color', '.ast-small-footer a' );
+	kanga_css( 'kanga-settings[footer-link-h-color]', 'color', '.ast-small-footer a:hover' );
+	wp.customize( 'kanga-settings[footer-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
 
 			var dynamicStyle = ' .ast-small-footer > .ast-footer-overlay { {{css}} }';
 			
-			astra_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
+			kanga_background_obj_css( wp.customize, bg_obj, 'footer-bg-obj', dynamicStyle );
 		} );
 	} );
 
 	// Footer Widgets.
-	astra_css( 'astra-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
-	astra_css( 'astra-settings[footer-adv-text-color]', 'color', '.footer-adv' );
-	astra_css( 'astra-settings[footer-adv-link-color]', 'color', '.footer-adv a' );
-	astra_css( 'astra-settings[footer-adv-link-h-color]', 'color', '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' );
-	wp.customize( 'astra-settings[footer-adv-bg-obj]', function( value ) {
+	kanga_css( 'kanga-settings[footer-adv-wgt-title-color]', 'color', '.footer-adv .widget-title, .footer-adv .widget-title a' );
+	kanga_css( 'kanga-settings[footer-adv-text-color]', 'color', '.footer-adv' );
+	kanga_css( 'kanga-settings[footer-adv-link-color]', 'color', '.footer-adv a' );
+	kanga_css( 'kanga-settings[footer-adv-link-h-color]', 'color', '.footer-adv a:hover, .footer-adv .no-widget-text a:hover, .footer-adv a:focus, .footer-adv .no-widget-text a:focus' );
+	wp.customize( 'kanga-settings[footer-adv-bg-obj]', function( value ) {
 		value.bind( function( bg_obj ) {
 			
 			var dynamicStyle = ' .footer-adv-overlay { {{css}} }';
 			
-			astra_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
+			kanga_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
 		} );
 	} );
 	/*
 	 * Woocommerce Shop Archive Custom Width
 	 */
-	wp.customize( 'astra-settings[shop-archive-max-width]', function( setting ) {
+	wp.customize( 'kanga-settings[shop-archive-max-width]', function( setting ) {
 		setting.bind( function( width ) {
 
 			var dynamicStyle = '@media all and ( min-width: 921px ) {';
@@ -1020,13 +1020,13 @@ function isJsonString( str ) {
 				dynamicStyle += '.ast-woo-shop-archive .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
 			}
 				dynamicStyle += '}';
-				astra_add_dynamic_css( 'shop-archive-max-width', dynamicStyle );
+				kanga_add_dynamic_css( 'shop-archive-max-width', dynamicStyle );
 
 		} );
 	} );
 
 	//[1] Primary Menu Toggle Button Style.
-	wp.customize( 'astra-settings[mobile-header-toggle-btn-style]', function( setting ) {
+	wp.customize( 'kanga-settings[mobile-header-toggle-btn-style]', function( setting ) {
 		setting.bind( function( icon_style ) {
 			var buttons = $(document).find('.ast-mobile-menu-buttons .menu-toggle');
 			buttons.removeClass('ast-mobile-menu-buttons-default ast-mobile-menu-buttons-fill ast-mobile-menu-buttons-outline');
@@ -1036,11 +1036,11 @@ function isJsonString( str ) {
 	} );
 
 	//[1] Toggle Button Border Radius.
-	wp.customize( 'astra-settings[mobile-header-toggle-btn-border-radius]', function( setting ) {
+	wp.customize( 'kanga-settings[mobile-header-toggle-btn-border-radius]', function( setting ) {
 		setting.bind( function( border ) {
 
 			var dynamicStyle = '.ast-header-break-point .main-header-bar .ast-button-wrap .menu-toggle { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			astra_add_dynamic_css( 'mobile-header-toggle-btn-border-radius', dynamicStyle );
+			kanga_add_dynamic_css( 'mobile-header-toggle-btn-border-radius', dynamicStyle );
 
 		} );
 	} );
@@ -1048,9 +1048,9 @@ function isJsonString( str ) {
 	/**
 	 * Primary Submenu border 
 	 */
-	wp.customize( 'astra-settings[primary-submenu-border]', function( value ) {
+	wp.customize( 'kanga-settings[primary-submenu-border]', function( value ) {
 		value.bind( function( border ) {
-			var color = wp.customize( 'astra-settings[primary-submenu-b-color]' ).get();
+			var color = wp.customize( 'kanga-settings[primary-submenu-b-color]' ).get();
 
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
@@ -1077,7 +1077,7 @@ function isJsonString( str ) {
 					dynamicStyle += '}';
 					dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'primary-submenu-border', dynamicStyle );
+				kanga_add_dynamic_css( 'primary-submenu-border', dynamicStyle );
 			} else {
 				wp.customize.preview.send( 'refresh' );
 			}
@@ -1086,9 +1086,9 @@ function isJsonString( str ) {
 	/**
 	 * Primary Submenu border COlor
 	 */
-	wp.customize( 'astra-settings[primary-submenu-b-color]', function( value ) {
+	wp.customize( 'kanga-settings[primary-submenu-b-color]', function( value ) {
 		value.bind( function( color ) {
-			var border = wp.customize( 'astra-settings[primary-submenu-border]' ).get();
+			var border = wp.customize( 'kanga-settings[primary-submenu-border]' ).get();
 			if ( '' != color ) {
 				if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 
@@ -1115,7 +1115,7 @@ function isJsonString( str ) {
 					dynamicStyle += '}';
 					dynamicStyle += '}';
 
-					astra_add_dynamic_css( 'primary-submenu-border-color', dynamicStyle );
+					kanga_add_dynamic_css( 'primary-submenu-border-color', dynamicStyle );
 				}
 			} else {
 				wp.customize.preview.send( 'refresh' );
@@ -1127,9 +1127,9 @@ function isJsonString( str ) {
 	/**
 	 * Primary Submenu border COlor
 	 */
-	wp.customize('astra-settings[primary-submenu-item-b-color]', function (value) {
+	wp.customize('kanga-settings[primary-submenu-item-b-color]', function (value) {
 		value.bind(function (color) {
-			var insideBorder = wp.customize('astra-settings[primary-submenu-item-border]').get();
+			var insideBorder = wp.customize('kanga-settings[primary-submenu-item-border]').get();
 			if ('' != color) {
 				if ( true == insideBorder ) {
 
@@ -1143,7 +1143,7 @@ function isJsonString( str ) {
 					dynamicStyle += '}';
 
 
-					astra_add_dynamic_css('primary-submenu-item-b-color', dynamicStyle);
+					kanga_add_dynamic_css('primary-submenu-item-b-color', dynamicStyle);
 				}
 			} else {
 				wp.customize.preview.send('refresh');
@@ -1154,9 +1154,9 @@ function isJsonString( str ) {
 	/**
 	 * Primary Submenu border COlor
 	 */
-	wp.customize( 'astra-settings[primary-submenu-item-border]', function( value ) {
+	wp.customize( 'kanga-settings[primary-submenu-item-border]', function( value ) {
 		value.bind( function( border ) {
-			var color = wp.customize( 'astra-settings[primary-submenu-item-b-color]' ).get();
+			var color = wp.customize( 'kanga-settings[primary-submenu-item-b-color]' ).get();
 
 			if( true === border  ) {
 				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
@@ -1166,7 +1166,7 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'primary-submenu-item-border', dynamicStyle );
+				kanga_add_dynamic_css( 'primary-submenu-item-border', dynamicStyle );
 			} else {
 				wp.customize.preview.send( 'refresh' );
 			}
@@ -1174,33 +1174,33 @@ function isJsonString( str ) {
 		} );
 	} );
 
-	astra_css( 'astra-settings[header-main-rt-section-button-text-color]', 'color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
-	astra_css( 'astra-settings[header-main-rt-section-button-back-color]', 'background-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
-	astra_css( 'astra-settings[header-main-rt-section-button-text-h-color]', 'color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
-	astra_css( 'astra-settings[header-main-rt-section-button-back-h-color]', 'background-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
-	astra_css( 'astra-settings[header-main-rt-section-button-border-radius]', 'border-radius', '.main-header-bar .ast-container .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'px' );
-	astra_css( 'astra-settings[header-main-rt-section-button-border-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
-	astra_css( 'astra-settings[header-main-rt-section-button-border-h-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
-	astra_responsive_spacing( 'astra-settings[header-main-rt-section-button-padding]','.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'padding', ['top', 'right', 'bottom', 'left' ] );
+	kanga_css( 'kanga-settings[header-main-rt-section-button-text-color]', 'color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+	kanga_css( 'kanga-settings[header-main-rt-section-button-back-color]', 'background-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+	kanga_css( 'kanga-settings[header-main-rt-section-button-text-h-color]', 'color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
+	kanga_css( 'kanga-settings[header-main-rt-section-button-back-h-color]', 'background-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
+	kanga_css( 'kanga-settings[header-main-rt-section-button-border-radius]', 'border-radius', '.main-header-bar .ast-container .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'px' );
+	kanga_css( 'kanga-settings[header-main-rt-section-button-border-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button' );
+	kanga_css( 'kanga-settings[header-main-rt-section-button-border-h-color]', 'border-color', '.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button:hover' );
+	kanga_responsive_spacing( 'kanga-settings[header-main-rt-section-button-padding]','.main-header-bar .button-custom-menu-item .ast-custom-button-link .ast-custom-button', 'padding', ['top', 'right', 'bottom', 'left' ] );
 
 	var ele_border_radius_selector = '';
 	var ele_border_width_selector  = '';
 	var ele_padding_selector       = '';
 
-	if ( astraCustomizer.page_builder_button_style_css ) {
-		if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'color' == astraCustomizer.elementor_default_color_font_setting || 'font' == astraCustomizer.elementor_default_color_font_setting ) {
+	if ( kangaCustomizer.page_builder_button_style_css ) {
+		if ( 'color-typo' == kangaCustomizer.elementor_default_color_font_setting || 'color' == kangaCustomizer.elementor_default_color_font_setting || 'font' == kangaCustomizer.elementor_default_color_font_setting ) {
 			ele_border_radius_selector = ', .elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button';
 			ele_border_width_selector = ', .elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
 			ele_padding_selector = ', .elementor-button-wrapper .elementor-button.elementor-size-sm, .elementor-button-wrapper .elementor-button.elementor-size-xs, .elementor-button-wrapper .elementor-button.elementor-size-md, .elementor-button-wrapper .elementor-button.elementor-size-lg, .elementor-button-wrapper .elementor-button.elementor-size-xl, .elementor-button-wrapper .elementor-button';
 		}
 	}
 
-	astra_css( 'astra-settings[button-radius]', 'border-radius', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' + ele_border_radius_selector, 'px' );
+	kanga_css( 'kanga-settings[button-radius]', 'border-radius', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' + ele_border_radius_selector, 'px' );
 
 	/**
 	 * Button border
 	 */
-	wp.customize( 'astra-settings[theme-button-border-group-border-size]', function( value ) {
+	wp.customize( 'kanga-settings[theme-button-border-group-border-size]', function( value ) {
 		value.bind( function( border ) {
 			if( '' != border.top || '' != border.right || '' != border.bottom || '' != border.left ) {
 				var dynamicStyle = '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + ele_border_width_selector;
@@ -1212,19 +1212,19 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
+				kanga_add_dynamic_css( 'theme-button-border-group-border-size', dynamicStyle );
 			}
 		} );
 	} );
 
-	astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .wp-block-button .wp-block-button__link' + ele_padding_selector, 'padding', [ 'top', 'bottom' ] );
+	kanga_responsive_spacing( 'kanga-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .wp-block-button .wp-block-button__link' + ele_padding_selector, 'padding', [ 'top', 'bottom' ] );
 	
-	astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .wp-block-button .wp-block-button__link' + ele_padding_selector, 'padding', [ 'left', 'right' ] );
+	kanga_responsive_spacing( 'kanga-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled], .wp-block-button .wp-block-button__link' + ele_padding_selector, 'padding', [ 'left', 'right' ] );
 
 	/**
 	 * Button border
 	 */
-	wp.customize( 'astra-settings[transparent-header-button-border-group]', function( value ) {
+	wp.customize( 'kanga-settings[transparent-header-button-border-group]', function( value ) {
 		value.bind( function( value ) {
 
 			var optionValue = JSON.parse(value);
@@ -1240,43 +1240,43 @@ function isJsonString( str ) {
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
 
-				astra_add_dynamic_css( 'header-main-rt-trans-section-button-border-size', dynamicStyle );
+				kanga_add_dynamic_css( 'header-main-rt-trans-section-button-border-size', dynamicStyle );
 			}
 		} );
 	} );
 
 	// Site Title - Font family
-	astra_generate_outside_font_family_css( 'astra-settings[font-family-site-title]', '.site-title, .site-title a' );
+	kanga_generate_outside_font_family_css( 'kanga-settings[font-family-site-title]', '.site-title, .site-title a' );
 
 	// Site Title - Font Weight
-	astra_css( 'astra-settings[font-weight-site-title]', 'font-weight', '.site-title, .site-title a' );
+	kanga_css( 'kanga-settings[font-weight-site-title]', 'font-weight', '.site-title, .site-title a' );
 
 	// Site Title - Font Size
-	astra_responsive_font_size( 'astra-settings[font-size-site-title]', '.site-title, .site-title a' );
+	kanga_responsive_font_size( 'kanga-settings[font-size-site-title]', '.site-title, .site-title a' );
 	
 	// Site Title - Line Height
-	astra_css( 'astra-settings[line-height-site-title]', 'line-height', '.site-title, .site-title a' );
+	kanga_css( 'kanga-settings[line-height-site-title]', 'line-height', '.site-title, .site-title a' );
 	
 	// Site Title - Text Transform
-	astra_css( 'astra-settings[text-transform-site-title]', 'text-transform', '.site-title, .site-title a' );
+	kanga_css( 'kanga-settings[text-transform-site-title]', 'text-transform', '.site-title, .site-title a' );
 
 
 	// Site tagline - Font family
-	astra_generate_outside_font_family_css( 'astra-settings[font-family-site-tagline]', '.site-header .site-description' );
+	kanga_generate_outside_font_family_css( 'kanga-settings[font-family-site-tagline]', '.site-header .site-description' );
 	
 	// Site Tagline - Font Weight
-	astra_css( 'astra-settings[font-weight-site-tagline]', 'font-weight', '.site-header .site-description' );
+	kanga_css( 'kanga-settings[font-weight-site-tagline]', 'font-weight', '.site-header .site-description' );
 
 	// Site Tagline - Font Size
-	astra_responsive_font_size( 'astra-settings[font-size-site-tagline]', '.site-header .site-description' );
+	kanga_responsive_font_size( 'kanga-settings[font-size-site-tagline]', '.site-header .site-description' );
 
 	// Site Tagline - Line Height
-	astra_css( 'astra-settings[line-height-site-tagline]', 'line-height', '.site-header .site-description' );
+	kanga_css( 'kanga-settings[line-height-site-tagline]', 'line-height', '.site-header .site-description' );
 
 	// Site Tagline - Text Transform
-	astra_css( 'astra-settings[text-transform-site-tagline]', 'text-transform', '.site-header .site-description' );
+	kanga_css( 'kanga-settings[text-transform-site-tagline]', 'text-transform', '.site-header .site-description' );
 
-	if ( astraCustomizer.page_builder_button_style_css ) {
+	if ( kangaCustomizer.page_builder_button_style_css ) {
 
 		var btn_color_ele = '';
 		var btn_bg_color_ele = '';
@@ -1285,7 +1285,7 @@ function isJsonString( str ) {
 		var btn_border_color_ele = '';
 		var btn_border_h_color_ele = '';
 
-		if ( 'color-typo' == astraCustomizer.elementor_default_color_font_setting || 'color' == astraCustomizer.elementor_default_color_font_setting ) {
+		if ( 'color-typo' == kangaCustomizer.elementor_default_color_font_setting || 'color' == kangaCustomizer.elementor_default_color_font_setting ) {
 			// Theme Button - Text Color
 			btn_color_ele = ',.elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
 
@@ -1306,40 +1306,40 @@ function isJsonString( str ) {
 		}
 
 		// Theme Button - Text Color
-		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_color_ele );
+		kanga_css( 'kanga-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_color_ele );
 
 		// Theme Button - Background Color
-		astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_bg_color_ele );
+		kanga_css( 'kanga-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_bg_color_ele );
 
 		// Theme Button - Text Hover Color
-		astra_css( 'astra-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_h_color_ele );
+		kanga_css( 'kanga-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_h_color_ele );
 
 		// Theme Button - Background Hover Color
-		astra_css( 'astra-settings[button-bg-h-color]', 'background-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_bg_h_color_ele );
+		kanga_css( 'kanga-settings[button-bg-h-color]', 'background-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_bg_h_color_ele );
 
-		astra_css( 'astra-settings[theme-button-border-group-border-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_border_color_ele );
+		kanga_css( 'kanga-settings[theme-button-border-group-border-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .wp-block-button .wp-block-button__link' + btn_border_color_ele );
 
 		// Theme Button - Border Hover Color
-		astra_css( 'astra-settings[theme-button-border-group-border-h-color]', 'border-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_border_h_color_ele );
+		kanga_css( 'kanga-settings[theme-button-border-group-border-h-color]', 'border-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus, .wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:focus' + btn_border_h_color_ele );
 
 	} else {
 		// Theme Button - Text Color
-		astra_css( 'astra-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+		kanga_css( 'kanga-settings[button-color]', 'color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 
 		// Theme Button - Background Color
-		astra_css( 'astra-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+		kanga_css( 'kanga-settings[button-bg-color]', 'background-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 
 		// Theme Button - Border Color
-		astra_css( 'astra-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
+		kanga_css( 'kanga-settings[button-bg-color]', 'border-color', '.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"]' );
 
 		// Theme Button - Text Hover Color
-		astra_css( 'astra-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
+		kanga_css( 'kanga-settings[button-h-color]', 'color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
 
 		// Theme Button - Background Hover Color
-		astra_css( 'astra-settings[button-bg-h-color]', 'background-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
+		kanga_css( 'kanga-settings[button-bg-h-color]', 'background-color', 'button:focus, .menu-toggle:hover, button:hover, .ast-button:hover, .button:hover, input[type=reset]:hover, input[type=reset]:focus, input#submit:hover, input#submit:focus, input[type="button"]:hover, input[type="button"]:focus, input[type="submit"]:hover, input[type="submit"]:focus' );
 
-		astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'top', 'bottom' ] );
-		astra_responsive_spacing( 'astra-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'left', 'right' ] );
+		kanga_responsive_spacing( 'kanga-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'top', 'bottom' ] );
+		kanga_responsive_spacing( 'kanga-settings[theme-button-padding]','.menu-toggle, button, .ast-button, .button, input#submit, input[type="button"], input[type="submit"], input[type="reset"], .woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled]', 'padding', [ 'left', 'right' ] );
 	}
 
 } )( jQuery );

@@ -40,7 +40,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			add_action( 'admin_init', array( $this, 'handle_optin_optout' ) );
 			add_action( 'cron_schedules', array( $this, 'every_two_days_schedule' ) );
 			add_action( 'admin_notices', array( $this, 'option_notice' ) );
-			add_action( 'astra_notice_before_markup_bsf-optin-notice', array( $this, 'enqueue_assets' ) );
+			add_action( 'kanga_notice_before_markup_bsf-optin-notice', array( $this, 'enqueue_assets' ) );
 
 			add_action( 'init', array( $this, 'schedule_unschedule_event' ) );
 
@@ -180,13 +180,13 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			}
 
 			/* translators: %s product name */
-			$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'astra' );
+			$notice_string = __( 'Want to help make <strong>%1s</strong> even more awesome? Allow us to collect non-sensitive diagnostic data and usage information. ', 'kanga' );
 
 			if ( is_multisite() ) {
-				$notice_string .= __( 'This will be applicable for all sites from the network.', 'astra' );
+				$notice_string .= __( 'This will be applicable for all sites from the network.', 'kanga' );
 			}
 
-			Astra_Notices::add_notice(
+			Kanga_Notices::add_notice(
 				array(
 					'id'                         => 'bsf-optin-notice',
 					'type'                       => '',
@@ -195,24 +195,24 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 								<div class="notice-heading">
 									%1$s
 								</div>
-								<div class="astra-notices-container">
-									<a href="%2$s" class="astra-notices button-primary">
+								<div class="kanga-notices-container">
+									<a href="%2$s" class="kanga-notices button-primary">
 									%3$s
 									</a>
-									<a href="%4$s" data-repeat-notice-after="%5$s" class="astra-notices button-secondary">
+									<a href="%4$s" data-repeat-notice-after="%5$s" class="kanga-notices button-secondary">
 									%6$s
 									</a>
 								</div>
 							</div>',
 						/* translators: %s usage doc link */
-						sprintf( $notice_string . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( ' Know More.', 'astra' ) ),
+						sprintf( $notice_string . '<a href="%2s" target="_blank" rel="noreferrer noopener">%3s</a>', $this->get_product_name(), esc_url( $this->usage_doc_link ), __( ' Know More.', 'kanga' ) ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'yes',
 								'bsf_analytics_nonce' => wp_create_nonce( 'bsf_analytics_optin' ),
 							)
 						),
-						__( 'Yes! Allow it', 'astra' ),
+						__( 'Yes! Allow it', 'kanga' ),
 						add_query_arg(
 							array(
 								'bsf_analytics_optin' => 'no',
@@ -220,7 +220,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 							)
 						),
 						MONTH_IN_SECONDS,
-						__( 'No Thanks', 'astra' )
+						__( 'No Thanks', 'kanga' )
 					),
 					'show_if'                    => true,
 					'repeat-notice-after'        => false,
@@ -289,7 +289,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 		public function every_two_days_schedule( $schedules ) {
 			$schedules['every_two_days'] = array(
 				'interval' => 2 * DAY_IN_SECONDS,
-				'display'  => __( 'Every two days', 'astra' ),
+				'display'  => __( 'Every two days', 'kanga' ),
 			);
 
 			return $schedules;
@@ -343,7 +343,7 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 
 			add_settings_field(
 				'bsf-analytics-optin',       // Field ID.
-				__( 'Usage Tracking', 'astra' ),       // Field title.
+				__( 'Usage Tracking', 'kanga' ),       // Field title.
 				array( $this, 'render_settings_field_html' ), // Field callback function.
 				'general'                    // Settings page slug.
 			);
@@ -374,15 +374,15 @@ if ( ! class_exists( 'BSF_Analytics' ) ) {
 			<label for="bsf-analytics-optin">
 				<input id="bsf-analytics-optin" type="checkbox" value="1" name="bsf_analytics_optin" <?php checked( get_site_option( 'bsf_analytics_optin', 'no' ), 'yes' ); ?>>
 				<?php
-				esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'astra' );
+				esc_html_e( 'Allow Brainstorm Force products to track non-sensitive usage tracking data.', 'kanga' );
 
 				if ( is_multisite() ) {
-					esc_html_e( ' This will be applicable for all sites from the network.', 'astra' );
+					esc_html_e( ' This will be applicable for all sites from the network.', 'kanga' );
 				}
 				?>
 			</label>
 			<?php
-			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $this->usage_doc_link ), __( 'Learn More.', 'astra' ) ) );
+			echo wp_kses_post( sprintf( '<a href="%1s" target="_blank" rel="noreferrer noopener">%2s</a>', esc_url( $this->usage_doc_link ), __( 'Learn More.', 'kanga' ) ) );
 		}
 
 		/**

@@ -1,24 +1,24 @@
 <?php
 /**
- * Astra Attributes Class.
+ * Kanga Attributes Class.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.6.2
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.6.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Attr' ) ) :
+if ( ! class_exists( 'Kanga_Attr' ) ) :
 
 	/**
-	 * Class Astra_Attr
+	 * Class Kanga_Attr
 	 */
-	class Astra_Attr {
+	class Kanga_Attr {
 
 		/**
 		 * Store Instance on Current Class.
@@ -47,7 +47,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 		/**
 		 * Build list of attributes into a string and apply contextual filter on string.
 		 *
-		 * The contextual filter is of the form `astra_attr_{context}_output`.
+		 * The contextual filter is of the form `kanga_attr_{context}_output`.
 		 *
 		 * @since 1.6.2
 		 *
@@ -56,9 +56,9 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 		 * @param array  $args       Optional. Custom data to pass to filter.
 		 * @return string String of HTML attributes and values.
 		 */
-		public function astra_attr( $context, $attributes = array(), $args = array() ) {
+		public function kanga_attr( $context, $attributes = array(), $args = array() ) {
 
-			$attributes = $this->astra_parse_attr( $context, $attributes, $args );
+			$attributes = $this->kanga_parse_attr( $context, $attributes, $args );
 
 			$output = '';
 
@@ -76,7 +76,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 				}
 			}
 
-			$output = apply_filters( "astra_attr_{$context}_output", $output, $attributes, $context, $args );
+			$output = apply_filters( "kanga_attr_{$context}_output", $output, $attributes, $context, $args );
 
 			return trim( $output );
 		}
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 		/**
 		 * Merge array of attributes with defaults, and apply contextual filter on array.
 		 *
-		 * The contextual filter is of the form `astra_attr_{context}`.
+		 * The contextual filter is of the form `kanga_attr_{context}`.
 		 *
 		 * @since 1.6.2
 		 *
@@ -93,7 +93,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 		 * @param array  $args       Optional. Custom data to pass to filter.
 		 * @return array Merged and filtered attributes.
 		 */
-		public function astra_parse_attr( $context, $attributes = array(), $args = array() ) {
+		public function kanga_parse_attr( $context, $attributes = array(), $args = array() ) {
 
 			$defaults = array(
 				'class' => sanitize_html_class( $context ),
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Attr' ) ) :
 			$attributes = wp_parse_args( $attributes, $defaults );
 
 			// Contextual filter.
-			return apply_filters( "astra_attr_{$context}", $attributes, $context, $args );
+			return apply_filters( "kanga_attr_{$context}", $attributes, $context, $args );
 		}
 
 	}
@@ -112,4 +112,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Attr::get_instance();
+Kanga_Attr::get_instance();

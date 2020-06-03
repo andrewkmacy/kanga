@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     // Project configuration
     var autoprefixer = require('autoprefixer');
     var flexibility = require('postcss-flexibility');
-    var Astra_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-background', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
+    var Kanga_theme_Addons = ['background', 'border', 'color', 'customizer-link', 'description', 'divider', 'heading', 'hidden', 'link', 'radio-image', 'responsive', 'responsive-color', 'responsive-background', 'responsive-slider', 'responsive-spacing', 'select', 'settings-group', 'slider', 'sortable', 'spacing', 'typography'];
 
     const sass = require('node-sass');
 
@@ -12,12 +12,12 @@ module.exports = function (grunt) {
 
     var pkgInfo = grunt.file.readJSON('package.json');
 
-    // Astra Addons.
-    for (var i = 0; i < Astra_theme_Addons.length; i++) {
+    // Kanga Addons.
+    for (var i = 0; i < Kanga_theme_Addons.length; i++) {
 
         sass_dist_files.push({
             expand: true,
-            cwd: "inc/customizer/custom-controls/" + Astra_theme_Addons[i],
+            cwd: "inc/customizer/custom-controls/" + Kanga_theme_Addons[i],
             src: ["*.scss"],
             dest: "inc/customizer/custom-controls/assets/css/unminified",
             ext: ".css",
@@ -54,7 +54,7 @@ module.exports = function (grunt) {
                             '*.css',
                             '!*-rtl.css',
                             '!font-awesome.css',
-                            '!astra-fonts.css',
+                            '!kanga-fonts.css',
                         ],
                         dest: 'assets/css/unminified',
                         ext: '-rtl.css'
@@ -67,7 +67,7 @@ module.exports = function (grunt) {
                             '*.css',
                             '!*-rtl.css',
                             '!font-awesome.css',
-                            '!astra-fonts.css',
+                            '!kanga-fonts.css',
                         ],
                         dest: 'assets/css/unminified/compatibility',
                         ext: '-rtl.css'
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
                             '*.css',
                             '!*-rtl.css',
                             '!font-awesome.css',
-                            '!astra-fonts.css',
+                            '!kanga-fonts.css',
                         ],
                         dest: 'assets/css/unminified/compatibility/woocommerce',
                         ext: '-rtl.css'
@@ -383,20 +383,20 @@ module.exports = function (grunt) {
                     '!admin/bsf-analytics/package-lock.json',
                     '!admin/bsf-analytics/phpcs.xml.dist',
                 ],
-                dest: 'astra/'
+                dest: 'kanga/'
             }
         },
 
         compress: {
             main: {
                 options: {
-                    archive: 'astra-' + pkgInfo.version + '.zip',
+                    archive: 'kanga-' + pkgInfo.version + '.zip',
                     mode: 'zip'
                 },
                 files: [
                     {
                         src: [
-                            './astra/**'
+                            './kanga/**'
                         ]
 
                     }
@@ -405,7 +405,7 @@ module.exports = function (grunt) {
         },
 
         clean: {
-            main: ["astra"],
+            main: ["kanga"],
             zip: ["*.zip"]
 
         },
@@ -414,7 +414,7 @@ module.exports = function (grunt) {
             target: {
                 options: {
                     domainPath: '/',
-                    potFilename: 'languages/astra.pot',
+                    potFilename: 'languages/kanga.pot',
                     potHeaders: {
                         poedit: true,
                         'x-poedit-keywordslist': true
@@ -427,7 +427,7 @@ module.exports = function (grunt) {
 
         addtextdomain: {
             options: {
-                textdomain: 'astra',
+                textdomain: 'kanga',
             },
             target: {
                 files: {

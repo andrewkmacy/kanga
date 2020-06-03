@@ -1,5 +1,5 @@
 {
-  "name": "brainstormforce/astra",
+  "name": "brainstormforce/kanga",
   "description": "A very lightweight and beautiful theme made to work with Page Builders",
   "require-dev": {
     "brainmaestro/composer-git-hooks": "^2.6",

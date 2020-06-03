@@ -2,52 +2,52 @@
 /**
  * Template parts
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-add_action( 'astra_masthead_toggle_buttons', 'astra_masthead_toggle_buttons_primary' );
-add_action( 'astra_masthead', 'astra_masthead_primary_template' );
-add_filter( 'wp_page_menu_args', 'astra_masthead_custom_page_menu_items', 10, 2 );
-add_filter( 'wp_nav_menu_items', 'astra_masthead_custom_nav_menu_items', 10, 2 );
-add_action( 'astra_footer_content', 'astra_footer_small_footer_template', 5 );
-add_action( 'astra_entry_content_single', 'astra_entry_content_single_template' );
-add_action( 'astra_entry_content_blog', 'astra_entry_content_blog_template' );
-add_action( 'astra_entry_content_404_page', 'astra_entry_content_404_page_template' );
-add_action( 'astra_footer_content', 'astra_advanced_footer_markup', 1 );
-add_action( 'astra_masthead_content', 'astra_header_custom_item_outside_menu', 10 );
+add_action( 'kanga_masthead_toggle_buttons', 'kanga_masthead_toggle_buttons_primary' );
+add_action( 'kanga_masthead', 'kanga_masthead_primary_template' );
+add_filter( 'wp_page_menu_args', 'kanga_masthead_custom_page_menu_items', 10, 2 );
+add_filter( 'wp_nav_menu_items', 'kanga_masthead_custom_nav_menu_items', 10, 2 );
+add_action( 'kanga_footer_content', 'kanga_footer_small_footer_template', 5 );
+add_action( 'kanga_entry_content_single', 'kanga_entry_content_single_template' );
+add_action( 'kanga_entry_content_blog', 'kanga_entry_content_blog_template' );
+add_action( 'kanga_entry_content_404_page', 'kanga_entry_content_404_page_template' );
+add_action( 'kanga_footer_content', 'kanga_advanced_footer_markup', 1 );
+add_action( 'kanga_masthead_content', 'kanga_header_custom_item_outside_menu', 10 );
 
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
+if ( ! function_exists( 'kanga_masthead_get_menu_items' ) ) :
 
 	/**
 	 * Custom Menu Item Markup
 	 *
 	 * => Used in hooks:
 	 *
-	 * @see astra_masthead_get_menu_items
-	 * @see astra_masthead_custom_nav_menu_items
+	 * @see kanga_masthead_get_menu_items
+	 * @see kanga_masthead_custom_nav_menu_items
 	 * @param boolean $display_outside_markup Outside / Inside markup.
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_masthead_get_menu_items( $display_outside_markup = false ) {
+	function kanga_masthead_get_menu_items( $display_outside_markup = false ) {
 
 		// Get selected custom menu items.
 		$markup = '';
 
-		$section                    = astra_get_option( 'header-main-rt-section' );
-		$sections                   = astra_get_dynamic_header_content( 'header-main-rt-section' );
-		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
+		$section                    = kanga_get_option( 'header-main-rt-section' );
+		$sections                   = kanga_get_dynamic_header_content( 'header-main-rt-section' );
+		$disable_primary_navigation = kanga_get_option( 'disable-primary-nav' );
 		$html_element               = 'li';
 
 		if ( $disable_primary_navigation || $display_outside_markup ) {
@@ -56,7 +56,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 
 		if ( array_filter( $sections ) ) {
 			ob_start();
-			$menu_item_classes = apply_filters( 'astra_masthead_custom_menu_item', array( 'ast-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
+			$menu_item_classes = apply_filters( 'kanga_masthead_custom_menu_item', array( 'ast-masthead-custom-menu-items', $section . '-custom-menu-item' ), $section );
 			?>
 			<<?php echo esc_attr( $html_element ); ?> class="<?php echo esc_attr( join( ' ', $menu_item_classes ) ); ?>">
 				<?php
@@ -71,7 +71,7 @@ if ( ! function_exists( 'astra_masthead_get_menu_items' ) ) :
 			$markup = ob_get_clean();
 		}
 
-		return apply_filters( 'astra_masthead_get_menu_items', $markup );
+		return apply_filters( 'kanga_masthead_get_menu_items', $markup );
 	}
 
 endif;
@@ -79,7 +79,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'astra_masthead_custom_page_menu_items' ) ) :
+if ( ! function_exists( 'kanga_masthead_custom_page_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -92,13 +92,13 @@ if ( ! function_exists( 'astra_masthead_custom_page_menu_items' ) ) :
 	 * @param  array $args Array of arguments.
 	 * @return array       Modified menu item array.
 	 */
-	function astra_masthead_custom_page_menu_items( $args ) {
+	function kanga_masthead_custom_page_menu_items( $args ) {
 
-		if ( isset( $args['theme_location'] ) && ! astra_get_option( 'header-display-outside-menu' ) ) {
+		if ( isset( $args['theme_location'] ) && ! kanga_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args['theme_location'] ) {
 
-				$markup = astra_masthead_get_menu_items();
+				$markup = kanga_masthead_get_menu_items();
 
 				if ( $markup ) {
 					$args['after'] = $markup . '</ul>';
@@ -114,7 +114,7 @@ endif;
 /**
  * Header Custom Menu Item
  */
-if ( ! function_exists( 'astra_masthead_custom_nav_menu_items' ) ) :
+if ( ! function_exists( 'kanga_masthead_custom_nav_menu_items' ) ) :
 
 	/**
 	 * Header Custom Menu Item
@@ -128,12 +128,12 @@ if ( ! function_exists( 'astra_masthead_custom_nav_menu_items' ) ) :
 	 * @param  array $args  Nav menu item arguments array.
 	 * @return array       Modified menu item array.
 	 */
-	function astra_masthead_custom_nav_menu_items( $items, $args ) {
+	function kanga_masthead_custom_nav_menu_items( $items, $args ) {
 
-		if ( isset( $args->theme_location ) && ! astra_get_option( 'header-display-outside-menu' ) ) {
+		if ( isset( $args->theme_location ) && ! kanga_get_option( 'header-display-outside-menu' ) ) {
 
 			if ( 'primary' === $args->theme_location ) {
-				$markup = astra_masthead_get_menu_items();
+				$markup = kanga_masthead_get_menu_items();
 
 				if ( $markup ) {
 					$items .= $markup;
@@ -149,7 +149,7 @@ endif;
 /**
  * Header toggle buttons
  */
-if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
+if ( ! function_exists( 'kanga_masthead_toggle_buttons_primary' ) ) {
 
 	/**
 	 * Header toggle buttons
@@ -160,26 +160,26 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_masthead_toggle_buttons_primary() {
+	function kanga_masthead_toggle_buttons_primary() {
 
-		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
-		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
-		$display_outside_menu       = astra_get_option( 'header-display-outside-menu' );
+		$disable_primary_navigation = kanga_get_option( 'disable-primary-nav' );
+		$custom_header_section      = kanga_get_option( 'header-main-rt-section' );
+		$display_outside_menu       = kanga_get_option( 'header-display-outside-menu' );
 
 		if ( ! $disable_primary_navigation || ( 'none' != $custom_header_section && ! $display_outside_menu ) ) {
-			$menu_title          = trim( apply_filters( 'astra_main_menu_toggle_label', astra_get_option( 'header-main-menu-label' ) ) );
-			$menu_icon           = apply_filters( 'astra_main_menu_toggle_icon', 'menu-toggle-icon' );
+			$menu_title          = trim( apply_filters( 'kanga_main_menu_toggle_label', kanga_get_option( 'header-main-menu-label' ) ) );
+			$menu_icon           = apply_filters( 'kanga_main_menu_toggle_icon', 'menu-toggle-icon' );
 			$menu_label_class    = '';
-			$screen_reader_title = __( 'Main Menu', 'astra' );
+			$screen_reader_title = __( 'Main Menu', 'kanga' );
 			if ( '' !== $menu_title ) {
 				$menu_label_class    = 'ast-menu-label';
 				$screen_reader_title = $menu_title;
 			}
 
-			$menu_label_class = apply_filters( 'astra_main_menu_toggle_classes', $menu_label_class );
+			$menu_label_class = apply_filters( 'kanga_main_menu_toggle_classes', $menu_label_class );
 			?>
 		<div class="ast-button-wrap">
-			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" <?php echo apply_filters( 'astra_nav_toggle_data_attrs', '' ); ?> aria-controls='primary-menu' aria-expanded='false'>
+			<button type="button" class="menu-toggle main-header-menu-toggle <?php echo esc_attr( $menu_label_class ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" <?php echo apply_filters( 'kanga_nav_toggle_data_attrs', '' ); ?> aria-controls='primary-menu' aria-expanded='false'>
 				<span class="screen-reader-text"><?php echo esc_html( $screen_reader_title ); ?></span>
 				<span class="<?php echo esc_attr( $menu_icon ); ?>"></span>
 				<?php if ( '' != $menu_title ) { ?>
@@ -199,7 +199,7 @@ if ( ! function_exists( 'astra_masthead_toggle_buttons_primary' ) ) {
 /**
  * Small Footer
  */
-if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
+if ( ! function_exists( 'kanga_footer_small_footer_template' ) ) {
 
 	/**
 	 * Small Footer
@@ -210,9 +210,9 @@ if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_footer_small_footer_template() {
+	function kanga_footer_small_footer_template() {
 
-		$small_footer_layout = astra_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
+		$small_footer_layout = kanga_get_option_meta( 'footer-sml-layout', 'footer-sml-layout-2' );
 		$small_footer_layout = apply_filters( 'ast_footer_sml_layout', $small_footer_layout );
 
 		if ( 'disabled' != $small_footer_layout ) {
@@ -231,7 +231,7 @@ if ( ! function_exists( 'astra_footer_small_footer_template' ) ) {
 /**
  * Primary Header
  */
-if ( ! function_exists( 'astra_masthead_primary_template' ) ) {
+if ( ! function_exists( 'kanga_masthead_primary_template' ) ) {
 
 	/**
 	 * Primary Header
@@ -242,7 +242,7 @@ if ( ! function_exists( 'astra_masthead_primary_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_masthead_primary_template() {
+	function kanga_masthead_primary_template() {
 		get_template_part( 'template-parts/header/header-main-layout' );
 	}
 }
@@ -250,7 +250,7 @@ if ( ! function_exists( 'astra_masthead_primary_template' ) ) {
 /**
  * Single post markup
  */
-if ( ! function_exists( 'astra_entry_content_single_template' ) ) {
+if ( ! function_exists( 'kanga_entry_content_single_template' ) ) {
 
 	/**
 	 * Single post markup
@@ -261,7 +261,7 @@ if ( ! function_exists( 'astra_entry_content_single_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_entry_content_single_template() {
+	function kanga_entry_content_single_template() {
 		get_template_part( 'template-parts/single/single-layout' );
 	}
 }
@@ -269,7 +269,7 @@ if ( ! function_exists( 'astra_entry_content_single_template' ) ) {
 /**
  * Blog post list markup for blog & search page
  */
-if ( ! function_exists( 'astra_entry_content_blog_template' ) ) {
+if ( ! function_exists( 'kanga_entry_content_blog_template' ) ) {
 
 	/**
 	 * Blog post list markup for blog & search page
@@ -281,15 +281,15 @@ if ( ! function_exists( 'astra_entry_content_blog_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_entry_content_blog_template() {
-		get_template_part( 'template-parts/blog/blog-layout', apply_filters( 'astra_blog_template_name', '' ) );
+	function kanga_entry_content_blog_template() {
+		get_template_part( 'template-parts/blog/blog-layout', apply_filters( 'kanga_blog_template_name', '' ) );
 	}
 }
 
 /**
  * 404 markup
  */
-if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
+if ( ! function_exists( 'kanga_entry_content_404_page_template' ) ) {
 
 	/**
 	 * 404 markup
@@ -300,9 +300,9 @@ if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	function astra_entry_content_404_page_template() {
+	function kanga_entry_content_404_page_template() {
 
-		$layout_404 = astra_get_option( 'ast-404-layout' );
+		$layout_404 = kanga_get_option( 'ast-404-layout' );
 		$layout_404 = str_replace( '404-layout-', '', $layout_404 );
 
 		// Default 404 is nothing but the 404 layout 1.
@@ -317,7 +317,7 @@ if ( ! function_exists( 'astra_entry_content_404_page_template' ) ) {
 /**
  * Footer widgets markup
  */
-if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
+if ( ! function_exists( 'kanga_advanced_footer_markup' ) ) {
 
 	/**
 	 * Footer widgets markup
@@ -326,12 +326,12 @@ if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
 	 *
 	 * @since 1.0.12
 	 */
-	function astra_advanced_footer_markup() {
+	function kanga_advanced_footer_markup() {
 
-		$advanced_footer_layout = astra_get_option( 'footer-adv' );
-		$advanced_footer_meta   = astra_get_option_meta( 'footer-adv-display' );
+		$advanced_footer_layout = kanga_get_option( 'footer-adv' );
+		$advanced_footer_meta   = kanga_get_option_meta( 'footer-adv-display' );
 
-		if ( apply_filters( 'astra_advanced_footer_disable', false ) || 'layout-4' !== $advanced_footer_layout || 'disabled' == $advanced_footer_meta ) {
+		if ( apply_filters( 'kanga_advanced_footer_disable', false ) || 'layout-4' !== $advanced_footer_layout || 'disabled' == $advanced_footer_meta ) {
 			return;
 		}
 
@@ -344,7 +344,7 @@ if ( ! function_exists( 'astra_advanced_footer_markup' ) ) {
 /**
  * Header menu item outside custom menu
  */
-if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
+if ( ! function_exists( 'kanga_header_custom_item_outside_menu' ) ) {
 
 	/**
 	 * Footer widgets markup
@@ -353,10 +353,10 @@ if ( ! function_exists( 'astra_header_custom_item_outside_menu' ) ) {
 	 *
 	 * @since 1.0.12
 	 */
-	function astra_header_custom_item_outside_menu() {
+	function kanga_header_custom_item_outside_menu() {
 
-		if ( astra_get_option( 'header-display-outside-menu' ) ) {
-			$markup = astra_masthead_get_menu_items( true );
+		if ( kanga_get_option( 'header-display-outside-menu' ) ) {
+			$markup = kanga_masthead_get_menu_items( true );
 
 			echo $markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}

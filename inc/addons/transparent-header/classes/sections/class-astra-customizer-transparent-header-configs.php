@@ -2,11 +2,11 @@
 /**
  * Transparent Header Options for our theme.
  *
- * @package     Astra Addon
+ * @package     Kanga Addon
  * @author      Brainstorm Force
  * @copyright   Copyright (c) 2020, Brainstorm Force
  * @link        https://www.brainstormforce.com
- * @since       Astra 1.4.3
+ * @since       Kanga 1.4.3
  */
 
 // Block direct access to the file.
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Bail if Customizer config base class does not exist.
-if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Config_Base' ) ) {
 	return;
 }
 
@@ -24,24 +24,24 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  *
  * @since 1.4.3
  */
-if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
+if ( ! class_exists( 'Kanga_Customizer_Transparent_Header_Configs' ) ) {
 
 	/**
 	 * Register Transparent Header Customizer Configurations.
 	 */
-	class Astra_Customizer_Transparent_Header_Configs extends Astra_Customizer_Config_Base {
+	class Kanga_Customizer_Transparent_Header_Configs extends Kanga_Customizer_Config_Base {
 
 		/**
 		 * Register Transparent Header Customizer Configurations.
 		 *
-		 * @param Array                $configurations Astra Customizer Configurations.
+		 * @param Array                $configurations Kanga Customizer Configurations.
 		 * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
 		 * @since 1.4.3
-		 * @return Array Astra Customizer Configurations with updated configurations.
+		 * @return Array Kanga Customizer Configurations with updated configurations.
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$defaults = Astra_Theme_Options::defaults();
+			$defaults = Kanga_Theme_Options::defaults();
 
 			$_configs = array(
 
@@ -50,10 +50,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-enable]',
-					'default'  => astra_get_option( 'transparent-header-enable' ),
+					'default'  => kanga_get_option( 'transparent-header-enable' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Enable on Complete Website', 'astra' ),
+					'title'    => __( 'Enable on Complete Website', 'kanga' ),
 					'priority' => 20,
 					'control'  => 'checkbox',
 				),
@@ -63,12 +63,12 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-archive]',
-					'default'     => astra_get_option( 'transparent-header-disable-archive' ),
+					'default'     => kanga_get_option( 'transparent-header-disable-archive' ),
 					'type'        => 'control',
 					'section'     => 'section-transparent-header',
 					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'       => __( 'Disable on 404, Search & Archives?', 'astra' ),
-					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'astra' ),
+					'title'       => __( 'Disable on 404, Search & Archives?', 'kanga' ),
+					'description' => __( 'This setting is generally not recommended on special pages such as archive, search, 404, etc. If you would like to enable it, uncheck this option', 'kanga' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
 				),
@@ -78,12 +78,12 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-index]',
-					'default'     => astra_get_option( 'transparent-header-disable-index' ),
+					'default'     => kanga_get_option( 'transparent-header-disable-index' ),
 					'type'        => 'control',
 					'section'     => 'section-transparent-header',
 					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'       => __( 'Disable on Blog page?', 'astra' ),
-					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'astra' ),
+					'title'       => __( 'Disable on Blog page?', 'kanga' ),
+					'description' => __( 'Blog Page is when Latest Posts are selected to be displayed on a particular page.', 'kanga' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
 				),
@@ -93,12 +93,12 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-disable-latest-posts-index]',
-					'default'     => astra_get_option( 'transparent-header-disable-latest-posts-index' ),
+					'default'     => kanga_get_option( 'transparent-header-disable-latest-posts-index' ),
 					'type'        => 'control',
 					'section'     => 'section-transparent-header',
 					'required'    => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'       => __( 'Disable on Latest Posts Page?', 'astra' ),
-					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'astra' ),
+					'title'       => __( 'Disable on Latest Posts Page?', 'kanga' ),
+					'description' => __( "Latest Posts page is your site's front page when the latest posts are displayed on the home page.", 'kanga' ),
 					'priority'    => 25,
 					'control'     => 'checkbox',
 				),
@@ -108,11 +108,11 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-page]',
-					'default'  => astra_get_option( 'transparent-header-disable-page' ),
+					'default'  => kanga_get_option( 'transparent-header-disable-page' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
 					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'    => __( 'Disable on Pages?', 'astra' ),
+					'title'    => __( 'Disable on Pages?', 'kanga' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
 				),
@@ -122,11 +122,11 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-disable-posts]',
-					'default'  => astra_get_option( 'transparent-header-disable-posts' ),
+					'default'  => kanga_get_option( 'transparent-header-disable-posts' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
 					'required' => array( ASTRA_THEME_SETTINGS . '[transparent-header-enable]', '==', '1' ),
-					'title'    => __( 'Disable on Posts?', 'astra' ),
+					'title'    => __( 'Disable on Posts?', 'kanga' ),
 					'priority' => 25,
 					'control'  => 'checkbox',
 				),
@@ -148,16 +148,16 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[transparent-header-on-devices]',
-					'default'  => astra_get_option( 'transparent-header-on-devices' ),
+					'default'  => kanga_get_option( 'transparent-header-on-devices' ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
 					'priority' => 27,
-					'title'    => __( 'Enable On', 'astra' ),
+					'title'    => __( 'Enable On', 'kanga' ),
 					'control'  => 'select',
 					'choices'  => array(
-						'desktop' => __( 'Desktop', 'astra' ),
-						'mobile'  => __( 'Mobile', 'astra' ),
-						'both'    => __( 'Desktop + Mobile', 'astra' ),
+						'desktop' => __( 'Desktop', 'kanga' ),
+						'mobile'  => __( 'Mobile', 'kanga' ),
+						'both'    => __( 'Desktop + Mobile', 'kanga' ),
 					),
 				),
 
@@ -175,10 +175,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[different-transparent-logo]',
-					'default'  => astra_get_option( 'different-transparent-logo', false ),
+					'default'  => kanga_get_option( 'different-transparent-logo', false ),
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Different Logo for Transparent Header?', 'astra' ),
+					'title'    => __( 'Different Logo for Transparent Header?', 'kanga' ),
 					'priority' => 30,
 					'control'  => 'checkbox',
 				),
@@ -188,13 +188,13 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[transparent-header-logo]',
-					'default'        => astra_get_option( 'transparent-header-logo' ),
+					'default'        => kanga_get_option( 'transparent-header-logo' ),
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => 'section-transparent-header',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 					'priority'       => 30,
-					'title'          => __( 'Logo', 'astra' ),
+					'title'          => __( 'Logo', 'kanga' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 					'partial'        => array(
 						'selector'            => '.ast-replace-site-logo-transparent .site-branding .site-logo-img',
@@ -210,7 +210,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'default'  => false,
 					'type'     => 'control',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Different Logo For Retina Devices?', 'astra' ),
+					'title'    => __( 'Different Logo For Retina Devices?', 'kanga' ),
 					'required' => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 					'priority' => 30,
 					'control'  => 'checkbox',
@@ -221,13 +221,13 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'           => ASTRA_THEME_SETTINGS . '[transparent-header-retina-logo]',
-					'default'        => astra_get_option( 'transparent-header-retina-logo' ),
+					'default'        => kanga_get_option( 'transparent-header-retina-logo' ),
 					'type'           => 'control',
 					'control'        => 'image',
 					'section'        => 'section-transparent-header',
 					'required'       => array( ASTRA_THEME_SETTINGS . '[different-transparent-retina-logo]', '==', true ),
 					'priority'       => 30,
-					'title'          => __( 'Retina Logo', 'astra' ),
+					'title'          => __( 'Retina Logo', 'kanga' ),
 					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
 				),
 
@@ -236,14 +236,14 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-logo-width]',
-					'default'     => astra_get_option( 'transparent-header-logo-width' ),
+					'default'     => kanga_get_option( 'transparent-header-logo-width' ),
 					'type'        => 'control',
 					'transport'   => 'postMessage',
 					'control'     => 'ast-responsive-slider',
 					'section'     => 'section-transparent-header',
 					'required'    => array( ASTRA_THEME_SETTINGS . '[different-transparent-logo]', '==', true ),
 					'priority'    => 30,
-					'title'       => __( 'Logo Width', 'astra' ),
+					'title'       => __( 'Logo Width', 'kanga' ),
 					'input_attrs' => array(
 						'min'  => 50,
 						'step' => 1,
@@ -268,13 +268,13 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 				 */
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[transparent-header-main-sep]',
-					'default'     => astra_get_option( 'transparent-header-main-sep' ),
+					'default'     => kanga_get_option( 'transparent-header-main-sep' ),
 					'type'        => 'control',
 					'transport'   => 'postMessage',
 					'control'     => 'ast-slider',
 					'section'     => 'section-transparent-header',
 					'priority'    => 30,
-					'title'       => __( 'Bottom Border Size', 'astra' ),
+					'title'       => __( 'Bottom Border Size', 'kanga' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -293,7 +293,7 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'control'   => 'ast-color',
 					'section'   => 'section-transparent-header',
 					'priority'  => 30,
-					'title'     => __( 'Bottom Border Color', 'astra' ),
+					'title'     => __( 'Bottom Border Color', 'kanga' ),
 				),
 
 				/**
@@ -304,17 +304,17 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-heading',
 					'section'  => 'section-transparent-header',
-					'title'    => __( 'Colors & Background', 'astra' ),
+					'title'    => __( 'Colors & Background', 'kanga' ),
 					'priority' => 35,
 					'settings' => array(),
 				),
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-background-colors]',
-					'default'   => astra_get_option( 'transparent-header-background-colors' ),
+					'default'   => kanga_get_option( 'transparent-header-background-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Background', 'astra' ),
+					'title'     => __( 'Background', 'kanga' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
@@ -322,10 +322,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors]',
-					'default'   => astra_get_option( 'transparent-header-colors' ),
+					'default'   => kanga_get_option( 'transparent-header-colors' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Site Title', 'astra' ),
+					'title'     => __( 'Site Title', 'kanga' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
@@ -333,10 +333,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-menu]',
-					'default'   => astra_get_option( 'transparent-header-colors-menu' ),
+					'default'   => kanga_get_option( 'transparent-header-colors-menu' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Menu', 'astra' ),
+					'title'     => __( 'Menu', 'kanga' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
@@ -344,10 +344,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-submenu]',
-					'default'   => astra_get_option( 'transparent-header-colors-submenu' ),
+					'default'   => kanga_get_option( 'transparent-header-colors-submenu' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Submenu', 'astra' ),
+					'title'     => __( 'Submenu', 'kanga' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
@@ -355,10 +355,10 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-colors-content]',
-					'default'   => astra_get_option( 'transparent-header-colors-content' ),
+					'default'   => kanga_get_option( 'transparent-header-colors-content' ),
 					'type'      => 'control',
 					'control'   => 'ast-settings-group',
-					'title'     => __( 'Content', 'astra' ),
+					'title'     => __( 'Content', 'kanga' ),
 					'section'   => 'section-transparent-header',
 					'transport' => 'postMessage',
 					'priority'  => 35,
@@ -373,4 +373,4 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-new Astra_Customizer_Transparent_Header_Configs();
+new Kanga_Customizer_Transparent_Header_Configs();

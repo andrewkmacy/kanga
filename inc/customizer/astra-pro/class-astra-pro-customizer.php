@@ -1,11 +1,11 @@
 <?php
 /**
- * Astra Pro Customizer Section
+ * Kanga Pro Customizer Section
  *
- * @package   Astra
- * @copyright Copyright (c) 2020, Astra
- * @link      https://wpastra.com/
- * @since     Astra 1.0.10
+ * @package   Kanga
+ * @copyright Copyright (c) 2020, Kanga
+ * @link      https://wpkanga.com/
+ * @since     Kanga 1.0.10
  */
 
 // No direct access, please.
@@ -14,16 +14,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra_Pro_Customizer
+ * Kanga_Pro_Customizer
  *
  * @since 1.0.10
  */
-if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
+if ( ! class_exists( 'Kanga_Pro_Customizer' ) ) {
 
 	/**
-	 * Astra_Pro_Customizer Initial setup
+	 * Kanga_Pro_Customizer Initial setup
 	 */
-	class Astra_Pro_Customizer extends WP_Customize_Section {
+	class Kanga_Pro_Customizer extends WP_Customize_Section {
 
 		/**
 		 * The type of customize section being rendered.
@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Pro_Customizer' ) ) {
 		 * @access public
 		 * @var    string
 		 */
-		public $type = 'astra-pro';
+		public $type = 'kanga-pro';
 
 		/**
 		 * Custom pro button URL.

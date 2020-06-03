@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Astra
+ * @package Kanga
  * @since 1.0.0
  */
 
@@ -12,23 +12,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-$sidebar = apply_filters( 'astra_get_sidebar', 'sidebar-1' );
+$sidebar = apply_filters( 'kanga_get_sidebar', 'sidebar-1' );
 
 echo '<div ';
-	echo astra_attr(
+	echo kanga_attr(
 		'sidebar',
 		array(
 			'id'    => 'secondary',
-			'class' => join( ' ', astra_get_secondary_class() ),
+			'class' => join( ' ', kanga_get_secondary_class() ),
 			'role'  => 'complementary',
 		)
 	);
 	echo '>';
 	?>
 
-	<div class="sidebar-main" <?php echo apply_filters( 'astra_sidebar_data_attrs', '', $sidebar ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<div class="sidebar-main" <?php echo apply_filters( 'kanga_sidebar_data_attrs', '', $sidebar ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 
-		<?php astra_sidebars_before(); ?>
+		<?php kanga_sidebars_before(); ?>
 
 		<?php if ( is_active_sidebar( $sidebar ) ) : ?>
 
@@ -36,7 +36,7 @@ echo '<div ';
 
 		<?php endif; ?>
 
-		<?php astra_sidebars_after(); ?>
+		<?php kanga_sidebars_after(); ?>
 
 	</div><!-- .sidebar-main -->
 </div><!-- #secondary -->

@@ -5,7 +5,7 @@
 	 *
 	 * Handles Slider control
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	jQuery(window).on("load", function() {

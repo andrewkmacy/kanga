@@ -176,11 +176,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			control.container.find( '.background-wrapper > .background-container.'+ screen +' > .background-attachment' ).hide();
 			
 			control.container.find( '.background-container.'+ screen +' .more-settings' ).attr('data-direction', 'down');
-			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.message').html( kangaCustomizerControlBackground.moreSettings );
 			control.container.find( '.background-container.'+ screen +' .more-settings' ).find('.icon').html( '↓' );
 
 			if ( preview.length ) {
-				preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+				preview.removeClass().addClass( 'placeholder' ).html( kangaCustomizerControlBackground.placeholder );
 			}
 			if ( removeButton.length ) {
 				removeButton.hide();
@@ -200,11 +200,11 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			if( 'down' === jQuery(this).attr( 'data-direction' ) )
 			{
 				jQuery(this).attr('data-direction', 'up');
-				jQuery(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+				jQuery(this).find('.message').html( kangaCustomizerControlBackground.lessSettings )
 				jQuery(this).find('.icon').html( '↑' );
 			} else {
 				jQuery(this).attr('data-direction', 'down');
-				jQuery(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+				jQuery(this).find('.message').html( kangaCustomizerControlBackground.moreSettings )
 				jQuery(this).find('.icon').html( '↓' );
 			}
 		});

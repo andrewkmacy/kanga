@@ -2,10 +2,10 @@
 /**
  * Customizer Control: responsive spacing
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Sortable control (uses checkboxes).
  */
-class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
+class Kanga_Control_Responsive_Spacing extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -125,7 +125,7 @@ class Astra_Control_Responsive_Spacing extends WP_Customize_Control {
 	 */
 	protected function content_template() {
 
-		$item_link_desc = __( 'Link Values Together', 'astra' );
+		$item_link_desc = __( 'Link Values Together', 'kanga' );
 
 		?>
 		<label class='ast-spacing-responsive' for="" >

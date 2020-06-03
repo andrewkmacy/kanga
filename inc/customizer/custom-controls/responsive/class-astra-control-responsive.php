@@ -2,10 +2,10 @@
 /**
  * Customizer Control: responsive
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.0.0
  */
 
@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * A text control with validation for CSS units.
  */
-class Astra_Control_Responsive extends WP_Customize_Control {
+class Kanga_Control_Responsive extends WP_Customize_Control {
 
 	/**
 	 * The control type.

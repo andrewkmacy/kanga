@@ -4,17 +4,17 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Astra
+ * @package Kanga
  * @since 1.0.0
  */
 
 ?>
 
-<?php astra_entry_before(); ?>
+<?php kanga_entry_before(); ?>
 
 <article 
 	<?php
-		echo astra_attr(
+		echo kanga_attr(
 			'article-content',
 			array(
 				'id'    => 'post-' . get_the_id(),
@@ -23,14 +23,14 @@
 		);
 		?>
 >
-	<?php astra_entry_top(); ?>
+	<?php kanga_entry_top(); ?>
 
-	<header class="entry-header <?php astra_entry_header_class(); ?>">
+	<header class="entry-header <?php kanga_entry_header_class(); ?>">
 
 		<?php
-		astra_the_title(
+		kanga_the_title(
 			sprintf(
-				'<h2 class="entry-title" ' . astra_attr(
+				'<h2 class="entry-title" ' . kanga_attr(
 					'article-title-content',
 					array(
 						'class' => '',
@@ -46,7 +46,7 @@
 
 	<div class="entry-content clear"
 	<?php
-				echo astra_attr(
+				echo kanga_attr(
 					'article-entry-content',
 					array(
 						'class' => '',
@@ -55,14 +55,14 @@
 				?>
 	>
 
-		<?php astra_entry_content_before(); ?>
+		<?php kanga_entry_content_before(); ?>
 
 		<?php
 			the_content(
 				sprintf(
 					wp_kses(
 						/* translators: %s: Name of current post. */
-						__( 'Continue reading %s', 'astra' ) . ' <span class="meta-nav">&rarr;</span>',
+						__( 'Continue reading %s', 'kanga' ) . ' <span class="meta-nav">&rarr;</span>',
 						array(
 							'span' => array(
 								'class' => array(),
@@ -74,12 +74,12 @@
 			);
 			?>
 
-		<?php astra_entry_content_after(); ?>
+		<?php kanga_entry_content_after(); ?>
 
 		<?php
 			wp_link_pages(
 				array(
-					'before'      => '<div class="page-links">' . esc_html( astra_default_strings( 'string-single-page-links-before', false ) ),
+					'before'      => '<div class="page-links">' . esc_html( kanga_default_strings( 'string-single-page-links-before', false ) ),
 					'after'       => '</div>',
 					'link_before' => '<span class="page-link">',
 					'link_after'  => '</span>',
@@ -89,11 +89,11 @@
 	</div><!-- .entry-content .clear -->
 
 	<footer class="entry-footer">
-		<?php astra_entry_footer(); ?>
+		<?php kanga_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 
-	<?php astra_entry_bottom(); ?>
+	<?php kanga_entry_bottom(); ?>
 
 </article><!-- #post-## -->
 
-<?php astra_entry_after(); ?>
+<?php kanga_entry_after(); ?>

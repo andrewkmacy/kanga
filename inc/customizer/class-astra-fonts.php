@@ -2,11 +2,11 @@
 /**
  * Helper class for font settings.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
+ * @since       Kanga 1.0.0
  */
 
 // Exit if accessed directly.
@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra Fonts
+ * Kanga Fonts
  */
-final class Astra_Fonts {
+final class Kanga_Fonts {
 
 	/**
 	 * Get fonts to generate.
@@ -77,25 +77,25 @@ final class Astra_Fonts {
 	 */
 	public static function get_fonts() {
 
-		do_action( 'astra_get_fonts' );
-		return apply_filters( 'astra_add_fonts', self::$fonts );
+		do_action( 'kanga_get_fonts' );
+		return apply_filters( 'kanga_add_fonts', self::$fonts );
 	}
 
 	/**
 	 * Renders the <link> tag for all fonts in the $fonts array.
 	 *
-	 * @since 1.0.16 Added the filter 'astra_render_fonts' to support custom fonts.
+	 * @since 1.0.16 Added the filter 'kanga_render_fonts' to support custom fonts.
 	 * @since 1.0.0
 	 * @return void
 	 */
 	public static function render_fonts() {
 
-		$font_list = apply_filters( 'astra_render_fonts', self::get_fonts() );
+		$font_list = apply_filters( 'kanga_render_fonts', self::get_fonts() );
 
 		$google_fonts = array();
 		$font_subset  = array();
 
-		$system_fonts = Astra_Font_Families::get_system_fonts();
+		$system_fonts = Kanga_Font_Families::get_system_fonts();
 
 		foreach ( $font_list as $name => $font ) {
 			if ( ! empty( $name ) && ! isset( $system_fonts[ $name ] ) ) {
@@ -104,7 +104,7 @@ final class Astra_Fonts {
 				$google_fonts[ $name ] = $font['variants'];
 
 				// Add Subset.
-				$subset = apply_filters( 'astra_font_subset', '', $name );
+				$subset = apply_filters( 'kanga_font_subset', '', $name );
 				if ( ! empty( $subset ) ) {
 					$font_subset[] = $subset;
 				}
@@ -112,7 +112,7 @@ final class Astra_Fonts {
 		}
 
 		$google_font_url = self::google_fonts_url( $google_fonts, $font_subset );
-		wp_enqueue_style( 'astra-google-fonts', $google_font_url, array(), ASTRA_THEME_VERSION, 'all' );
+		wp_enqueue_style( 'kanga-google-fonts', $google_font_url, array(), ASTRA_THEME_VERSION, 'all' );
 	}
 
 	/**
@@ -133,9 +133,9 @@ final class Astra_Fonts {
 		$family    = array();
 
 		// This is deprecated filter hook.
-		$fonts = apply_filters( 'astra_google_fonts', $fonts );
+		$fonts = apply_filters( 'kanga_google_fonts', $fonts );
 
-		$fonts = apply_filters( 'astra_google_fonts_selected', $fonts );
+		$fonts = apply_filters( 'kanga_google_fonts_selected', $fonts );
 
 		/* Format Each Font Family in Array */
 		foreach ( $fonts as $font_name => $font_weight ) {
@@ -145,7 +145,7 @@ final class Astra_Fonts {
 					$font_weight = implode( ',', $font_weight );
 				}
 				$font_family = explode( ',', $font_name );
-				$font_family = str_replace( "'", '', astra_get_prop( $font_family, 0 ) );
+				$font_family = str_replace( "'", '', kanga_get_prop( $font_family, 0 ) );
 				$family[]    = trim( $font_family . ':' . rawurlencode( trim( $font_weight ) ) );
 			} else {
 				$family[] = trim( $font_name );
@@ -172,7 +172,7 @@ final class Astra_Fonts {
 				$font_args['subset'] = rawurlencode( trim( $subsets ) );
 			}
 
-			$font_args['display'] = astra_get_fonts_display_property();
+			$font_args['display'] = kanga_get_fonts_display_property();
 
 			return add_query_arg( $font_args, $base_url );
 		}

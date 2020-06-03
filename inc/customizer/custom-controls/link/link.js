@@ -4,7 +4,7 @@
 	 *
 	 * Handles the link
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-link'] = wp.customize.Control.extend({

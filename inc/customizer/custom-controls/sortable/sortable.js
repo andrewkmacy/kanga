@@ -4,7 +4,7 @@
 	 *
 	 * Handles sortable list
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-sortable'] = wp.customize.Control.extend({

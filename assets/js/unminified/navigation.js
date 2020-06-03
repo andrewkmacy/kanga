@@ -4,7 +4,7 @@
  * Handles toggling the navigation menu for small screens and enables tab
  * support for dropdown menus.
  *
- * @package Astra
+ * @package Kanga
  */
 
 /**
@@ -90,7 +90,7 @@ var toggleClass = function ( el, className ) {
  * @param {String} A CustomEventInit dictionary, having the following fields:
  *			"detail", optional and defaulting to null, of type any, that is an event-dependent value associated with the event.	
  */
-var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
+var kangaTriggerEvent = function kangaTriggerEvent( el, typeArg ) {
 	var customEventInit =
 	  arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
   
@@ -113,7 +113,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var ww = window.innerWidth;
 		document.querySelector('body').style.overflow = originalOverflow;
 
-		var break_point = astra.break_point,
+		var break_point = kanga.break_point,
 			headerWrap = document.querySelectorAll('.main-header-bar-wrap');
 
 		if (headerWrap.length > 0) {
@@ -127,13 +127,13 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 						}
 						document.body.classList.remove("ast-header-break-point");
 						document.body.classList.add("ast-desktop");
-						astraTriggerEvent(document.body, "astra-header-responsive-enabled");
+						kangaTriggerEvent(document.body, "kanga-header-responsive-enabled");
 
 					} else {
 
 						document.body.classList.add("ast-header-break-point");
 						document.body.classList.remove("ast-desktop");
-						astraTriggerEvent(document.body, "astra-header-responsive-disabled")
+						kangaTriggerEvent(document.body, "kanga-header-responsive-disabled")
 					}
 				}
 			}
@@ -142,7 +142,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	updateHeaderBreakPoint();
 
-	AstraToggleSubMenu = function() {
+	KangaToggleSubMenu = function() {
 		var parent_li = this.parentNode;
 		if (parent_li.classList.contains('ast-submenu-expanded') && document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
 			if (!this.classList.contains('ast-menu-toggle')) {
@@ -186,22 +186,22 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	AstraNavigationMenu = function( parentList ) {
-		console.warn( 'AstraNavigationMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future.' );
+	KangaNavigationMenu = function( parentList ) {
+		console.warn( 'KangaNavigationMenu() function has been deprecated since version 1.6.5 or above of Kanga Theme and will be removed in the future.' );
 	};
 
-	AstraToggleMenu = function( astra_menu_toggle ) {
-		console.warn('AstraToggleMenu() function has been deprecated since version 1.6.5 or above of Astra Theme and will be removed in the future. Use AstraToggleSubMenu() instead.');
+	KangaToggleMenu = function( kanga_menu_toggle ) {
+		console.warn('KangaToggleMenu() function has been deprecated since version 1.6.5 or above of Kanga Theme and will be removed in the future. Use KangaToggleSubMenu() instead.');
 		
 		// Add Eventlisteners for Submenu.
-		if (astra_menu_toggle.length > 0) {
-			for (var i = 0; i < astra_menu_toggle.length; i++) {
-				astra_menu_toggle[i].addEventListener('click', AstraToggleSubMenu, false);
+		if (kanga_menu_toggle.length > 0) {
+			for (var i = 0; i < kanga_menu_toggle.length; i++) {
+				kanga_menu_toggle[i].addEventListener('click', KangaToggleSubMenu, false);
 			};
 		}
 	};
 
-	AstraToggleSetup = function () {
+	KangaToggleSetup = function () {
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 
 		if (menu_toggle_all.length > 0) {
@@ -212,21 +212,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 				if ( ! menu_click_listeners[i] ) {
 					menu_click_listeners[i] = menu_toggle_all[i];
-					menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
+					menu_toggle_all[i].addEventListener('click', kangaNavMenuToggle, false);
 				}
 
 				if ('undefined' !== typeof __main_header_all[i]) {
 
 					if (document.querySelector("header.site-header").classList.contains("ast-menu-toggle-link")) {
-						var astra_menu_toggle = __main_header_all[i].querySelectorAll('.ast-header-break-point .main-header-menu .menu-item-has-children > a, .ast-header-break-point .main-header-menu .page_item_has_children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle');
+						var kanga_menu_toggle = __main_header_all[i].querySelectorAll('.ast-header-break-point .main-header-menu .menu-item-has-children > a, .ast-header-break-point .main-header-menu .page_item_has_children > a, .ast-header-break-point ul.main-header-menu .ast-menu-toggle');
 					} else {
-						var astra_menu_toggle = __main_header_all[i].querySelectorAll('ul.main-header-menu .ast-menu-toggle');
+						var kanga_menu_toggle = __main_header_all[i].querySelectorAll('ul.main-header-menu .ast-menu-toggle');
 					}
 
 					// Add Eventlisteners for Submenu.
-					if (astra_menu_toggle.length > 0) {
-						for (var j = 0; j < astra_menu_toggle.length; j++) {
-							astra_menu_toggle[j].addEventListener('click', AstraToggleSubMenu, false);
+					if (kanga_menu_toggle.length > 0) {
+						for (var j = 0; j < kanga_menu_toggle.length; j++) {
+							kanga_menu_toggle[j].addEventListener('click', KangaToggleSubMenu, false);
 						};
 					}
 
@@ -235,7 +235,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	astraNavMenuToggle = function ( event ) {
+	kangaNavMenuToggle = function ( event ) {
 		event.preventDefault();
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 		var event_index = this.getAttribute('data-index');
@@ -269,7 +269,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 	};
 
-	document.body.addEventListener("astra-header-responsive-enabled", function () {
+	document.body.addEventListener("kanga-header-responsive-enabled", function () {
 
 		var __main_header_all = document.querySelectorAll('.main-header-bar-navigation');
 
@@ -303,12 +303,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		// Skip resize event when keyboard display event triggers on devices. 
 		if( 'INPUT' !== document.activeElement.tagName ) {
 			updateHeaderBreakPoint();
-			AstraToggleSetup();
+			KangaToggleSetup();
 		}
 	});
 
 	document.addEventListener('DOMContentLoaded', function () {
-		AstraToggleSetup();
+		KangaToggleSetup();
 		/**
 		 * Navigation Keyboard Navigation.
 		 */
@@ -350,7 +350,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	get_browser();
 	
 	/* Search Script */
-	var SearchIcons = document.getElementsByClassName( 'astra-search-icon' );
+	var SearchIcons = document.getElementsByClassName( 'kanga-search-icon' );
 	for (var i = 0; i < SearchIcons.length; i++) {
 
 		SearchIcons[i].onclick = function(event) {
@@ -457,7 +457,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
         var self = this || '',
             hash = '#';
 
-        if( self && ! self.classList.contains('astra-search-icon') ) {
+        if( self && ! self.classList.contains('kanga-search-icon') ) {
             var link = new String( self );
             if( link.indexOf( hash ) !== -1 ) {
             	var link_parent = self.parentNode;
@@ -494,7 +494,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 						after_header_bar.style.display = 'none';
 					}
 					
-					astraTriggerEvent( document.querySelector('body'), 'astraMenuHashLinkClicked' );
+					kangaTriggerEvent( document.querySelector('body'), 'kangaMenuHashLinkClicked' );
                 } else {
 	            	while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
 						// On li elements toggle the class .focus.

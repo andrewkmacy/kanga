@@ -4,7 +4,7 @@
 	 *
 	 * Handles the spacing
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 
 	wp.customize.controlConstructor['ast-border'] = wp.customize.Control.extend({

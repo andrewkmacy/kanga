@@ -1,8 +1,8 @@
 <?php
 /**
- * Astra Loop
+ * Kanga Loop
  *
- * @package Astra
+ * @package Kanga
  * @since 1.2.7
  */
 
@@ -10,14 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'Astra_Loop' ) ) :
+if ( ! class_exists( 'Kanga_Loop' ) ) :
 
 	/**
-	 * Astra_Loop
+	 * Kanga_Loop
 	 *
 	 * @since 1.2.7
 	 */
-	class Astra_Loop {
+	class Kanga_Loop {
 
 		/**
 		 * Instance
@@ -50,29 +50,29 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 */
 		public function __construct() {
 			// Loop.
-			add_action( 'astra_content_loop', array( $this, 'loop_markup' ) );
-			add_action( 'astra_content_page_loop', array( $this, 'loop_markup_page' ) );
+			add_action( 'kanga_content_loop', array( $this, 'loop_markup' ) );
+			add_action( 'kanga_content_page_loop', array( $this, 'loop_markup_page' ) );
 
 			// Template Parts.
-			add_action( 'astra_page_template_parts_content', array( $this, 'template_parts_page' ) );
-			add_action( 'astra_page_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
-			add_action( 'astra_template_parts_content', array( $this, 'template_parts_post' ) );
-			add_action( 'astra_template_parts_content', array( $this, 'template_parts_search' ) );
-			add_action( 'astra_template_parts_content', array( $this, 'template_parts_default' ) );
-			add_action( 'astra_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
+			add_action( 'kanga_page_template_parts_content', array( $this, 'template_parts_page' ) );
+			add_action( 'kanga_page_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
+			add_action( 'kanga_template_parts_content', array( $this, 'template_parts_post' ) );
+			add_action( 'kanga_template_parts_content', array( $this, 'template_parts_search' ) );
+			add_action( 'kanga_template_parts_content', array( $this, 'template_parts_default' ) );
+			add_action( 'kanga_template_parts_content', array( $this, 'template_parts_comments' ), 15 );
 
 			// Template None.
-			add_action( 'astra_template_parts_content_none', array( $this, 'template_parts_none' ) );
-			add_action( 'astra_template_parts_content_none', array( $this, 'template_parts_404' ) );
-			add_action( 'astra_404_content_template', array( $this, 'template_parts_404' ) );
+			add_action( 'kanga_template_parts_content_none', array( $this, 'template_parts_none' ) );
+			add_action( 'kanga_template_parts_content_none', array( $this, 'template_parts_404' ) );
+			add_action( 'kanga_404_content_template', array( $this, 'template_parts_404' ) );
 
 			// Content top and bottom.
-			add_action( 'astra_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
-			add_action( 'astra_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
+			add_action( 'kanga_template_parts_content_top', array( $this, 'template_parts_content_top' ) );
+			add_action( 'kanga_template_parts_content_bottom', array( $this, 'template_parts_content_bottom' ) );
 
 			// Add closing and ending div 'ast-row'.
-			add_action( 'astra_template_parts_content_top', array( $this, 'astra_templat_part_wrap_open' ), 25 );
-			add_action( 'astra_template_parts_content_bottom', array( $this, 'astra_templat_part_wrap_close' ), 5 );
+			add_action( 'kanga_template_parts_content_top', array( $this, 'kanga_templat_part_wrap_open' ), 25 );
+			add_action( 'kanga_template_parts_content_bottom', array( $this, 'kanga_templat_part_wrap_close' ), 5 );
 		}
 
 		/**
@@ -161,7 +161,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', astra_get_post_format() );
+				get_template_part( 'template-parts/content', kanga_get_post_format() );
 			}
 		}
 
@@ -178,8 +178,8 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 * Template part loop
 		 *
 		 * @param  boolean $is_page Loop outputs different content action for content page and default content.
-		 *         if is_page is set to true - do_action( 'astra_page_template_parts_content' ); is added
-		 *         if is_page is false - do_action( 'astra_template_parts_content' ); is added.
+		 *         if is_page is set to true - do_action( 'kanga_page_template_parts_content' ); is added
+		 *         if is_page is false - do_action( 'kanga_template_parts_content' ); is added.
 		 * @since 1.2.7
 		 * @return void
 		 */
@@ -189,27 +189,27 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 
 				<?php if ( have_posts() ) : ?>
 
-					<?php do_action( 'astra_template_parts_content_top' ); ?>
+					<?php do_action( 'kanga_template_parts_content_top' ); ?>
 
 					<?php
 					while ( have_posts() ) :
 						the_post();
 
 						if ( true == $is_page ) {
-							do_action( 'astra_page_template_parts_content' );
+							do_action( 'kanga_page_template_parts_content' );
 						} else {
-							do_action( 'astra_template_parts_content' );
+							do_action( 'kanga_template_parts_content' );
 						}
 
 						?>
 
 					<?php endwhile; ?>
 
-					<?php do_action( 'astra_template_parts_content_bottom' ); ?>
+					<?php do_action( 'kanga_template_parts_content_bottom' ); ?>
 
 				<?php else : ?>
 
-					<?php do_action( 'astra_template_parts_content_none' ); ?>
+					<?php do_action( 'kanga_template_parts_content_none' ); ?>
 
 				<?php endif; ?>
 
@@ -225,7 +225,7 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 */
 		public function template_parts_content_top() {
 			if ( is_archive() ) {
-				astra_content_while_before();
+				kanga_content_while_before();
 			}
 		}
 
@@ -237,29 +237,29 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 		 */
 		public function template_parts_content_bottom() {
 			if ( is_archive() ) {
-				astra_content_while_after();
+				kanga_content_while_after();
 			}
 		}
 
 		/**
-		 * Add wrapper div 'ast-row' for Astra template part.
+		 * Add wrapper div 'ast-row' for Kanga template part.
 		 *
 		 * @since  1.2.7
 		 * @return void
 		 */
-		public function astra_templat_part_wrap_open() {
+		public function kanga_templat_part_wrap_open() {
 			if ( is_archive() || is_search() || is_home() ) {
 				echo '<div class="ast-row">';
 			}
 		}
 
 		/**
-		 * Add closing wrapper div for 'ast-row' after Astra template part.
+		 * Add closing wrapper div for 'ast-row' after Kanga template part.
 		 *
 		 * @since  1.2.7
 		 * @return void
 		 */
-		public function astra_templat_part_wrap_close() {
+		public function kanga_templat_part_wrap_close() {
 			if ( is_archive() || is_search() || is_home() ) {
 				echo '</div>';
 			}
@@ -270,6 +270,6 @@ if ( ! class_exists( 'Astra_Loop' ) ) :
 	/**
 	 * Initialize class object with 'get_instance()' method
 	 */
-	Astra_Loop::get_instance();
+	Kanga_Loop::get_instance();
 
 endif;

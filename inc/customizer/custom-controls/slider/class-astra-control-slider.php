@@ -4,10 +4,10 @@
  *
  * Creates a jQuery slider control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2020, Kanga
+ * @link        https://wpkanga.com/
  * @since       1.0.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Slider control (range).
  */
-class Astra_Control_Slider extends WP_Customize_Control {
+class Kanga_Control_Slider extends WP_Customize_Control {
 
 	/**
 	 * The control type.
@@ -72,7 +72,7 @@ class Astra_Control_Slider extends WP_Customize_Control {
 	 * @access protected
 	 */
 	protected function content_template() {
-		$reset = __( 'Back to default', 'astra' );
+		$reset = __( 'Back to default', 'kanga' );
 		?>
 		<label>
 			<# if ( data.label ) { #>
@@ -83,7 +83,7 @@ class Astra_Control_Slider extends WP_Customize_Control {
 			<# } #>
 			<div class="wrapper">
 				<input {{{ data.inputAttrs }}} type="range" value="{{ data.value }}" data-reset_value="{{ data.default }}" />
-				<div class="astra_range_value">
+				<div class="kanga_range_value">
 					<input type="number" data-name="{{ data.name }}" class="value ast-range-value-input" {{{ data.link }}} value="{{ data.value }}" {{{ data.inputAttrs }}} ><#
 					if ( data.suffix ) {
 

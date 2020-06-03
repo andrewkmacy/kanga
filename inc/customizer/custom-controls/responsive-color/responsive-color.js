@@ -7,7 +7,7 @@
 	 *
 	 * Handles the responsive color
 	 *
-	 * @package Astra
+	 * @package Kanga
 	 */
 	wp.customize.controlConstructor['ast-responsive-color'] = wp.customize.Control.extend({
 

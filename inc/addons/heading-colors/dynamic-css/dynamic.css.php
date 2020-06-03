@@ -2,7 +2,7 @@
 /**
  * Heading Colors - Dynamic CSS
  *
- * @package Astra
+ * @package Kanga
  * @since 2.1.4
  */
 
@@ -13,23 +13,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Heading Colors
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_heading_colors_section_dynamic_css' );
+add_filter( 'kanga_dynamic_theme_css', 'kanga_heading_colors_section_dynamic_css' );
 
 /**
  * Dynamic CSS
  *
- * @param  string $dynamic_css          Astra Dynamic CSS.
- * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+ * @param  string $dynamic_css          Kanga Dynamic CSS.
+ * @param  string $dynamic_css_filtered Kanga Dynamic CSS Filters.
  * @return String Generated dynamic CSS for Heading Colors.
  *
  * @since 2.1.4
  */
-function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function kanga_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	/**
 	 * Heading Colors - h1 - h6.
 	 */
-	$heading_base_color = astra_get_option( 'heading-base-color' );
+	$heading_base_color = kanga_get_option( 'heading-base-color' );
 
 	/**
 	 * Normal Colors without reponsive option.
@@ -46,7 +46,7 @@ function astra_heading_colors_section_dynamic_css( $dynamic_css, $dynamic_css_fi
 	);
 
 	/* Parse CSS from array() */
-	$css_output = astra_parse_css( $css_output );
+	$css_output = kanga_parse_css( $css_output );
 
 	$dynamic_css .= $css_output;
 

@@ -1,7 +1,7 @@
 /**
  * Customizer controls
  *
- * @package Astra
+ * @package Kanga
  */
 
 (function ($) {
@@ -15,9 +15,9 @@
 	 * Helper class for the main Customizer interface.
 	 *
 	 * @since 1.4.3
-	 * @class Astra_Customizer
+	 * @class Kanga_Customizer
 	 */
-    var Astra_Customizer = {
+    var Kanga_Customizer = {
 
         controls: {},
 
@@ -51,7 +51,7 @@
 
             var check = false;
 
-            $.each(astra.config, function (index, val) {
+            $.each(kanga.config, function (index, val) {
 
                 if( !_.isUndefined( val.conditions ) ) {
 
@@ -119,9 +119,9 @@
             if ( !_.isUndefined( control ) ) {
 
                 // If control has dependency defined
-                if ( 'undefined' != typeof astra.config[id] ) {
+                if ( 'undefined' != typeof kanga.config[id] ) {
                     var check = false;
-                    var required_param = astra.config[id];
+                    var required_param = kanga.config[id];
                     var conditions = !_.isUndefined(required_param.conditions) ? required_param.conditions : required_param;
                     var operator = !_.isUndefined(required_param.operator) ? required_param.operator : 'AND';
 
@@ -160,10 +160,10 @@
                 var cond_val = conditions[2];
                 var value;
 
-                if ( !_.isUndefined( astra.config[test] ) ) {
+                if ( !_.isUndefined( kanga.config[test] ) ) {
 
-                    var conditions = !_.isUndefined(astra.config[test]['conditions']) ? astra.config[test]['conditions'] : astra.config[test];
-                    var operator = !_.isUndefined(astra.config[test]['operator']) ? astra.config[test]['operator'] : 'AND';
+                    var conditions = !_.isUndefined(kanga.config[test]['conditions']) ? kanga.config[test]['conditions'] : kanga.config[test];
+                    var operator = !_.isUndefined(kanga.config[test]['operator']) ? kanga.config[test]['operator'] : 'AND';
 
                     if ( !_.isUndefined( conditions ) ) {
 
@@ -196,10 +196,10 @@
                     var cond_val = val[2];
                     var t_val = !_.isUndefined( values[cond_key] ) ? values[cond_key] : ''; 
 
-                    if ( 'undefined' !== typeof astra.config[cond_key] ) {
+                    if ( 'undefined' !== typeof kanga.config[cond_key] ) {
 
-                        var conditions = !_.isUndefined(astra.config[cond_key]['conditions']) ? astra.config[cond_key]['conditions'] : astra.config[cond_key];
-                        var operator = !_.isUndefined(astra.config[cond_key]['operator']) ? astra.config[cond_key]['operator'] : 'AND';
+                        var conditions = !_.isUndefined(kanga.config[cond_key]['conditions']) ? kanga.config[cond_key]['conditions'] : kanga.config[cond_key];
+                        var operator = !_.isUndefined(kanga.config[cond_key]['operator']) ? kanga.config[cond_key]['operator'] : 'AND';
 
                         if ( !_.isUndefined( conditions ) ) {
 
@@ -355,7 +355,7 @@
         },
     };
 
-    $(function () { Astra_Customizer.init(); });
+    $(function () { Kanga_Customizer.init(); });
 
 
 })(jQuery);

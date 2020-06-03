@@ -1,8 +1,8 @@
 <?php
 /**
- * Astra Theme Customizer Callback
+ * Kanga Theme Customizer Callback
  *
- * @package Astra Theme
+ * @package Kanga Theme
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -12,12 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Callback
  */
-if ( ! class_exists( 'Astra_Customizer_Callback' ) ) :
+if ( ! class_exists( 'Kanga_Customizer_Callback' ) ) :
 
 	/**
 	 * Customizer Callback
 	 */
-	class Astra_Customizer_Callback {
+	class Kanga_Customizer_Callback {
 
 		/**
 		 * Sidebar Archive

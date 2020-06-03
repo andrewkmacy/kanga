@@ -2,7 +2,7 @@
 /**
  * Database Background Process
  *
- * @package Astra
+ * @package Kanga
  * @since 2.1.3
  */
 
@@ -13,14 +13,14 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 	 *
 	 * @since 2.1.3
 	 */
-	class WP_Background_Process_Astra_Theme extends WP_Background_Process {
+	class WP_Background_Process_Kanga_Theme extends WP_Background_Process {
 
 		/**
 		 * Database Process
 		 *
 		 * @var string
 		 */
-		protected $action = 'astra_theme_db_migration';
+		protected $action = 'kanga_theme_db_migration';
 
 		/**
 		 * Task
@@ -37,14 +37,14 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 */
 		protected function task( $process ) {
 
-			do_action( 'astra_batch_process_task_' . $process, $process );
+			do_action( 'kanga_batch_process_task_' . $process, $process );
 
 			if ( function_exists( $process ) ) {
 				call_user_func( $process );
 			}
 
 			if ( 'update_db_version' === $process ) {
-				Astra_Theme_Background_Updater::update_db_version();
+				Kanga_Theme_Background_Updater::update_db_version();
 			}
 
 			return false;
@@ -59,9 +59,9 @@ if ( class_exists( 'WP_Background_Process' ) ) :
 		 * @since 2.1.3
 		 */
 		protected function complete() {
-			error_log( 'Astra: Batch Process Completed!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
+			error_log( 'Kanga: Batch Process Completed!' ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
 
-			do_action( 'astra_database_migration_complete' );
+			do_action( 'kanga_database_migration_complete' );
 			parent::complete();
 		}
 

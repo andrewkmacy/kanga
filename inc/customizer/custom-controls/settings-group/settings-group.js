@@ -88,7 +88,7 @@
                     } else {
                         var fields = control.params.ast_fields;
 
-                        var $modal_wrap = $( astra.customizer.group_modal_tmpl );
+                        var $modal_wrap = $( kanga.customizer.group_modal_tmpl );
 
                         parent_wrap.find( '.ast-field-settings-wrap' ).append( $modal_wrap );
                         parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.params.name );
@@ -212,7 +212,7 @@
 
                     case "ast-font": 
 
-                        var googleFontsString = astra.customizer.settings.google_fonts;
+                        var googleFontsString = kanga.customizer.settings.google_fonts;
                         control.container.find( '.ast-font-family' ).html( googleFontsString );
 
                         control.container.find( '.ast-font-family' ).each( function() {
@@ -299,7 +299,7 @@
                     
                         control.container.on('input change', 'input[type=range]', function () {
                             var value = jQuery(this).attr('value'),
-                                input_number = jQuery(this).closest('.wrapper').find('.astra_range_value .value');
+                                input_number = jQuery(this).closest('.wrapper').find('.kanga_range_value .value');
 
                             input_number.val(value);
 
@@ -314,7 +314,7 @@
 
                             var wrapper = jQuery(this).closest('.wrapper'),
                                 input_range = wrapper.find('input[type=range]'),
-                                input_number = wrapper.find('.astra_range_value .value'),
+                                input_number = wrapper.find('.kanga_range_value .value'),
                                 default_value = input_range.data('reset_value');
 
                             input_range.val(default_value);
@@ -425,7 +425,7 @@
 
             _.each(fields_data, function (attr, index) {
 
-                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
+                new_value = ( wp.customize.control( 'kanga-settings['+attr.name+']' ) ? wp.customize.control( 'kanga-settings['+attr.name+']' ).params.value : '' ); 
                 var control = attr.control;
                 var template_id = "customize-control-" + control + "-content";
                 var template = wp.template(template_id);
@@ -485,7 +485,7 @@
             var counter = 0;
             var weightObject        = $.merge( inheritWeightObject, weightObject );
             var weightValue         = element.val() || '400';
-            astraTypo[ 'inherit' ] = currentWeightTitle;
+            kangaTypo[ 'inherit' ] = currentWeightTitle;
 
             for ( ; counter < weightObject.length; counter++ ) {
 
@@ -496,7 +496,7 @@
                     selected = weightObject[ counter ] == weightValue ? ' selected="selected"' : '';
                 }
                 if( ! weightObject[ counter ].includes( "italic" ) ){
-                    weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';
+                    weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + kangaTypo[ weightObject[ counter ] ] + '</option>';
                 }
             }
             
@@ -665,9 +665,9 @@
 
         onOptionChange:function ( e, control, element, value, name ) {
 
-            var control_id  = $( '.hidden-field-astra-settings-' + name );
+            var control_id  = $( '.hidden-field-kanga-settings-' + name );
             control_id.val( value );
-            sub_control = wp.customize.control( "astra-settings[" + name + "]" );
+            sub_control = wp.customize.control( "kanga-settings[" + name + "]" );
             sub_control.setting.set( value );
         },
 
@@ -875,11 +875,11 @@
                 controlContainer.find('.background-wrapper > .background-container.' + screen + ' > .background-attachment').hide();
 
                 controlContainer.find('.background-container.' + screen + ' .more-settings').attr('data-direction', 'down');
-                controlContainer.find('.background-container.' + screen + ' .more-settings').find('.message').html(astraCustomizerControlBackground.moreSettings);
+                controlContainer.find('.background-container.' + screen + ' .more-settings').find('.message').html(kangaCustomizerControlBackground.moreSettings);
                 controlContainer.find('.background-container.' + screen + ' .more-settings').find('.icon').html('↓');
 
                 if (preview.length) {
-                    preview.removeClass().addClass('placeholder').html(astraCustomizerControlBackground.placeholder);
+                    preview.removeClass().addClass('placeholder').html(kangaCustomizerControlBackground.placeholder);
                 }
                 if (removeButton.length) {
                     removeButton.hide();
@@ -901,11 +901,11 @@
 
                 if ('down' === $(this).attr('data-direction')) {
                     $(this).attr('data-direction', 'up');
-                    $(this).find('.message').html(astraCustomizerControlBackground.lessSettings)
+                    $(this).find('.message').html(kangaCustomizerControlBackground.lessSettings)
                     $(this).find('.icon').html('↑');
                 } else {
                     $(this).attr('data-direction', 'down');
-                    $(this).find('.message').html(astraCustomizerControlBackground.moreSettings)
+                    $(this).find('.message').html(kangaCustomizerControlBackground.moreSettings)
                     $(this).find('.icon').html('↓');
                 }
             });
@@ -1064,11 +1064,11 @@
                 controlContainer.find( '.background-wrapper > .background-attachment' ).hide();
                 
                 controlContainer.find( '.more-settings' ).attr('data-direction', 'down');
-                controlContainer.find( '.more-settings' ).find('.message').html( astraCustomizerControlBackground.moreSettings );
+                controlContainer.find( '.more-settings' ).find('.message').html( kangaCustomizerControlBackground.moreSettings );
                 controlContainer.find( '.more-settings' ).find('.icon').html( '↓' );
 
                 if ( preview.length ) {
-                    preview.removeClass().addClass( 'placeholder' ).html( astraCustomizerControlBackground.placeholder );
+                    preview.removeClass().addClass( 'placeholder' ).html( kangaCustomizerControlBackground.placeholder );
                 }
                 if ( removeButton.length ) {
                     removeButton.hide();
@@ -1085,11 +1085,11 @@
                 if( 'down' === $(this).attr( 'data-direction' ) )
                 {
                     $(this).attr('data-direction', 'up');
-                    $(this).find('.message').html( astraCustomizerControlBackground.lessSettings )
+                    $(this).find('.message').html( kangaCustomizerControlBackground.lessSettings )
                     $(this).find('.icon').html( '↑' );
                 } else {
                     $(this).attr('data-direction', 'down');
-                    $(this).find('.message').html( astraCustomizerControlBackground.moreSettings )
+                    $(this).find('.message').html( kangaCustomizerControlBackground.moreSettings )
                     $(this).find('.icon').html( '↓' );
                 }
             });

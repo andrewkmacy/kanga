@@ -4,10 +4,10 @@
  *
  * Creates a link control.
  *
- * @package     Astra
- * @author      Astra
- * @copyright   Copyright (c) 2019, Astra
- * @link        https://wpastra.com/
+ * @package     Kanga
+ * @author      Kanga
+ * @copyright   Copyright (c) 2019, Kanga
+ * @link        https://wpkanga.com/
  * @since       2.3.0
  */
 
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Link control.
  */
-class Astra_Control_Link extends WP_Customize_Control {
+class Kanga_Control_Link extends WP_Customize_Control {
 
 	/**
 	 * The control type.

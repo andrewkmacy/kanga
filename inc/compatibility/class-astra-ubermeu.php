@@ -5,7 +5,7 @@
  * @link https://Ubermenu.me/
  * @since  1.1.7
  *
- * @package Astra
+ * @package Kanga
  */
 
 // If plugin - 'Ubermenu' not exist then return.
@@ -14,16 +14,16 @@ if ( ! class_exists( 'UberMenu' ) ) {
 }
 
 /**
- * Astra Ubermenu Compatibility
+ * Kanga Ubermenu Compatibility
  */
-if ( ! class_exists( 'Astra_Ubermeu' ) ) :
+if ( ! class_exists( 'Kanga_Ubermeu' ) ) :
 
 	/**
-	 * Astra Ubermenu Compatibility
+	 * Kanga Ubermenu Compatibility
 	 *
 	 * @since 1.0.0
 	 */
-	class Astra_Ubermeu {
+	class Kanga_Ubermeu {
 
 		/**
 		 * Member Variable
@@ -50,11 +50,11 @@ if ( ! class_exists( 'Astra_Ubermeu' ) ) :
 		 * @since  1.1.7
 		 */
 		public function __construct() {
-			add_filter( 'astra_enable_mobile_menu_buttons', array( $this, 'disable_primary_menu_toggle' ), 30 );
+			add_filter( 'kanga_enable_mobile_menu_buttons', array( $this, 'disable_primary_menu_toggle' ), 30 );
 		}
 
 		/**
-		 * Disable the Mobile Menu toggles from Astra if Uber Menu is used.
+		 * Disable the Mobile Menu toggles from Kanga if Uber Menu is used.
 		 *
 		 * @since  1.1.7
 		 * @param  bool $status Status if the mobile menu toggels are enaled or disaled.
@@ -84,4 +84,4 @@ endif;
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_Ubermeu::get_instance();
+Kanga_Ubermeu::get_instance();

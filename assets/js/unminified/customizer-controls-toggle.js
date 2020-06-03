@@ -1,7 +1,7 @@
 /**
  * Customizer controls toggles
  *
- * @package Astra
+ * @package Kanga
  */
 
 ( function( $ ) {
@@ -24,7 +24,7 @@
 		 */
 	    triggerHook: function( hook, args )
 	    {
-	    	$( 'body' ).trigger( 'astra-control-trigger.' + hook, args );
+	    	$( 'body' ).trigger( 'kanga-control-trigger.' + hook, args );
 	    },
 
 	    /**
@@ -37,7 +37,7 @@
 	     */
 	    addHook: function( hook, callback )
 	    {
-	    	$( 'body' ).on( 'astra-control-trigger.' + hook, callback );
+	    	$( 'body' ).on( 'kanga-control-trigger.' + hook, callback );
 	    },
 
 	    /**
@@ -50,7 +50,7 @@
 	     */
 	    removeHook: function( hook, callback )
 	    {
-		    $( 'body' ).off( 'astra-control-trigger.' + hook, callback );
+		    $( 'body' ).off( 'kanga-control-trigger.' + hook, callback );
 	    },
 	};
 
@@ -62,11 +62,11 @@
 	 */
 	ASTCustomizerToggles = {
 
-		'astra-settings[display-site-title]' : [],
+		'kanga-settings[display-site-title]' : [],
 
-		'astra-settings[display-site-tagline]' : [],
+		'kanga-settings[display-site-tagline]' : [],
 
-		'astra-settings[ast-header-retina-logo]' :[],
+		'kanga-settings[ast-header-retina-logo]' :[],
 
 		'custom_logo' : [],
 		
@@ -82,54 +82,54 @@
 		// Layout 2 > Right Section > Text / HTML
 		// Layout 2 > Right Section > Search Type
 		// Layout 2 > Right Section > Search Type > Search Box Type.
-		'astra-settings[header-main-rt-section]' : [],
+		'kanga-settings[header-main-rt-section]' : [],
 		
 
-		'astra-settings[hide-custom-menu-mobile]' :[],
+		'kanga-settings[hide-custom-menu-mobile]' :[],
 		
 
 		/**
 		 * Blog
 		 */
-		'astra-settings[blog-width]' :[],
+		'kanga-settings[blog-width]' :[],
 		
-		'astra-settings[blog-post-structure]' :[],
+		'kanga-settings[blog-post-structure]' :[],
 
 		/**
 		 * Blog Single
 		 */
-		 'astra-settings[blog-single-post-structure]' : [],
+		 'kanga-settings[blog-single-post-structure]' : [],
 		
-		'astra-settings[blog-single-width]' : [],
+		'kanga-settings[blog-single-width]' : [],
 		
-		'astra-settings[blog-single-meta]' :[], 
+		'kanga-settings[blog-single-meta]' :[], 
 		
 
 		/**
 		 * Small Footer
 		 */
-		'astra-settings[footer-sml-layout]' : [],
+		'kanga-settings[footer-sml-layout]' : [],
 		
-		'astra-settings[footer-sml-section-1]' :[],
+		'kanga-settings[footer-sml-section-1]' :[],
 		
-		'astra-settings[footer-sml-section-2]' :[],
+		'kanga-settings[footer-sml-section-2]' :[],
 		
-		'astra-settings[footer-sml-divider]' :[],
+		'kanga-settings[footer-sml-divider]' :[],
 		
-		'astra-settings[header-main-sep]' :[],
+		'kanga-settings[header-main-sep]' :[],
 	
-		'astra-settings[disable-primary-nav]' :[],
+		'kanga-settings[disable-primary-nav]' :[],
 		
 		/**
 		 * Footer Widgets
 		 */
-		'astra-settings[footer-adv]' :[],
+		'kanga-settings[footer-adv]' :[],
 		
-		'astra-settings[shop-archive-width]' :[],
+		'kanga-settings[shop-archive-width]' :[],
 		
-		'astra-settings[mobile-header-logo]' :[],
+		'kanga-settings[mobile-header-logo]' :[],
 		
-		'astra-settings[different-mobile-logo]' :[],
+		'kanga-settings[different-mobile-logo]' :[],
 
 	};
 
