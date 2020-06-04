@@ -600,6 +600,14 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 			);
 
 			Kanga_Customizer_Control_Base::add_control(
+				'theme-header-bg',
+				array(
+					'callback'          => 'WP_Customize_Image_Control',
+					'sanitize_callback' => 'esc_url_raw',
+				)
+			);
+
+			Kanga_Customizer_Control_Base::add_control(
 				'ast-font',
 				array(
 					'callback'          => 'Kanga_Control_Typography',

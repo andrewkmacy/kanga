@@ -30,19 +30,21 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$wp_customize->add_setting( 'theme_header_bg' );
-				$wp_customize->add_control( 
-					new WP_Customize_Image_Control(
-						$wp_customize,'theme_header_bg',array(
-							'label' => 'Header Background Image',
-							'section' => 'title_tagline',
-							'settings' => 'theme_header_bg',
-							'priority' => 2
-						)
-					)
-				);
-
 			$_configs = array(
+
+				/** Header Background Image
+				 * 
+				 */
+				array(
+					'name'           => KANGA_THEME_SETTINGS . '[theme-header-bg]',
+					'default'        => kanga_get_option( 'theme-header-bg' ),
+					'type'           => 'control',
+					'control'        => 'image',
+					'section'        => 'title_tagline',
+					'priority'       => 1,
+					'title'          => __( 'Header Background', 'kanga' ),
+					'library_filter' => array( 'gif', 'jpg', 'jpeg', 'png', 'ico' ),
+				),
 
 				/**
 				 * Notice for Colors - Transparent header enabled on page.
@@ -108,6 +110,7 @@ if ( ! class_exists( 'Kanga_Site_Identity_Configs' ) ) {
 					'default'  => false,
 					'priority' => 5,
 				),
+				
 				/**
 				 * Option: Retina logo selector
 				 */

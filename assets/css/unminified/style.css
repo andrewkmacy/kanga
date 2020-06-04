@@ -3033,7 +3033,11 @@ body {
 }
 
 .main-header-bar-wrap {
-  position: relative;
+  height: 400px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .main-header-bar-wrap .nav-fallback-text {
