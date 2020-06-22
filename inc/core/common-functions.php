@@ -864,10 +864,6 @@ if ( ! function_exists( 'kanga_get_the_title' ) ) {
 				/* translators: 1: search string */
 				$title = apply_filters( 'kanga_the_search_page_title', sprintf( __( 'Search Results for: %s', 'kanga' ), '<span>' . get_search_query() . '</span>' ) );
 
-			} elseif ( class_exists( 'WooCommerce' ) && is_shop() ) {
-
-				$title = woocommerce_page_title( false );
-
 			} elseif ( is_archive() ) {
 
 				$title = get_the_archive_title();

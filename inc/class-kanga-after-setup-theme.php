@@ -157,22 +157,6 @@ if ( ! class_exists( 'Kanga_After_Setup_Theme' ) ) {
 				add_filter( 'embed_oembed_html', array( $this, 'responsive_oembed_wrapper' ), 10, 3 );
 			}
 
-			// WooCommerce.
-			add_theme_support( 'woocommerce' );
-
-			// Native AMP Support.
-			if ( true === apply_filters( 'kanga_amp_support', true ) ) {
-				add_theme_support(
-					'amp',
-					apply_filters(
-						'kanga_amp_theme_features',
-						array(
-							'paired' => true,
-						)
-					)
-				);
-			}
-
 		}
 
 		/**

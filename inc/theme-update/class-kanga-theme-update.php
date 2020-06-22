@@ -494,20 +494,6 @@ if ( ! class_exists( 'Kanga_Theme_Update' ) ) {
 
 			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
 
-			$options = array(
-				'woocommerce-content-layout' => 'default',
-				'woocommerce-sidebar-layout' => 'default',
-				/* Shop */
-				'shop-grids'                 => array(
-					'desktop' => 3,
-					'tablet'  => 2,
-					'mobile'  => 1,
-				),
-				'shop-no-of-products'        => '9',
-			);
-
-			$kanga_options = get_option( KANGA_THEME_SETTINGS, array() );
-
 			foreach ( $options as $key => $value ) {
 				if ( ! isset( $kanga_options[ $key ] ) ) {
 					$kanga_options[ $key ] = $value;
