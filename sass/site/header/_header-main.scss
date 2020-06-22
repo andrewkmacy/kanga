@@ -722,22 +722,6 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 	}
-	&.woocommerce-custom-menu-item {
-		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section {
-			.customize-partial-edit-shortcut-button {
-				top: -20px;
-				left: -25px;
-				display: none;
-			}
-		}
-	}
-	&.woocommerce-custom-menu-item:hover {
-		.customize-partial-edit-shortcut-kanga-settings-header-main-rt-section {
-			.customize-partial-edit-shortcut-button {
-				display: block;
-			}
-		}
-	}
 }
 
 /* Below Header common CSS */
@@ -792,14 +776,7 @@ li.ast-masthead-custom-menu-items {
 			}
 		}
 	}
-	&.woocommerce-above-header {
-		.customize-partial-edit-shortcut-kanga-settings-above-header-section-1 {
-			.customize-partial-edit-shortcut-button {
-				left: -25px;
-				top: -15px;
-			}
-		}
-	}
+
 	.customize-partial-edit-shortcut-kanga-settings-above-header-section-1-html {
 		.customize-partial-edit-shortcut-button {
 			left: -25px;
@@ -822,13 +799,6 @@ li.ast-masthead-custom-menu-items {
 			.customize-partial-edit-shortcut-button {
 				top: -10px;
 				left: -25px;			
-			}
-		}
-	}
-	&.woocommerce-above-header {
-		.customize-partial-edit-shortcut-kanga-settings-above-header-section-2 {
-			.customize-partial-edit-shortcut-button {
-				left: -25px;
 			}
 		}
 	}
