@@ -119,40 +119,40 @@ require_once KANGA_THEME_DIR . 'inc/metabox/class-kanga-meta-box-operations.php'
 require_once KANGA_THEME_DIR . 'inc/customizer/class-kanga-customizer.php';
 
 
-/**
- * Compatibility
- */
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-jetpack.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/woocommerce/class-kanga-woocommerce.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/edd/class-kanga-edd.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/lifterlms/class-kanga-lifterlms.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/learndash/class-kanga-learndash.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-beaver-builder.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-bb-ultimate-addon.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-contact-form-7.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-visual-composer.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-site-origin.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-gravity-forms.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-bne-flyout.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-ubermeu.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-divi-builder.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-amp.php';
-require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-yoast-seo.php';
+// /**
+//  * Compatibility
+//  */
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-jetpack.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/woocommerce/class-kanga-woocommerce.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/edd/class-kanga-edd.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/lifterlms/class-kanga-lifterlms.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/learndash/class-kanga-learndash.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-beaver-builder.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-bb-ultimate-addon.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-contact-form-7.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-visual-composer.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-site-origin.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-gravity-forms.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-bne-flyout.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-ubermeu.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-divi-builder.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-amp.php';
+// require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-yoast-seo.php';
 require_once KANGA_THEME_DIR . 'inc/addons/transparent-header/class-kanga-ext-transparent-header.php';
 require_once KANGA_THEME_DIR . 'inc/addons/breadcrumbs/class-kanga-breadcrumbs.php';
 require_once KANGA_THEME_DIR . 'inc/addons/heading-colors/class-kanga-heading-colors.php';
 require_once KANGA_THEME_DIR . 'inc/class-kanga-filesystem.php';
 
-// Elementor Compatibility requires PHP 5.4 for namespaces.
-if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
-	require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-elementor.php';
-	require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-elementor-pro.php';
-}
+// // Elementor Compatibility requires PHP 5.4 for namespaces.
+// if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {
+// 	require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-elementor.php';
+// 	require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-elementor-pro.php';
+// }
 
-// Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
-if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-	require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-beaver-themer.php';
-}
+// // Beaver Themer compatibility requires PHP 5.3 for anonymus functions.
+// if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+// 	require_once KANGA_THEME_DIR . 'inc/compatibility/class-kanga-beaver-themer.php';
+// }
 
 /**
  * Load deprecated functions
