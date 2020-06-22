@@ -62,30 +62,6 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'assets/css/unminified/compatibility',
-                        src: [
-                            '*.css',
-                            '!*-rtl.css',
-                            '!font-awesome.css',
-                            '!kanga-fonts.css',
-                        ],
-                        dest: 'assets/css/unminified/compatibility',
-                        ext: '-rtl.css'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'assets/css/unminified/compatibility/woocommerce',
-                        src: [
-                            '*.css',
-                            '!*-rtl.css',
-                            '!font-awesome.css',
-                            '!kanga-fonts.css',
-                        ],
-                        dest: 'assets/css/unminified/compatibility/woocommerce',
-                        ext: '-rtl.css'
-                    },
-                    {
-                        expand: true,
                         cwd: 'inc/assets/css',
                         src: [
                             '*.css',
@@ -140,21 +116,6 @@ module.exports = function (grunt) {
                         cwd: 'sass/',
                         src: ['style.scss'],
                         dest: 'assets/css/unminified',
-                        ext: '.css'
-                    },
-                    /* Compatibility */
-                    {
-                        expand: true,
-                        cwd: 'sass/site/compatibility/',
-                        src: ['**.scss'],
-                        dest: 'assets/css/unminified/compatibility',
-                        ext: '.css'
-                    },
-                    {
-                        expand: true,
-                        cwd: 'sass/site/compatibility/woocommerce',
-                        src: ['**.scss'],
-                        dest: 'assets/css/unminified/compatibility/woocommerce',
                         ext: '.css'
                     },
                     sass_dist_files,
@@ -297,46 +258,6 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/compatibility/bne-flyout-rtl.css',
                         dest: 'assets/css/minified/compatibility/bne-flyout.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/contact-form-7-rtl.css',
-                        dest: 'assets/css/minified/compatibility/contact-form-7.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/gravity-forms-rtl.css',
-                        dest: 'assets/css/minified/compatibility/gravity-forms.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/lifterlms-rtl.css',
-                        dest: 'assets/css/minified/compatibility/lifterlms.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/learndash-rtl.css',
-                        dest: 'assets/css/minified/compatibility/learndash.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/site-origin-rtl.css',
-                        dest: 'assets/css/minified/compatibility/site-origin.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-rtl.css',
-                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-layout-rtl.css',
-                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-layout.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/woocommerce/woocommerce-smallscreen-rtl.css',
-                        dest: 'assets/css/minified/compatibility/woocommerce/woocommerce-smallscreen.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/divi-builder-rtl.css',
-                        dest: 'assets/css/minified/compatibility/divi-builder.min-rtl.css',
-                    },
-                    {
-                        src: 'assets/css/unminified/compatibility/edd-rtl.css',
-                        dest: 'assets/css/minified/compatibility/edd.min-rtl.css',
                     },
                 ]
             }
