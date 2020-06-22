@@ -191,43 +191,6 @@ h6{
     font-style: normal;
 }
 
-// Edit with elementor button unstyled.
-#elementor-editor-button {
-    @include button($button-color);
-
-    font-size: 14px;
-    height: 46px;
-    line-height: 44px;
-    padding: 0 36px;
-    display: inline-block;
-    border-width: 1px;
-    border-style: solid;
-    -webkit-appearance: none;
-    border-radius: 3px;
-    white-space: nowrap;
-    box-sizing: border-box;
-    box-shadow: 0 2px 0 #006799;
-
-    i {
-        font-style: normal;
-        color: white;
-    }
-}
-
-.editor-media-placeholder,
-.fl-builder-layout-launch-view {
-    button {
-        margin: 2px;
-    }
-}
-
-// Edit with BB button styling.
-.fl-builder-layout-launch-view {
-    .is-primary.is-primary {
-        color: white;
-    }
-}
-
 .ast-separate-container {
 	#wpwrap {
 		.edit-post-visual-editor {

@@ -872,7 +872,6 @@ if ( ! class_exists( 'Kanga_Customizer' ) ) {
 				'includeAnchorsInHeadindsCss'          => Kanga_Dynamic_CSS::anchors_in_css_selectors_heading(),
 				'googleFonts'                          => Kanga_Font_Families::get_google_fonts(),
 				'page_builder_button_style_css'        => Kanga_Dynamic_CSS::page_builder_button_style_css(),
-				'elementor_default_color_font_setting' => Kanga_Dynamic_CSS::elementor_default_color_font_setting(),
 			);
 
 			wp_localize_script( 'kanga-customizer-preview-js', 'kangaCustomizer', $localize_array );

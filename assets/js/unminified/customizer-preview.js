@@ -840,9 +840,7 @@ function isJsonString( str ) {
 		setting.bind( function( border ) {
 
 			var dynamicStyle = '.menu-toggle,button,.ast-button,input#submit,input[type="button"],input[type="submit"],input[type="reset"] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			if (  jQuery( 'body' ).hasClass( 'woocommerce' ) ) {
-				dynamicStyle += '.woocommerce a.button, .woocommerce button.button, .woocommerce .product a.button, .woocommerce .woocommerce-message a.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt, .woocommerce input.button,.woocommerce input.button:disabled, .woocommerce input.button:disabled[disabled] { border-radius: ' + ( parseInt( border ) ) + 'px } ';
-			}
+			
 			kanga_add_dynamic_css( 'button-radius', dynamicStyle );
 
 		} );
@@ -1006,25 +1004,7 @@ function isJsonString( str ) {
 			kanga_background_obj_css( wp.customize, bg_obj, 'footer-adv-bg-obj', dynamicStyle );
 		} );
 	} );
-	/*
-	 * Woocommerce Shop Archive Custom Width
-	 */
-	wp.customize( 'kanga-settings[shop-archive-max-width]', function( setting ) {
-		setting.bind( function( width ) {
-
-			var dynamicStyle = '@media all and ( min-width: 921px ) {';
-
-			dynamicStyle += '.ast-woo-shop-archive .site-content > .ast-container{ max-width: ' + (  parseInt( width ) ) + 'px } ';
-
-			if (  jQuery( 'body' ).hasClass( 'ast-fluid-width-layout' ) ) {
-				dynamicStyle += '.ast-woo-shop-archive .site-content > .ast-container{ padding-left:20px; padding-right:20px; } ';
-			}
-				dynamicStyle += '}';
-				kanga_add_dynamic_css( 'shop-archive-max-width', dynamicStyle );
-
-		} );
-	} );
-
+	
 	//[1] Primary Menu Toggle Button Style.
 	wp.customize( 'kanga-settings[mobile-header-toggle-btn-style]', function( setting ) {
 		setting.bind( function( icon_style ) {
